@@ -1,4 +1,4 @@
-<?php 
+<?php
 class security extends database{
 	public function loginData($id,$perfil){
 		try {
@@ -16,14 +16,14 @@ class security extends database{
 	}
 	public function Sinstructor(){
 		if ($_SESSION['perfil'] == 1) {
-			
+
 		}else{
 			header('location:?c=index&m=inicio');
 		}
 	}
 	public function Slider(){
 		if ($_SESSION['perfil'] == 2) {
-			
+
 		}else{
 			header('location:?c=index&m=inicio');
 		}

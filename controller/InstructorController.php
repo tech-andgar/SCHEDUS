@@ -1,14 +1,14 @@
 <?php
 
-Class InstructorController extends instructor{
+Class InstructorController{
 	private $Smodel;
 	private $Pmodel;
 
 
 	public function Disponibilidad(){
-		$r=$this->Pmodel->consultarP();
+		//$r=$this->Pmodel->consultarP();
 		require_once('view/head.php');
-		require_once('view/old/narbar_instructor.php');
+		require_once('view/old/navbar_instructor.php');
 		require_once('view/Instructor/Disponibilidad.html');
 		require_once('view/script.php');
 	}

@@ -43,3 +43,12 @@
 </head>
 
 <body>
+<?php
+if (isset($_GET['failed'])) {
+  if ($_REQUEST['failed'] == 1) {
+    $msg = "'Tener presente que la infomación aquí diligenciada deberá ser debidamente soportada cuando sea requerida por la Coordinación Académica'";
+    $title ="'AVISO'";
+    echo '<script type="text/javascript"> toastr.error('.$msg.','.$title.')</script>';
+  }
+}
+?>

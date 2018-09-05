@@ -9,7 +9,7 @@ call_user_func([$c, $m]);*/
 
 require_once('core/core.php');
 if (!isset($_REQUEST['c'])) {
-    $controller = 'index';
+    $controller = 'Index';
     require_once('controller/'.$controller.'Controller.php'); 
     $controller = $controller.'Controller';
     $controller = new $controller();
