@@ -1,0 +1,6 @@
+{
+    "name": "grimmlink/toastr",
+    "description": "Shim repository for https://github.com/CodeSeven/toastr",
+    "license": "MIT",
+    "require": {}
+}
