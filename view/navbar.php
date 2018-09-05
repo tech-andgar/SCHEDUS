@@ -48,13 +48,13 @@
         </div>
         <div class="modal-body">
           <center>
-          <form method="post" action="?c=index&m=validar" class="form-signin">
+          <form method="post" action="?c=Usuario&m=ValidarUsuario" class="form-signin">
               <h5>Numero de Documento</h5>
-              <input type="number" class="adsi-css" style="width:80%; height:30px" name="id" placeholder="Documento" required/>
+              <input type="number" class="adsi-css" style="width:80%; height:30px" name="dni" placeholder="Documento" required/>
               <br>
               <br>
               <h5>Contraseña</h5>
-              <input type="password" class="adsi-css" style="width:80%; height:30px"  name="contrasenia" placeholder="Contraseña" required>
+              <input type="password" class="adsi-css" style="width:80%; height:30px"  name="password" placeholder="Contraseña" required>
               <br>
               <br>
               <button class="botton_css" type="submit" class="botonlg" style="width:180px">Ingresar</button>
