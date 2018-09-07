@@ -23,25 +23,26 @@ Class UsuarioController{
 		require_once('view/index/Cambiar_contrasena.html');
 		require_once('view/script.php');
 	}
+
 	public function ValidarUsuario()
     {
-		$data['dni'] = $_POST['dni'];
-		$data['password'] = $_POST['password'];
+		foreach ($this->usuarioModel->VerificarLogin($_POST) as $r) {
+			if (isset($r->dni)) {
+				$this->Smodel->loginData($r->dni, $r->cod_rol);
+			}
+			else{
+				//header('location:?c=Index&m=Index');
+			}
+		}
 
-		if ($this->usuarioModel->LoginUser($data)) {
-			header('location:?c=Instructor&m=Disponibilidad');
-		}
-		else {
-			header('location:?c=Index&m=index&failed=1');
-		}
+
+		// if ($this->usuarioModel->LoginUser($data)) {
+		// 	header('location:?c=Instructor&m=Disponibilidad');
+		// }
+		// else {
+		// 	header('location:?c=Index&m=index&failed=1');
+		// }
 	}
-	
-	public function CerrarSesion()
-	{
-		session_destroy();
-		header('location:?c=Index&m=index');
-	}
-	
 }
 
 ?>

@@ -28,7 +28,7 @@
                         <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Lider</a>
                     </li>
                     <li>
-                        <a class="btn btn-outline-light my-2 my-sm-0" href="?c=Usuario&m=CerrarSesion">Cerrar sesion</a>
+                        <a class="btn btn-outline-light my-2 my-sm-0" href="?c=security&m=destroy">Cerrar sesion</a>
                     </li>
                 </ul>
             </div>

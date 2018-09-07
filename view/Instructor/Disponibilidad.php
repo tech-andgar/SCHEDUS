@@ -1,25 +1,17 @@
 <head>
 	<title>Disponibilidad</title>
 </head>
-
-
-
-
-
-
 <script>
 	var horasRestantes = 0;
 	var horasACumplir;
-
 	$(document).ready(function () {
 		$("#borrar_disponibilidad").hide();
-		//Obten la data de los profesores al cargar la pagina 
+		//Obten la data de los profesores al cargar la pagina
 		$.post("../controller/disponibilidad.php", {
 			operacion: "read"
 		}, function (data) {
 			$("#selector_profesores").html(data);
 		});
-
 		$("#selector_profesores").change(function () {
 			$("#selector_profesores").each(function () {
 				if ($("#selector_profesores option:selected").val() != 0) {
@@ -45,7 +37,6 @@
 				}
 			});
 		});
-
 		//Si el selector esta en una option diferente a la default, se permite el cambio
 		//de color de las celdas al hacer click y se actualizan las horas_restantes
 		$("td").click(function () {
@@ -63,7 +54,6 @@
 				$("#horas_restantes").val(horasRestantes);
 			}
 		});
-
 		//Cambia el color cuando pasas el mouse encima de una celda o sales de ella,
 		//si y solo si la option del select es diferente a la default	
 		$("td").mouseover(function () {

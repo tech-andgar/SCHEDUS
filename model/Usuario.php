@@ -1,16 +1,36 @@
 <?php
 
-class Usuario extends database
+class Usuario extends Database
 {
-    public function loginUser($data)
+	/**
+	 * By Andres Garcia
+	 * Verificar Login desde <FORM> al DB
+	 * @param $array es $_POST
+	 */
+	public function VerificarLogin($array){
+		try {
+			$sql_query = "SELECT * FROM usuario WHERE dni = ? AND password = ?";
+			$stm = parent::conectar()->prepare($sql_query);
+			$stm->bindParam(1,$array['dni'],PDO::PARAM_STR);
+			$stm->bindParam(2,$array['password'],PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ);
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+
+  /*   public function loginUser($data)
     {
         try {
             $sql_query = "SELECT * FROM usuario WHERE dni = ? AND password = ?";
 			$stm = parent::conectar()->prepare($sql_query);
 			$stm ->bindParam(1,$data['dni'],PDO::PARAM_STR);
 			$stm ->bindParam(2,$data['password'],PDO::PARAM_STR);
-            $stm ->execute();
-            $_SESSION['user'] = $stm->fetchAll(PDO::FETCH_OBJ);
+			$stm ->execute();
+			SESSION_START();
+			$_SESSION['user'] = $stm->fetchAll(PDO::FETCH_OBJ);
             $num_row = $stm->rowCount();
             return ($num_row == 1) ? true : false ;
 			
@@ -21,7 +41,7 @@ class Usuario extends database
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
-    }
+    } */
 }
 
 
