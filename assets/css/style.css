@@ -9,12 +9,15 @@ body {
   padding: 0 50px;
   background-color: #fff;
 }
-
+a {
+  font-family: 'Exo 2', sans-serif;
+  }
 br {
   content: " ";
   margin: 5%;
   display: block;
 }
+
 
 #box-search {
   padding: 10% 0;

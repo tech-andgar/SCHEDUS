@@ -20,12 +20,22 @@
             <div class="collapse navbar-collapse col-12 col-md-10" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn btn-outline-light my-2 my-sm-0" href="index.php?c=instructor&m=disponibilidad">Diponibilidad</a>
+                        <a class="btn dropdown-toggle btn-outline-light my-2 mr-1 my-sm-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar</a>
+                        <div class="dropdown-menu col-md-6" >
+        <a class="dropdown-item text-truncate" href="#">Administrar programas de formación</a>
+        <a class="dropdown-item text-truncate" href="#">Administrar trimestres de programas de formación</a>
+        <a class="dropdown-item text-truncate" href="#">Administrar competencias de programas de formación</a>
+        <a class="dropdown-item text-truncate" href="#">Administrar fichas de programas de formación</a>
+        <a class="dropdown-item text-truncate" href="#">Administrar jornadas de formación</a>
+        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="btn btn-outline-light my-2 my-sm-0" href="#">Fusionar</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li>
-                        <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Instructor</a>
+                        <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Lider</a>
                     </li>
                     <li>
                         <a class="btn btn-outline-light my-2 my-sm-0" href="?c=security&m=destroy">Cerrar sesion</a>
