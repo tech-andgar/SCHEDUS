@@ -10,14 +10,13 @@ body {
   background-color: #fff;
 }
 a {
-  font-family: 'Exo 2', sans-serif;
-  }
+  font-family: "Exo 2", sans-serif;
+}
 br {
   content: " ";
   margin: 5%;
   display: block;
 }
-
 
 #box-search {
   padding: 10% 0;
@@ -30,7 +29,7 @@ h4,
 h5,
 h6 {
   margin-bottom: 0.5rem;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-weight: 500;
   line-height: auto;
 }
@@ -49,7 +48,7 @@ h6 {
 
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
 }
 
 .adsi-css {
@@ -61,7 +60,7 @@ h6 {
   border-bottom-width: 1px;
   -webkit-border-radius: 53px;
   border-radius: 53px;
-  font: normal 16px/normal "Exo 2", sans-serif;
+  font: normal 16px / normal "Exo 2", sans-serif;
   color: rgba(0, 0, 0, 1);
   -o-text-overflow: clip;
   text-overflow: clip;
@@ -77,11 +76,11 @@ h6 {
   border: 1px solid rgba(145, 59, 10, 1);
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  font: normal 16px/normal "Exo 2", sans-serif;
+  font: normal 16px / normal "Exo 2", sans-serif;
   color: rgba(255, 255, 255, 0.9);
   -o-text-overflow: clip;
   text-overflow: clip;
-  background: #EC7C38;
+  background: #ec7c38;
   text-shadow: -1px -1px 0 rgba(197, 106, 70, 0.66);
   -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -146,62 +145,61 @@ h6 {
 }
 
 .control {
-    font-family: arial;
-    display: block;
-    position: relative;
-    padding-left: 29px;
-    margin-bottom: 12px;
-    padding-top: 10px;
-    cursor: pointer;
-    font-size: 15px;
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 29px;
+  margin-bottom: 12px;
+  padding-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
 }
-    .control input {
-        position: absolute;
-        z-index: -1;
-        opacity: 0;
-    }
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
 .control_indicator {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    height: 30px;
-    width: 31px;
-    background: #ffffff;
-
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 30px;
+  width: 31px;
+  background: #ffffff;
 }
 .control-radio .control_indicator {
-    border-radius: undefined;
+  border-radius: undefined;
 }
 
 .control:hover input ~ .control_indicator,
 .control input:focus ~ .control_indicator {
-    background: #ffffff;
+  background: #ffffff;
 }
 
 .control input:checked ~ .control_indicator {
-    background: #2aa1c0;
+  background: #2aa1c0;
 }
 
 .control_indicator:after {
-    box-sizing: unset;
-    content: '';
-    position: absolute;
-    display: none;
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
 }
 .control input:checked ~ .control_indicator:after {
-    display: block;
+  display: block;
 }
 .control-checkbox .control_indicator:after {
-    left: 11px;
-    top: 6px;
-    width: 4px;
-    height: 11px;
-    border: solid #ffffff;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+  left: 11px;
+  top: 6px;
+  width: 4px;
+  height: 11px;
+  border: solid #ffffff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 .control-checkbox input:disabled ~ .control_indicator:after {
-    border-color: #ffffff;
+  border-color: #ffffff;
 }
 .control {
   font-family: arial;
@@ -213,20 +211,20 @@ h6 {
   cursor: pointer;
   font-size: 16px;
 }
-  .control input {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-  }
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
 .control_indicator {
   position: center;
   top: 1px;
   bottom: 1px;
   right: 1px;
   left: 8px;
-  
+
   background: #e6e6e6;
-  }
+}
 .control-radio .control_indicator {
   border-radius: undefined;
 }
@@ -241,13 +239,13 @@ h6 {
 }
 
 .control input:disabled ~ .control_indicator {
-  background:#ffffff;
+  background: #ffffff;
   opacity: 21;
   pointer-events: none;
 }
 .control_indicator:after {
   box-sizing: unset;
-  content: '';
+  content: "";
   position: absolute;
   display: none;
 }

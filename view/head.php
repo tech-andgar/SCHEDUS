@@ -16,36 +16,36 @@
   <link href="./assets/css/style.css" rel="stylesheet">
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="./vendor/components/jquery/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap-4.0.0.js"></script>
-    <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
-    <script type="text/javascript">
-    	toastr.options = {
-		  "closeButton": true,
-		  "debug": false,
-		  "newestOnTop": false,
-		  "progressBar": true,
-		  "positionClass": "toast-top-left",
-		  "preventDuplicates": false,
-		  "onclick": null,
-		  "showDuration": "500",
-		  "hideDuration": "5000",
-		  "timeOut": "15000",
-		  "extendedTimeOut": "1000",
-		  "showEasing": "swing",
-		  "hideEasing": "linear",
-		  "showMethod": "fadeIn",
-		  "hideMethod": "fadeOut"
-		}
-    </script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="./vendor/components/jquery/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap-4.0.0.js"></script>
+  <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
+  <script type="text/javascript">
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-top-left",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "500",
+      "hideDuration": "5000",
+      "timeOut": "15000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
 
 </head>
 
 <body>
-<?php
+  <?php
 if (isset($_GET['failed'])) {
   if ($_REQUEST['failed'] == 1) {
     $msg = "'Tener presente que la infomación aquí diligenciada deberá ser debidamente soportada cuando sea requerida por la Coordinación Académica'";

@@ -27,6 +27,7 @@ class Security extends Database{
 		if ($_SESSION['perfil'] == 1) {
 			# code...
 		}else {
+
 			header('location:?c=Index&m=index');
 		}
 	}

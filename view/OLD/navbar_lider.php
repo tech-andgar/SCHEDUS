@@ -9,7 +9,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#EC7C38;">
         <div class="container">
             <h1>
-                <a class="navbar-brand" href="?c=instructor&m=disponibilidad">
+                <a class="navbar-brand" href="#">
                     SCHEDUS
                 </a>
             </h1>
@@ -20,14 +20,18 @@
             <div class="collapse navbar-collapse col-12 col-md-10" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="btn dropdown-toggle btn-outline-light my-2 mr-1 my-sm-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar</a>
-                        <div class="dropdown-menu col-md-6" >
-        <a class="dropdown-item text-truncate" href="#">Administrar programas de formación</a>
-        <a class="dropdown-item text-truncate" href="#">Administrar trimestres de programas de formación</a>
-        <a class="dropdown-item text-truncate" href="#">Administrar competencias de programas de formación</a>
-        <a class="dropdown-item text-truncate" href="#">Administrar fichas de programas de formación</a>
-        <a class="dropdown-item text-truncate" href="#">Administrar jornadas de formación</a>
-        </div>
+                        <a class="btn dropdown-toggle btn-outline-light my-2 mr-1 my-sm-0" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar</a>
+                        <div class="dropdown-menu col-md-6">
+                            <a class="dropdown-item text-truncate" href="#">Administrar programas de formación</a>
+                            <a class="dropdown-item text-truncate" href="#">Administrar trimestres de programas de
+                                formación</a>
+                            <a class="dropdown-item text-truncate" href="#">Administrar competencias de programas de
+                                formación</a>
+                            <a class="dropdown-item text-truncate" href="#">Administrar fichas de programas de
+                                formación</a>
+                            <a class="dropdown-item text-truncate" href="#">Administrar jornadas de formación</a>
+                        </div>
                     </li>
                     <li class="nav-item active">
                         <a class="btn btn-outline-light my-2 my-sm-0" href="#">Fusionar</a>
@@ -44,7 +48,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Modal -->
     <div class="modal fade" id="Perfil" tabindex="-1" role="dialog" aria-labelledby="Perfil" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
