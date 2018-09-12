@@ -22,6 +22,7 @@
   <script src="./assets/js/popper.min.js"></script>
   <script src="./assets/js/bootstrap-4.0.0.js"></script>
   <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
+  <script src="./assets/js/dife.js"></script>
   <script type="text/javascript">
     toastr.options = {
       "closeButton": true,
@@ -41,6 +42,8 @@
       "hideMethod": "fadeOut"
     }
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script>
 
 </head>
 

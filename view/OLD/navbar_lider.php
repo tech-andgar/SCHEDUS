@@ -1,10 +1,4 @@
-<div class="container">
-    <div class="container_1">
-        <center>
-            <img src="./assets/images/Plantilla_Blog_naranjaceet.png" width="80%">
-        </center>
-    </div>
-</div>
+
 <div class="container">
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#EC7C38;">
         <div class="container">
@@ -18,25 +12,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse col-12 col-md-10" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="btn dropdown-toggle btn-outline-light my-2 mr-1 my-sm-0" href="#" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Administrar</a>
-                        <div class="dropdown-menu col-md-6">
-                            <a class="dropdown-item text-truncate" href="#">Administrar programas de formación</a>
-                            <a class="dropdown-item text-truncate" href="#">Administrar trimestres de programas de
-                                formación</a>
-                            <a class="dropdown-item text-truncate" href="#">Administrar competencias de programas de
-                                formación</a>
-                            <a class="dropdown-item text-truncate" href="#">Administrar fichas de programas de
-                                formación</a>
-                            <a class="dropdown-item text-truncate" href="#">Administrar jornadas de formación</a>
-                        </div>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="btn btn-outline-light my-2 my-sm-0" href="#">Fusionar</a>
-                    </li>
-                </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li>
                         <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Lider</a>
