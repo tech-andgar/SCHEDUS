@@ -60,7 +60,7 @@
                 required>
               <br>
               <br>
-              <button class="botton_css" type="submit" class="botonlg" style="width:180px">Ingresar</button>
+              <button class="botton_css" type="submit" style="width:180px">Ingresar</button>
             </form>
           </center>
         </div>
