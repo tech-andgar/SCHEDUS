@@ -1,28 +1,9 @@
 <head>
-	<title>Disponibilidad</title>
+	<title>Asignar Horarios</title>
 </head>
 <div class="container container_1">
 	<div class="row">
-		<div class="navbar-derecho col-lg-2 col-md-4 col-12 ">
-			<div class="nav flex-column active">
-				<a class="btn btn-outline-light " href="index.php?c=lider&m=lider">Asignar Horarios</a>
-				<a class="btn dropdown-toggle btn-outline-light " href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-				aria-expanded="false">Administrar</a>
-				<div class="dropdown-menu dropdown-content">
-					<a class="dropdown-item" href="index.php?c=lider&m=programas">Administrar programas de formación</a>
-					<a class="dropdown-item" href="index.php?c=lider&m=TrimestreProgramas">Administrar trimestres de programas de
-						formación</a>
-					<a class="dropdown-item" href="index.php?c=lider&m=competencias">Administrar competencias de programas de
-						formación</a>
-					<a class="dropdown-item" href="index.php?c=lider&m=fichas">Administrar fichas de programas de
-						formación</a>
-					<a class="dropdown-item" href="index.php?c=lider&m=jornadas">Administrar jornadas de formación</a>
-				</div>
-				<a class="btn btn-outline-light " href="#">Fusionar</a>
-				<a class="btn btn-outline-light " href="#">Asignar</a>
-				<a class="btn btn-outline-light " href="#" onclick="swal('Good job!','You clicked the button!','success')">Asignar</a>
-			</div>
-		</div>
+		<?php include '././controller/NavbarDerechoController.php'?>
 		<div class="container col-lg-10 col-md-8 col-12">
 			<div class="row justify-content-center">
 				<div class="col-md-11">
@@ -57,58 +38,30 @@
 									<td class="">6:00 a 10:00</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 								</tr>
@@ -116,58 +69,30 @@
 									<td class="">10:00 a 14:00</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 								</tr>
@@ -175,58 +100,30 @@
 									<td class="">14:00 a 18:00</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 								</tr>
@@ -234,58 +131,30 @@
 									<td class="">22:00 a 6:00</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group ">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 									<td>
 										<div class="control-group">
-											 
-												 
-												 
-											 
 										</div>
 									</td>
 								</tr>
@@ -295,7 +164,6 @@
 				</div>
 			</div>
 		</div>
-
 		<br>
 	</div>
 </div>
