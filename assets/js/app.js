@@ -1,4 +1,12 @@
 $(document).ready(function() {
+
+  //Boton Agregar Elemento
+
+
+
+
+
+  // Full Calendar
   $("#calendar").fullCalendar({
     header: {
       left: "prev,next today",

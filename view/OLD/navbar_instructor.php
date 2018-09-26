@@ -85,7 +85,7 @@
                                         </tr>
                                     </table>
                                     <div class="modal-body">
-                                        <button class="botton_css" type="submit" class="botonlg" style="width:180px">Actualizar</button>
+                                        <button class="btn-rounded" type="submit" class="botonlg" style="width:180px">Actualizar</button>
                                     </div>
                                 </form>
                             </center>

@@ -11,7 +11,7 @@
 					<h4 class="text-center mb-1">Administrar Jornadas de formación</h4>
 					<hr><center>
 							<div data-toggle="modal" data-target="#Agregar">
-								<input type="button" value="Agregar nuevo programa" class="botton_css">
+								<input type="button" value="Agregar nuevo programa" class="btn-rounded">
 							</div>
 						</center>
 						<br>
@@ -24,7 +24,7 @@
 									<th class="">Nocturna</th>
 									<th class="">Madrugada</th>
 									<th class="text-center">Fin de Semana</th>
-									<th class="text-center">Actualizar</th>
+									<th class="text-center">Editar</th>
 								</tr>
 							</thead>
 							<tbody class="">
@@ -66,7 +66,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+										<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -108,7 +108,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -150,7 +150,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -192,7 +192,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -228,7 +228,7 @@
 						<br>
 						<br>
 						<hr>
-						<button class="botton_css" type="submit" style="width:110px">Actualizar</button>
+						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
 				</center>
 			</div>
@@ -258,7 +258,7 @@
 						<br>
 						<br>
 						<hr>
-						<button class="botton_css" type="submit" style="width:110px">Agregar</button>
+						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
 					</form>
 				</center>
 			</div>

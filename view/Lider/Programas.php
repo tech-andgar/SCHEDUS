@@ -34,7 +34,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -52,7 +52,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -70,7 +70,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -88,7 +88,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 										<div data-toggle="modal" data-target="#Actualizar">
-											<img src="././assets/images/actualizar.png" width="35px ">
+											<i class="far fa-edit fa-2x"></i>
 										</div>
 									</td>
 								</tr>
@@ -124,7 +124,7 @@ aria-hidden="true">
 						<br>
 						<br>
 						<hr>
-						<button class="botton_css" type="submit" style="width:110px">Actualizar</button>
+						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
 				</center>
 			</div>
