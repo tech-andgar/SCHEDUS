@@ -14,14 +14,14 @@ Class UsuarioController{
 		require_once('view/head.php');
 		require_once('view/navbar.php');
 		require_once('view/index/recuperar.html');
-		require_once('view/script.php');
+		require_once('view/footer.php');
 	}
 
 	public function ViewCambiarContrasena(){
 		require_once('view/head.php');
 		require_once('view/navbar.php');
 		require_once('view/index/Cambiar_contrasena.html');
-		require_once('view/script.php');
+		require_once('view/footer.php');
 	}
 
 	public function ValidarUsuario()

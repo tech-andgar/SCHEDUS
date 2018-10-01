@@ -1,6 +1,3 @@
-<head>
-	<title>Disponibilidad</title>
-</head>
 <script>
 	var horasRestantes = 0;
 	var horasACumplir;

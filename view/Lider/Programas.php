@@ -1,9 +1,3 @@
-<head>
-	<title>Programas</title>
-</head>
-<div class="container container_1">
-	<div class="row">
-		<?php include '././controller/NavbarDerechoController.php'?>
 		<div class="container col-lg-10 col-md-8 col-12">
 			<div class="row justify-content-center">
 				<div class="col-md-11">
@@ -98,7 +92,6 @@
 				</div>
 			</div>
 		</div>
-		<br>
 	</div>
 </div>
 <!-- Modal -->

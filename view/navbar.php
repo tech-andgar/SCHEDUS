@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="container_1">
-    <center>
-      <img src="./assets/images/Plantilla_Blog_naranjaceet.png" width="80%">
-    </center>
+<div id="bloque" class="container">
+  <div id="head-img" class="row">
+    <div class="col-12">
+      <div class="d-flex justify-content-center bg-light">
+        <img class="img-fluid" src="./assets/images/Plantilla_Blog_naranjaceet.png" alt="Imagen de SENA SCEHDUS EN CEET">
+      </div>
+    </div>
   </div>
-</div>
-<div class="container">
   <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#EC7C38;">
     <div class="container">
       <h1>
@@ -32,7 +32,7 @@
       </div>
     </div>
   </nav>
-<!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -42,13 +42,11 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <center>
-              <h3 class="modal-title" id="exampleModalLongTitle">Iniciar sesion</h3>
-            </center>
+            <h3 class="modal-title text-center" id="exampleModalLongTitle">Iniciar sesion</h3>
           </div>
         </div>
         <div class="modal-body">
-          <center>
+          <div class="d-flex justify-content-center text-center">
             <form method="post" action="?c=Usuario&m=ValidarUsuario" class="form-signin">
               <h5>Numero de Documento</h5>
               <input type="number" class="adsi-css" style="width:80%; height:30px" name="dni" placeholder="Documento"
@@ -62,14 +60,14 @@
               <br>
               <button class="btn-rounded" type="submit" style="width:180px">Ingresar</button>
             </form>
-          </center>
+          </div>
         </div>
         <div class="modal-body">
-          <center>
+          <div class="d-flex justify-content-center text-center">
             <a href="index.php?c=usuario&m=ViewRecuperarContrasena" class="forgot-password">
               ¿Olvidó la contraseña?
             </a>
-          </center>
+          </div>
         </div>
       </div>
     </div>

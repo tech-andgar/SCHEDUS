@@ -1,6 +1,3 @@
-<head>
-	<title>Asignar Horarios</title>
-</head>
 <div class="container container_1">
 	<div class="row">
 		<?php include '././controller/NavbarDerechoController.php'?>

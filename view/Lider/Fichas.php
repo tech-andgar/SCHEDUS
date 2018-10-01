@@ -1,112 +1,103 @@
-<head>
-	<title>Fichas</title>
-</head>
-<div class="container container_1">
-	<div class="row">
-		<?php include '././controller/NavbarDerechoController.php'?>
-		<div class="container col-lg-10 col-md-8 col-12">
-			<div class="row justify-content-center">
-				<div class="col-md-11">
-					<br>
-					<h4 class="text-center mb-1">Administrar Fichas de programas de formación</h4>
-					<hr>
-					<center>
-						<div data-toggle="modal" data-target="#Agregar">
-							<input type="button" value="Agregar Nueva Ficha" class="btn-rounded">
-						</div>
-						<br>
-						<div class="mx-auto">
-							<table class="col-lg-8 table table-responsive table-hover table-condensed" id="tabla_horario">
-								<thead>
-									<tr class="success">
-										<th class="col-sm-1 ">Ficha</th>
-										<th class="">Estado</th>
-										<th class="text-center">Actualizar</th>
-									</tr>
-								</thead>
-								<tbody class="">
-									<tr>
-										<td class="">1320652</td>
-										<td style="
+<div class="col-lg-10 col-md-8 col-12">
+	<div class="row justify-content-center text-center">
+		<div class="col-md-10">
+			<br>
+			<h4 class="mb-1">Administrar Fichas de programas de formación</h4>
+			<hr>
+			<div data-toggle="modal" data-target="#Agregar">
+				<input type="button" value="Agregar Nueva Ficha" class="btn-rounded">
+			</div>
+			<br>
+			<div class="row d-flex justify-content-center">
+				<table class="col-lg-8 table table-responsive table-hover table-condensed" id="tabla_horario">
+					<thead>
+						<tr class="success">
+							<th class="col-sm-1 ">Ficha</th>
+							<th class="">Estado</th>
+							<th class="text-center">Actualizar</th>
+						</tr>
+					</thead>
+					<tbody class="">
+						<tr>
+							<td class="">1320652</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div class="onoffswitch">
-												<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1" checked>
-												<label class="onoffswitch-label" for="1"></label>
-											</div>
-										</td>
-										<td style="
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1" checked>
+									<label class="onoffswitch-label" for="1"></label>
+								</div>
+							</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div data-toggle="modal" data-target="#Actualizar">
-												<i class="far fa-edit fa-2x"></i>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="">8794512</td>
-										<td style="
+								<div data-toggle="modal" data-target="#Actualizar">
+									<i class="far fa-edit fa-2x"></i>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="">8794512</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div class="onoffswitch">
-												<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="2" checked>
-												<label class="onoffswitch-label" for="2"></label>
-											</div>
-										</td>
-										<td style="
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="2" checked>
+									<label class="onoffswitch-label" for="2"></label>
+								</div>
+							</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div data-toggle="modal" data-target="#Actualizar">
-												<i class="far fa-edit fa-2x"></i>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="">5649895</td>
-										<td style="
+								<div data-toggle="modal" data-target="#Actualizar">
+									<i class="far fa-edit fa-2x"></i>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="">5649895</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div class="onoffswitch">
-												<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												<label class="onoffswitch-label" for="myonoffswitch"></label>
-											</div>
-										</td>
-										<td style="
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+									<label class="onoffswitch-label" for="myonoffswitch"></label>
+								</div>
+							</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div data-toggle="modal" data-target="#Actualizar">
-												<i class="far fa-edit fa-2x"></i>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td class="">7894152</td>
-										<td style="
+								<div data-toggle="modal" data-target="#Actualizar">
+									<i class="far fa-edit fa-2x"></i>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="">7894152</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div class="onoffswitch">
-												<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-												<label class="onoffswitch-label" for="myonoffswitch"></label>
-											</div>
-										</td>
-										<td style="
+								<div class="onoffswitch">
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+									<label class="onoffswitch-label" for="myonoffswitch"></label>
+								</div>
+							</td>
+							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-											<div data-toggle="modal" data-target="#Actualizar">
-												<i class="far fa-edit fa-2x"></i>
-											</div>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-				</div>
-				</center>
+								<div data-toggle="modal" data-target="#Actualizar">
+									<i class="far fa-edit fa-2x"></i>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
-		<br>
 	</div>
 </div>
+<br>
+
 <!-- Modal -->
 <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
  aria-hidden="true">
@@ -130,7 +121,7 @@
 						<br>
 						<br>
 						<hr>
-						<button class="botton_css" type="submit" style="width:110px">Actualizar</button>
+						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
 				</center>
 			</div>
