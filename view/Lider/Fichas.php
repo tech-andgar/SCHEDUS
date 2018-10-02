@@ -1,15 +1,15 @@
 <div class="col-lg-10 col-md-8 col-12">
-	<div class="row justify-content-center text-center">
-		<div class="col-md-10">
+	<div class="row justify-content-center">
+		<div class="col-md-12">
 			<br>
-			<h4 class="mb-1">Administrar Fichas de programas de formación</h4>
+			<h4 class="text-center mb-1">Administrar Fichas de programas de formación</h4>
 			<hr>
-			<div data-toggle="modal" data-target="#Agregar">
+			<div data-toggle="modal" data-target="#Agregar" class=" text-center" >
 				<input type="button" value="Agregar Nueva Ficha" class="btn-rounded">
 			</div>
 			<br>
 			<div class="row d-flex justify-content-center">
-				<table class="col-lg-8 table table-responsive table-hover table-condensed" id="tabla_horario">
+				<table class="col-lg-9 table table-responsive table-hover table-condensed" id="tabla_horario">
 					<thead>
 						<tr class="success">
 							<th class="col-sm-1 ">Ficha</th>
@@ -97,24 +97,24 @@
 	</div>
 </div>
 <br>
+</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
  aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<center>
-						<h3 class="modal-title" id="exampleModalLongTitle">Actualizar Datos</h3>
-					</center>
+					<h3 class="modal-title text-center" id="exampleModalLongTitle">Actualizar Datos</h3>
 				</div>
 			</div>
 			<div class="modal-body">
-				<center>
+				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Nombre del Programa</h5>
 						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
@@ -123,27 +123,25 @@
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
-				</center>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- Modal Agregar nueva Ficha-->
 <div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<center>
-						<h3 class="modal-title" id="exampleModalLongTitle">Agregar Nueva Ficha</h3>
-					</center>
+					<h3 class="modal-title text-center" id="exampleModalLongTitle">Agregar Nueva Ficha</h3>
 				</div>
 			</div>
 			<div class="modal-body">
-				<center>
+				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Numero de la Ficha</h5>
 						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
@@ -152,7 +150,7 @@
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
 					</form>
-				</center>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -13,6 +13,8 @@
     <link rel="icon" type="image/webp" sizes="32x32" href="./assets/images/favicon-32x32.webp">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./vendor/grimmlink/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"/>
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
     <link href="./assets/css/style.css" rel="stylesheet">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
