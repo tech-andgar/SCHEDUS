@@ -9,7 +9,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#EC7C38;">
         <div class="container">
             <h1>
-                <a class="navbar-brand" href="?c=Index&m=index">
+                <a class="navbar-brand" href="?c=instructor&m=disponibilidad">
                     SCHEDUS
                 </a>
             </h1>
@@ -25,10 +25,10 @@
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li>
-                        <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Lider</a>
+                        <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Instructor</a>
                     </li>
                     <li>
-                        <a class="btn btn-outline-light my-2 my-sm-0" href="?c=Usuario&m=CerrarSesion">Cerrar sesion</a>
+                        <a class="btn btn-outline-light my-2 my-sm-0" href="?c=security&m=destroy">Cerrar sesion</a>
                     </li>
                 </ul>
             </div>
@@ -85,7 +85,7 @@
                                         </tr>
                                     </table>
                                     <div class="modal-body">
-                                        <button class="botton_css" type="submit" class="botonlg" style="width:180px">Actualizar</button>
+                                        <button class="btn-rounded" type="submit" class="botonlg" style="width:180px">Actualizar</button>
                                     </div>
                                 </form>
                             </center>

@@ -10,7 +10,7 @@ class Database
 		$dbchar = 'utf8';
 		$dbuser = 'root';
 		$dbpass = '';
-		
+
 		try{
 			$pdo = new PDO('mysql:host=localhost;dbname=db_schedus;charset=utf8', 'root','');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

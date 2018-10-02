@@ -10,6 +10,10 @@ body {
   background-color: #fff;
 }
 
+a {
+  font-family: "Exo 2", sans-serif;
+}
+
 br {
   content: " ";
   margin: 5%;
@@ -27,7 +31,7 @@ h4,
 h5,
 h6 {
   margin-bottom: 0.5rem;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-weight: 500;
   line-height: auto;
 }
@@ -46,7 +50,7 @@ h6 {
 
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
 }
 
 .adsi-css {
@@ -58,33 +62,45 @@ h6 {
   border-bottom-width: 1px;
   -webkit-border-radius: 53px;
   border-radius: 53px;
-  font: normal 16px/normal "Exo 2", sans-serif;
+  font: normal 16px / normal "Exo 2", sans-serif;
   color: rgba(0, 0, 0, 1);
   -o-text-overflow: clip;
   text-overflow: clip;
 }
 
-.botton_css {
+
+.btn-rounded {
+  background: #ec7c38;
+  border: 1px solid rgba(145, 59, 10, 1);
   display: inline-block;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   cursor: pointer;
   padding: 10px 20px;
-  border: 1px solid rgba(145, 59, 10, 1);
   -webkit-border-radius: 50px;
   border-radius: 50px;
-  font: normal 16px/normal "Exo 2", sans-serif;
+  font: normal 16px / normal "Exo 2", sans-serif;
   color: rgba(255, 255, 255, 0.9);
   -o-text-overflow: clip;
   text-overflow: clip;
-  background: #EC7C38;
-  text-shadow: -1px -1px 0 rgba(197, 106, 70, 0.66);
   -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
   -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
   transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  text-align: center;
+  text-decoration: none;
 }
+
+.btn-rounded:hover {
+  background-color: #fff;
+  color: black;
+  border: 2px solid #EC7C38;
+}
+
+/* .botton_css {
+  
+} */
 
 /* ExtraSmall devices (landscape phones, 544px and up) */
 
@@ -100,6 +116,7 @@ h6 {
   h2 {
     font-size: 1.4rem;
   }
+
   .table {
     width: 88%;
     float: none;
@@ -112,6 +129,7 @@ h6 {
   h2 {
     font-size: 2rem;
   }
+
   .table {
     width: 88%;
     float: none;
@@ -124,6 +142,7 @@ h6 {
   h2 {
     font-size: 2rem;
   }
+
   .table {
     width: 88%;
     float: none;
@@ -136,6 +155,7 @@ h6 {
   h2 {
     font-size: 2rem;
   }
+
   .table {
     width: 88%;
     float: none;
@@ -143,63 +163,69 @@ h6 {
 }
 
 .control {
-    font-family: arial;
-    display: block;
-    position: relative;
-    padding-left: 29px;
-    margin-bottom: 12px;
-    padding-top: 10px;
-    cursor: pointer;
-    font-size: 15px;
+  font-family: arial;
+  display: block;
+  position: relative;
+  padding-left: 29px;
+  margin-bottom: 12px;
+  padding-top: 10px;
+  cursor: pointer;
+  font-size: 15px;
 }
-    .control input {
-        position: absolute;
-        z-index: -1;
-        opacity: 0;
-    }
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
 .control_indicator {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    height: 30px;
-    width: 31px;
-    background: #ffffff;
-
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 30px;
+  width: 31px;
+  background: #ffffff;
 }
+
 .control-radio .control_indicator {
-    border-radius: undefined;
+  border-radius: undefined;
 }
 
-.control:hover input ~ .control_indicator,
-.control input:focus ~ .control_indicator {
-    background: #ffffff;
+.control:hover input~.control_indicator,
+.control input:focus~.control_indicator {
+  background: #ffffff;
 }
 
-.control input:checked ~ .control_indicator {
-    background: #2aa1c0;
+.control input:checked~.control_indicator {
+  background: #2aa1c0;
 }
 
 .control_indicator:after {
-    box-sizing: unset;
-    content: '';
-    position: absolute;
-    display: none;
+  box-sizing: unset;
+  content: "";
+  position: absolute;
+  display: none;
 }
-.control input:checked ~ .control_indicator:after {
-    display: block;
+
+.control input:checked~.control_indicator:after {
+  display: block;
 }
+
 .control-checkbox .control_indicator:after {
-    left: 11px;
-    top: 6px;
-    width: 4px;
-    height: 11px;
-    border: solid #ffffff;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+  left: 11px;
+  top: 6px;
+  width: 4px;
+  height: 11px;
+  border: solid #ffffff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
-.control-checkbox input:disabled ~ .control_indicator:after {
-    border-color: #ffffff;
+
+.control-checkbox input:disabled~.control_indicator:after {
+  border-color: #ffffff;
 }
+
 .control {
   font-family: arial;
   display: block;
@@ -210,47 +236,53 @@ h6 {
   cursor: pointer;
   font-size: 16px;
 }
-  .control input {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-  }
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
 .control_indicator {
   position: center;
   top: 1px;
   bottom: 1px;
   right: 1px;
   left: 8px;
-  
+
   background: #e6e6e6;
-  }
+}
+
 .control-radio .control_indicator {
   border-radius: undefined;
 }
 
-.control:hover input ~ .control_indicator,
-.control input:focus ~ .control_indicator {
+.control:hover input~.control_indicator,
+.control input:focus~.control_indicator {
   background: #ffffff;
 }
 
-.control input:checked ~ .control_indicator {
+.control input:checked~.control_indicator {
   background: #2aa1c0;
 }
 
-.control input:disabled ~ .control_indicator {
-  background:#ffffff;
+.control input:disabled~.control_indicator {
+  background: #ffffff;
   opacity: 21;
   pointer-events: none;
 }
+
 .control_indicator:after {
   box-sizing: unset;
-  content: '';
+  content: "";
   position: absolute;
   display: none;
 }
-.control input:checked ~ .control_indicator:after {
+
+.control input:checked~.control_indicator:after {
   display: block;
 }
+
 .control-checkbox .control_indicator:after {
   left: 13px;
   top: 5px;
@@ -260,6 +292,78 @@ h6 {
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
-.control-checkbox input:disabled ~ .control_indicator:after {
+
+.control-checkbox input:disabled~.control_indicator:after {
   border-color: #ffffff;
 }
+
+.navbar-derecho {
+  background-color: #EC7C38;
+  height: 215px;
+  padding-top: 10px;
+  margin-top: 20px;
+
+}
+
+.dropdown-content a:hover {
+  background-color: #EC7C38
+}
+
+.button:hover {
+  background-color: #EC7C38
+}
+
+.onoffswitch {
+  position: relative;
+  width: 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+  display: none;
+}
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 30px;
+  padding: 0;
+  line-height: 36px;
+  border: 2px solid #E3E3E3;
+  border-radius: 36px;
+  background-color: #FF0000;
+  transition: background-color 0.3s ease-in;
+}
+
+.onoffswitch-label:before {
+  content: "";
+  display: block;
+  width: 36px;
+  margin: 0px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 22px;
+  border: 2px solid #E3E3E3;
+  border-radius: 36px;
+  transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label {
+  background-color: #49E845;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label,
+.onoffswitch-checkbox:checked+.onoffswitch-label:before {
+  border-color: #49E845;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label:before {
+  right: 0px;
+}
+
+

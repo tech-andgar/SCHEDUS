@@ -1,32 +1,41 @@
 <?php
-class security extends database{
-	public function loginData($id,$perfil){
+class Security extends Database{
+
+	public function loginData($dni, $cod_rol){
 		try {
-			$stm = parent::conectar()->prepare(preparedSql::dataSession);
-			$stm ->bindParam(1,$id,PDO::PARAM_STR);
+			$sql_query = "SELECT * FROM usuario WHERE dni = ?";
+			$stm = parent::conectar()->prepare($sql_query);
+			$stm->bindParam(1,$dni,PDO::PARAM_STR);
 			$stm ->execute();
 			$_SESSION['user'] = $stm->fetchAll(PDO::FETCH_OBJ);
-			$_SESSION['perfil'] = $perfil;
-			if($_SESSION['perfil']==1){$_SESSION['nombre'] = "instructor";}
-			if($_SESSION['perfil']==2){$_SESSION['nombre'] = "cliente";}
+			$_SESSION['perfil'] = $cod_rol;
+			switch ($_SESSION['perfil']) {
+				case '1':
+					$_SESSION['nombre'] = 'Instructor';
+					break;
+				case '2':
+					$_SESSION['nombre'] = 'Lider';
+					break;
+			}
 			header('location:?c='.$_SESSION['nombre'].'&m='.$_SESSION['nombre']);
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
 	}
-	public function Sinstructor(){
-		if ($_SESSION['perfil'] == 1) {
 
-		}else{
-			header('location:?c=index&m=inicio');
+	public function SecurityInstructor(){
+		if ($_SESSION['perfil'] == 1) {
+			# code...
+		}else {
+
+			header('location:?c=Index&m=index');
 		}
 	}
-	public function Slider(){
+	public function SecurityLider(){
 		if ($_SESSION['perfil'] == 2) {
-
-		}else{
-			header('location:?c=index&m=inicio');
+			# code...
+		}else {
+			header('location:?c=Index&m=index');
 		}
 	}
 }
- ?>

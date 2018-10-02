@@ -6,11 +6,16 @@ Class InstructorController{
 
 
 	public function Disponibilidad(){
-		//$r=$this->Pmodel->consultarP();
+
+		$title = 'Disponibilidad';
 		require_once('view/head.php');
-		require_once('view/old/navbar_instructor.php');
-		require_once('view/Instructor/Disponibilidad.html');
-		require_once('view/script.php');
+		require_once('view/OLD/navbar_instructor.php');
+		require_once('view/Instructor/Disponibilidad.php');
+		require_once('view/footer.php');
+	}
+
+	public function HorasDisponibilidad(){
+
 	}
 }
 

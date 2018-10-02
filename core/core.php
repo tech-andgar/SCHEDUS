@@ -1,6 +1,6 @@
-<?php 
-require_once('./model/database.php');
-require_once('./model/usuario.php');
-require_once('./model/security.php');
+<?php
+require_once('./model/Database.php');
+require_once('./model/Security.php');
+require_once('./model/Usuario.php');
 
 ?>
