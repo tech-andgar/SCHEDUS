@@ -94,7 +94,7 @@
         <h1 class="display-4">Numero de Ficha</h1>
         <br>
         <style>
-        .search {
+          .search {
             position:relative;
             top:50%;
             left:50%;
@@ -189,21 +189,45 @@
             transition:.5%;
         }
     </style>
-    <script>
-        $(document).ready(function(){
+        <script>
+          $(document).ready(function(){
             $('.icon').click(function(){
                 $('.search').toggleClass('active');
             });
         });
     </script>
-    <div class="row">
-        <div class="search">
+        <div class="row">
+          <div class="search">
             <input type="text" placeholder="Ingresa su numero de ficha para buscar horario asignado...">
             <div class="icon"></div>
+          </div>
         </div>
-    </div>
       </div>
     </div>
+
+    <style>
+      #mysearch:focus + .input-group-addon {
+	z-index: 10;
+}
+
+#search-btn:hover {
+	cursor: pointer;
+	/*color: gold;*/
+	background-color: #ffc107;
+}
+    </style>
+    <div class="container">
+        <div class="row">
+          <form class="form" >
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="padding-left: 20px; border-radius: 40px;" id="mysearch">
+                <div class="input-group-addon" style="margin-left: -50px; z-index: 3; border-radius: 40px; background-color: transparent; border:none;">
+                  <button class="btn btn-warning btn-sm" type="submit" style="border-radius: 20px;" id="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
   </section>
   <!-- END SECTION -->
 

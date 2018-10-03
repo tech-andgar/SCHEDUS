@@ -1,12 +1,11 @@
-<?php
-?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-	<title><?php echo @$title;?></title>
+	<title><?php echo @$title; ?></title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Bootstrap -->
     <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./vendor/components/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
@@ -50,10 +49,10 @@
 <body>
   <?php
 if (isset($_GET['failed'])) {
-  if ($_REQUEST['failed'] == 1) {
-    $msg = "'Tener presente que la infomación aquí diligenciada deberá ser debidamente soportada cuando sea requerida por la Coordinación Académica'";
-    $title ="'AVISO'";
-    echo '<script type="text/javascript"> toastr.error('.$msg.','.$title.')</script>';
-  }
+    if ($_REQUEST['failed'] == 1) {
+        $msg = "'Tener presente que la infomación aquí diligenciada deberá ser debidamente soportada cuando sea requerida por la Coordinación Académica'";
+        $title = "'AVISO'";
+        echo '<script type="text/javascript"> toastr.error(' . $msg . ',' . $title . ')</script>';
+    }
 }
 ?>

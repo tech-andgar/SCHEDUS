@@ -1,17 +1,3 @@
-<!-- BODY -->
-<div id="bloque" class="container">
-
-  <!-- HEADER -->
-
-  <!-- IMG HEADER -->
-  <div id="head-img" class="row">
-    <div class="col-12">
-      <div class="d-flex justify-content-center bg-light">
-        <img class="img-fluid" src="./assets/images/Plantilla_Blog_naranjaceet.png" alt="Imagen de SENA SCEHDUS EN CEET">
-      </div>
-    </div>
-  </div>
-  <!-- END IMG HEADER -->
 
   <!-- NAVBAR -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#EC7C38;">
@@ -74,7 +60,7 @@
         </div>
         <div class="modal-body">
           <div class="d-flex justify-content-center text-center">
-            <a href="index.php?c=index&m=RecuperarContrasena" class="forgot-password">
+            <a href="index.php?c=inicio&m=RecuperarContrasena" class="forgot-password">
               ¿Olvidó la contraseña?
             </a>
           </div>

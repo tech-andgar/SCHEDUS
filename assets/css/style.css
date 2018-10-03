@@ -20,6 +20,11 @@ br {
   display: block;
 }
 
+#textbox-search:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .5);
+}
+
+
 #box-search {
   padding: 10% 0;
 }
