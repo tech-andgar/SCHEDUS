@@ -1,6 +1,6 @@
-<?php 
-require_once('./model/database.php');
-require_once('./model/usuario.php');
-require_once('./model/security.php');
-
-?>
+<?php
+session_start();
+require_once 'db.php';
+require_once 'config.php';
+require_once 'path.php';
+require_once 'models/preparedSQL.php';
