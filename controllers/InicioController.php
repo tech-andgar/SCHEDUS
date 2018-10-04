@@ -28,6 +28,16 @@ class InicioController extends Path
         require_once 'views/all/head.php';
         require_once 'views/Inicio/prueba.html';
     }
+
+    public function prueba2()
+    {
+        $title = "PRUEBA2";
+        require_once 'views/all/head.php';
+        require_once 'views/Inicio/prueba2.html';
+        require_once 'views/all/footer.php';
+    }
+
+    // TODO FIX
     public function CambiarContrasena()
     {
         $title = "Nueva Contraseña";

@@ -1,4 +1,4 @@
-<div class="col-lg-10 col-md-8 col-12">
+<div class="col-lg-9 col-md-8 col-12">
 	<div class="row justify-content-center">
 		<div class="col-md-12">
 			<br>
@@ -28,7 +28,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-2x"></i>
+									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
 						</tr>
@@ -46,7 +46,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-2x"></i>
+									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
 						</tr>
@@ -64,7 +64,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-2x"></i>
+									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
 						</tr>
@@ -82,7 +82,7 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-2x"></i>
+									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
 						</tr>
