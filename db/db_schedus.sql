@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2018 a las 23:39:15
+-- Tiempo de generación: 04-10-2018 a las 20:04:33
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -47,11 +47,11 @@ CREATE TABLE `actividad_proyecto` (
 
 CREATE TABLE `ambiente` (
   `id_ambiente` int(10) NOT NULL,
-  `ambiente` varchar(100) DEFAULT NULL,
+  `num_ambiente` varchar(100) DEFAULT NULL,
+  `cod_sede` int(10) NOT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
-  `cod_sede` int(10) NOT NULL,
   `cod_estado_ambiente` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -59,8 +59,8 @@ CREATE TABLE `ambiente` (
 -- Volcado de datos para la tabla `ambiente`
 --
 
-INSERT INTO `ambiente` (`id_ambiente`, `ambiente`, `create_time`, `update_time`, `version`, `cod_sede`, `cod_estado_ambiente`) VALUES
-(1, '203', '2018-10-02 16:23:50', NULL, NULL, 2, 1);
+INSERT INTO `ambiente` (`id_ambiente`, `num_ambiente`, `cod_sede`, `create_time`, `update_time`, `version`, `cod_estado_ambiente`) VALUES
+(1, '203', 2, '2018-10-02 21:23:50', '2018-10-03 17:49:14', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -71,8 +71,8 @@ INSERT INTO `ambiente` (`id_ambiente`, `ambiente`, `create_time`, `update_time`,
 CREATE TABLE `competencia` (
   `id_competencia` int(10) NOT NULL,
   `num_competencia1` varchar(20) DEFAULT NULL,
-  `num_competencia2` varchar(20) DEFAULT NULL,
   `cod_programa_formacion` int(10) NOT NULL,
+  `num_competencia2` varchar(20) DEFAULT NULL,
   `name_competencia` varchar(100) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
@@ -83,13 +83,13 @@ CREATE TABLE `competencia` (
 -- Volcado de datos para la tabla `competencia`
 --
 
-INSERT INTO `competencia` (`id_competencia`, `num_competencia1`, `num_competencia2`, `cod_programa_formacion`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
-(1, '220501014', '35848', 1, 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-02 19:17:28', NULL, NULL),
-(2, '﻿220501013', '35823', 1, 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-02 19:25:38', NULL, NULL),
-(3, '220501031', '02966', 2, 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-02 19:25:38', NULL, NULL),
-(4, '220501039', '33279', 2, 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-02 19:25:38', NULL, NULL),
-(5, '220501034', '35325', 3, 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-02 19:25:38', NULL, NULL),
-(6, '220501035', '35329', 3, 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-02 19:25:38', NULL, NULL);
+INSERT INTO `competencia` (`id_competencia`, `num_competencia1`, `cod_programa_formacion`, `num_competencia2`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
+(1, '220501014', 1, '35848', 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-03 00:17:28', '2018-10-03 17:49:09', NULL),
+(2, '﻿220501013', 1, '35823', 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-03 00:25:38', '2018-10-03 17:49:09', NULL),
+(3, '220501031', 2, '02966', 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-03 00:25:38', '2018-10-03 17:49:09', NULL),
+(4, '220501039', 2, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 00:25:38', '2018-10-03 17:49:09', NULL),
+(5, '220501034', 3, '35325', 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-03 00:25:38', '2018-10-03 17:49:09', NULL),
+(6, '220501035', 3, '35329', 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-03 00:25:38', '2018-10-03 17:49:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -135,8 +135,8 @@ CREATE TABLE `estado_ambiente` (
 --
 
 INSERT INTO `estado_ambiente` (`id_estado_ambiente`, `name_estado_ambiente`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Disponible', '2018-10-02 16:18:19', NULL, NULL),
-(2, 'Asignado', '2018-10-02 16:18:26', NULL, NULL);
+(1, 'Disponible', '2018-10-02 21:18:19', '2018-10-03 17:49:16', NULL),
+(2, 'Asignado', '2018-10-02 21:18:26', '2018-10-03 17:49:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -151,6 +151,16 @@ CREATE TABLE `estado_ficha` (
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `estado_ficha`
+--
+
+INSERT INTO `estado_ficha` (`id_estado_ficha`, `name_estado_ficha`, `create_time`, `update_time`, `version`) VALUES
+(1, 'Pendiente Asignado', '2018-10-03 17:57:14', '0000-00-00 00:00:00', NULL),
+(2, 'En formación', '2018-10-03 17:57:22', '0000-00-00 00:00:00', NULL),
+(3, 'Cancelado', '2018-10-03 17:57:30', '0000-00-00 00:00:00', NULL),
+(4, 'Completado', '2018-10-03 17:57:39', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -171,10 +181,10 @@ CREATE TABLE `estado_horario_asignada` (
 --
 
 INSERT INTO `estado_horario_asignada` (`id_estado_horario_asignada`, `name_estado_horario_asignada`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Creado', '2018-10-02 17:03:00', NULL, NULL),
-(2, 'En proceso', '2018-10-02 17:03:08', NULL, NULL),
-(3, 'Revisión', '2018-10-02 17:03:23', NULL, NULL),
-(4, 'Publicado', '2018-10-02 17:03:31', NULL, NULL);
+(1, 'Creado', '2018-10-02 22:03:00', '2018-10-03 17:49:25', NULL),
+(2, 'En proceso', '2018-10-02 22:03:08', '2018-10-03 17:49:25', NULL),
+(3, 'Revisión', '2018-10-02 22:03:23', '2018-10-03 17:49:25', NULL),
+(4, 'Publicado', '2018-10-02 22:03:31', '2018-10-03 17:49:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -195,8 +205,8 @@ CREATE TABLE `estado_programa_formacion` (
 --
 
 INSERT INTO `estado_programa_formacion` (`id_estado_programa_formacion`, `name_estado_programa_formacion`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Activo', '2018-10-02 16:45:41', NULL, NULL),
-(2, 'Inactivo', '2018-10-02 16:45:51', NULL, NULL);
+(1, 'Activo', '2018-10-02 21:45:41', '2018-10-03 17:49:08', NULL),
+(2, 'Inactivo', '2018-10-02 21:45:51', '2018-10-03 17:49:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -217,9 +227,9 @@ CREATE TABLE `estado_usuario` (
 --
 
 INSERT INTO `estado_usuario` (`id_estado_usuario`, `name_estado_usuario`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Creado', '2018-10-02 16:35:35', NULL, NULL),
-(2, 'Activo', '2018-10-02 16:35:40', NULL, NULL),
-(3, 'Inactivo', '2018-10-02 16:35:46', NULL, NULL);
+(1, 'Creado', '2018-10-02 21:35:35', '2018-10-03 17:49:04', NULL),
+(2, 'Activo', '2018-10-02 21:35:40', '2018-10-03 17:49:04', NULL),
+(3, 'Inactivo', '2018-10-02 21:35:46', '2018-10-03 17:49:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -240,10 +250,10 @@ CREATE TABLE `fase` (
 --
 
 INSERT INTO `fase` (`id_fase`, `name_fase`, `create_time`, `update_time`, `version`) VALUES
-(1, 'ANALISIS', '2018-10-02 16:25:10', NULL, NULL),
-(2, 'PLANEACIÓN', '2018-10-02 16:25:13', NULL, NULL),
-(3, 'EJECUCIÓN', '2018-10-02 16:25:19', NULL, NULL),
-(4, 'EVALUACIÓN', '2018-10-02 16:25:26', NULL, NULL);
+(1, 'ANALISIS', '2018-10-02 21:25:10', '2018-10-03 17:49:21', NULL),
+(2, 'PLANEACIÓN', '2018-10-02 21:25:13', '2018-10-03 17:49:21', NULL),
+(3, 'EJECUCIÓN', '2018-10-02 21:25:19', '2018-10-03 17:49:21', NULL),
+(4, 'EVALUACIÓN', '2018-10-02 21:25:26', '2018-10-03 17:49:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -257,8 +267,17 @@ CREATE TABLE `ficha` (
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
-  `cod_estado_ficha` int(10) NOT NULL
+  `cod_estado_ficha` int(10) NOT NULL,
+  `cod_programa_formacion` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ficha`
+--
+
+INSERT INTO `ficha` (`id_ficha`, `num_ficha`, `create_time`, `update_time`, `version`, `cod_estado_ficha`, `cod_programa_formacion`) VALUES
+(1, '1320652', '2018-10-04 19:44:49', '0000-00-00 00:00:00', NULL, 2, 1),
+(2, '1320500', '2018-10-04 19:45:10', '0000-00-00 00:00:00', NULL, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -276,6 +295,18 @@ CREATE TABLE `grupo` (
   `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `grupo`
+--
+
+INSERT INTO `grupo` (`id_grupo`, `cod_ficha`, `num_grupo`, `cod_ruta_ficha`, `create_time`, `update_time`, `version`) VALUES
+(1, 1, 'G1', 1, '2018-10-04 19:47:29', '0000-00-00 00:00:00', NULL),
+(2, 1, 'G2', 1, '2018-10-04 20:22:57', '0000-00-00 00:00:00', NULL),
+(3, 1, 'G3', 2, '2018-10-04 20:26:10', '0000-00-00 00:00:00', NULL),
+(4, 2, 'G1', 2, '2018-10-04 20:26:23', '0000-00-00 00:00:00', NULL),
+(5, 2, 'G2', 3, '2018-10-04 20:26:48', '0000-00-00 00:00:00', NULL),
+(6, 2, 'G3', 3, '2018-10-04 20:28:01', '0000-00-00 00:00:00', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -284,8 +315,10 @@ CREATE TABLE `grupo` (
 
 CREATE TABLE `horario_asignada` (
   `id_horas_asignadas` int(10) NOT NULL,
+  `cod_trimestre_horario` int(10) NOT NULL,
   `cod_modo` int(10) NOT NULL,
   `cod_ruta_ficha` int(10) NOT NULL,
+  `trimestre_ficha` varchar(4) DEFAULT NULL,
   `cod_resultado_aprendizaje` int(10) NOT NULL,
   `cod_instructor` int(10) NOT NULL,
   `cod_dias` int(10) NOT NULL,
@@ -296,9 +329,7 @@ CREATE TABLE `horario_asignada` (
   `cod_estado_horario` int(10) NOT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
-  `version` int(10) DEFAULT NULL,
-  `cod_trimestre_horario` int(10) NOT NULL,
-  `trimestre` varchar(4) DEFAULT NULL
+  `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -320,9 +351,9 @@ CREATE TABLE `jornada` (
 --
 
 INSERT INTO `jornada` (`id_jornada`, `name_jornada`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Diurna', '2018-10-02 16:12:56', NULL, NULL),
-(2, 'Nocturna', '2018-10-02 16:13:01', NULL, NULL),
-(3, 'Fin de semana', '2018-10-02 16:13:10', NULL, NULL);
+(1, 'Diurna', '2018-10-02 21:12:56', '2018-10-03 17:49:17', NULL),
+(2, 'Nocturna', '2018-10-02 21:13:01', '2018-10-03 17:49:17', NULL),
+(3, 'Fin de semana', '2018-10-02 21:13:10', '2018-10-03 17:49:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -343,8 +374,8 @@ CREATE TABLE `modo` (
 --
 
 INSERT INTO `modo` (`id_modo`, `name_modo`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Presencial', '2018-10-02 16:12:40', NULL, NULL),
-(2, 'Virtual', '2018-10-02 17:04:05', NULL, NULL);
+(1, 'Presencial', '2018-10-02 21:12:40', '2018-10-03 17:49:12', NULL),
+(2, 'Virtual', '2018-10-02 22:04:05', '2018-10-03 17:49:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -366,15 +397,15 @@ CREATE TABLE `nivel_programa_formacion` (
 --
 
 INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_nivel_programa_formacion`, `duracion`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Curso complementario', NULL, '2018-10-02 16:39:11', NULL, NULL),
-(2, 'Certificación De Competencia Laboral', NULL, '2018-10-02 16:41:01', NULL, NULL),
-(3, 'Técnico', NULL, '2018-10-02 16:41:04', NULL, NULL),
-(4, 'Tecnólogia', NULL, '2018-10-02 16:42:20', NULL, NULL),
-(5, 'Especialización Tecnológica', NULL, '2018-10-02 16:43:08', NULL, NULL),
-(6, 'Pregrado', NULL, '2018-10-02 16:43:16', NULL, NULL),
-(7, 'Especialización', NULL, '2018-10-02 16:43:22', NULL, NULL),
-(8, 'Maestría', NULL, '2018-10-02 16:43:29', NULL, NULL),
-(9, 'Doctorado', NULL, '2018-10-02 16:43:40', NULL, NULL);
+(1, 'Curso complementario', NULL, '2018-10-02 21:39:11', '2018-10-03 17:49:08', NULL),
+(2, 'Certificación De Competencia Laboral', NULL, '2018-10-02 21:41:01', '2018-10-03 17:49:08', NULL),
+(3, 'Técnico', NULL, '2018-10-02 21:41:04', '2018-10-03 17:49:08', NULL),
+(4, 'Tecnólogia', NULL, '2018-10-02 21:42:20', '2018-10-03 17:49:08', NULL),
+(5, 'Especialización Tecnológica', NULL, '2018-10-02 21:43:08', '2018-10-03 17:49:08', NULL),
+(6, 'Pregrado', NULL, '2018-10-02 21:43:16', '2018-10-03 17:49:08', NULL),
+(7, 'Especialización', NULL, '2018-10-02 21:43:22', '2018-10-03 17:49:08', NULL),
+(8, 'Maestría', NULL, '2018-10-02 21:43:29', '2018-10-03 17:49:08', NULL),
+(9, 'Doctorado', NULL, '2018-10-02 21:43:40', '2018-10-03 17:49:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -401,9 +432,9 @@ CREATE TABLE `programa_formacion` (
 --
 
 INSERT INTO `programa_formacion` (`id_programa_formacion`, `codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`, `create_time`, `update_time`, `version`) VALUES
-(1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 1, '2018-10-02 19:11:28', NULL, NULL),
-(2, '228106', 'PM', 'PRODUCCIÓN DE MULTIMEDIA', 'V 102', 3, 2, 1, '2018-10-02 19:12:27', NULL, NULL),
-(3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-02 19:15:53', NULL, NULL);
+(1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 1, '2018-10-03 00:11:28', '2018-10-03 17:49:11', NULL),
+(2, '228106', 'PM', 'PRODUCCIÓN DE MULTIMEDIA', 'V 102', 3, 2, 1, '2018-10-03 00:12:27', '2018-10-03 17:49:11', NULL),
+(3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-03 00:15:53', '2018-10-03 17:49:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -424,9 +455,9 @@ CREATE TABLE `proyecto` (
 --
 
 INSERT INTO `proyecto` (`id_proyecto`, `name_proyecto`, `create_time`, `update_time`, `version`) VALUES
-(1, 'SISTEMA INTEGRAL WEB PARA GESTION DE PROCESOS EDUCATIVOS DEL CEET', '2018-10-02 16:37:03', NULL, NULL),
-(2, 'PRODUCCIÓN DE CONTENIDOS DIGITALES  E IMPRESOS QUE PROMUEVAN LA SOLUCIÓN DE PROBLEMÁTICAS SOCIALES EN BOGOTÁ', '2018-10-02 16:37:21', NULL, NULL),
-(3, 'IMPLEMENTACION DE UNA RED DE DATOS CORPORATIVA MULTISERVICIO, ADMINISTRADA Y CONFIGURADA BAJO SISTEMA OPERATIVO LINUX', '2018-10-02 16:37:25', NULL, NULL);
+(1, 'SISTEMA INTEGRAL WEB PARA GESTION DE PROCESOS EDUCATIVOS DEL CEET', '2018-10-02 21:37:03', '2018-10-03 17:49:19', NULL),
+(2, 'PRODUCCIÓN DE CONTENIDOS DIGITALES  E IMPRESOS QUE PROMUEVAN LA SOLUCIÓN DE PROBLEMÁTICAS SOCIALES EN BOGOTÁ', '2018-10-02 21:37:21', '2018-10-03 17:49:19', NULL),
+(3, 'IMPLEMENTACION DE UNA RED DE DATOS CORPORATIVA MULTISERVICIO, ADMINISTRADA Y CONFIGURADA BAJO SISTEMA OPERATIVO LINUX', '2018-10-02 21:37:25', '2018-10-03 17:49:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -436,9 +467,9 @@ INSERT INTO `proyecto` (`id_proyecto`, `name_proyecto`, `create_time`, `update_t
 
 CREATE TABLE `resultado_aprendizaje` (
   `id_resultado_aprendizaje` int(10) NOT NULL,
-  `cod_competencia` varchar(20) DEFAULT NULL,
   `num_resultado_aprendizaje1` varchar(10) DEFAULT NULL,
   `num_resultado_aprendizaje2` varchar(10) DEFAULT NULL,
+  `cod_competencia` varchar(20) DEFAULT NULL,
   `name_resultado_aprendizaje` varchar(100) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
@@ -449,8 +480,8 @@ CREATE TABLE `resultado_aprendizaje` (
 -- Volcado de datos para la tabla `resultado_aprendizaje`
 --
 
-INSERT INTO `resultado_aprendizaje` (`id_resultado_aprendizaje`, `cod_competencia`, `num_resultado_aprendizaje1`, `num_resultado_aprendizaje2`, `name_resultado_aprendizaje`, `create_time`, `update_time`, `version`) VALUES
-(1, '220501034', NULL, NULL, NULL, '2018-10-02 21:26:10', NULL, NULL);
+INSERT INTO `resultado_aprendizaje` (`id_resultado_aprendizaje`, `num_resultado_aprendizaje1`, `num_resultado_aprendizaje2`, `cod_competencia`, `name_resultado_aprendizaje`, `create_time`, `update_time`, `version`) VALUES
+(1, NULL, NULL, '220501034', NULL, '2018-10-03 02:26:10', '2018-10-03 17:49:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -471,9 +502,9 @@ CREATE TABLE `rol` (
 --
 
 INSERT INTO `rol` (`id_rol`, `name_rol`, `create_time`, `update_time`, `version`) VALUES
-(1, 'Coordinador', '2018-10-02 15:57:22', NULL, NULL),
-(2, 'Lider', '2018-10-02 15:57:31', NULL, NULL),
-(3, 'Instructor', '2018-10-02 15:57:44', NULL, NULL);
+(1, 'Coordinador', '2018-10-02 20:57:22', '2018-10-03 17:49:03', NULL),
+(2, 'Lider', '2018-10-02 20:57:31', '2018-10-03 17:49:03', NULL),
+(3, 'Instructor', '2018-10-02 20:57:44', '2018-10-03 17:49:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -493,6 +524,15 @@ CREATE TABLE `ruta_ficha` (
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ruta_ficha`
+--
+
+INSERT INTO `ruta_ficha` (`id_ruta_ficha`, `name_ruta_ficha`, `num_ruta_ficha`, `cod_jornada`, `fecha_inicio`, `fecha_fin`, `observaciones`, `create_time`, `update_time`, `version`) VALUES
+(1, '1320652 G1-G2', '1320652 G1', 1, '2017-01-22', '2019-01-22', 'FUSION', '2018-10-04 19:47:05', '0000-00-00 00:00:00', NULL),
+(2, '1320652 G3 - 1320500', '13206520 G', 1, '2017-01-22', '2019-01-22', 'FUSION', '2018-10-04 20:25:38', '0000-00-00 00:00:00', NULL),
+(3, '1320500 G2-G3', '1320500 G2', 1, '2017-01-22', '2019-01-22', 'FUSION', '2018-10-04 20:27:40', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -514,9 +554,9 @@ CREATE TABLE `sede` (
 --
 
 INSERT INTO `sede` (`id_sede`, `name_sede`, `direccion`, `create_time`, `update_time`, `version`) VALUES
-(1, 'CEET', NULL, '2018-10-02 16:14:58', NULL, NULL),
-(2, 'BARRIO COLOMBIA', 'Calle 69 No 20 – 36', '2018-10-02 16:14:42', NULL, NULL),
-(3, 'RESTREPO', 'Av. 1ra de Mayo N° 12 D-68 ', '2018-10-02 16:13:54', NULL, NULL);
+(1, 'CEET', NULL, '2018-10-02 21:14:58', '2018-10-03 17:49:15', NULL),
+(2, 'BARRIO COLOMBIA', 'Calle 69 No 20 – 36', '2018-10-02 21:14:42', '2018-10-03 17:49:15', NULL),
+(3, 'RESTREPO', 'Av. 1ra de Mayo N° 12 D-68 ', '2018-10-02 21:13:54', '2018-10-03 17:49:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -539,7 +579,7 @@ CREATE TABLE `trimestre` (
 --
 
 INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin`, `create_time`, `update_time`, `version`) VALUES
-(1, 'I-2019', '2019-01-21', '2019-04-05', '2018-10-02 16:26:48', NULL, NULL);
+(1, 'I-2019', '2019-01-21', '2019-04-05', '2018-10-02 21:26:48', '2018-10-03 17:49:22', NULL);
 
 -- --------------------------------------------------------
 
@@ -565,9 +605,204 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `email`, `nombre`, `apellido`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
-(1, 'admin@email.com', 'Admin', 'Nimda', '123456', 1, 2, NULL, '2018-10-02 16:36:25', NULL),
-(2, 'lider@email.com', 'Lider', 'Redil', '654321', 2, 2, NULL, '2018-10-02 17:04:51', NULL),
-(3, 'instructor@email.com', 'Instructor', 'Rotcurtsni', '321654', 3, 2, NULL, '2018-10-02 17:05:48', NULL);
+(1, 'admin@email.com', 'Admin', 'Nimda', '123456', 1, 2, NULL, '2018-10-02 21:36:25', '2018-10-03 17:49:02'),
+(2, 'lider@email.com', 'Lider', 'Redil', '654321', 2, 2, NULL, '2018-10-02 22:04:51', '2018-10-03 17:49:02'),
+(3, 'instructor@email.com', 'Instructor', 'Rotcurtsni', '321654', 3, 2, NULL, '2018-10-02 22:05:48', '2018-10-03 17:49:02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_ambientes`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_ambientes` (
+`id_ambiente` int(10)
+,`num_ambiente` varchar(100)
+,`name_sede` varchar(100)
+,`direccion` varchar(250)
+,`name_estado_ambiente` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_ficha_programa`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_ficha_programa` (
+`id_ficha` int(10)
+,`num_ficha` varchar(100)
+,`num_grupo` varchar(3)
+,`name_programa_formacion` varchar(200)
+,`name_nivel_programa_formacion` varchar(100)
+,`name_estado_ficha` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_horario_asignado`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_horario_asignado` (
+`name_trimestre` varchar(100)
+,`fecha_inicio` date
+,`fecha_fin` date
+,`name_ruta_ficha` varchar(100)
+,`num_ruta_ficha` varchar(10)
+,`name_jornada` varchar(100)
+,`short_name_programa_formacion` varchar(5)
+,`name_programa_formacion` varchar(200)
+,`fecha_inicio2` date
+,`fecha_fin2` date
+,`cod_competencia` varchar(20)
+,`num_resultado_aprendizaje1` varchar(10)
+,`num_resultado_aprendizaje2` varchar(10)
+,`name_resultado_aprendizaje` varchar(100)
+,`cod_programa_formacion` int(10)
+,`num_competencia1` varchar(20)
+,`num_competencia2` varchar(20)
+,`name_competencia` varchar(100)
+,`nombre` varchar(60)
+,`apellido` varchar(60)
+,`name_modo` varchar(100)
+,`name_dias` varchar(100)
+,`hora_inicio` time
+,`hora_fin` time
+,`num_ambiente` varchar(100)
+,`name_sede` varchar(100)
+,`direccion` varchar(250)
+,`name_estado_horario_asignada` varchar(100)
+,`num_actividad_proyecto` varchar(5)
+,`name_actividad_proyecto` varchar(100)
+,`observaciones` varchar(250)
+,`name_fase` varchar(100)
+,`name_proyecto` varchar(250)
+,`name_nivel_programa_formacion` varchar(100)
+,`duracion` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_programa_formacion`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_programa_formacion` (
+`id_resultado_aprendizaje` int(10)
+,`cod_competencia` varchar(20)
+,`num_resultado_aprendizaje1` varchar(10)
+,`num_resultado_aprendizaje2` varchar(10)
+,`name_resultado_aprendizaje` varchar(100)
+,`cod_programa_formacion` int(10)
+,`num_competencia1` varchar(20)
+,`num_competencia2` varchar(20)
+,`name_competencia` varchar(100)
+,`id_programa_formacion` int(10)
+,`codigo` varchar(10)
+,`short_name_programa_formacion` varchar(5)
+,`name_programa_formacion` varchar(200)
+,`version_programa` varchar(10)
+,`id_nivel_programa_formacion` int(10)
+,`name_nivel_programa_formacion` varchar(100)
+,`duracion` varchar(100)
+,`id_estado_programa_formacion` int(10)
+,`name_estado_programa_formacion` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_ruta_ficha`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_ruta_ficha` (
+`id_ruta_ficha` int(10)
+,`name_ruta_ficha` varchar(100)
+,`num_ruta_ficha` varchar(10)
+,`fecha_inicio` date
+,`fecha_fin` date
+,`observaciones` varchar(250)
+,`id_jornada` int(10)
+,`name_jornada` varchar(100)
+,`id_ficha` int(10)
+,`num_ficha` varchar(100)
+,`num_grupo` varchar(3)
+,`id_estado_ficha` int(10)
+,`name_estado_ficha` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_usuarios`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_usuarios` (
+`id_usuario` int(10)
+,`nombre` varchar(60)
+,`apellido` varchar(60)
+,`email` varchar(60)
+,`password` varchar(128)
+,`id_rol` int(10)
+,`name_rol` varchar(100)
+,`id_estado_usuario` int(10)
+,`name_estado_usuario` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ambientes`
+--
+DROP TABLE IF EXISTS `v_ambientes`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ambientes`  AS  select `ambiente`.`id_ambiente` AS `id_ambiente`,`ambiente`.`num_ambiente` AS `num_ambiente`,`sede`.`name_sede` AS `name_sede`,`sede`.`direccion` AS `direccion`,`estado_ambiente`.`name_estado_ambiente` AS `name_estado_ambiente` from ((`ambiente` join `sede` on((`ambiente`.`cod_sede` = `sede`.`id_sede`))) join `estado_ambiente` on((`ambiente`.`cod_estado_ambiente` = `estado_ambiente`.`id_estado_ambiente`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_programa`
+--
+DROP TABLE IF EXISTS `v_ficha_programa`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on((`ficha`.`id_ficha` = `grupo`.`cod_ficha`))) join `estado_ficha` on((`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`))) join `programa_formacion` on((`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`))) join `nivel_programa_formacion` on((`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_horario_asignado`
+--
+DROP TABLE IF EXISTS `v_horario_asignado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_horario_asignado`  AS  select `trimestre`.`name_trimestre` AS `name_trimestre`,`trimestre`.`fecha_inicio` AS `fecha_inicio`,`trimestre`.`fecha_fin` AS `fecha_fin`,`ruta_ficha`.`name_ruta_ficha` AS `name_ruta_ficha`,`ruta_ficha`.`num_ruta_ficha` AS `num_ruta_ficha`,`jornada`.`name_jornada` AS `name_jornada`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`ruta_ficha`.`fecha_inicio` AS `fecha_inicio2`,`ruta_ficha`.`fecha_fin` AS `fecha_fin2`,`resultado_aprendizaje`.`cod_competencia` AS `cod_competencia`,`resultado_aprendizaje`.`num_resultado_aprendizaje1` AS `num_resultado_aprendizaje1`,`resultado_aprendizaje`.`num_resultado_aprendizaje2` AS `num_resultado_aprendizaje2`,`resultado_aprendizaje`.`name_resultado_aprendizaje` AS `name_resultado_aprendizaje`,`competencia`.`cod_programa_formacion` AS `cod_programa_formacion`,`competencia`.`num_competencia1` AS `num_competencia1`,`competencia`.`num_competencia2` AS `num_competencia2`,`competencia`.`name_competencia` AS `name_competencia`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`modo`.`name_modo` AS `name_modo`,`dias`.`name_dias` AS `name_dias`,`horario_asignada`.`hora_inicio` AS `hora_inicio`,`horario_asignada`.`hora_fin` AS `hora_fin`,`ambiente`.`num_ambiente` AS `num_ambiente`,`sede`.`name_sede` AS `name_sede`,`sede`.`direccion` AS `direccion`,`estado_horario_asignada`.`name_estado_horario_asignada` AS `name_estado_horario_asignada`,`actividad_proyecto`.`num_actividad_proyecto` AS `num_actividad_proyecto`,`actividad_proyecto`.`name_actividad_proyecto` AS `name_actividad_proyecto`,`ruta_ficha`.`observaciones` AS `observaciones`,`fase`.`name_fase` AS `name_fase`,`proyecto`.`name_proyecto` AS `name_proyecto`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion` from (((((((((((((((((((`ficha` join `grupo` on((`ficha`.`id_ficha` = `grupo`.`cod_ficha`))) join `estado_ficha` on((`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`))) join `ruta_ficha` on((`grupo`.`cod_ruta_ficha` = `ruta_ficha`.`id_ruta_ficha`))) join `horario_asignada` on((`ruta_ficha`.`id_ruta_ficha` = `horario_asignada`.`cod_ruta_ficha`))) join `jornada` on((`ruta_ficha`.`cod_jornada` = `jornada`.`id_jornada`))) join `usuario` on((`horario_asignada`.`cod_instructor` = `usuario`.`id_usuario`))) join `dias` on((`horario_asignada`.`cod_dias` = `dias`.`id_dias`))) join `modo` on((`horario_asignada`.`cod_modo` = `modo`.`id_modo`))) join `ambiente` on((`horario_asignada`.`cod_ambiente` = `ambiente`.`id_ambiente`))) join `resultado_aprendizaje` on((`horario_asignada`.`cod_resultado_aprendizaje` = `resultado_aprendizaje`.`id_resultado_aprendizaje`))) join `trimestre` on((`horario_asignada`.`cod_trimestre_horario` = `trimestre`.`id_trimestre`))) join `estado_horario_asignada` on((`horario_asignada`.`cod_estado_horario` = `estado_horario_asignada`.`id_estado_horario_asignada`))) join `sede` on((`ambiente`.`cod_sede` = `sede`.`id_sede`))) join `competencia` on((`resultado_aprendizaje`.`cod_competencia` = `competencia`.`id_competencia`))) join `programa_formacion` on((`competencia`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`))) join `nivel_programa_formacion` on((`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`))) join `proyecto` on((`programa_formacion`.`cod_proyecto` = `proyecto`.`id_proyecto`))) join `actividad_proyecto` on((`proyecto`.`id_proyecto` = `actividad_proyecto`.`cod_proyecto`))) join `fase` on((`actividad_proyecto`.`cod_fase` = `fase`.`id_fase`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_programa_formacion`
+--
+DROP TABLE IF EXISTS `v_programa_formacion`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `resultado_aprendizaje`.`id_resultado_aprendizaje` AS `id_resultado_aprendizaje`,`resultado_aprendizaje`.`cod_competencia` AS `cod_competencia`,`resultado_aprendizaje`.`num_resultado_aprendizaje1` AS `num_resultado_aprendizaje1`,`resultado_aprendizaje`.`num_resultado_aprendizaje2` AS `num_resultado_aprendizaje2`,`resultado_aprendizaje`.`name_resultado_aprendizaje` AS `name_resultado_aprendizaje`,`competencia`.`cod_programa_formacion` AS `cod_programa_formacion`,`competencia`.`num_competencia1` AS `num_competencia1`,`competencia`.`num_competencia2` AS `num_competencia2`,`competencia`.`name_competencia` AS `name_competencia`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((((`competencia` join `resultado_aprendizaje` on((`competencia`.`id_competencia` = `resultado_aprendizaje`.`cod_competencia`))) join `programa_formacion` on((`competencia`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`))) join `estado_programa_formacion` on((`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`))) join `nivel_programa_formacion` on((`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ruta_ficha`
+--
+DROP TABLE IF EXISTS `v_ruta_ficha`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ruta_ficha`  AS  select `ruta_ficha`.`id_ruta_ficha` AS `id_ruta_ficha`,`ruta_ficha`.`name_ruta_ficha` AS `name_ruta_ficha`,`ruta_ficha`.`num_ruta_ficha` AS `num_ruta_ficha`,`ruta_ficha`.`fecha_inicio` AS `fecha_inicio`,`ruta_ficha`.`fecha_fin` AS `fecha_fin`,`ruta_ficha`.`observaciones` AS `observaciones`,`jornada`.`id_jornada` AS `id_jornada`,`jornada`.`name_jornada` AS `name_jornada`,`ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on((`ficha`.`id_ficha` = `grupo`.`cod_ficha`))) join `estado_ficha` on((`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`))) join `ruta_ficha` on((`grupo`.`cod_ruta_ficha` = `ruta_ficha`.`id_ruta_ficha`))) join `jornada` on((`ruta_ficha`.`cod_jornada` = `jornada`.`id_jornada`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_usuarios`
+--
+DROP TABLE IF EXISTS `v_usuarios`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -580,17 +815,18 @@ ALTER TABLE `actividad_proyecto`
   ADD PRIMARY KEY (`id_actividad_proyecto`),
   ADD UNIQUE KEY `name_actividad_proyecto` (`name_actividad_proyecto`),
   ADD KEY `actividad_proyecto` (`num_actividad_proyecto`),
-  ADD KEY `FKactividad_782184` (`cod_fase`),
-  ADD KEY `FKactividad_977084` (`cod_proyecto`);
+  ADD KEY `FK_cod_fase` (`cod_fase`),
+  ADD KEY `FK_cod_proyecto_actividad_proyecto` (`cod_proyecto`);
 
 --
 -- Indices de la tabla `ambiente`
 --
 ALTER TABLE `ambiente`
   ADD PRIMARY KEY (`id_ambiente`),
-  ADD UNIQUE KEY `ambiente` (`ambiente`),
-  ADD KEY `FKambiente983549` (`cod_sede`),
-  ADD KEY `FKambiente827022` (`cod_estado_ambiente`);
+  ADD UNIQUE KEY `num_ambiente` (`num_ambiente`),
+  ADD KEY `ambiente` (`num_ambiente`,`cod_sede`),
+  ADD KEY `FK_cod_sede` (`cod_sede`),
+  ADD KEY `FK_cod_estado_ambiente` (`cod_estado_ambiente`);
 
 --
 -- Indices de la tabla `competencia`
@@ -598,8 +834,8 @@ ALTER TABLE `ambiente`
 ALTER TABLE `competencia`
   ADD PRIMARY KEY (`id_competencia`),
   ADD UNIQUE KEY `name_competencia` (`name_competencia`),
-  ADD KEY `competencia` (`num_competencia1`,`num_competencia2`),
-  ADD KEY `FKcompetenci386058` (`cod_programa_formacion`);
+  ADD KEY `competencia` (`num_competencia1`),
+  ADD KEY `FK_cod_programa_formacion` (`cod_programa_formacion`);
 
 --
 -- Indices de la tabla `dias`
@@ -656,29 +892,30 @@ ALTER TABLE `fase`
 ALTER TABLE `ficha`
   ADD PRIMARY KEY (`id_ficha`),
   ADD UNIQUE KEY `num_ficha` (`num_ficha`),
-  ADD KEY `FKficha980236` (`cod_estado_ficha`);
+  ADD KEY `FK_cod_estado_ficha` (`cod_estado_ficha`),
+  ADD KEY `FK_cod_programa_formacion_ficha` (`cod_programa_formacion`);
 
 --
 -- Indices de la tabla `grupo`
 --
 ALTER TABLE `grupo`
   ADD PRIMARY KEY (`id_grupo`),
-  ADD UNIQUE KEY `cod_ficha` (`cod_ficha`),
-  ADD KEY `FKgrupo122710` (`cod_ruta_ficha`);
+  ADD KEY `grupo` (`cod_ficha`,`num_grupo`,`cod_ruta_ficha`),
+  ADD KEY `FK_cod_ruta_ficha` (`cod_ruta_ficha`);
 
 --
 -- Indices de la tabla `horario_asignada`
 --
 ALTER TABLE `horario_asignada`
   ADD PRIMARY KEY (`id_horas_asignadas`),
-  ADD KEY `FKhorario_as984309` (`cod_estado_horario`),
-  ADD KEY `FKhorario_as257351` (`cod_dias`),
-  ADD KEY `FKhorario_as79274` (`cod_modo`),
-  ADD KEY `FKhorario_as232796` (`cod_instructor`),
-  ADD KEY `FKhorario_as592451` (`cod_resultado_aprendizaje`),
-  ADD KEY `FKhorario_as635052` (`cod_ruta_ficha`),
-  ADD KEY `FKhorario_as629941` (`cod_ambiente`),
-  ADD KEY `FKhorario_as886572` (`cod_trimestre_horario`);
+  ADD KEY `FK_cod_estado_horario_asignado` (`cod_estado_horario`),
+  ADD KEY `FK_cod_dias` (`cod_dias`),
+  ADD KEY `FK_cod_trimestre` (`cod_trimestre_horario`),
+  ADD KEY `FK_cod_modo` (`cod_modo`),
+  ADD KEY `FK_cod_instructor` (`cod_instructor`),
+  ADD KEY `FK_cod_resultado_aprendizaje` (`cod_resultado_aprendizaje`),
+  ADD KEY `FK_cod_ruta_ficha_horario_asignada` (`cod_ruta_ficha`),
+  ADD KEY `FK_cod_ambiente` (`cod_ambiente`);
 
 --
 -- Indices de la tabla `jornada`
@@ -707,10 +944,10 @@ ALTER TABLE `nivel_programa_formacion`
 ALTER TABLE `programa_formacion`
   ADD PRIMARY KEY (`id_programa_formacion`),
   ADD UNIQUE KEY `name_programa_formacion` (`name_programa_formacion`),
-  ADD KEY `codigo_programa_formacion` (`codigo`) USING BTREE,
-  ADD KEY `FKCod_nivel_programa_formacion` (`cod_nivel_programa_formacion`) USING BTREE,
-  ADD KEY `FKCod_estado_programa` (`cod_estado_programa_formacion`) USING BTREE,
-  ADD KEY `FKCod_proyecto` (`cod_proyecto`) USING BTREE;
+  ADD KEY `programa_formacion` (`codigo`),
+  ADD KEY `FK_cod_estado_programa_formacion` (`cod_estado_programa_formacion`),
+  ADD KEY `FK_cod_nivel_programa_formacion` (`cod_nivel_programa_formacion`),
+  ADD KEY `FK_cod_proyecto_programa_formacion` (`cod_proyecto`);
 
 --
 -- Indices de la tabla `proyecto`
@@ -726,7 +963,7 @@ ALTER TABLE `resultado_aprendizaje`
   ADD PRIMARY KEY (`id_resultado_aprendizaje`),
   ADD UNIQUE KEY `name_resultado_aprendizaje` (`name_resultado_aprendizaje`),
   ADD KEY `resultado_aprendizaje` (`num_resultado_aprendizaje1`,`num_resultado_aprendizaje2`),
-  ADD KEY `FKCod_Competencia` (`cod_competencia`) USING BTREE;
+  ADD KEY `FK_cod_competencia` (`cod_competencia`);
 
 --
 -- Indices de la tabla `rol`
@@ -742,7 +979,7 @@ ALTER TABLE `ruta_ficha`
   ADD PRIMARY KEY (`id_ruta_ficha`),
   ADD UNIQUE KEY `name_ruta_ficha` (`name_ruta_ficha`),
   ADD KEY `ruta_ficha` (`name_ruta_ficha`,`num_ruta_ficha`),
-  ADD KEY `FKruta_ficha297110` (`cod_jornada`);
+  ADD KEY `FK_cod_jornada` (`cod_jornada`);
 
 --
 -- Indices de la tabla `sede`
@@ -763,9 +1000,9 @@ ALTER TABLE `trimestre`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `usuario_email` (`email`),
-  ADD KEY `FKusuario602020` (`cod_estado_usuario`),
-  ADD KEY `FKusuario660816` (`cod_rol`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
+  ADD KEY `FK_cod_rol` (`cod_rol`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -781,7 +1018,7 @@ ALTER TABLE `actividad_proyecto`
 -- AUTO_INCREMENT de la tabla `ambiente`
 --
 ALTER TABLE `ambiente`
-  MODIFY `id_ambiente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_ambiente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `competencia`
@@ -805,7 +1042,7 @@ ALTER TABLE `estado_ambiente`
 -- AUTO_INCREMENT de la tabla `estado_ficha`
 --
 ALTER TABLE `estado_ficha`
-  MODIFY `id_estado_ficha` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estado_ficha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_horario_asignada`
@@ -835,13 +1072,13 @@ ALTER TABLE `fase`
 -- AUTO_INCREMENT de la tabla `ficha`
 --
 ALTER TABLE `ficha`
-  MODIFY `id_ficha` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ficha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `id_grupo` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_grupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `horario_asignada`
@@ -895,7 +1132,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `ruta_ficha`
 --
 ALTER TABLE `ruta_ficha`
-  MODIFY `id_ruta_ficha` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_ruta_ficha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `sede`
@@ -923,74 +1160,75 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `actividad_proyecto`
 --
 ALTER TABLE `actividad_proyecto`
-  ADD CONSTRAINT `FKactividad_782184` FOREIGN KEY (`cod_fase`) REFERENCES `fase` (`id_fase`),
-  ADD CONSTRAINT `FKactividad_977084` FOREIGN KEY (`cod_proyecto`) REFERENCES `proyecto` (`id_proyecto`);
+  ADD CONSTRAINT `FK_cod_fase` FOREIGN KEY (`cod_fase`) REFERENCES `fase` (`id_fase`),
+  ADD CONSTRAINT `FK_cod_proyecto_actividad_proyecto` FOREIGN KEY (`cod_proyecto`) REFERENCES `proyecto` (`id_proyecto`);
 
 --
 -- Filtros para la tabla `ambiente`
 --
 ALTER TABLE `ambiente`
-  ADD CONSTRAINT `FKambiente827022` FOREIGN KEY (`cod_estado_ambiente`) REFERENCES `estado_ambiente` (`id_estado_ambiente`),
-  ADD CONSTRAINT `FKambiente983549` FOREIGN KEY (`cod_sede`) REFERENCES `sede` (`id_sede`);
+  ADD CONSTRAINT `FK_cod_estado_ambiente` FOREIGN KEY (`cod_estado_ambiente`) REFERENCES `estado_ambiente` (`id_estado_ambiente`),
+  ADD CONSTRAINT `FK_cod_sede` FOREIGN KEY (`cod_sede`) REFERENCES `sede` (`id_sede`);
 
 --
 -- Filtros para la tabla `competencia`
 --
 ALTER TABLE `competencia`
-  ADD CONSTRAINT `FKcompetenci386058` FOREIGN KEY (`cod_programa_formacion`) REFERENCES `programa_formacion` (`id_programa_formacion`);
+  ADD CONSTRAINT `FK_cod_programa_formacion` FOREIGN KEY (`cod_programa_formacion`) REFERENCES `programa_formacion` (`id_programa_formacion`);
 
 --
 -- Filtros para la tabla `ficha`
 --
 ALTER TABLE `ficha`
-  ADD CONSTRAINT `FKficha980236` FOREIGN KEY (`cod_estado_ficha`) REFERENCES `estado_ficha` (`id_estado_ficha`);
+  ADD CONSTRAINT `FK_cod_estado_ficha` FOREIGN KEY (`cod_estado_ficha`) REFERENCES `estado_ficha` (`id_estado_ficha`),
+  ADD CONSTRAINT `FK_cod_programa_formacion_ficha` FOREIGN KEY (`cod_programa_formacion`) REFERENCES `programa_formacion` (`id_programa_formacion`);
 
 --
 -- Filtros para la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  ADD CONSTRAINT `FKgrupo122710` FOREIGN KEY (`cod_ruta_ficha`) REFERENCES `ruta_ficha` (`id_ruta_ficha`),
-  ADD CONSTRAINT `FKgrupo863514` FOREIGN KEY (`cod_ficha`) REFERENCES `ficha` (`id_ficha`);
+  ADD CONSTRAINT `FK_cod_ficha` FOREIGN KEY (`cod_ficha`) REFERENCES `ficha` (`id_ficha`),
+  ADD CONSTRAINT `FK_cod_ruta_ficha` FOREIGN KEY (`cod_ruta_ficha`) REFERENCES `ruta_ficha` (`id_ruta_ficha`);
 
 --
 -- Filtros para la tabla `horario_asignada`
 --
 ALTER TABLE `horario_asignada`
-  ADD CONSTRAINT `FKhorario_as232796` FOREIGN KEY (`cod_instructor`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `FKhorario_as257351` FOREIGN KEY (`cod_dias`) REFERENCES `dias` (`id_dias`),
-  ADD CONSTRAINT `FKhorario_as592451` FOREIGN KEY (`cod_resultado_aprendizaje`) REFERENCES `resultado_aprendizaje` (`id_resultado_aprendizaje`),
-  ADD CONSTRAINT `FKhorario_as629941` FOREIGN KEY (`cod_ambiente`) REFERENCES `ambiente` (`id_ambiente`),
-  ADD CONSTRAINT `FKhorario_as635052` FOREIGN KEY (`cod_ruta_ficha`) REFERENCES `ruta_ficha` (`id_ruta_ficha`),
-  ADD CONSTRAINT `FKhorario_as79274` FOREIGN KEY (`cod_modo`) REFERENCES `modo` (`id_modo`),
-  ADD CONSTRAINT `FKhorario_as886572` FOREIGN KEY (`cod_trimestre_horario`) REFERENCES `trimestre` (`id_trimestre`),
-  ADD CONSTRAINT `FKhorario_as984309` FOREIGN KEY (`cod_estado_horario`) REFERENCES `estado_horario_asignada` (`id_estado_horario_asignada`);
+  ADD CONSTRAINT `FK_cod_ambiente` FOREIGN KEY (`cod_ambiente`) REFERENCES `ambiente` (`id_ambiente`),
+  ADD CONSTRAINT `FK_cod_dias` FOREIGN KEY (`cod_dias`) REFERENCES `dias` (`id_dias`),
+  ADD CONSTRAINT `FK_cod_estado_horario_asignado` FOREIGN KEY (`cod_estado_horario`) REFERENCES `estado_horario_asignada` (`id_estado_horario_asignada`),
+  ADD CONSTRAINT `FK_cod_instructor` FOREIGN KEY (`cod_instructor`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `FK_cod_modo` FOREIGN KEY (`cod_modo`) REFERENCES `modo` (`id_modo`),
+  ADD CONSTRAINT `FK_cod_resultado_aprendizaje` FOREIGN KEY (`cod_resultado_aprendizaje`) REFERENCES `resultado_aprendizaje` (`id_resultado_aprendizaje`),
+  ADD CONSTRAINT `FK_cod_ruta_ficha_horario_asignada` FOREIGN KEY (`cod_ruta_ficha`) REFERENCES `ruta_ficha` (`id_ruta_ficha`),
+  ADD CONSTRAINT `FK_cod_trimestre` FOREIGN KEY (`cod_trimestre_horario`) REFERENCES `trimestre` (`id_trimestre`);
 
 --
 -- Filtros para la tabla `programa_formacion`
 --
 ALTER TABLE `programa_formacion`
-  ADD CONSTRAINT `FKCod_estado_programa_formacion` FOREIGN KEY (`cod_estado_programa_formacion`) REFERENCES `estado_programa_formacion` (`id_estado_programa_formacion`),
-  ADD CONSTRAINT `FKCod_nivel_programa_formacion` FOREIGN KEY (`cod_nivel_programa_formacion`) REFERENCES `nivel_programa_formacion` (`id_nivel_programa_formacion`),
-  ADD CONSTRAINT `FKCod_proyecto` FOREIGN KEY (`cod_proyecto`) REFERENCES `proyecto` (`id_proyecto`);
+  ADD CONSTRAINT `FK_cod_estado_programa_formacion` FOREIGN KEY (`cod_estado_programa_formacion`) REFERENCES `estado_programa_formacion` (`id_estado_programa_formacion`),
+  ADD CONSTRAINT `FK_cod_nivel_programa_formacion` FOREIGN KEY (`cod_nivel_programa_formacion`) REFERENCES `nivel_programa_formacion` (`id_nivel_programa_formacion`),
+  ADD CONSTRAINT `FK_cod_proyecto_programa_formacion` FOREIGN KEY (`cod_proyecto`) REFERENCES `proyecto` (`id_proyecto`);
 
 --
 -- Filtros para la tabla `resultado_aprendizaje`
 --
 ALTER TABLE `resultado_aprendizaje`
-  ADD CONSTRAINT `FkCod_competencia` FOREIGN KEY (`cod_competencia`) REFERENCES `competencia` (`num_competencia1`);
+  ADD CONSTRAINT `FK_cod_competencia` FOREIGN KEY (`cod_competencia`) REFERENCES `competencia` (`num_competencia1`);
 
 --
 -- Filtros para la tabla `ruta_ficha`
 --
 ALTER TABLE `ruta_ficha`
-  ADD CONSTRAINT `FKruta_ficha297110` FOREIGN KEY (`cod_jornada`) REFERENCES `jornada` (`id_jornada`);
+  ADD CONSTRAINT `FK_cod_jornada` FOREIGN KEY (`cod_jornada`) REFERENCES `jornada` (`id_jornada`);
 
 --
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `FKusuario602020` FOREIGN KEY (`cod_estado_usuario`) REFERENCES `estado_usuario` (`id_estado_usuario`),
-  ADD CONSTRAINT `FKusuario660816` FOREIGN KEY (`cod_rol`) REFERENCES `rol` (`id_rol`);
+  ADD CONSTRAINT `FK_cod_estado_usuario` FOREIGN KEY (`cod_estado_usuario`) REFERENCES `estado_usuario` (`id_estado_usuario`),
+  ADD CONSTRAINT `FK_cod_rol` FOREIGN KEY (`cod_rol`) REFERENCES `rol` (`id_rol`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

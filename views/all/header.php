@@ -1,3 +1,17 @@
+<script>
+  $(window).on('load, resize', function mobileViewUpdate() {
+    const div = document.querySelector('#bloque');
+    var viewportWidth = $(window).width();
+    if (viewportWidth < 992) {
+      div.classList.replace("container", "container-fluid");
+    }
+    else{
+      div.classList.replace("container-fluid", "container");
+    }
+  });
+</script>
+
+
 <!-- BODY -->
 <div id="bloque" class="container">
 
