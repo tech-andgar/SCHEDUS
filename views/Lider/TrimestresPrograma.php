@@ -97,7 +97,7 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
- aria-hidden="true">
+aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -112,9 +112,7 @@
 				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
-						<br>
-						<br>
+						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>

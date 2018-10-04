@@ -1,25 +1,25 @@
 <div class="col-lg-9 col-md-8 col-12">
-<div class="row">
-	<div class="col-md-12">
+	<div class="row">
+		<div class="col-md-12">
 			<h4 class="text-center my-4">Administrar Fichas de programas de formación</h4>
 			<hr>
-	</div>
-	<div class="col-lg-4 col-md-6 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Agregar_Ficha" class=" text-center" >
-				<button class="btn-rounded"><i class="fas fa-plus-circle"></i> 	Agregar Nueva Ficha</button>
+		</div>
+		<div class="col-lg-4 col-md-6 col-12 mt-2">
+			<div data-toggle="modal" data-target="#Agregar_Ficha" class=" text-center">
+				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nueva Ficha</button>
 			</div>
 		</div>
 		<div class="col-lg-4 col-md-6 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Agregar_Grupo" class=" text-center" >
-				<button class="btn-rounded"><i class="fas fa-plus-circle"></i> 	Agregar Nuevo Grupo</button>
+			<div data-toggle="modal" data-target="#Agregar_Grupo" class=" text-center">
+				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nuevo Grupo</button>
 			</div>
 		</div>
 		<div class="col-lg-4 col-md-12 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Fusionar" class=" text-center" >
-				<button class="btn-rounded"><i class="fas fa-compress-alt"></i>	Fusionar</button>
+			<div data-toggle="modal" data-target="#Fusionar" class=" text-center">
+				<button class="btn-rounded"><i class="fas fa-compress-alt fa-lg"></i>&nbsp;&nbsp;Fusionar</button>
 			</div>
+		</div>
 	</div>
-</div>
 	<div class="mt-5 row justify-content-center">
 		<div class="col-md-12">
 			<div class="row d-flex justify-content-center">
@@ -136,9 +136,7 @@
 				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
-						<br>
-						<br>
+						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>

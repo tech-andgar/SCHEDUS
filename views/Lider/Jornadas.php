@@ -5,7 +5,7 @@
 			<h4 class="text-center mb-1">Administrar Jornadas de formación</h4>
 			<hr>
 			<div data-toggle="modal" data-target="#Agregar" class=" text-center">
-				<button class="btn-rounded"><i class="fas fa-plus-circle"></i> 	Agregar Nuevo Programa</button>
+				<button class="btn-rounded"><i class="fas fa-plus-circle"></i> Agregar Nuevo Programa</button>
 			</div>
 			<br>
 			<div class="row d-flex justify-content-center">
@@ -215,9 +215,7 @@
 				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
-						<br>
-						<br>
+						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
@@ -242,9 +240,7 @@
 				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
-						<br>
-						<br>
+						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
 					</form>
