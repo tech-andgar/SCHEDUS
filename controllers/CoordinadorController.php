@@ -13,7 +13,7 @@ class CoordinadorController extends Path
 
     public function index()
     {
-        parent::view('coordinador', 'Aprobar', 'Aprobar');
+        parent::viewModule('coordinador', 'index', 'Aprobar');
     }
 
     public function Aprobar()

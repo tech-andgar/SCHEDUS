@@ -2,23 +2,16 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#EC7C38;">
         <div class="container">
             <h1>
-                <a class="navbar-brand" href="?c=instructor">
-                    SCHEDUS
-                </a>
+                <a class="navbar-brand" href="#">SCHEDUS</a>
             </h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse col-12 col-md-10" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="btn btn-outline-light my-2 my-sm-0" href="index.php?c=instructor">Diponibilidad</a>
-                    </li>
-                </ul>
                 <ul class="nav navbar-nav ml-auto">
                     <li>
-                        <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Instructor</a>
+                        <a class="btn btn-outline-light my-2 mr-3 my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Lider</a>
                     </li>
                     <li>
                         <a class="btn btn-outline-light my-2 my-sm-0" href="?c=security&m=destroy">Cerrar sesion</a>
