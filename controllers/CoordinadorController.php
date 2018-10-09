@@ -18,11 +18,11 @@ class CoordinadorController extends Path
 
     public function Aprobar()
     {
-        parent::view('coordinador', 'Aprobar', 'Aprobar');
+        parent::viewModule('coordinador', 'Aprobar', 'Aprobar');
     }
 
     public function Horas_Instructores()
     {
-        parent::view('coordinador', 'Horas_Instructores', 'Horas Instructores');
+        parent::viewModule('coordinador', 'Horas_Instructores', 'Horas Instructores');
     }
 }

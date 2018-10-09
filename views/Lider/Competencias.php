@@ -5,7 +5,7 @@
 			<h4 class="text-center mb-1">Administrar competencias de programas de formación</h4>
 			<hr>
 			<div data-toggle="modal" data-target="#Agregar" class=" text-center">
-				<button class="btn-rounded"><i class="fas fa-plus-circle"></i> Agregar Nueva Ficha</button>
+				<button class="btn-rounded"><i class="fas fa-plus-circle"></i> Agregar Nueva Competencia</button>
 			</div>
 			<br>
 			<div class="row d-flex justify-content-center">
@@ -13,7 +13,7 @@
 					<thead>
 						<tr class="success">
 							<th class="">Programa</th>
-							<th class="text-center">Estado</th>
+							<th class="text-center">Competencia</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
 					</thead>
@@ -121,12 +121,16 @@
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
-						<h5>Numero de la Ficha</h5>
-						<input type="text" class="adsi-css" style="width:80%; height:30px" name="dni" />
-						<br>
-						<br>
-						<h5>Nombre Competencia</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+						<h5>Seleccione del Programa</h5>
+                                    <select class="adsi-css" style="width:65%; height:30px" required>
+                                        <option value="tab">Analisis de sistema de informacion</option>
+                                        <option value="tab">Implementacion de sistemas de informacion geografica</option>
+                                        <option value="tab">Seguridad en gestion de bases de datos</option>
+                                        <option value="tab">Tecnico de programacion de software</option>
+                                    </select>
+						<h5>Nombre de la Competencia</h5>
+						<textarea class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
+
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
 					</form>
