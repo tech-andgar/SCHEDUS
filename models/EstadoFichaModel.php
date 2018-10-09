@@ -1,11 +1,6 @@
 <?php
-namespace Ficha;
-
-require_once(realpath(dirname(__FILE__)) . '/../Ficha/FichaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Ficha\FichaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/FichaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

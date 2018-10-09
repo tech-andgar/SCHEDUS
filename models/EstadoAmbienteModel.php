@@ -1,11 +1,6 @@
 <?php
-namespace Ambiente;
-
-require_once(realpath(dirname(__FILE__)) . '/../Ambiente/AmbienteModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Ambiente\AmbienteModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/AmbienteModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

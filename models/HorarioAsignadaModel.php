@@ -1,25 +1,13 @@
 <?php
-namespace Horario;
-
-require_once(realpath(dirname(__FILE__)) . '/../Horario/EstadoHorarioAsignadaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Horario/DiasModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Horario/TrimestreModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Horario/ModoModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Usuario/UsuarioModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/ResultadoAprendizajeModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Ficha/RutaFichaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Ambiente/AmbienteModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Horario\EstadoHorarioAsignadaModel;
-use Horario\DiasModel;
-use Horario\TrimestreModel;
-use Horario\ModoModel;
-use Usuario\UsuarioModel;
-use Programa_de_formación\ResultadoAprendizajeModel;
-use Ficha\RutaFichaModel;
-use Ambiente\AmbienteModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/EstadoHorarioAsignadaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DiasModel.php');
+require_once(realpath(dirname(__FILE__)) . '/TrimestreModel.php');
+require_once(realpath(dirname(__FILE__)) . '/ModoModel.php');
+require_once(realpath(dirname(__FILE__)) . '/UsuarioModel.php');
+require_once(realpath(dirname(__FILE__)) . '/ResultadoAprendizajeModel.php');
+require_once(realpath(dirname(__FILE__)) . '/RutaFichaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/AmbienteModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

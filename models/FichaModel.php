@@ -1,15 +1,8 @@
 <?php
-namespace Ficha;
-
-require_once(realpath(dirname(__FILE__)) . '/../Ficha/EstadoFichaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/ProgramaFormacionModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Ficha/GrupoModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Ficha\EstadoFichaModel;
-use Programa_de_formación\ProgramaFormacionModel;
-use Ficha\GrupoModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/EstadoFichaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/ProgramaFormacionModel.php');
+require_once(realpath(dirname(__FILE__)) . '/GrupoModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

@@ -1,11 +1,6 @@
 <?php
-namespace Ficha;
-
-require_once(realpath(dirname(__FILE__)) . '/../Ficha/RutaFichaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Ficha\RutaFichaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/RutaFichaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

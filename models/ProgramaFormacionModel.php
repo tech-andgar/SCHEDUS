@@ -1,19 +1,10 @@
 <?php
-namespace Programa_de_formación;
-
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/EstadoProgramaFormacionModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/NivelProgramaFormacionModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/ProyectoModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/CompetenciaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Ficha/FichaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Programa_de_formación\EstadoProgramaFormacionModel;
-use Programa_de_formación\NivelProgramaFormacionModel;
-use Programa_de_formación\ProyectoModel;
-use Programa_de_formación\CompetenciaModel;
-use Ficha\FichaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/EstadoProgramaFormacionModel.php');
+require_once(realpath(dirname(__FILE__)) . '/NivelProgramaFormacionModel.php');
+require_once(realpath(dirname(__FILE__)) . '/ProyectoModel.php');
+require_once(realpath(dirname(__FILE__)) . '/CompetenciaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/FichaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

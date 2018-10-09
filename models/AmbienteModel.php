@@ -1,15 +1,8 @@
 <?php
-namespace Ambiente;
-
-require_once(realpath(dirname(__FILE__)) . '/../Ambiente/SedeModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Ambiente/EstadoAmbienteModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Horario/HorarioAsignadaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Ambiente\SedeModel;
-use Ambiente\EstadoAmbienteModel;
-use Horario\HorarioAsignadaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/SedeModel.php');
+require_once(realpath(dirname(__FILE__)) . '/EstadoAmbienteModel.php');
+require_once(realpath(dirname(__FILE__)) . '/HorarioAsignadaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

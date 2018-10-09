@@ -1,13 +1,7 @@
 <?php
-namespace Programa_de_formación;
-
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/FaseModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/ProyectoModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Programa_de_formación\FaseModel;
-use Programa_de_formación\ProyectoModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/FaseModel.php');
+require_once(realpath(dirname(__FILE__)) . '/ProyectoModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

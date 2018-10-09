@@ -1,13 +1,7 @@
 <?php
-namespace Programa_de_formación;
-
-require_once(realpath(dirname(__FILE__)) . '/../Programa_de_formación/CompetenciaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Horario/HorarioAsignadaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Programa_de_formación\CompetenciaModel;
-use Horario\HorarioAsignadaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/CompetenciaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/HorarioAsignadaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

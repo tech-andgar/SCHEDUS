@@ -1,11 +1,6 @@
 <?php
-namespace Usuario;
-
-require_once(realpath(dirname(__FILE__)) . '/../Usuario/UsuarioModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Usuario\UsuarioModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/UsuarioModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public

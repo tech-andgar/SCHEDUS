@@ -1,11 +1,6 @@
 <?php
-namespace Horario;
-
-require_once(realpath(dirname(__FILE__)) . '/../Horario/HorarioAsignadaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Horario\HorarioAsignadaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/HorarioAsignadaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public
