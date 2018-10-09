@@ -1,15 +1,8 @@
 <?php
-namespace Usuario;
-
-require_once(realpath(dirname(__FILE__)) . '/../Usuario/EstadoUsuarioModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Usuario/RolModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../Horario/HorarioAsignadaModel.php');
-require_once(realpath(dirname(__FILE__)) . '/../DB.php');
-
-use Usuario\EstadoUsuarioModel;
-use Usuario\RolModel;
-use Horario\HorarioAsignadaModel;
-use DB;
+require_once(realpath(dirname(__FILE__)) . '/EstadoUsuarioModel.php');
+require_once(realpath(dirname(__FILE__)) . '/RolModel.php');
+require_once(realpath(dirname(__FILE__)) . '/HorarioAsignadaModel.php');
+require_once(realpath(dirname(__FILE__)) . '/DB.php');
 
 /**
  * @access public
@@ -21,6 +14,10 @@ class UsuarioModel extends DB {
 	 * @AttributeType int
 	 */
 	private $id_usuario;
+	/**
+	 * @AttributeType string
+	 */
+	private $documento;
 	/**
 	 * @AttributeType String
 	 */
@@ -83,6 +80,26 @@ class UsuarioModel extends DB {
 	 */
 	public function setId_usuario($id_usuario) {
 		$this->id_usuario = $id_usuario;
+	}
+
+	/**
+	 * @access public
+	 * @return string
+	 * @ReturnType string
+	 */
+	public function getDocumento() {
+		return $this->documento;
+	}
+
+	/**
+	 * @access public
+	 * @param string documento
+	 * @return void
+	 * @ParamType documento string
+	 * @ReturnType void
+	 */
+	public function setDocumento($documento) {
+		$this->documento = $documento;
 	}
 
 	/**
@@ -171,16 +188,7 @@ class UsuarioModel extends DB {
 	 * @param data
 	 */
 	public function VerificarLogin(array $data) {
-		try {
-            $sql_query = "SELECT * FROM usuario WHERE dni = ? AND password = ?";
-            $stm = parent::conectar()->prepare($sql_query);
-            $stm->bindParam(1, $data['dni'], PDO::PARAM_STR);
-            $stm->bindParam(2, $data['password'], PDO::PARAM_STR);
-            $stm->execute();
-            return $stm->fetchAll(PDO::FETCH_OBJ);
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
+		// Not yet implemented
 	}
 }
 ?>
