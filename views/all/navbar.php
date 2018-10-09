@@ -43,7 +43,7 @@
         </div>
         <div class="modal-body">
           <div class="d-flex justify-content-center text-center">
-            <form method="post" action="?c=Usuario&m=ValidarUsuario" class="form-signin">
+            <form method="post" action="?c=Inicio&m=ValidarUsuario" class="form-signin">
               <h5>Numero de Documento</h5>
               <input type="number" class="adsi-css" style="width:80%; height:30px" name="dni" placeholder="Documento"
                 required />

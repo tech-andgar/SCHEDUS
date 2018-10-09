@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2018 a las 22:11:45
+-- Tiempo de generación: 09-10-2018 a las 19:16:44
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -32,8 +32,8 @@ CREATE TABLE `actividad_proyecto` (
   `id_actividad_proyecto` int(10) NOT NULL,
   `num_actividad_proyecto` varchar(5) DEFAULT NULL,
   `name_actividad_proyecto` varchar(100) DEFAULT NULL,
-  `cod_proyecto` int(10) NOT NULL,
-  `cod_fase` int(10) NOT NULL,
+  `cod_proyecto` int(10) DEFAULT NULL,
+  `cod_fase` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -48,11 +48,11 @@ CREATE TABLE `actividad_proyecto` (
 CREATE TABLE `ambiente` (
   `id_ambiente` int(10) NOT NULL,
   `num_ambiente` varchar(100) DEFAULT NULL,
-  `cod_sede` int(10) NOT NULL,
+  `cod_sede` int(10) DEFAULT NULL,
+  `cod_estado_ambiente` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
-  `version` int(10) DEFAULT NULL,
-  `cod_estado_ambiente` int(10) NOT NULL
+  `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -63,8 +63,8 @@ CREATE TABLE `ambiente` (
 
 CREATE TABLE `competencia` (
   `id_competencia` int(10) NOT NULL,
-  `codigo_competencia` int(11) DEFAULT NULL,
-  `cod_programa_formacion` int(10) NOT NULL,
+  `cod_programa_formacion` int(10) DEFAULT NULL,
+  `codigo_competencia` int(10) NOT NULL,
   `num_competencia2` varchar(20) DEFAULT NULL,
   `name_competencia` varchar(100) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -180,8 +180,8 @@ CREATE TABLE `ficha` (
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
-  `cod_estado_ficha` int(10) NOT NULL,
-  `cod_programa_formacion` int(10) NOT NULL
+  `cod_estado_ficha` int(10) DEFAULT NULL,
+  `cod_programa_formacion` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -192,9 +192,9 @@ CREATE TABLE `ficha` (
 
 CREATE TABLE `grupo` (
   `id_grupo` int(10) NOT NULL,
-  `cod_ficha` int(10) NOT NULL,
+  `cod_ficha` int(10) DEFAULT NULL,
   `num_grupo` varchar(3) DEFAULT NULL,
-  `cod_ruta_ficha` int(10) NOT NULL,
+  `cod_ruta_ficha` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -208,18 +208,18 @@ CREATE TABLE `grupo` (
 
 CREATE TABLE `horario_asignada` (
   `id_horas_asignadas` int(10) NOT NULL,
-  `cod_trimestre_horario` int(10) NOT NULL,
-  `cod_modo` int(10) NOT NULL,
-  `cod_ruta_ficha` int(10) NOT NULL,
+  `cod_trimestre_horario` int(10) DEFAULT NULL,
+  `cod_modo` int(10) DEFAULT NULL,
+  `cod_ruta_ficha` int(10) DEFAULT NULL,
   `trimestre_ficha` varchar(4) DEFAULT NULL,
-  `cod_resultado_aprendizaje` int(10) NOT NULL,
-  `cod_instructor` int(10) NOT NULL,
-  `cod_dias` int(10) NOT NULL,
+  `cod_resultado_aprendizaje` int(10) DEFAULT NULL,
+  `cod_instructor` int(10) DEFAULT NULL,
+  `cod_dias` int(10) DEFAULT NULL,
   `hora_inicio` time DEFAULT NULL,
   `hora_fin` time DEFAULT NULL,
-  `cod_ambiente` int(10) NOT NULL,
-  `completado` tinyint(1) DEFAULT NULL,
-  `cod_estado_horario` int(10) NOT NULL,
+  `cod_ambiente` int(10) DEFAULT NULL,
+  `completado` bit(1) DEFAULT NULL,
+  `cod_estado_horario` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -280,9 +280,9 @@ CREATE TABLE `programa_formacion` (
   `short_name_programa_formacion` varchar(5) DEFAULT NULL,
   `name_programa_formacion` varchar(200) DEFAULT NULL,
   `version_programa` varchar(10) DEFAULT NULL,
-  `cod_nivel_programa_formacion` int(10) NOT NULL,
-  `cod_proyecto` int(10) NOT NULL,
-  `cod_estado_programa_formacion` int(10) NOT NULL,
+  `cod_nivel_programa_formacion` int(10) DEFAULT NULL,
+  `cod_proyecto` int(10) DEFAULT NULL,
+  `cod_estado_programa_formacion` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -312,7 +312,7 @@ CREATE TABLE `resultado_aprendizaje` (
   `id_resultado_aprendizaje` int(10) NOT NULL,
   `num_resultado_aprendizaje1` varchar(10) DEFAULT NULL,
   `num_resultado_aprendizaje2` varchar(10) DEFAULT NULL,
-  `cod_competencia` int(11) DEFAULT NULL,
+  `cod_competencia` int(10) DEFAULT NULL,
   `name_resultado_aprendizaje` varchar(100) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
@@ -343,7 +343,7 @@ CREATE TABLE `ruta_ficha` (
   `id_ruta_ficha` int(10) NOT NULL,
   `name_ruta_ficha` varchar(100) DEFAULT NULL,
   `num_ruta_ficha` varchar(10) DEFAULT NULL,
-  `cod_jornada` int(10) NOT NULL,
+  `cod_jornada` int(10) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `observaciones` varchar(250) DEFAULT NULL,
@@ -391,12 +391,13 @@ CREATE TABLE `trimestre` (
 
 CREATE TABLE `usuario` (
   `id_usuario` int(10) NOT NULL,
-  `email` varchar(60) DEFAULT NULL,
+  `documento` varchar(15) DEFAULT NULL,
   `nombre` varchar(60) DEFAULT NULL,
   `apellido` varchar(60) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
-  `cod_rol` int(10) NOT NULL,
-  `cod_estado_usuario` int(10) NOT NULL,
+  `cod_rol` int(10) DEFAULT NULL,
+  `cod_estado_usuario` int(10) DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL
@@ -419,6 +420,21 @@ CREATE TABLE `v_ambientes` (
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `v_ficha_programa`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `v_ficha_programa` (
+`id_ficha` int(10)
+,`num_ficha` varchar(100)
+,`num_grupo` varchar(3)
+,`name_programa_formacion` varchar(200)
+,`name_nivel_programa_formacion` varchar(100)
+,`name_estado_ficha` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura Stand-in para la vista `v_horario_asignado`
 -- (Véase abajo para la vista actual)
 --
@@ -433,12 +449,12 @@ CREATE TABLE `v_horario_asignado` (
 ,`name_programa_formacion` varchar(200)
 ,`fecha_inicio2` date
 ,`fecha_fin2` date
-,`cod_competencia` int(11)
+,`cod_competencia` int(10)
 ,`num_resultado_aprendizaje1` varchar(10)
 ,`num_resultado_aprendizaje2` varchar(10)
 ,`name_resultado_aprendizaje` varchar(100)
 ,`cod_programa_formacion` int(10)
-,`codigo_competencia` int(11)
+,`codigo_competencia` int(10)
 ,`num_competencia2` varchar(20)
 ,`name_competencia` varchar(100)
 ,`nombre` varchar(60)
@@ -468,12 +484,12 @@ CREATE TABLE `v_horario_asignado` (
 --
 CREATE TABLE `v_programa_formacion` (
 `id_resultado_aprendizaje` int(10)
-,`cod_competencia` int(11)
+,`cod_competencia` int(10)
 ,`num_resultado_aprendizaje1` varchar(10)
 ,`num_resultado_aprendizaje2` varchar(10)
 ,`name_resultado_aprendizaje` varchar(100)
 ,`cod_programa_formacion` int(10)
-,`codigo_competencia` int(11)
+,`codigo_competencia` int(10)
 ,`num_competencia2` varchar(20)
 ,`name_competencia` varchar(100)
 ,`id_programa_formacion` int(10)
@@ -518,6 +534,7 @@ CREATE TABLE `v_ruta_ficha` (
 --
 CREATE TABLE `v_usuarios` (
 `id_usuario` int(10)
+,`documento` varchar(15)
 ,`nombre` varchar(60)
 ,`apellido` varchar(60)
 ,`email` varchar(60)
@@ -536,6 +553,15 @@ CREATE TABLE `v_usuarios` (
 DROP TABLE IF EXISTS `v_ambientes`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ambientes`  AS  select `ambiente`.`id_ambiente` AS `id_ambiente`,`ambiente`.`num_ambiente` AS `num_ambiente`,`sede`.`name_sede` AS `name_sede`,`sede`.`direccion` AS `direccion`,`estado_ambiente`.`name_estado_ambiente` AS `name_estado_ambiente` from ((`ambiente` join `sede` on((`ambiente`.`cod_sede` = `sede`.`id_sede`))) join `estado_ambiente` on((`ambiente`.`cod_estado_ambiente` = `estado_ambiente`.`id_estado_ambiente`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_programa`
+--
+DROP TABLE IF EXISTS `v_ficha_programa`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on((`ficha`.`id_ficha` = `grupo`.`cod_ficha`))) join `estado_ficha` on((`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`))) join `programa_formacion` on((`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`))) join `nivel_programa_formacion` on((`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`))) ;
 
 -- --------------------------------------------------------
 
@@ -571,7 +597,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`documento` AS `documento`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -601,7 +627,7 @@ ALTER TABLE `ambiente`
 -- Indices de la tabla `competencia`
 --
 ALTER TABLE `competencia`
-  ADD PRIMARY KEY (`id_competencia`),
+  ADD PRIMARY KEY (`codigo_competencia`),
   ADD UNIQUE KEY `name_competencia` (`name_competencia`),
   ADD KEY `competencia` (`codigo_competencia`),
   ADD KEY `FK_cod_programa_formacion` (`cod_programa_formacion`);
@@ -769,6 +795,7 @@ ALTER TABLE `trimestre`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `documento` (`documento`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   ADD KEY `FK_cod_rol` (`cod_rol`);
@@ -788,12 +815,6 @@ ALTER TABLE `actividad_proyecto`
 --
 ALTER TABLE `ambiente`
   MODIFY `id_ambiente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `competencia`
---
-ALTER TABLE `competencia`
-  MODIFY `id_competencia` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `dias`

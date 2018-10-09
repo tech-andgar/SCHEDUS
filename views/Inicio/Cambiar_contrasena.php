@@ -9,8 +9,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <center>
+        <div class="col-md-12 justify-content-center" >
                 <form method="POST" action="../controlador/validar.php" class="form-signin">
                     <div class="row col-md-6 justify-content-center" id="box-search">
                         <h5>Contraseña</h5>
@@ -25,7 +24,6 @@
                         <br>
                 </form>
                 </div>
-            </center>
         </div>
     </div>
 

@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Bootstrap -->
     <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./vendor/components/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome-all.css" rel="stylesheet">
+    <!-- <link href="./vendor/components/font-awesome/css/fontawesome-all.min.css" rel="stylesheet"> -->
     <link rel="icon" type="image/webp" sizes="32x32" href="./assets/images/favicon-32x32.webp">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./vendor/grimmlink/toastr/build/toastr.min.css">

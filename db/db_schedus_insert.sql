@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2018 a las 22:11:29
+-- Tiempo de generación: 09-10-2018 a las 19:16:14
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -26,20 +26,20 @@ SET time_zone = "+00:00";
 -- Volcado de datos para la tabla `ambiente`
 --
 
-INSERT INTO `ambiente` (`id_ambiente`, `num_ambiente`, `cod_sede`, `create_time`, `update_time`, `version`, `cod_estado_ambiente`) VALUES
-(1, '203', 2, '2018-10-03 02:23:50', '2018-10-03 22:49:14', NULL, 1);
+INSERT INTO `ambiente` (`id_ambiente`, `num_ambiente`, `cod_sede`, `cod_estado_ambiente`, `create_time`, `update_time`, `version`) VALUES
+(1, '203', 2, 1, '2018-10-03 02:23:50', '2018-10-03 22:49:14', NULL);
 
 --
 -- Volcado de datos para la tabla `competencia`
 --
 
-INSERT INTO `competencia` (`id_competencia`, `codigo_competencia`, `cod_programa_formacion`, `num_competencia2`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
-(1, 220501014, 1, '35848', 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-03 05:17:28', '2018-10-03 22:49:09', NULL),
-(2, 220501013, 1, '35823', 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(3, 220501031, 2, '02966', 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(4, 220501039, 2, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(5, 220501034, 3, '35325', 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(6, 220501035, 3, '35329', 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL);
+INSERT INTO `competencia` (`id_competencia`, `cod_programa_formacion`, `codigo_competencia`, `num_competencia2`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
+(2, 1, 220501013, '35823', 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(1, 1, 220501014, '35848', 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-03 05:17:28', '2018-10-03 22:49:09', NULL),
+(3, 2, 220501031, '02966', 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(5, 3, 220501034, '35325', 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(6, 3, 220501035, '35329', 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(4, 2, 220501039, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL);
 
 --
 -- Volcado de datos para la tabla `dias`
@@ -248,10 +248,10 @@ INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fech
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `email`, `nombre`, `apellido`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
-(1, 'admin@email.com', 'Admin', 'Nimda', '123456', 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
-(2, 'lider@email.com', 'Lider', 'Redil', '654321', 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
-(3, 'instructor@email.com', 'Instructor', 'Rotcurtsni', '321654', 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02');
+INSERT INTO `usuario` (`id_usuario`, `documento`, `nombre`, `apellido`, `email`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
+(1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
+(2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
+(3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02');
 
 -- --------------------------------------------------------
 
@@ -261,6 +261,15 @@ INSERT INTO `usuario` (`id_usuario`, `email`, `nombre`, `apellido`, `password`, 
 DROP TABLE IF EXISTS `v_ambientes`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ambientes`  AS  select `ambiente`.`id_ambiente` AS `id_ambiente`,`ambiente`.`num_ambiente` AS `num_ambiente`,`sede`.`name_sede` AS `name_sede`,`sede`.`direccion` AS `direccion`,`estado_ambiente`.`name_estado_ambiente` AS `name_estado_ambiente` from ((`ambiente` join `sede` on((`ambiente`.`cod_sede` = `sede`.`id_sede`))) join `estado_ambiente` on((`ambiente`.`cod_estado_ambiente` = `estado_ambiente`.`id_estado_ambiente`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_programa`
+--
+DROP TABLE IF EXISTS `v_ficha_programa`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on((`ficha`.`id_ficha` = `grupo`.`cod_ficha`))) join `estado_ficha` on((`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`))) join `programa_formacion` on((`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`))) join `nivel_programa_formacion` on((`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`))) ;
 
 -- --------------------------------------------------------
 
@@ -296,7 +305,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`documento` AS `documento`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

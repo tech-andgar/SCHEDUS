@@ -14,12 +14,7 @@ class InstructorController extends Path
 
     public function index()
     {
-        parent::view('instructor', 'Disponibilidad', 'Disponibilidad');
-    }
-
-    public function Disponibilidad()
-    {
-        parent::view('instructor', 'Disponibilidad', 'Disponibilidad');
+        parent::viewModule('instructor', 'index', 'Disponibilidad');
     }
 
     public function HorasDisponibilidad()

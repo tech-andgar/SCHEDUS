@@ -1,2 +1,6 @@
 <?php
-const user_id1= "SELECT * FROM usuario WHERE dni = ?";;
+class preparedSQL
+{
+    const USER1_QUERY_DNI = "SELECT * FROM usuario WHERE documento = ?";
+}
+
