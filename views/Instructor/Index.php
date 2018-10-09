@@ -4,6 +4,11 @@
 <!-- TITLE -->
 <div class="row align-items-center h-100">
   <div class="col-12 mx-auto text-center">
+	<script type="text/javascript">
+				toastr.warning(
+					'Tener presente que la infomación aquí diligenciada deberá ser debidamente soportada cuando sea requerida por la Coordinación Académica',
+					'AVISO')
+			</script>
 	<h1 class="display-5 my-3">Disponibilidad Horaria</h1>
   </div>
 </div>

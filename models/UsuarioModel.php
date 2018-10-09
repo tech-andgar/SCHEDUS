@@ -184,17 +184,19 @@ class UsuarioModel extends DB {
 
 	/**
 	 * Verificar Login desde <FORM> al DB
+	 * @author Andres Garcia
+     * @param $array es $_POST
 	 * @access public
 	 * @param data
 	 */
 	public function VerificarLogin(array $data) {
 		try {
-            $sql_query = "SELECT * FROM usuario WHERE dni = ? AND password = ?";
-            $stm = parent::conectar()->prepare($sql_query);
-            $stm->bindParam(1, $array['dni'], PDO::PARAM_STR);
-            $stm->bindParam(2, $array['password'], PDO::PARAM_STR);
+            $sql_query = "SELECT * FROM usuario WHERE documento = ? AND password = ?";
+			$stm = parent::conectar()->prepare($sql_query);
+            $stm->bindParam(1, $data['dni'], PDO::PARAM_STR);
+            $stm->bindParam(2, $data['password'], PDO::PARAM_STR);
             $stm->execute();
-            return $stm->fetchAll(PDO::FETCH_OBJ);
+            return $stm->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             die($e->getMessage());
         }
