@@ -188,7 +188,16 @@ class UsuarioModel extends DB {
 	 * @param data
 	 */
 	public function VerificarLogin(array $data) {
-		// Not yet implemented
+		try {
+            $sql_query = "SELECT * FROM usuario WHERE dni = ? AND password = ?";
+            $stm = parent::conectar()->prepare($sql_query);
+            $stm->bindParam(1, $array['dni'], PDO::PARAM_STR);
+            $stm->bindParam(2, $array['password'], PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
 	}
 }
 ?>
