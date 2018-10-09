@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2018 a las 23:11:55
+-- Tiempo de generación: 09-10-2018 a las 19:15:49
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -32,8 +32,8 @@ CREATE TABLE `actividad_proyecto` (
   `id_actividad_proyecto` int(10) NOT NULL,
   `num_actividad_proyecto` varchar(5) DEFAULT NULL,
   `name_actividad_proyecto` varchar(100) DEFAULT NULL,
-  `cod_proyecto` int(10) NOT NULL,
-  `cod_fase` int(10) NOT NULL,
+  `cod_proyecto` int(10) DEFAULT NULL,
+  `cod_fase` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -48,19 +48,19 @@ CREATE TABLE `actividad_proyecto` (
 CREATE TABLE `ambiente` (
   `id_ambiente` int(10) NOT NULL,
   `num_ambiente` varchar(100) DEFAULT NULL,
-  `cod_sede` int(10) NOT NULL,
+  `cod_sede` int(10) DEFAULT NULL,
+  `cod_estado_ambiente` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
-  `version` int(10) DEFAULT NULL,
-  `cod_estado_ambiente` int(10) NOT NULL
+  `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `ambiente`
 --
 
-INSERT INTO `ambiente` (`id_ambiente`, `num_ambiente`, `cod_sede`, `create_time`, `update_time`, `version`, `cod_estado_ambiente`) VALUES
-(1, '203', 2, '2018-10-03 02:23:50', '2018-10-03 22:49:14', NULL, 1);
+INSERT INTO `ambiente` (`id_ambiente`, `num_ambiente`, `cod_sede`, `cod_estado_ambiente`, `create_time`, `update_time`, `version`) VALUES
+(1, '203', 2, 1, '2018-10-03 02:23:50', '2018-10-03 22:49:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -70,8 +70,8 @@ INSERT INTO `ambiente` (`id_ambiente`, `num_ambiente`, `cod_sede`, `create_time`
 
 CREATE TABLE `competencia` (
   `id_competencia` int(10) NOT NULL,
+  `cod_programa_formacion` int(10) DEFAULT NULL,
   `codigo_competencia` int(10) NOT NULL,
-  `cod_programa_formacion` int(10) NOT NULL,
   `num_competencia2` varchar(20) DEFAULT NULL,
   `name_competencia` varchar(100) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -83,13 +83,13 @@ CREATE TABLE `competencia` (
 -- Volcado de datos para la tabla `competencia`
 --
 
-INSERT INTO `competencia` (`id_competencia`, `codigo_competencia`, `cod_programa_formacion`, `num_competencia2`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
-(2, 220501013, 1, '35823', 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(1, 220501014, 1, '35848', 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-03 05:17:28', '2018-10-03 22:49:09', NULL),
-(3, 220501031, 2, '02966', 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(5, 220501034, 3, '35325', 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(6, 220501035, 3, '35329', 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(4, 220501039, 2, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL);
+INSERT INTO `competencia` (`id_competencia`, `cod_programa_formacion`, `codigo_competencia`, `num_competencia2`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
+(2, 1, 220501013, '35823', 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(1, 1, 220501014, '35848', 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-03 05:17:28', '2018-10-03 22:49:09', NULL),
+(3, 2, 220501031, '02966', 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(5, 3, 220501034, '35325', 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(6, 3, 220501035, '35329', 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(4, 2, 220501039, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -267,8 +267,8 @@ CREATE TABLE `ficha` (
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
-  `cod_estado_ficha` int(10) NOT NULL,
-  `cod_programa_formacion` int(10) NOT NULL
+  `cod_estado_ficha` int(10) DEFAULT NULL,
+  `cod_programa_formacion` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -287,9 +287,9 @@ INSERT INTO `ficha` (`id_ficha`, `num_ficha`, `create_time`, `update_time`, `ver
 
 CREATE TABLE `grupo` (
   `id_grupo` int(10) NOT NULL,
-  `cod_ficha` int(10) NOT NULL,
+  `cod_ficha` int(10) DEFAULT NULL,
   `num_grupo` varchar(3) DEFAULT NULL,
-  `cod_ruta_ficha` int(10) NOT NULL,
+  `cod_ruta_ficha` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -315,18 +315,18 @@ INSERT INTO `grupo` (`id_grupo`, `cod_ficha`, `num_grupo`, `cod_ruta_ficha`, `cr
 
 CREATE TABLE `horario_asignada` (
   `id_horas_asignadas` int(10) NOT NULL,
-  `cod_trimestre_horario` int(10) NOT NULL,
-  `cod_modo` int(10) NOT NULL,
-  `cod_ruta_ficha` int(10) NOT NULL,
+  `cod_trimestre_horario` int(10) DEFAULT NULL,
+  `cod_modo` int(10) DEFAULT NULL,
+  `cod_ruta_ficha` int(10) DEFAULT NULL,
   `trimestre_ficha` varchar(4) DEFAULT NULL,
-  `cod_resultado_aprendizaje` int(10) NOT NULL,
-  `cod_instructor` int(10) NOT NULL,
-  `cod_dias` int(10) NOT NULL,
+  `cod_resultado_aprendizaje` int(10) DEFAULT NULL,
+  `cod_instructor` int(10) DEFAULT NULL,
+  `cod_dias` int(10) DEFAULT NULL,
   `hora_inicio` time DEFAULT NULL,
   `hora_fin` time DEFAULT NULL,
-  `cod_ambiente` int(10) NOT NULL,
-  `completado` tinyint(1) DEFAULT NULL,
-  `cod_estado_horario` int(10) NOT NULL,
+  `cod_ambiente` int(10) DEFAULT NULL,
+  `completado` bit(1) DEFAULT NULL,
+  `cod_estado_horario` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -419,9 +419,9 @@ CREATE TABLE `programa_formacion` (
   `short_name_programa_formacion` varchar(5) DEFAULT NULL,
   `name_programa_formacion` varchar(200) DEFAULT NULL,
   `version_programa` varchar(10) DEFAULT NULL,
-  `cod_nivel_programa_formacion` int(10) NOT NULL,
-  `cod_proyecto` int(10) NOT NULL,
-  `cod_estado_programa_formacion` int(10) NOT NULL,
+  `cod_nivel_programa_formacion` int(10) DEFAULT NULL,
+  `cod_proyecto` int(10) DEFAULT NULL,
+  `cod_estado_programa_formacion` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL
@@ -473,40 +473,39 @@ CREATE TABLE `resultado_aprendizaje` (
   `name_resultado_aprendizaje` varchar(100) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL,
-  `version` int(10) DEFAULT NULL,
-  `competenciaid_competencia` int(10) DEFAULT NULL
+  `version` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `resultado_aprendizaje`
 --
 
-INSERT INTO `resultado_aprendizaje` (`id_resultado_aprendizaje`, `num_resultado_aprendizaje1`, `num_resultado_aprendizaje2`, `cod_competencia`, `name_resultado_aprendizaje`, `create_time`, `update_time`, `version`, `competenciaid_competencia`) VALUES
-(1, 'NULL', 'NULL', 0, 'Definir el plan de seguridad para la red de datos aplicando estándares y normas internacionales de s', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(2, 'NULL', 'NULL', 0, 'Diagnosticar el estado de la seguridad en la red de datos de la organización para definir el plan de', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(3, 'NULL', 'NULL', 0, 'Implementar el plan de seguridad en la organización aplicando estándares y normas internacionales de', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(4, 'NULL', '437214', 0, 'Realizar procesos de contratación y negociación de la infraestructura de TI, participando como contr', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(5, 'NULL', '437208', 0, 'Elaborar la documentación de los procedimientos técnicos y administrativos, de acuerdo a los requeri', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(6, 'NULL', '437207', 0, 'Monitorear los eventos en la infraestructura de red, mediante herramientas y técnicas forenses que p', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(7, 'NULL', '437152', 0, 'Monitorear el funcionamiento de la red de acuerdo a políticas de la organización y frente a eventual', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(8, 'NULL', '437151', 0, 'Elaborar la bitácora de los procedimientos técnicos y administrativos, mediante el uso de herramient', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(9, 'NULL', '437150', 0, 'Comprobar especificaciones técnicas del software mediante la comparación del software recibido con e', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(10, 'NULL', '437149', 0, 'Establecer sistemas de control en la red para mantenerla activa y disponible, según necesidades, pol', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(11, '04', '437140', 220501031, 'Elaborar los manuales y ayudas análogas o digitales necesarias para facilitar la operación del proye', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(12, '03', '437139', 220501031, 'Realizar las modificaciones pertinentes de acuerdo a lo evaluado en las pruebas de accesibilidad, di', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(13, '01', '436565', 220501035, 'Identificar las características de los procesos de desarrollo de software, frente al referente de ca', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(14, '05', '436564', 220501035, 'Evaluar procesos y productos de desarrollo de software, documentar y concertar acciones a seguir, pa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(15, '06', '436563', 220501035, 'Elaborar el informe final del proceso de gestión de calidad en el desarrollo de software, que consol', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(16, '02', '436562', 220501035, 'Identificar los puntos críticos de control en los procesos de desarrollo de software, para establece', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(17, '04', '436561', 220501035, 'Elaborar instrumentos e instructivos, requeridos por el aseguramiento de la calidad, para documentar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(18, '03', '436560', 220501035, 'Aplicar los estándares de calidad involucrados en los procesos de desarrollo de software, siguiendo ', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(19, '03', '436555', 220501034, 'Definir estrategias para la validación de manuales de usuario y de operación, respondiendo a las nec', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(20, '05', '436554', 220501034, 'Elaborar informes técnicos relacionados con la solución informática implantada, de acuerdo con las p', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(21, '02', '436553', 220501034, 'Elaborar el informe administrativo, siguiendo los protocolos de la organización, basado en los plane', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(22, '01', '436552', 220501034, 'Configurar el software de la aplicación para cliente y servidor, mediante la utilización del hardwar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(23, '04', '436551', 220501034, 'Capacitar a los usuarios del sistema, sobre la estructuración y el manejo del aplicativo, de acuerdo', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(24, '02', '436465', 220501039, 'Editar imágenes utilizando software de edición audiovisual de acuerdo con lo establecido en guion té', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL),
-(25, '01', '436464', 220501039, 'Ajustar la iluminación y el color de la escena para lograr la apariencia visual deseada', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, NULL);
+INSERT INTO `resultado_aprendizaje` (`id_resultado_aprendizaje`, `num_resultado_aprendizaje1`, `num_resultado_aprendizaje2`, `cod_competencia`, `name_resultado_aprendizaje`, `create_time`, `update_time`, `version`) VALUES
+(1, 'NULL', 'NULL', 0, 'Definir el plan de seguridad para la red de datos aplicando estándares y normas internacionales de s', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(2, 'NULL', 'NULL', 0, 'Diagnosticar el estado de la seguridad en la red de datos de la organización para definir el plan de', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(3, 'NULL', 'NULL', 0, 'Implementar el plan de seguridad en la organización aplicando estándares y normas internacionales de', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(4, 'NULL', '437214', 0, 'Realizar procesos de contratación y negociación de la infraestructura de TI, participando como contr', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(5, 'NULL', '437208', 0, 'Elaborar la documentación de los procedimientos técnicos y administrativos, de acuerdo a los requeri', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(6, 'NULL', '437207', 0, 'Monitorear los eventos en la infraestructura de red, mediante herramientas y técnicas forenses que p', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(7, 'NULL', '437152', 0, 'Monitorear el funcionamiento de la red de acuerdo a políticas de la organización y frente a eventual', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(8, 'NULL', '437151', 0, 'Elaborar la bitácora de los procedimientos técnicos y administrativos, mediante el uso de herramient', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(9, 'NULL', '437150', 0, 'Comprobar especificaciones técnicas del software mediante la comparación del software recibido con e', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(10, 'NULL', '437149', 0, 'Establecer sistemas de control en la red para mantenerla activa y disponible, según necesidades, pol', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(11, '04', '437140', 220501031, 'Elaborar los manuales y ayudas análogas o digitales necesarias para facilitar la operación del proye', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(12, '03', '437139', 220501031, 'Realizar las modificaciones pertinentes de acuerdo a lo evaluado en las pruebas de accesibilidad, di', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(13, '01', '436565', 220501035, 'Identificar las características de los procesos de desarrollo de software, frente al referente de ca', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(14, '05', '436564', 220501035, 'Evaluar procesos y productos de desarrollo de software, documentar y concertar acciones a seguir, pa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(15, '06', '436563', 220501035, 'Elaborar el informe final del proceso de gestión de calidad en el desarrollo de software, que consol', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(16, '02', '436562', 220501035, 'Identificar los puntos críticos de control en los procesos de desarrollo de software, para establece', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(17, '04', '436561', 220501035, 'Elaborar instrumentos e instructivos, requeridos por el aseguramiento de la calidad, para documentar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(18, '03', '436560', 220501035, 'Aplicar los estándares de calidad involucrados en los procesos de desarrollo de software, siguiendo ', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(19, '03', '436555', 220501034, 'Definir estrategias para la validación de manuales de usuario y de operación, respondiendo a las nec', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(20, '05', '436554', 220501034, 'Elaborar informes técnicos relacionados con la solución informática implantada, de acuerdo con las p', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(21, '02', '436553', 220501034, 'Elaborar el informe administrativo, siguiendo los protocolos de la organización, basado en los plane', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(22, '01', '436552', 220501034, 'Configurar el software de la aplicación para cliente y servidor, mediante la utilización del hardwar', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(23, '04', '436551', 220501034, 'Capacitar a los usuarios del sistema, sobre la estructuración y el manejo del aplicativo, de acuerdo', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(24, '02', '436465', 220501039, 'Editar imágenes utilizando software de edición audiovisual de acuerdo con lo establecido en guion té', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(25, '01', '436464', 220501039, 'Ajustar la iluminación y el color de la escena para lograr la apariencia visual deseada', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -541,7 +540,7 @@ CREATE TABLE `ruta_ficha` (
   `id_ruta_ficha` int(10) NOT NULL,
   `name_ruta_ficha` varchar(100) DEFAULT NULL,
   `num_ruta_ficha` varchar(10) DEFAULT NULL,
-  `cod_jornada` int(10) NOT NULL,
+  `cod_jornada` int(10) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `observaciones` varchar(250) DEFAULT NULL,
@@ -614,12 +613,13 @@ INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fech
 
 CREATE TABLE `usuario` (
   `id_usuario` int(10) NOT NULL,
-  `email` varchar(60) DEFAULT NULL,
+  `documento` varchar(15) DEFAULT NULL,
   `nombre` varchar(60) DEFAULT NULL,
   `apellido` varchar(60) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
-  `cod_rol` int(10) NOT NULL,
-  `cod_estado_usuario` int(10) NOT NULL,
+  `cod_rol` int(10) DEFAULT NULL,
+  `cod_estado_usuario` int(10) DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_time` timestamp NULL DEFAULT NULL
@@ -629,10 +629,10 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `email`, `nombre`, `apellido`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
-(1, 'admin@email.com', 'Admin', 'Nimda', '123456', 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
-(2, 'lider@email.com', 'Lider', 'Redil', '654321', 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
-(3, 'instructor@email.com', 'Instructor', 'Rotcurtsni', '321654', 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02');
+INSERT INTO `usuario` (`id_usuario`, `documento`, `nombre`, `apellido`, `email`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
+(1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
+(2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
+(3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02');
 
 -- --------------------------------------------------------
 
@@ -765,6 +765,7 @@ CREATE TABLE `v_ruta_ficha` (
 --
 CREATE TABLE `v_usuarios` (
 `id_usuario` int(10)
+,`documento` varchar(15)
 ,`nombre` varchar(60)
 ,`apellido` varchar(60)
 ,`email` varchar(60)
@@ -827,7 +828,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`documento` AS `documento`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -857,7 +858,7 @@ ALTER TABLE `ambiente`
 -- Indices de la tabla `competencia`
 --
 ALTER TABLE `competencia`
-  ADD PRIMARY KEY (`codigo_competencia`,`id_competencia`),
+  ADD PRIMARY KEY (`codigo_competencia`),
   ADD UNIQUE KEY `name_competencia` (`name_competencia`),
   ADD KEY `competencia` (`codigo_competencia`),
   ADD KEY `FK_cod_programa_formacion` (`cod_programa_formacion`);
@@ -1025,6 +1026,7 @@ ALTER TABLE `trimestre`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
+  ADD UNIQUE KEY `documento` (`documento`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   ADD KEY `FK_cod_rol` (`cod_rol`);
