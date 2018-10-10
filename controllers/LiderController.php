@@ -2,12 +2,14 @@
 
 class LiderController extends Path
 {
-    private $modelSecurity;
-    public $model;
+    // private $modelSecurity;
+    // public $model;
+    public $validateUser;
 
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
+        // $this->modelSecurity->validateUser($_SESSION);
         $this->model = parent::model('lider');
     }
 

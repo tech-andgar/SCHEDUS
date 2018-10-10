@@ -1,10 +1,10 @@
 <?php
 
-class InstructorController extends Path
+class InstructorController extends UsuarioController
 {
 
-    private $modelSecurity;
-    public $model;
+    // private $modelSecurity;
+    // public $model;
 
     public function __construct()
     {

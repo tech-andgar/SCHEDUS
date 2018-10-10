@@ -9,7 +9,6 @@ class InicioController extends Path
 
     public function __construct()
     {
-        $this->modelSecurity = parent::model('security');
         $this->model = parent::model('inicio');
         $this->modelUsuario = parent::model('usuario');
     }
@@ -17,6 +16,19 @@ class InicioController extends Path
     public function index()
     {
         parent::view('inicio', 'index', 'Horario de formación');
+    }
+    
+    public function noAuth()
+    {
+        parent::view(
+                'inicio',
+                'index',
+                'Horario de formación',
+                array(
+                    'title'=>'Se requiere autorización',
+                    'msg'=>'la solicitud requiere autenticación de usuario'
+                )
+        );
     }
 
     public function RecuperarContrasena()
@@ -41,16 +53,18 @@ class InicioController extends Path
 
     public function ValidarUsuario()
     {
+        //$this->modelSecurity = parent::model('security');
         $data = $_POST;
-        $result = $this->modelUsuario->VerificarLogin($data);
-        if (!$result) {
-            header('location:?c=Inicio');
-        } else {
-            $cod_rol = $result->cod_rol;
-            $dni     = $result->documento;
-            $this->modelSecurity->loginData($dni, $cod_rol);
-            $result = json_encode($result[0]);
-            echo $result;
+        $user = $this->modelUsuario->VerificarLogin($data);
+        if (!$user) {
+            header('location:?c=Inicio&m=NoAuth');
+        } 
+        else {
+            //TODO [WIP] NEED FIX 
+            securityModel::redirectRoleModule();
+            //$this->modelSecurity->redirectRoleModule();
+            // $result = json_encode($result[0]);
+            // echo $result;
         }
         
 

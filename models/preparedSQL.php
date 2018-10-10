@@ -1,6 +1,6 @@
 <?php
 class preparedSQL
 {
-    const USER1_QUERY_DNI = "SELECT * FROM usuario WHERE documento = ?";
+    const USER1_QUERY_DNI = "SELECT * FROM v_usuarios WHERE dni = ?";
 }
 
