@@ -11,23 +11,37 @@ class InicioController extends Path
     {
         $this->model = parent::model('inicio');
         $this->modelUsuario = parent::model('usuario');
+        $this->modelSecurity = parent::model('security');
     }
 
     public function index()
     {
         parent::view('inicio', 'index', 'Horario de formación');
     }
-    
+
     public function noAuth()
     {
         parent::view(
-                'inicio',
-                'index',
-                'Horario de formación',
-                array(
-                    'title'=>'Se requiere autorización',
-                    'msg'=>'la solicitud requiere autenticación de usuario'
-                )
+            'inicio',
+            'index',
+            'Horario de formación',
+            array(
+                'title' => 'Se requiere autorización',
+                'msg' => 'la solicitud requiere autenticación de usuario',
+            )
+        );
+    }
+
+    public function noRegistered()
+    {
+        parent::view(
+            'inicio',
+            'index',
+            'Horario de formación',
+            array(
+                'title' => 'AVISO',
+                'msg' => 'Esta cuenta no existe o la contraseña es incorrecta. Si no recuerdas la cuenta, restablécela ahora.',
+            )
         );
     }
 
@@ -53,20 +67,20 @@ class InicioController extends Path
 
     public function ValidarUsuario()
     {
-        //$this->modelSecurity = parent::model('security');
-        $data = $_POST;
-        $user = $this->modelUsuario->VerificarLogin($data);
-        if (!$user) {
-            header('location:?c=Inicio&m=NoAuth');
-        } 
-        else {
-            //TODO [WIP] NEED FIX 
-            securityModel::redirectRoleModule();
-            //$this->modelSecurity->redirectRoleModule();
-            // $result = json_encode($result[0]);
-            // echo $result;
+        try {
+            
+            $data = $_POST;
+            $user = $this->modelUsuario->VerificarLogin($data);
+            
+            if (!$user) {
+                header('location:?c=Inicio&m=noRegistered');
+            } else {
+                $this->modelSecurity->LoginSession($user);
+            }
+
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
-        
 
     }
 

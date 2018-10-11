@@ -190,7 +190,7 @@ class UsuarioModel extends DB {
    * @param data
    */
   public function VerificarPassword($user, $password) {
-    return ($user['password'] == $password) ? true : false;
+    return $user['password'] == $password;
     // return $verify = password_verify($password, $results['user_password']);
 
   }
@@ -220,15 +220,12 @@ class UsuarioModel extends DB {
         // Encontrado usuario
         if ($user) {
 
-          var_dump($password);
-          var_dump($user);
+          // var_dump($password);
+          // var_dump($user);
           // Comprobar Password
           if ($user->password == $password) {
             // Correcto password
-
-            // $this->modelSecurity->logUser($results['user_id']);
             // header('Location: dashboard.php');
-
             return $user;
 
           }

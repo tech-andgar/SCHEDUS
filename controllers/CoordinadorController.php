@@ -1,6 +1,6 @@
 <?php
 
-class CoordinadorController extends UsuarioController
+class CoordinadorController extends Path
 {
     // private $modelSecurity;
     // public $model;
@@ -8,7 +8,7 @@ class CoordinadorController extends UsuarioController
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
-        // $this->modelSecurity->validateUser($_SESSION);
+        $this->modelSecurity->securityCoordinador();
         $this->model = parent::model('coordinador');
     }
 

@@ -1,14 +1,15 @@
 <?php
 
-class InstructorController extends UsuarioController
+class InstructorController extends Path
 {
 
-    // private $modelSecurity;
-    // public $model;
+    private $modelSecurity;
+    public $model;
 
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
+        $this->modelSecurity->securityInstructor();
         $this->model = parent::model('instructor');
     }
 
