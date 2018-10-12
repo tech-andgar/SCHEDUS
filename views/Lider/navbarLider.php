@@ -24,17 +24,14 @@
 
 <!-- END HEADER -->
 
-<div class="modal fade" id="Perfil" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal fade" id="Perfil" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                    <h3 class="modal-title  text-center">Perfil</h3>
-                </div>
+                <h3 class="col-11 modal-title text-center">Perfil</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
@@ -81,12 +78,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 class="modal-title text-center" >Actualizar Datos</h3>
-                </div>
+                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
@@ -106,12 +101,11 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 class="modal-title text-center" >Agregar Nueva Ficha</h3>
-                </div>
+                <h3 class="col-11 modal-title text-center">Agregar Nueva Ficha</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
@@ -151,12 +145,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 class="modal-title text-center">Agregar Nuevo Grupo</h3>
-                </div>
+                <h3 class="col-11 modal-title text-center">Agregar Nuevo Grupo</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
@@ -176,79 +168,76 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-body">
+                    <h3 class="col-11 modal-title text-center">Fusionar Fichas</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title text-center">Fusionar Fichas</h3>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
-                    <form>
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                                <h4>Ficha 1 :</h4>
-                                <select class="adsi-css" required>
-                                    <option value="">Seleccione una ficha</option>
-                                    <option value="tab">8975312</option>
-                                    <option value="tab">1320652 G1</option>
-                                    <option value="tab">1320652 G2</option>
-                                    <option value="tab">1320652 G3</option>
-                                    <option value="tab">1320652 G4</option>
-                                    <option value="tab">2349858</option>
-                                    <option value="tab">1320652 G1</option>
-                                    <option value="tab">1320652 G2</option>
-                                    <option value="tab">1320652 G3</option>
-                                    <option value="tab">1878465</option>
-                                    <option value="tab">1328798 G1</option>
-                                    <option value="tab">1328798 G2</option>
-                                    <option value="tab">1328798 G3</option>
-                                </select>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center text-center">
+                        <form>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                    <h4>Ficha 1 :</h4>
+                                    <select class="adsi-css" required>
+                                        <option value="">Seleccione una ficha</option>
+                                        <option value="tab">8975312</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1320652 G4</option>
+                                        <option value="tab">2349858</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1878465</option>
+                                        <option value="tab">1328798 G1</option>
+                                        <option value="tab">1328798 G2</option>
+                                        <option value="tab">1328798 G3</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-5">
+                                    <h4>Ficha 2 :</h4>
+                                    <select class="adsi-css" required>
+                                        <option value="">Seleccione una ficha</option>
+                                        <option value="tab">8975312</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1320652 G4</option>
+                                        <option value="tab">2349858</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1878465</option>
+                                        <option value="tab">1328798 G1</option>
+                                        <option value="tab">1328798 G2</option>
+                                        <option value="tab">1328798 G3</option>
+                                    </select>
+                                </div>
+                                <h5>Nueva ruta de Ficha</h5>
+                                <input type="text" class="adsi-css" style="width:60%; height:30px" name="dni" />
+                                <div class="col-12">
+                                    <button class="mt-5 btn-rounded" type="submit" style="width:80px">Fusionar</button>
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-5">
-                                <h4>Ficha 2 :</h4>
-                                <select class="adsi-css" required>
-                                    <option value="">Seleccione una ficha</option>
-                                    <option value="tab">8975312</option>
-                                    <option value="tab">1320652 G1</option>
-                                    <option value="tab">1320652 G2</option>
-                                    <option value="tab">1320652 G3</option>
-                                    <option value="tab">1320652 G4</option>
-                                    <option value="tab">2349858</option>
-                                    <option value="tab">1320652 G1</option>
-                                    <option value="tab">1320652 G2</option>
-                                    <option value="tab">1320652 G3</option>
-                                    <option value="tab">1878465</option>
-                                    <option value="tab">1328798 G1</option>
-                                    <option value="tab">1328798 G2</option>
-                                    <option value="tab">1328798 G3</option>
-                                </select>
-                            </div>
-                            <h5>Nueva ruta de Ficha</h5>
-                            <input type="text" class="adsi-css" style="width:60%; height:30px" name="dni" />
-                            <div class="col-12">
-                                <button class="mt-5 btn-rounded" type="submit" style="width:80px">Fusionar</button>
-                            </div>
-                        </div>
-                        <br>
-                    </form>
+                            <br>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 <!-- Modal Actualizar Programas -->
 <div class="modal fade" id="Actualizar_Prms" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h3 class="modal-title  text-center" id="exampleModalLongTitle">Actualizar Datos</h3>
-                </div>
+                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">

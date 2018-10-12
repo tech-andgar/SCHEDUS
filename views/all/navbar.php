@@ -32,31 +32,25 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 class="modal-title text-center" >Iniciar sesion</h3>
-        </div>
+        <h3 class="col-11 modal-title text-center">Iniciar sesion</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         <div class="d-flex justify-content-center text-center">
           <form method="post" action="?c=Inicio&m=ValidarUsuario" class="form-signin">
             <h5>Numero de Documento</h5>
-            <input type="number" class="adsi-css" style="width:80%; height:30px" name="dni" placeholder="Documento"
+            <input type="number" class="adsi-css my-3" style="width:80%; height:30px" name="dni" placeholder="Documento"
               required />
-            <br>
-            <br>
             <h5>Contraseña</h5>
-            <input type="password" class="adsi-css" style="width:80%; height:30px" name="password" placeholder="Contraseña"
+            <input type="password" class="adsi-css mb-3" style="width:80%; height:30px" name="password" placeholder="Contraseña"
               required>
-            <br>
-            <br>
-            <button class="btn-rounded" type="submit" style="width:180px">Ingresar</button>
+            <button class="btn-rounded" type="submit">Ingresar</button>
           </form>
         </div>
       </div>
-      <div class="modal-body">
+      <div class="modal-footer">
         <div class="d-flex justify-content-center text-center">
           <a href="index.php?c=inicio&m=RecuperarContrasena" class="forgot-password">
             ¿Olvidó la contraseña?
