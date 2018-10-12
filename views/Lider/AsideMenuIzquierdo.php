@@ -1,4 +1,4 @@
-<div class="navbar-derecho col-lg-3 col-md-4 col-12 ">
+<div class="navbar-derecho col-lg-3 col-md-12 col-12 ">
 	<div class="nav flex-column active">
 		<a class="btn btn-outline-light " href="index.php?c=lider">Asignar Horarios</a>
 		<a class="btn dropdown-toggle btn-outline-light " href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
