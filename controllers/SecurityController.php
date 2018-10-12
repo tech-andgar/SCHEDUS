@@ -1,17 +1,29 @@
 <?php
 
-require_once '../core/path.php';
-require_once '../models/SecurityModel.php';
-
 class SecurityController extends Path
 {
+
+    
     private $modelSecurity;
 
     public function __construct()
     {
+        try{
+            $this->modelSecurity = parent::model('security');
+        } catch (Exception $e){
+            die($e->getMessage());
+        }
+    }
 
-        $this->modelSecurity = parent::model('security');
+    public function logOut()
+    {
+        $this->modelSecurity->sessionDestroy();
+    }
 
+
+
+    public function demo()
+    {
         $this->$modelSecurity->createSession();
 
         //Verficar autenticado usuario en $_SESSION con id_usuario
@@ -36,16 +48,5 @@ class SecurityController extends Path
             header('Location: $c=Inicio&NoAuth');
 
         }
-
-    }
-
-    public function destroy()
-    {
-        // session_unset();
-        session_destroy();
-        // session_start();
-        // session_regenerate_id(true);
-        header('location:?c=Inicio&m=index');
-        // exit();
     }
 }

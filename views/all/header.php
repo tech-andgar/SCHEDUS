@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   $(window).on('load, resize', function mobileViewUpdate() {
     const div = document.querySelector('#bloque');
     var viewportWidth = $(window).width();
@@ -9,7 +9,7 @@
       div.classList.replace("container-fluid", "container");
     }
   });
-</script>
+</script> -->
 
 
 <!-- BODY -->
