@@ -199,8 +199,7 @@
 </div>
 </div>
 <!-- Modal Actualizar-->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
- aria-hidden="true">
+<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -208,7 +207,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h3 class="modal-title  text-center" id="exampleModalLongTitle">Actualizar Datos</h3>
+					<h3 class="modal-title  text-center">Actualizar Datos</h3>
 				</div>
 			</div>
 			<div class="modal-body">
@@ -225,7 +224,7 @@
 	</div>
 </div>
 <!-- Modal Agregar nuevo Programa-->
-<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="Agregar" tabindex="-1" role="dialog"  aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -233,7 +232,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h3 class="modal-title  text-center" id="exampleModalLongTitle">Agregar Nuevo Programa</h3>
+					<h3 class="modal-title  text-center" >Agregar Nuevo Programa</h3>
 				</div>
 			</div>
 			<div class="modal-body">

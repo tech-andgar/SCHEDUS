@@ -63,7 +63,7 @@ class Path
         require_once 'views/all/header.php';
         require_once 'views/' . $module . '/navbar' . ucwords($module) . '.php';
         if ($module == 'lider')  {
-            echo '<div class="container container_1"><div class="row">';
+            echo '<div class="container bg-light"><div class="row">';
             require_once 'views/' . $module . '/AsideMenuIzquierdo.php';
         }
         require_once 'views/' . $module . '/' . $view . '.php';

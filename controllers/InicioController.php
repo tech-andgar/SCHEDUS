@@ -85,14 +85,19 @@ class InicioController extends Path
     }
 
     // TODO FIX
-    public function CambiarContrasena()
+    public function cambiarContrasena()
     {
-        $title = "Nueva Contraseña";
-        require_once 'views/all/head.php';
-        require_once 'views/all/navbar.php';
-        echo '<div class="container bg-light"><div class="row">';
-        require_once 'views/Inicio/Cambiar_contrasena.php';
-        require_once 'views/all/footer.php';
+        parent::view('inicio', 'cambiarContrasena', 'Cambiar Contraseña');
     }
+
+    // public function CambiarContrasena()
+    // {
+    //     $title = "Nueva Contraseña";
+    //     require_once 'views/all/head.php';
+    //     require_once 'views/all/navbar.php';
+    //     echo '<div class="container bg-light"><div class="row">';
+    //     require_once 'views/Inicio/Cambiar_contrasena.php';
+    //     require_once 'views/all/footer.php';
+    // }
 
 }

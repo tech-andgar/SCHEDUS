@@ -56,8 +56,8 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-									<label class="onoffswitch-label" for="myonoffswitch"></label>
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="3" checked>
+									<label class="onoffswitch-label" for="3"></label>
 								</div>
 							</td>
 							<td style="
@@ -74,8 +74,8 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-									<label class="onoffswitch-label" for="myonoffswitch"></label>
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="4" checked>
+									<label class="onoffswitch-label" for="4"></label>
 								</div>
 							</td>
 							<td style="

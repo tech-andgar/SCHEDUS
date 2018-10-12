@@ -6,7 +6,7 @@
       <h4 class=" mb-1">Horas Instructores</h4>
       <hr>
       <div class="row">
-        <div class="col-md-12 d-flex justify-content-center text-center" id="">
+        <div class="col-md-12 d-flex justify-content-center text-center">
           <form action="#" method="post">
             <label for="Nombre_Instructor">Nombre Instructor</label>
             <div class="input-group">

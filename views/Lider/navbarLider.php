@@ -24,7 +24,7 @@
 
 <!-- END HEADER -->
 
-<div class="modal fade" id="Perfil" tabindex="-1" role="dialog" aria-labelledby="Perfil" aria-hidden="true">
+<div class="modal fade" id="Perfil" tabindex="-1" role="dialog"  aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -33,7 +33,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-                    <h3 class="modal-title  text-center" id="Perfil">Perfil</h3>
+                    <h3 class="modal-title  text-center">Perfil</h3>
                 </div>
             </div>
             <div class="modal-body">
@@ -77,8 +77,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -86,7 +85,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title text-center" id="exampleModalLongTitle">Actualizar Datos</h3>
+                    <h3 class="modal-title text-center" >Actualizar Datos</h3>
                 </div>
             </div>
             <div class="modal-body">
@@ -103,8 +102,7 @@
     </div>
 </div>
 <!-- Modal Agregar nueva Ficha-->
-<div class="modal fade" id="Agregar_Ficha" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="Agregar_Ficha" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -112,7 +110,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title text-center" id="exampleModalLongTitle">Agregar Nueva Ficha</h3>
+                    <h3 class="modal-title text-center" >Agregar Nueva Ficha</h3>
                 </div>
             </div>
             <div class="modal-body">
@@ -124,10 +122,11 @@
                             <div class="col-lg-4">
                                 <h4>Grupo:</h4>
                                 <select class="adsi-css" required>
-                                    <option value="tab">G1</option>
-                                    <option value="tab">G2</option>
-                                    <option value="tab">G3</option>
-                                    <option value="tab">G4</option>
+                                    <option value="">Grupo</option>
+                                    <option value="G1">G1</option>
+                                    <option value="G2">G2</option>
+                                    <option value="G3">G3</option>
+                                    <option value="G4">G4</option>
                                 </select>
                             </div>
                             <div class="col-lg-6">
@@ -148,8 +147,7 @@
     </div>
 </div>
 <!-- Modal Agregar nuevo Grupo-->
-<div class="modal fade" id="Agregar_Grupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="Agregar_Grupo" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -157,7 +155,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title text-center" id="exampleModalLongTitle">Agregar Nuevo Grupo</h3>
+                    <h3 class="modal-title text-center">Agregar Nuevo Grupo</h3>
                 </div>
             </div>
             <div class="modal-body">
@@ -174,7 +172,7 @@
     </div>
 </div>
 <!-- Modal Fusionar-->
-<div class="modal fade" id="Fusionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="Fusionar" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -182,7 +180,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title text-center" id="exampleModalLongTitle">Fusionar Fichas</h3>
+                    <h3 class="modal-title text-center">Fusionar Fichas</h3>
                 </div>
             </div>
             <div class="modal-body">
@@ -241,8 +239,7 @@
     </div>
 </div>
 <!-- Modal Actualizar Programas -->
-<div class="modal fade" id="Actualizar_Prms" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal fade" id="Actualizar_Prms" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
