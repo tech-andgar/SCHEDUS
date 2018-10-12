@@ -1,3 +1,6 @@
+ErrorDocument 404 /views/all/404.php
+ErrorDocument 500 /views/all/500.php
+ErrorDocument 503 /views/all/503.php
 Options -Multiviews
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
