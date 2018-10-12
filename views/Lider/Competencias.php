@@ -123,7 +123,7 @@
 						<h5>Seleccione del Programa</h5>
 									<select class="adsi-css" style="width:65%; height:30px" required>
 										<option value="">Seleccione del Programa</option>
-                                        <option value="adsi-css">Analisis de sistema de informacion</option>
+                                        <option value="ADSI">Analisis de sistema de informacion</option>
                                         <option value="ISIG">Implementacion de sistemas de informacion geografica</option>
                                         <option value="SGBD">Seguridad en gestion de bases de datos</option>
                                         <option value="PS">Tecnico de programacion de software</option>
