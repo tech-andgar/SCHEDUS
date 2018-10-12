@@ -1,6 +1,6 @@
 <?php
 /*
- * Aqui se llamaran los controladores y sus metodos que lleguen por la url 
+ * Aqui se llamaran los controladores y sus metodos que lleguen por la url
  *
  * PHP version 7
  *
@@ -23,29 +23,51 @@
  * @Last Modified By: Andrés Garcia
  * @Last Modified At: 2018-10-03 11:40:39
  */
-// 
-require_once 'core/core.php';
-$url=isset($_REQUEST['url'])? explode('/', $_REQUEST['url']):null;
-$c='Inicio';
-$m='Index';
-$p=[];
+//
 
-$c = isset($_REQUEST['c']) ? $_REQUEST['c'] : 'inicio';
-$m = isset($_REQUEST['m']) ? $_REQUEST['m'] : 'index';
+try {
+    require_once 'core/core.php';
+    $url = isset($_REQUEST['url']) ? explode('/', $_REQUEST['url']) : null;
+    $c = 'Inicio';
+    $m = 'Index';
+    $p = [];
 
-if (isset($url[0])) {
-    $c=$url[0];
-	unset($url[0]);
+    $c = isset($_REQUEST['c']) ? $_REQUEST['c'] : 'inicio';
+    $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : 'index';
+
+    if (isset($url[0])) {
+        $c = $url[0];
+        unset($url[0]);
+    }
+    if (isset($url[1])) {
+        $m = $url[1];
+        unset($url[1]);
+    }
+    $c = ucwords($c) . 'Controller';
+
+    // if (!@include_once ('controllers/' . $c . '.php')) // @ - to suppress warnings,
+    // // you can also use error_reporting function for the same purpose which may be a better option
+    // {
+    //     throw new Exception($c.' no existe');
+    // }
+    // or
+    if (!file_exists('controllers/' . $c . '.php')) {
+        throw new Exception($c.' no existe');
+    } 
+    else {
+        require_once 'controllers/' . $c . '.php';
+        $c = new $c();
+        $p = $url ? array_values($url) : [];
+        call_user_func_array([$c, $m], $p);
+    }
+
+} catch (Exception $e) {
+    echo "Message : " . $e->getMessage();
+    echo "<br>Code : " . $e->getCode();
+    
+    // ERROR 404
+    require_once 'views/all/404.php';
 }
-if (isset($url[1])) {
-    $m=$url[1];
-	unset($url[1]);
-}
-$c=ucwords($c).'Controller';
-require_once 'controllers/'.$c.'.php';
-$c=new $c();
-$p=$url?array_values($url):[];
-call_user_func_array([$c,$m], $p);
 
 /*
 require_once('core/core.php');
@@ -54,24 +76,20 @@ $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : 'index';
 $c = $c.'Controller.php';
 require_once('controller/'. $c);
 call_user_func([$c, $m]);
-*/ 
-
+ */
 
 /* require_once('core/core.php');
 if (!isset($_REQUEST['c'])) {
-    $controller = 'Index';
-    require_once('controller/'.$controller.'Controller.php'); 
-    $controller = $controller.'Controller';
-    $controller = new $controller();
-    $controller->index();
+$controller = 'Index';
+require_once('controller/'.$controller.'Controller.php');
+$controller = $controller.'Controller';
+$controller = new $controller();
+$controller->index();
 }else{
-    $controller = $_REQUEST['c'];
-    require_once('controller/'.$controller.'Controller.php');
-    $controller = $controller.'Controller';
-    $controller = new $controller();
-    $metodo = isset($_REQUEST['m']) ? $_REQUEST['m']: 'Index';
-    call_user_func(array($controller, $metodo));
+$controller = $_REQUEST['c'];
+require_once('controller/'.$controller.'Controller.php');
+$controller = $controller.'Controller';
+$controller = new $controller();
+$metodo = isset($_REQUEST['m']) ? $_REQUEST['m']: 'Index';
+call_user_func(array($controller, $metodo));
 } */
-
-
-
