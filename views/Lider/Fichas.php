@@ -1,4 +1,4 @@
-<div class="col-lg-9 col-md-8 col-12">
+<div class="col-lg-9 col-md-12 col-12">
 	<div class="row">
 		<div class="col-md-12">
 			<h4 class="text-center my-4">Administrar Fichas de programas de formación</h4>
@@ -78,8 +78,8 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-									<label class="onoffswitch-label" for="myonoffswitch"></label>
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="3" checked>
+									<label class="onoffswitch-label" for="3"></label>
 								</div>
 							</td>
 							<td style="
@@ -97,8 +97,8 @@
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-									<label class="onoffswitch-label" for="myonoffswitch"></label>
+									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="4" checked>
+									<label class="onoffswitch-label" for="4"></label>
 								</div>
 							</td>
 							<td style="
@@ -120,17 +120,14 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
- aria-hidden="true">
+<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title text-center" id="exampleModalLongTitle">Actualizar Datos</h3>
-				</div>
+				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">

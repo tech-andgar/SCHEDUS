@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2018 a las 19:16:44
+-- Tiempo de generación: 12-10-2018 a las 15:32:04
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -391,7 +391,7 @@ CREATE TABLE `trimestre` (
 
 CREATE TABLE `usuario` (
   `id_usuario` int(10) NOT NULL,
-  `documento` varchar(15) DEFAULT NULL,
+  `dni` varchar(15) DEFAULT NULL,
   `nombre` varchar(60) DEFAULT NULL,
   `apellido` varchar(60) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
@@ -534,7 +534,7 @@ CREATE TABLE `v_ruta_ficha` (
 --
 CREATE TABLE `v_usuarios` (
 `id_usuario` int(10)
-,`documento` varchar(15)
+,`dni` varchar(15)
 ,`nombre` varchar(60)
 ,`apellido` varchar(60)
 ,`email` varchar(60)
@@ -597,7 +597,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`documento` AS `documento`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`dni` AS `dni`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -795,7 +795,7 @@ ALTER TABLE `trimestre`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `documento` (`documento`),
+  ADD UNIQUE KEY `documento` (`dni`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   ADD KEY `FK_cod_rol` (`cod_rol`);
@@ -814,61 +814,61 @@ ALTER TABLE `actividad_proyecto`
 -- AUTO_INCREMENT de la tabla `ambiente`
 --
 ALTER TABLE `ambiente`
-  MODIFY `id_ambiente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ambiente` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `dias`
 --
 ALTER TABLE `dias`
-  MODIFY `id_dias` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_dias` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_ambiente`
 --
 ALTER TABLE `estado_ambiente`
-  MODIFY `id_estado_ambiente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estado_ambiente` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_ficha`
 --
 ALTER TABLE `estado_ficha`
-  MODIFY `id_estado_ficha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_estado_ficha` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_horario_asignada`
 --
 ALTER TABLE `estado_horario_asignada`
-  MODIFY `id_estado_horario_asignada` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_estado_horario_asignada` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_programa_formacion`
 --
 ALTER TABLE `estado_programa_formacion`
-  MODIFY `id_estado_programa_formacion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estado_programa_formacion` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_usuario`
 --
 ALTER TABLE `estado_usuario`
-  MODIFY `id_estado_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_estado_usuario` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `fase`
 --
 ALTER TABLE `fase`
-  MODIFY `id_fase` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_fase` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ficha`
 --
 ALTER TABLE `ficha`
-  MODIFY `id_ficha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ficha` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `id_grupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_grupo` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `horario_asignada`
@@ -880,67 +880,67 @@ ALTER TABLE `horario_asignada`
 -- AUTO_INCREMENT de la tabla `jornada`
 --
 ALTER TABLE `jornada`
-  MODIFY `id_jornada` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_jornada` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `modo`
 --
 ALTER TABLE `modo`
-  MODIFY `id_modo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_modo` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `nivel_programa_formacion`
 --
 ALTER TABLE `nivel_programa_formacion`
-  MODIFY `id_nivel_programa_formacion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_nivel_programa_formacion` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `programa_formacion`
 --
 ALTER TABLE `programa_formacion`
-  MODIFY `id_programa_formacion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_programa_formacion` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id_proyecto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_proyecto` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `resultado_aprendizaje`
 --
 ALTER TABLE `resultado_aprendizaje`
-  MODIFY `id_resultado_aprendizaje` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_resultado_aprendizaje` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `id_rol` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rol` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `ruta_ficha`
 --
 ALTER TABLE `ruta_ficha`
-  MODIFY `id_ruta_ficha` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_ruta_ficha` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `sede`
 --
 ALTER TABLE `sede`
-  MODIFY `id_sede` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_sede` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `trimestre`
 --
 ALTER TABLE `trimestre`
-  MODIFY `id_trimestre` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_trimestre` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

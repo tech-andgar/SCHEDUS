@@ -21,7 +21,7 @@
                     <a class="btn btn-outline-light my-2 mr-3  my-sm-0" href="#" data-toggle="modal" data-target="#Perfil">Instructor</a>
                 </li>
                 <li>
-                    <a class="btn btn-outline-light my-2 my-sm-0" href="?c=security&m=destroy">Cerrar sesion</a>
+                    <a class="btn btn-outline-light my-2 my-sm-0" href="?c=security&m=logOut">Cerrar sesion</a>
                 </li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h3 class="modal-title text-center" id="Perfil">Perfil</h3>
+                    <h3 class="modal-title text-center" >Perfil</h3>
                 </div>
             </div>
             <div class="modal-body">

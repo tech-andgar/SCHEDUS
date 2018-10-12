@@ -1,4 +1,4 @@
-<div class="col-lg-9 col-md-8 col-12">
+<div class="col-lg-9 col-md-12 col-12">
 	<div class="row justify-content-center ">
 		<div class="col-md-12">
 			<br>
@@ -81,17 +81,14 @@
 </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
- aria-hidden="true">
+<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title text-center" id="exampleModalLongTitle">Actualizar Datos</h3>
-				</div>
+				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
@@ -107,30 +104,28 @@
 	</div>
 </div>
 <!-- Modal Agregar nueva Competencias-->
-<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<div class="modal-body">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h3 class="modal-title text-center" id="exampleModalLongTitle">Agregar Nueva Competencia</h3>
-				</div>
+				<h3 class="col-11 modal-title text-center">Agregar Nueva Competencia</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
 					<form method="post" action="#" class="form-signin">
 						<h5>Seleccione del Programa</h5>
-                                    <select class="adsi-css" style="width:65%; height:30px" required>
-                                        <option value="tab">Analisis de sistema de informacion</option>
-                                        <option value="tab">Implementacion de sistemas de informacion geografica</option>
-                                        <option value="tab">Seguridad en gestion de bases de datos</option>
-                                        <option value="tab">Tecnico de programacion de software</option>
-                                    </select>
+						<select class="adsi-css mb-3" style="width:65%; height:30px" required>
+							<option value="">Seleccione del Programa</option>
+							<option value="ADSI">Analisis de sistema de informacion</option>
+							<option value="ISIG">Implementacion de sistemas de informacion geografica</option>
+							<option value="SGBD">Seguridad en gestion de bases de datos</option>
+							<option value="PS">Tecnico de programacion de software</option>
+						</select>
 						<h5>Nombre de la Competencia</h5>
 						<textarea class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
-
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
 					</form>

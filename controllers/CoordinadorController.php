@@ -2,12 +2,13 @@
 
 class CoordinadorController extends Path
 {
-    private $modelSecurity;
-    public $model;
+    // private $modelSecurity;
+    // public $model;
 
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
+        $this->modelSecurity->securityCoordinador();
         $this->model = parent::model('coordinador');
     }
 

@@ -9,6 +9,7 @@ class InstructorController extends Path
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
+        $this->modelSecurity->securityInstructor();
         $this->model = parent::model('instructor');
     }
 

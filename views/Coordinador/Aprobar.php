@@ -1,5 +1,5 @@
- <!-- MAIN -->
- <main class="col-12 pt-4 bg-light">
+<!-- MAIN -->
+<main class="col-12 pt-4 bg-light">
       <div class="row justify-content-center text-center">
         <div class="col-md-8">
           <h4>Aprobar Horarios</h4>

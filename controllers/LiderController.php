@@ -2,12 +2,13 @@
 
 class LiderController extends Path
 {
-    private $modelSecurity;
-    public $model;
+    // private $modelSecurity;
+    // public $model;
 
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
+        $this->modelSecurity->securityLider();
         $this->model = parent::model('lider');
     }
 

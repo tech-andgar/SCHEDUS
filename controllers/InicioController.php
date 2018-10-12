@@ -9,14 +9,40 @@ class InicioController extends Path
 
     public function __construct()
     {
-        $this->modelSecurity = parent::model('security');
         $this->model = parent::model('inicio');
         $this->modelUsuario = parent::model('usuario');
+        $this->modelSecurity = parent::model('security');
     }
 
     public function index()
     {
         parent::view('inicio', 'index', 'Horario de formación');
+    }
+
+    public function noAuth()
+    {
+        parent::view(
+            'inicio',
+            'index',
+            'Horario de formación',
+            array(
+                'title' => 'Se requiere autorización',
+                'msg' => 'la solicitud requiere autenticación de usuario',
+            )
+        );
+    }
+
+    public function noRegistered()
+    {
+        parent::view(
+            'inicio',
+            'index',
+            'Horario de formación',
+            array(
+                'title' => 'AVISO',
+                'msg' => 'Esta cuenta no existe o la contraseña es incorrecta. Si no recuerdas la cuenta, restablécela ahora.',
+            )
+        );
     }
 
     public function RecuperarContrasena()
@@ -41,30 +67,37 @@ class InicioController extends Path
 
     public function ValidarUsuario()
     {
-        $data = $_POST;
-        $result = $this->modelUsuario->VerificarLogin($data);
-        if (!$result) {
-            header('location:?c=Inicio');
-        } else {
-            $cod_rol = $result->cod_rol;
-            $dni     = $result->documento;
-            $this->modelSecurity->loginData($dni, $cod_rol);
-            $result = json_encode($result[0]);
-            echo $result;
+        try {
+            
+            $data = $_POST;
+            $user = $this->modelUsuario->VerificarLogin($data);
+            
+            if (!$user) {
+                header('location:?c=Inicio&m=noRegistered');
+            } else {
+                $this->modelSecurity->LoginSession($user);
+            }
+
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
-        
 
     }
 
     // TODO FIX
-    public function CambiarContrasena()
+    public function cambiarContrasena()
     {
-        $title = "Nueva Contraseña";
-        require_once 'views/all/head.php';
-        require_once 'views/all/navbar.php';
-        echo '<div class="container bg-light"><div class="row">';
-        require_once 'views/Inicio/Cambiar_contrasena.php';
-        require_once 'views/all/footer.php';
+        parent::view('inicio', 'cambiarContrasena', 'Cambiar Contraseña');
     }
+
+    // public function CambiarContrasena()
+    // {
+    //     $title = "Nueva Contraseña";
+    //     require_once 'views/all/head.php';
+    //     require_once 'views/all/navbar.php';
+    //     echo '<div class="container bg-light"><div class="row">';
+    //     require_once 'views/Inicio/Cambiar_contrasena.php';
+    //     require_once 'views/all/footer.php';
+    // }
 
 }

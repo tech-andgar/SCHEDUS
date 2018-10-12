@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2018 a las 19:16:14
+-- Tiempo de generación: 12-10-2018 a las 15:31:36
 -- Versión del servidor: 10.1.30-MariaDB
 -- Versión de PHP: 7.2.2
 
@@ -248,7 +248,7 @@ INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fech
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `documento`, `nombre`, `apellido`, `email`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
+INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
 (1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
 (2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
 (3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02');
@@ -305,7 +305,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_usuarios`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`documento` AS `documento`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_usuarios`  AS  select `usuario`.`id_usuario` AS `id_usuario`,`usuario`.`dni` AS `dni`,`usuario`.`nombre` AS `nombre`,`usuario`.`apellido` AS `apellido`,`usuario`.`email` AS `email`,`usuario`.`password` AS `password`,`rol`.`id_rol` AS `id_rol`,`rol`.`name_rol` AS `name_rol`,`estado_usuario`.`id_estado_usuario` AS `id_estado_usuario`,`estado_usuario`.`name_estado_usuario` AS `name_estado_usuario` from ((`estado_usuario` join `usuario` on((`estado_usuario`.`id_estado_usuario` = `usuario`.`cod_estado_usuario`))) join `rol` on((`usuario`.`cod_rol` = `rol`.`id_rol`))) ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

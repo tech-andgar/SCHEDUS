@@ -22,3 +22,9 @@
         </div>
     </div>
 </section>
+
+<?php 
+if (isset($data['msg'])) {
+    echo "<script>toastr.error('".$data['msg']."','".$data['title']."')</script>";
+}
+?>
