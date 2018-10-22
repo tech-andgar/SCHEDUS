@@ -1,7 +1,7 @@
 <div class="col-lg-9 col-md-12 col-12">
 	<div class="row">
 		<div class="col-md-12">
-			<h4 class="text-center my-4">Administrar Fichas de programas de formación</h4>
+			<h4 class="text-center my-4">Administar Instructores</h4>
 			<hr>
 		</div>
 		<div class="col-lg-6 col-md-6 col-12 mt-2">
@@ -19,7 +19,7 @@
                         </button>
                     </div>
                 </div>
-                <small id="helpId" class="form-text text-muted">Ingresa su numero de ficha para buscar horario asignado</small>
+                <small id="helpId" class="form-text text-muted">Ingresa el Nombre del Instructor para buscarlo</small>
             </form>
 		</div>
 	</div>
@@ -35,14 +35,19 @@
 						</tr>
 					</thead>
 					<tbody class="">
+					<?php
+						$i=1;
+						foreach ($data as $user) {
+					?>
 						<tr>
-							<td class="">SANDRA MILENA PEÑARANDA SALAZAR</td>
+							<td class="">
+								<?php echo $user->nombre; ?> <?php echo $user->apellido;?></td>
 							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
 								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1" checked>
-									<label class="onoffswitch-label" for="1"></label>
+								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="<?php echo $i; if ($user->name_estado_usuario == 'Activo') { echo ' checked';} ?>"  >
+									<label class="onoffswitch-label" for="<?php echo $i++;?>"></label>
 								</div>
 							</td>
 							<td style="
@@ -53,60 +58,9 @@
 								</div>
 							</td>
 						</tr>
-						<tr>
-							<td class="">ANDRES GUILLERMO COCA AGUILAR</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="2" checked>
-									<label class="onoffswitch-label" for="2"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div data-toggle="modal" data-target="#Actualizar_ins">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="">DANIEL MORA DIAZ</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="3" checked>
-									<label class="onoffswitch-label" for="3"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div data-toggle="modal" data-target="#Actualizar_ins">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td class="">YULIETT CONSUELO PULIDO MONCADA</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="4" checked>
-									<label class="onoffswitch-label" for="4"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div data-toggle="modal" data-target="#Actualizar_ins">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
+					<?php
+						}
+					?>
 					</tbody>
 				</table>
 			</div>
@@ -210,7 +164,7 @@
 </div>
 
 
-<?php 
+<?php
 if (isset($data['msg'])) {
     echo "<script>toastr.".$data['type']."('".$data['msg']."','".$data['title']."')</script>";
 }

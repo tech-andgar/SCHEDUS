@@ -17,21 +17,34 @@ class LiderModel extends DB
                 isset($data['email']) &&
                 isset($data['nombre_instructor']) &&
                 isset($data['apellido_instructor'])
-                ) {
-                    $dni = $data['dni'];
-                    $nombre_instructor = $data['nombre_instructor'];
-                    $apellido_instructor = $data['apellido_instructor'];
-                    $email = $data['email'];
-                    $stm = parent::conectar()->prepare(preparedSQL::INSTRUCTOR_NEW);
-                    $stm->bindParam(1, $dni, PDO::PARAM_STR);
-                    $stm->bindParam(2, $nombre_instructor, PDO::PARAM_STR);
-                    $stm->bindParam(3, $apellido_instructor, PDO::PARAM_STR);
-                    $stm->bindParam(4, $email, PDO::PARAM_STR);
-                    $stm->execute();
-                    return true;
+            ) {
+                $dni = $data['dni'];
+                $nombre_instructor = $data['nombre_instructor'];
+                $apellido_instructor = $data['apellido_instructor'];
+                $email = $data['email'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSTRUCTOR_NEW);
+                $stm->bindParam(1, $dni, PDO::PARAM_STR);
+                $stm->bindParam(2, $nombre_instructor, PDO::PARAM_STR);
+                $stm->bindParam(3, $apellido_instructor, PDO::PARAM_STR);
+                $stm->bindParam(4, $email, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
             }
         } catch (Exception $e) {
             return false;
+            die($e->getMessage());
+        }
+    }
+
+    public function getAllInstructores()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_INSTRUCTORES);
+            $stm->bindParam(1, $dni, PDO::PARAM_STR);
+            $stm->execute();
+            $users = $stm->fetchAll(PDO::FETCH_OBJ);
+            return $users; // Retorno completa de lista de instructores
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
