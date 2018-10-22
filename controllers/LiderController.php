@@ -50,5 +50,38 @@ class LiderController extends Path
     {
         parent::viewModule('lider', 'Fusionar', 'Fusionar');
     }
+    public function Instructor()
+    {
+        parent::viewModule('lider', 'Instructores', 'Instructores');
+    }
+    
+    public function insertarInstructor()
+    {
+        $data = $_POST;
+        $result = $this->model->insertarInstructor($data);
+        if ($result) {
+            parent::viewModule(
+                'lider',
+                'Instructores',
+                'Registrado',
+                array(
+                    'type' => 'success',
+                    'title' => 'AVISO',
+                    'msg' => 'Exito registrado nuevo instructor',
+                )
+            );
+        } else {
+            parent::viewModule(
+                'lider',
+                'Instructores',
+                'No registrado',
+                array(
+                    'type' => 'error',
+                    'title' => 'AVISO',
+                    'msg' => 'No pudo registrar nuevo instructor',
+                )
+            );
+        }
 
+    }
 }

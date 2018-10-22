@@ -165,7 +165,7 @@
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<h3 class="col-11 modal-title text-center">Insertar Instructor</h3>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -178,26 +178,25 @@
                                 <td>
                                     <h5>Numero de Documento</h5>
                                 </td>
-                                <td><input type="number" class="adsi-css" name="Documento" placeholder="Documento"/></td>
+                                <td><input type="number" class="adsi-css" name="dni" placeholder="Documento"/></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5>Nombre</h5>
                                 </td>
-                                <td><input type="text" class="adsi-css" name="text" placeholder="Nombre" required /></td>
+                                <td><input type="text" class="adsi-css" name="nombre_instructor" placeholder="Nombre" required /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>Apellido</h5>
+                                </td>
+                                <td><input type="text" class="adsi-css" name="apellido_instructor" placeholder="Nombre" required /></td>
                             </tr>
                             <tr>
                                 <td>
                                     <h5>Correo</h5>
                                 </td>
                                 <td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
-                            </tr>
-							<tr>
-                                <td>
-                                    <h5>Contraseña</h5>
-                                </td>
-                                <td><input type="password" class="adsi-css" name="password" placeholder="Contraseña"
-                                        required /></td>
                             </tr>
                         </table>
                         <div class="modal-body">
@@ -209,3 +208,10 @@
 		</div>
 	</div>
 </div>
+
+
+<?php 
+if (isset($data['msg'])) {
+    echo "<script>toastr.".$data['type']."('".$data['msg']."','".$data['title']."')</script>";
+}
+?>
