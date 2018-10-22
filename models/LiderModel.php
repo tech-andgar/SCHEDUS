@@ -1,4 +1,39 @@
 <?php
-class LiderModel extends DB{
+class LiderModel extends DB
+{
+/**
+ * insertar Instructor desde <FORM> al DB
+ * @author Andres Garcia
+ * @param $array es $_POST
+ * @access public
+ * @param data
+ */
+    public function insertarInstructor(array $data)
+    {
+        try {
+            // Verificar hay datos en $data
+            if (
+                isset($data['dni']) &&
+                isset($data['email']) &&
+                isset($data['nombre_instructor']) &&
+                isset($data['apellido_instructor'])
+                ) {
+                    $dni = $data['dni'];
+                    $nombre_instructor = $data['nombre_instructor'];
+                    $apellido_instructor = $data['apellido_instructor'];
+                    $email = $data['email'];
+                    $stm = parent::conectar()->prepare(preparedSQL::INSTRUCTOR_NEW);
+                    $stm->bindParam(1, $dni, PDO::PARAM_STR);
+                    $stm->bindParam(2, $nombre_instructor, PDO::PARAM_STR);
+                    $stm->bindParam(3, $apellido_instructor, PDO::PARAM_STR);
+                    $stm->bindParam(4, $email, PDO::PARAM_STR);
+                    $stm->execute();
+                    return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 
 }
