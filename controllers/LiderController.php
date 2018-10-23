@@ -52,9 +52,10 @@ class LiderController extends Path
     }
     public function Instructor()
     {
-        parent::viewModule('lider', 'Instructores', 'Instructores');
+        $users = $this->model->getAllInstructores();
+        parent::viewModule('lider', 'Instructores', 'Instructores', $users);
     }
-    
+
     public function insertarInstructor()
     {
         $data = $_POST;
@@ -83,5 +84,14 @@ class LiderController extends Path
             );
         }
 
+    }
+    public function SelectInstructorTabla()
+    {
+        $data = $_POST;
+        $this->model->SelectInstructorTabla($data);
+        parent::viewModule(
+                'lider',
+                'Instructores',
+                'Instructores');
     }
 }

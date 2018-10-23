@@ -59,6 +59,7 @@ class Path
     public function viewModule($module, $view, $title = "", $data = [], $c = '')
     {
         $title = $title;
+        $data = $data;
         require_once 'views/all/head.php';
         require_once 'views/all/header.php';
         require_once 'views/' . $module . '/navbar' . ucwords($module) . '.php';
