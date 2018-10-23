@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"/>
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
     <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="./vendor/components/jquery/jquery.min.js"></script>
@@ -24,6 +25,7 @@
     <script src="./assets/js/bootstrap-4.0.0.js"></script>
     <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
     <script src="./assets/js/dife.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script>
         toastr.options = {
             "closeButton": true,
