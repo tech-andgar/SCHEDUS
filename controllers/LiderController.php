@@ -81,64 +81,31 @@ class LiderController extends Path
 
     public function changeStatusInstructor()
     {
-        extract($_POST);
-        //var_dump($_POST);
-
-
-        /*switch ($_POST['status_instructor']) {
-            case 'on': // 2 Activo
-                $data['status'] = 2;
-                break;
-            case 'off': // 3 Inactivo
-                $data['status'] = 3;
-                break;
-            default:
-                echo 'No pudo actualizar datos';
-                break;
+        if ($_POST['state_id'] == "2") {
+            $status = "3";
+        } else if ($_POST['state_id'] == "3") {
+            $status = "2";
         }
-        $data['id_instructor'] = $_POST['id_instructor'];
+
+        $data = array(
+            "id_instructor" => $_POST['id_instructor'],
+            "status" => $status,
+        );
+
         $result = $this->model->updatedStatusInstructor($data); // Enviar al DB
-        if ($result) {
-            $msgType = array(
-                'type' => 'success',
-                'title' => 'AVISO',
-                'msg' => 'Exito actualizado estado de instructor',
-            );
+        // if ($result) {
+        //     $msgType = array(
+        //         'type' => 'success',
+        //         'title' => 'AVISO',
+        //         'msg' => 'Exito actualizado estado de instructor',
+        //     );
 
-        } else {
-            $msgType = array(
-                'type' => 'error',
-                'title' => 'AVISO',
-                'msg' => 'No pudo actualizar estado instructor',
-            );
-        }
-        $this->Instructor($msgType);*/
-if($_POST['state_id']=="2"){
-  $status="3";
-}else if($_POST['state_id']=="3"){
-    $status="2";
-}
-
-
-   $data=array(
-       "id_instructor"=>$_POST['id'],
-          "status"=>$status
-   );
-    $result = $this->model->updatedStatusInstructor($data); // Enviar al DB
-if ($result) {
-    $msgType = array(
-        'type' => 'success',
-        'title' => 'AVISO',
-        'msg' => 'Exito actualizado estado de instructor',
-    );
-
-} else {
-    $msgType = array(
-        'type' => 'error',
-        'title' => 'AVISO',
-        'msg' => 'No pudo actualizar estado instructor',
-    );
-}
-
+        // } else {
+        //     $msgType = array(
+        //         'type' => 'error',
+        //         'title' => 'AVISO',
+        //         'msg' => 'No pudo actualizar estado instructor',
+        //     );
+        // }
     }
 }

@@ -41,22 +41,15 @@
 						<tr>
 							<td class="">
 								<?php echo $user->nombre . " " . $user->apellido; ?></td>
-								<td style="padding-bottom: 0px;padding-top: 10px;">
-									<form action="?c=lider&m=changeStatusInstructor" method="post">
-										<input type="hidden" name="id_instructor"  class="id_instructor" value="<?php echo $user->id_usuario; ?>" id="id_instructor">
-										<!--<input type="checkbox" name="status_instructor"
-											id="status_instructor"
-											data-toggle="toggle"
-											data-on="Activo"
-											data-off="Inactivo"
-											data-onstyle="success"
-											data-offstyle="danger"
-                                            my-value="<?php echo $user->name_estado_usuario; ?>"
+								<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
 
-											<?php if ($user->name_estado_usuario == 'Activo') {echo ' checked';}?>-->
-
-											<button type"button" id-instructor="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"  my-value="<?php echo $user->name_estado_usuario ?>" class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>"><?php echo $user->name_estado_usuario ?></button>
-									</form>
+<button type"button"
+id-instructor="<?php echo $user->id_usuario; ?>"
+id-state="<?php echo $user->id_estado_usuario ?>"
+name-state="<?php echo $user->name_estado_usuario ?>"
+class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>">
+<?php echo $user->name_estado_usuario ?>
+</button>
 							</td>
 
 
@@ -80,44 +73,27 @@
 <br>
 </div>
 </div>
+<div id="demo">
+
+</div>
 <script>
-/*$(document).ready(function(){
-	$("input:checkbox").change(function(){
-
-		$(this).parent().parent().submit();
-		// if( $(this).is(":checked") )
-		// {
-		// 	$("#formchange").submit();
-		// }
-	})
-});
-*/
-
 	$(".activate").click(function(){
-		//$(this).parent().parent().submit();
-		var statetext =$(this).attr('my-value');
+		var statetext =$(this).attr('name-state');
 		var state_id =$(this).attr('id-state');
 		var id_instructor =$(this).attr('id-instructor');
-		var id=$('.id_instructor').val();
-      	$.ajax({
-			type:'post',
-			url:'?c=lider&m=changeStatusInstructor',
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=changeStatusInstructor',
 			data:{
 				statetext:statetext,
 				state_id:state_id,
-				id:id_instructor
+				id_instructor:id_instructor
 			},
 			success(response){
 				location.reload();
 			}
-	  	});
-		// {
-		// 	$("#formchange").submit();
-		// }
+		});
 	});
-
-
-
 </script>
 
 
