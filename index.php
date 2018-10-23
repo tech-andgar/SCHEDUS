@@ -20,8 +20,8 @@
  * @link       https://github.com/andgar2010/SCHEDUS
  * @since      File available since Release 0.0.1
  * @Create At: 2018-10-03 09:39:03
- * @Last Modified By: Andrés Garcia
- * @Last Modified At: 2018-10-03 11:40:39
+ * @Last Modified By: Andrés García
+ * @Last Modified At: 2018-10-22 13:30:02
  */
 //
 
@@ -53,7 +53,7 @@ try {
     // or
     if (!file_exists('controllers/' . $c . '.php')) {
         throw new Exception($c.' no existe');
-    } 
+    }
     else {
         require_once 'controllers/' . $c . '.php';
         $c = new $c();
@@ -64,32 +64,7 @@ try {
 } catch (Exception $e) {
     echo "Message : " . $e->getMessage();
     echo "<br>Code : " . $e->getCode();
-    
+
     // ERROR 404
     require_once 'views/all/404.php';
 }
-
-/*
-require_once('core/core.php');
-$c = isset($_REQUEST['c']) ? $_REQUEST['c'] : 'index';
-$m = isset($_REQUEST['m']) ? $_REQUEST['m'] : 'index';
-$c = $c.'Controller.php';
-require_once('controller/'. $c);
-call_user_func([$c, $m]);
- */
-
-/* require_once('core/core.php');
-if (!isset($_REQUEST['c'])) {
-$controller = 'Index';
-require_once('controller/'.$controller.'Controller.php');
-$controller = $controller.'Controller';
-$controller = new $controller();
-$controller->index();
-}else{
-$controller = $_REQUEST['c'];
-require_once('controller/'.$controller.'Controller.php');
-$controller = $controller.'Controller';
-$controller = new $controller();
-$metodo = isset($_REQUEST['m']) ? $_REQUEST['m']: 'Index';
-call_user_func(array($controller, $metodo));
-} */
