@@ -10,17 +10,17 @@
 			</div>
 		</div>
 		<div class="col-lg-5 col-md-6 col-12 mt-2 ">
-		<form action="#" method="post">
-                <div id="textbox-search" class="input-group">
-                    <input class="form-control border-secondary py-2" type="search" placeholder="Busqueda">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-info form-control" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-                <small id="helpId" class="form-text text-muted">Ingresa el Nombre del Instructor para buscarlo</small>
-            </form>
+			<form action="#" method="post">
+				<div id="textbox-search" class="input-group">
+					<input class="form-control border-secondary py-2" type="search" placeholder="Busqueda">
+					<div class="input-group-append">
+						<button class="btn btn-outline-info form-control" type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</div>
+				<small id="helpId" class="form-text text-muted">Ingresa el Nombre del Instructor para buscarlo</small>
+			</form>
 		</div>
 	</div>
 	<div class="mt-5 row justify-content-center">
@@ -37,7 +37,7 @@
 					<tbody class="">
 					<?php
 						$i=1;
-						foreach ($data as $user) {
+						foreach ($data['users'] as $user) {
 					?>
 						<tr>
 							<td class="">
@@ -165,7 +165,7 @@
 
 
 <?php
-if (isset($data['msg'])) {
-    echo "<script>toastr.".$data['type']."('".$data['msg']."','".$data['title']."')</script>";
+if (!empty($data['msgType'])) {
+	echo "<script>toastr.".$data['msgType']['type']."('".$data['msgType']['msg']."','".$data['msgType']['title']."')</script>";
 }
 ?>

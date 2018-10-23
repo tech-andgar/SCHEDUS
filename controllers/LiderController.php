@@ -50,10 +50,12 @@ class LiderController extends Path
     {
         parent::viewModule('lider', 'Fusionar', 'Fusionar');
     }
-    public function Instructor()
+    public function Instructor($msgType = [])
     {
         $users = $this->model->getAllInstructores();
-        parent::viewModule('lider', 'Instructores', 'Instructores', $users);
+        $data[0]=$msgType;
+        $data[1]=$users;
+        parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
 
     public function insertarInstructor()
@@ -61,37 +63,24 @@ class LiderController extends Path
         $data = $_POST;
         $result = $this->model->insertarInstructor($data);
         if ($result) {
-            parent::viewModule(
-                'lider',
-                'Instructores',
-                'Registrado',
-                array(
-                    'type' => 'success',
-                    'title' => 'AVISO',
-                    'msg' => 'Exito registrado nuevo instructor',
-                )
+            $msgType= array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrado nuevo instructor',
             );
+
         } else {
-            parent::viewModule(
-                'lider',
-                'Instructores',
-                'No registrado',
-                array(
-                    'type' => 'error',
-                    'title' => 'AVISO',
-                    'msg' => 'No pudo registrar nuevo instructor',
-                )
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo instructor',
             );
         }
+        $this->Instructor($msgType);
+    }
 
-    }
-    public function SelectInstructorTabla()
-    {
-        $data = $_POST;
-        $this->model->SelectInstructorTabla($data);
-        parent::viewModule(
-                'lider',
-                'Instructores',
-                'Instructores');
-    }
+public function changeStatus()
+{
+    var_dump($_POST);
+}
 }
