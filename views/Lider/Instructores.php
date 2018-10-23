@@ -36,20 +36,30 @@
 					</thead>
 					<tbody class="">
 					<?php
-						$i=1;
 						foreach ($data['users'] as $user) {
-					?>
+    				?>
 						<tr>
 							<td class="">
-								<?php echo $user->nombre; ?> <?php echo $user->apellido;?></td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-								<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="<?php echo $i; if ($user->name_estado_usuario == 'Activo') { echo ' checked';} ?>"  >
-									<label class="onoffswitch-label" for="<?php echo $i++;?>"></label>
-								</div>
+								<?php echo $user->nombre . " " . $user->apellido; ?></td>
+								<td style="padding-bottom: 0px;padding-top: 10px;">
+									<form action="?c=lider&m=changeStatusInstructor" method="post">
+										<input type="hidden" name="id_instructor"  class="id_instructor" value="<?php echo $user->id_usuario; ?>" id="id_instructor">
+										<!--<input type="checkbox" name="status_instructor"
+											id="status_instructor"
+											data-toggle="toggle"
+											data-on="Activo"
+											data-off="Inactivo"
+											data-onstyle="success"
+											data-offstyle="danger"
+                                            my-value="<?php echo $user->name_estado_usuario; ?>"
+
+											<?php if ($user->name_estado_usuario == 'Activo') {echo ' checked';}?>-->
+
+											<button type"button" id-instructor="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"  my-value="<?php echo $user->name_estado_usuario ?>" class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>"><?php echo $user->name_estado_usuario ?></button>
+									</form>
 							</td>
+
+
 							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
@@ -70,6 +80,47 @@
 <br>
 </div>
 </div>
+<script>
+/*$(document).ready(function(){
+	$("input:checkbox").change(function(){
+
+		$(this).parent().parent().submit();
+		// if( $(this).is(":checked") )
+		// {
+		// 	$("#formchange").submit();
+		// }
+	})
+});
+*/
+
+	$(".activate").click(function(){
+		//$(this).parent().parent().submit();
+		var statetext =$(this).attr('my-value');
+		var state_id =$(this).attr('id-state');
+		var id_instructor =$(this).attr('id-instructor');
+		var id=$('.id_instructor').val();
+      	$.ajax({
+			type:'post',
+			url:'?c=lider&m=changeStatusInstructor',
+			data:{
+				statetext:statetext,
+				state_id:state_id,
+				id:id_instructor
+			},
+			success(response){
+				location.reload();
+			}
+	  	});
+		// {
+		// 	$("#formchange").submit();
+		// }
+	});
+
+
+
+</script>
+
+
 
 <!-- Modal Actualizar_Instructores-->
 <div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
@@ -166,6 +217,6 @@
 
 <?php
 if (!empty($data['msgType'])) {
-	echo "<script>toastr.".$data['msgType']['type']."('".$data['msgType']['msg']."','".$data['msgType']['title']."')</script>";
+    echo "<script>." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
 }
 ?>

@@ -49,4 +49,24 @@ class LiderModel extends DB
         }
     }
 
+    public function updatedStatusInstructor($data)
+    {
+        try {
+            // Verificar hay datos en $data
+            if (isset($data['status']) && isset($data['id_instructor'])) {
+                $status = $data['status'];
+                $id_instructor = $data['id_instructor'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_STATUS_INSTRUCTOR);
+                $stm->bindParam(1, $status, PDO::PARAM_STR);
+                $stm->bindParam(2, $id_instructor, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+
+    }
+
 }
