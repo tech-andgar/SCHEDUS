@@ -26,6 +26,8 @@
     <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
     <script src="./assets/js/dife.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+
     <script>
         toastr.options = {
             "closeButton": true,

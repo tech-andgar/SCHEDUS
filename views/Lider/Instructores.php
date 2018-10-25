@@ -35,24 +35,20 @@
 						</tr>
 					</thead>
 					<tbody class="">
-					<?php
+						<?php
 						foreach ($data['users'] as $user) {
     				?>
 						<tr>
 							<td class="">
-								<?php echo $user->nombre . " " . $user->apellido; ?></td>
-								<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
-
-<button type"button"
-id-instructor="<?php echo $user->id_usuario; ?>"
-id-state="<?php echo $user->id_estado_usuario ?>"
-name-state="<?php echo $user->name_estado_usuario ?>"
-class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>">
-<?php echo $user->name_estado_usuario ?>
-</button>
+								<?php echo $user->nombre . " " . $user->apellido; ?>
 							</td>
-
-
+							<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
+								<button type"button" id-instructor="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"
+								name-state="<?php echo $user->name_estado_usuario ?>" class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "
+								btn-success";} else {echo "btn-danger" ;}?>">
+									<?php echo $user->name_estado_usuario ?>
+								</button>
+							</td>
 							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
@@ -61,7 +57,7 @@ class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "bt
 								</div>
 							</td>
 						</tr>
-					<?php
+						<?php
 						}
 					?>
 					</tbody>
@@ -72,9 +68,6 @@ class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "bt
 </div>
 <br>
 </div>
-</div>
-<div id="demo">
-
 </div>
 <script>
 	$(".activate").click(function(){
@@ -110,32 +103,31 @@ class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "bt
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-				<form method="POST" action="../controlador/validar.php" class="form-signin">
-                        <table>
-                            <tr>
-                                <td>
-                                    <h5>Numero de Documento</h5>
-                                </td>
-                                <td><input type="number" class="adsi-css" name="Documento" placeholder="Documento"
-                                        readonly /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>Nombre</h5>
-                                </td>
-                                <td><input type="text" class="adsi-css" name="text" placeholder="Nombre" required /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>Correo</h5>
-                                </td>
-                                <td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
-                            </tr>
-                        </table>
-                        <div class="modal-body">
-                            <button class="btn-rounded" type="submit" style="width:180px">Actualizar</button>
-                        </div>
-                    </form>
+					<form method="POST" action="../controlador/validar.php" class="form-signin">
+						<table>
+							<tr>
+								<td>
+									<h5>Numero de Documento</h5>
+								</td>
+								<td><input type="number" class="adsi-css" name="Documento" placeholder="Documento" readonly /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Nombre</h5>
+								</td>
+								<td><input type="text" class="adsi-css" name="text" placeholder="Nombre" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Correo</h5>
+								</td>
+								<td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
+							</tr>
+						</table>
+						<div class="modal-body">
+							<button class="btn-rounded" type="submit" style="width:180px">Actualizar</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -153,37 +145,37 @@ class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "bt
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-				<form method="POST" action="?c=Lider&m=InsertarInstructor" class="form-signin">
-                        <table>
-                            <tr>
-                                <td>
-                                    <h5>Numero de Documento</h5>
-                                </td>
-                                <td><input type="number" class="adsi-css" name="dni" placeholder="Documento"/></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>Nombre</h5>
-                                </td>
-                                <td><input type="text" class="adsi-css" name="nombre_instructor" placeholder="Nombre" required /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>Apellido</h5>
-                                </td>
-                                <td><input type="text" class="adsi-css" name="apellido_instructor" placeholder="Nombre" required /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5>Correo</h5>
-                                </td>
-                                <td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
-                            </tr>
-                        </table>
-                        <div class="modal-body">
-                            <button class="btn-rounded" type="submit" style="width:180px">Agregar</button>
-                        </div>
-                    </form>
+					<form method="POST" action="?c=Lider&m=InsertarInstructor" class="form-signin">
+						<table>
+							<tr>
+								<td>
+									<h5>Numero de Documento</h5>
+								</td>
+								<td><input type="number" class="adsi-css" name="dni" placeholder="Documento" /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Nombre</h5>
+								</td>
+								<td><input type="text" class="adsi-css" name="nombre_instructor" placeholder="Nombre" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Apellido</h5>
+								</td>
+								<td><input type="text" class="adsi-css" name="apellido_instructor" placeholder="Nombre" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Correo</h5>
+								</td>
+								<td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
+							</tr>
+						</table>
+						<div class="modal-body">
+							<button class="btn-rounded" type="submit" style="width:180px">Agregar</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -193,6 +185,6 @@ class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "bt
 
 <?php
 if (!empty($data['msgType'])) {
-    echo "<script>." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
+	echo "<script>toastr.".$data['msgType']['type']."('".$data['msgType']['msg']."','".$data['msgType']['title']."')</script>";
 }
 ?>
