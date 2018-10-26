@@ -48,6 +48,42 @@ class LiderModel extends DB
             die($e->getMessage());
         }
     }
+    
+    public function getInstructor($idInstructor)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_INSTRUCTOR);
+            $stm->bindParam(1, $idInstructor, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data instructor
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    
+
+    public function updateDataInstructor($data)
+    {
+        try {
+            // Verificar hay datos en $data
+            if (isset($data['dni']) && isset($data['nombre']) && isset($data['apellido']) && isset($data['email'])) {
+                $dni = $data['dni'];
+                $nombre = $data['nombre'];
+                $apellido = $data['apellido'];
+                $email  = $data['email'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_INSTRUCTOR);
+                $stm->bindParam(1, $nombre, PDO::PARAM_STR);
+                $stm->bindParam(2, $apellido, PDO::PARAM_STR);
+                $stm->bindParam(3, $email, PDO::PARAM_STR);
+                $stm->bindParam(4, $dni, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 
     public function updatedStatusInstructor($data)
     {
@@ -66,7 +102,6 @@ class LiderModel extends DB
             return false;
             die($e->getMessage());
         }
-
     }
 
 }

@@ -4,29 +4,16 @@
 			<h4 class="text-center my-4">Administar Instructores</h4>
 			<hr>
 		</div>
-		<div class="col-lg-6 col-md-6 col-12 mt-2">
+		<div class="col-lg-12 col-md-6 col-12 mt-2">
 			<div data-toggle="modal" data-target="#Insertar" class=" text-center">
 				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nuevo Instructor</button>
 			</div>
-		</div>
-		<div class="col-lg-5 col-md-6 col-12 mt-2 ">
-			<form action="#" method="post">
-				<div id="textbox-search" class="input-group">
-					<input class="form-control border-secondary py-2" type="search" placeholder="Busqueda">
-					<div class="input-group-append">
-						<button class="btn btn-outline-info form-control" type="submit">
-							<i class="fa fa-search"></i>
-						</button>
-					</div>
-				</div>
-				<small id="helpId" class="form-text text-muted">Ingresa el Nombre del Instructor para buscarlo</small>
-			</form>
 		</div>
 	</div>
 	<div class="mt-5 row justify-content-center">
 		<div class="col-md-12">
 			<div class="row d-flex justify-content-center">
-				<table class="col-lg-10 table table-responsive table-hover table-condensed" id="tabla_horario">
+				<table class="table table-hover" id="tableInstructores">
 					<thead>
 						<tr class="success">
 							<th class="col-sm-1 ">Instructor</th>
@@ -44,7 +31,7 @@
 							</td>
 							<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
 								<button type"button" id-instructor="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"
-								name-state="<?php echo $user->name_estado_usuario ?>" class="activate btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "
+								name-state="<?php echo $user->name_estado_usuario ?>" class="statusChange btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "
 								btn-success";} else {echo "btn-danger" ;}?>">
 									<?php echo $user->name_estado_usuario ?>
 								</button>
@@ -52,7 +39,7 @@
 							<td style="
 									padding-bottom: 0px;
 									padding-top: 10px;">
-								<div data-toggle="modal" data-target="#Actualizar_ins">
+								<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $user->id_usuario; ?>">
 									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
@@ -69,8 +56,58 @@
 <br>
 </div>
 </div>
+
+
 <script>
-	$(".activate").click(function(){
+$(document).ready(function() {
+
+	$("#tableInstructores").DataTable({
+		"language":{
+			"sProcessing":     "Procesando...",
+			"sLengthMenu":     "Mostrar _MENU_ registros",
+			"sZeroRecords":    "No se encontraron resultados",
+			"sEmptyTable":     "Ningún dato disponible en esta tabla",
+			"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix":    "",
+			"sSearch":         "Buscar:",
+			"sUrl":            "",
+			"sInfoThousands":  ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+						"sFirst":    "Primero",
+						"sLast":     "Último",
+						"sNext":     "Siguiente",
+						"sPrevious": "Anterior"
+			},
+			"oAria": {
+						"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+		},"dom": // Insertar objeto tabla por formato:
+			// Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
+			"<'row'<'col-sm-6'f><'col-sm-6'l>>" +
+			// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
+			"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
+			// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
+			"<'row'<'col-sm-2'><'col-sm-10'i><'col-sm-3'><'col-sm-7'p>>" +
+			// Pie de la tabla -- B-> Botones de exportar
+			"<'row'<'col-sm-12'B>>",
+		buttons: [
+			'copy',
+			'excel',
+			'pdf'
+    	]
+		//buttons: [
+		//	'copyHtml5',
+		//	'excelHtml5',
+		//	'csvHtml5',
+		//	'pdfHtml5'
+		//]
+	});
+
+	$(".statusChange").click(function(){
 		var statetext =$(this).attr('name-state');
 		var state_id =$(this).attr('id-state');
 		var id_instructor =$(this).attr('id-instructor');
@@ -87,7 +124,28 @@
 			}
 		});
 	});
-</script>
+
+	$(".updateDataInstructor").click(function(){
+		var id_instructor =$(this).attr('id-instructor');
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataInstructor',
+			dataType:"json",
+			data:{
+				id_instructor:id_instructor
+			},
+			success(response){
+				var instructor = jQuery.parseJSON(JSON.stringify(response));
+				$('#text-dni').val(instructor.dni);
+				$('#text-nombre').val(instructor.nombre);
+				$('#text-apellido').val(instructor.apellido);
+				$('#text-email').val(instructor.email);
+			}
+		});
+	});
+
+});
+    </script>
 
 
 
@@ -103,25 +161,31 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="../controlador/validar.php" class="form-signin">
+					<form method="POST" action="?c=Lider&m=updateDataInstructor">
 						<table>
 							<tr>
 								<td>
 									<h5>Numero de Documento</h5>
 								</td>
-								<td><input type="number" class="adsi-css" name="Documento" placeholder="Documento" readonly /></td>
+								<td><input id="text-dni" type="number" value=""  class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
 							</tr>
 							<tr>
 								<td>
 									<h5>Nombre</h5>
 								</td>
-								<td><input type="text" class="adsi-css" name="text" placeholder="Nombre" required /></td>
+								<td><input id="text-nombre" type="text" value="" class="adsi-css" name="nombre" placeholder="Nombre" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Apellido</h5>
+								</td>
+								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido" required /></td>
 							</tr>
 							<tr>
 								<td>
 									<h5>Correo</h5>
 								</td>
-								<td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
+								<td><input id="text-email" type="email" value="" class="adsi-css" name="email" placeholder="Correo" required /></td>
 							</tr>
 						</table>
 						<div class="modal-body">

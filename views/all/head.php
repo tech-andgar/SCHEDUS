@@ -13,6 +13,8 @@
     <link rel="icon" type="image/webp" sizes="32x32" href="./assets/images/favicon-32x32.webp">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./vendor/grimmlink/toastr/build/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/datatables/datatables/media/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css"/>
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css">
     <link href="./assets/css/style.css" rel="stylesheet">
@@ -24,9 +26,12 @@
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap-4.0.0.js"></script>
     <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
+    <script src="./vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="./vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
     <script src="./assets/js/dife.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script> -->
 
     <script>
         toastr.options = {
