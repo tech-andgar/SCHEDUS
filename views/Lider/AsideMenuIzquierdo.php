@@ -12,6 +12,6 @@
 			<a class="dropdown-item" href="index.php?c=lider&m=jornadas">Administrar jornadas de formación</a>
 		</div>
 		<a class="btn btn-outline-light" href="index.php?c=lider&m=fichas">Fichas</a>
-		<a class="btn btn-outline-light" href="#" onclick="swal('Correcto','Datos guardados con exito','success')">Asignar</a>
+		<a class="btn btn-outline-light" href="index.php?c=lider&m=Instructor">Insertar Instructor</a>
 	</div>
 </div>

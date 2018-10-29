@@ -3,6 +3,7 @@
         "components/font-awesome": "^5.0",
         "grimmlink/toastr": "^2.1",
         "fullcalendar/fullcalendar": "^3.9",
-        "realrashid/sweet-alert": "^1.1"
+        "realrashid/sweet-alert": "^1.1",
+        "datatables/datatables": "^1.10"
     }
 }

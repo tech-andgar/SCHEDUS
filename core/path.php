@@ -59,6 +59,12 @@ class Path
     public function viewModule($module, $view, $title = "", $data = [], $c = '')
     {
         $title = $title;
+        if (isset($data[0])) {
+            $data['msgType']= $data[0];
+        }
+        if (isset($data[1])) {
+            $data['users'] = $data[1];
+        }
         require_once 'views/all/head.php';
         require_once 'views/all/header.php';
         require_once 'views/' . $module . '/navbar' . ucwords($module) . '.php';
