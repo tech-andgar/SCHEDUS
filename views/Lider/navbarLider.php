@@ -72,74 +72,8 @@
             </div>
         </div>
     </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin">
-                        <h5>Numero de la Ficha</h5>
-                        <input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-                        <hr>
-                        <button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
-<!-- Modal Agregar nueva Ficha-->
-<div class="modal fade" id="Agregar_Ficha" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="col-11 modal-title text-center">Agregar Nueva Ficha</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
 
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin">
-                        <h5>Numero de la Ficha</h5>
-                        <input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <h4>Grupo:</h4>
-                                <select class="adsi-css" required>
-                                    <option value="">Grupo</option>
-                                    <option value="G1">G1</option>
-                                    <option value="G2">G2</option>
-                                    <option value="G3">G3</option>
-                                    <option value="G4">G4</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <h4>Programa:</h4>
-                                <select class="adsi-css" required>
-                                    <option value="">Seleccione un Programa</option>
-                                    <option value="tab">ADSI</option>
-                                    <option value="tab">DIM</option>
-                                </select>
-                            </div>
-                        </div>
-                        <hr>
-                        <button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Modal Agregar nuevo Grupo-->
 <div class="modal fade" id="Agregar_Grupo" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -228,27 +162,3 @@
             </div>
         </div>
     </div>
-
-<!-- Modal Actualizar Programas -->
-<div class="modal fade" id="Actualizar_Prms" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin">
-                        <h5>Nombre del Programa</h5>
-                        <input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-                        <hr>
-                        <button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

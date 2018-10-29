@@ -169,5 +169,16 @@ class ProgramaFormacionModel extends DB {
 	public function setVersion_programa($version_programa) {
 		$this->version_programa = $version_programa;
 	}
+
+	public function getAllProgramaFormacion()
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_PROGRAMA_FORMACION);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Programa de Formacion
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 ?>

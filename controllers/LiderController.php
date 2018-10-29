@@ -9,7 +9,10 @@ class LiderController extends Path
     {
         $this->modelSecurity = parent::model('security');
         $this->modelSecurity->securityLider();
-        $this->model = parent::model('lider');
+        $this->modelLider = parent::model('lider');
+        $this->modelFicha = parent::model('ficha');
+        $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
+        $this->modelProgramaFormacion = parent::model('programaFormacion');
     }
 
     public function index()
@@ -39,7 +42,15 @@ class LiderController extends Path
 
     public function Fichas()
     {
-        parent::viewModule('lider', 'Fichas', 'Fichas');
+        $fichas = $this->modelFicha->getAllFichas();
+        $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
+        $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
+       // $data[0] = $msgType;
+        $data[1] = $fichas;
+        $data[2] = null;
+        $data[3] = $nivelFormacion;
+        $data[4] = $programaFormacion;
+        parent::viewModule('lider', 'Fichas', 'Fichas', $data);
     }
 
     public function Jornadas()
@@ -52,16 +63,17 @@ class LiderController extends Path
     }
     public function Instructor($msgType = [])
     {
-        $users = $this->model->getAllInstructores();
+        $users = $this->modelLider->getAllInstructores();
         $data[0] = $msgType;
         $data[1] = $users;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
 
+    // Control de Instructor
     public function insertarInstructor()
     {
         $data = $_POST;
-        $result = $this->model->insertarInstructor($data);
+        $result = $this->modelLider->insertarInstructor($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -92,27 +104,13 @@ class LiderController extends Path
             "status" => $status,
         );
 
-        $result = $this->model->updatedStatusInstructor($data); // Enviar al DB
-        // if ($result) {
-        //     $msgType = array(
-        //         'type' => 'success',
-        //         'title' => 'AVISO',
-        //         'msg' => 'Exito actualizado estado de instructor',
-        //     );
-
-        // } else {
-        //     $msgType = array(
-        //         'type' => 'error',
-        //         'title' => 'AVISO',
-        //         'msg' => 'No pudo actualizar estado instructor',
-        //     );
-        // }
+        $result = $this->modelLider->updatedStatusInstructor($data); // Enviar al DB
     }
 
     public function getDataInstructor()
     {
         $idInstructor = $_POST['id_instructor'];
-        $dataInstructor = $this->model->getInstructor($idInstructor);
+        $dataInstructor = $this->modelLider->getInstructor($idInstructor);
         $dataInstructor = json_encode($dataInstructor);
         echo $dataInstructor;
     }
@@ -125,7 +123,7 @@ class LiderController extends Path
             "apellido" => $_POST['apellido'],
             "email" => $_POST['email'],
         );
-        $result = $this->model->updateDataInstructor($data);
+        $result = $this->modelLider->updateDataInstructor($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -141,5 +139,76 @@ class LiderController extends Path
         }
 
         $this->Instructor($msgType);
+    }
+
+    // Control de Ficha
+    public function insertarFicha()
+    {
+        $data = $_POST;
+        $result = $this->modelFicha->insertarFicha($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrado nuevo instructor',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo instructor',
+            );
+        }
+        $this->Ficha($msgType);
+    }
+    public function changeStatusFicha()
+    {
+        if ($_POST['state_id'] == "2") {
+            $status = "3";
+        } else if ($_POST['state_id'] == "3") {
+            $status = "2";
+        }
+
+        $data = array(
+            "id_Ficha" => $_POST['id_Ficha'],
+            "status" => $status,
+        );
+
+        $result = $this->modelFicha->updatedStatusFicha($data); // Enviar al DB
+    }
+
+    public function getDataFicha()
+    {
+        $idFicha = $_POST['id_Ficha'];
+        $dataFicha = $this->modelFicha->getFicha($idFicha);
+        $dataFicha = json_encode($dataFicha);
+        echo $dataFicha;
+    }
+
+    public function updateDataFicha()
+    {
+        $data = array(
+            "dni" => $_POST['dni'],
+            "nombre" => $_POST['nombre'],
+            "apellido" => $_POST['apellido'],
+            "email" => $_POST['email'],
+        );
+        $result = $this->modelFicha->updateDataFicha($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de instructor',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo actualizar datos instructor',
+            );
+        }
+
+        $this->Ficha($msgType);
     }
 }

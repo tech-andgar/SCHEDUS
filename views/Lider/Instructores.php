@@ -23,7 +23,8 @@
 					</thead>
 					<tbody class="">
 						<?php
-						foreach ($data['users'] as $user) {
+						var_dump($data['data']);
+						foreach ($data['data'] as $user) {
     				?>
 						<tr>
 							<td class="">
