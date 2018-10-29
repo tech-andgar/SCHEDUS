@@ -50,10 +50,12 @@ class LiderController extends Path
     {
         parent::viewModule('lider', 'Fusionar', 'Fusionar');
     }
-    public function Instructor()
+    public function Instructor($msgType = [])
     {
         $users = $this->model->getAllInstructores();
-        parent::viewModule('lider', 'Instructores', 'Instructores', $users);
+        $data[0] = $msgType;
+        $data[1] = $users;
+        parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
 
     public function insertarInstructor()
@@ -61,37 +63,83 @@ class LiderController extends Path
         $data = $_POST;
         $result = $this->model->insertarInstructor($data);
         if ($result) {
-            parent::viewModule(
-                'lider',
-                'Instructores',
-                'Registrado',
-                array(
-                    'type' => 'success',
-                    'title' => 'AVISO',
-                    'msg' => 'Exito registrado nuevo instructor',
-                )
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrado nuevo instructor',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo instructor',
+            );
+        }
+        $this->Instructor($msgType);
+    }
+
+    public function changeStatusInstructor()
+    {
+        if ($_POST['state_id'] == "2") {
+            $status = "3";
+        } else if ($_POST['state_id'] == "3") {
+            $status = "2";
+        }
+
+        $data = array(
+            "id_instructor" => $_POST['id_instructor'],
+            "status" => $status,
+        );
+
+        $result = $this->model->updatedStatusInstructor($data); // Enviar al DB
+        // if ($result) {
+        //     $msgType = array(
+        //         'type' => 'success',
+        //         'title' => 'AVISO',
+        //         'msg' => 'Exito actualizado estado de instructor',
+        //     );
+
+        // } else {
+        //     $msgType = array(
+        //         'type' => 'error',
+        //         'title' => 'AVISO',
+        //         'msg' => 'No pudo actualizar estado instructor',
+        //     );
+        // }
+    }
+
+    public function getDataInstructor()
+    {
+        $idInstructor = $_POST['id_instructor'];
+        $dataInstructor = $this->model->getInstructor($idInstructor);
+        $dataInstructor = json_encode($dataInstructor);
+        echo $dataInstructor;
+    }
+
+    public function updateDataInstructor()
+    {
+        $data = array(
+            "dni" => $_POST['dni'],
+            "nombre" => $_POST['nombre'],
+            "apellido" => $_POST['apellido'],
+            "email" => $_POST['email'],
+        );
+        $result = $this->model->updateDataInstructor($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de instructor',
             );
         } else {
-            parent::viewModule(
-                'lider',
-                'Instructores',
-                'No registrado',
-                array(
-                    'type' => 'error',
-                    'title' => 'AVISO',
-                    'msg' => 'No pudo registrar nuevo instructor',
-                )
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo actualizar datos instructor',
             );
         }
 
-    }
-    public function SelectInstructorTabla()
-    {
-        $data = $_POST;
-        $this->model->SelectInstructorTabla($data);
-        parent::viewModule(
-                'lider',
-                'Instructores',
-                'Instructores');
+        $this->Instructor($msgType);
     }
 }
