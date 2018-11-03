@@ -99,15 +99,15 @@ class FichaModel extends DB {
                 isset($data['name_programa_formacion']) &&
                 isset($data['name_nivel_programa_formacion'])
             ) {
-                $dni = $data['dni'];
-                $nombre_instructor = $data['nombre_instructor'];
-                $apellido_instructor = $data['apellido_instructor'];
-                $email = $data['email'];
+                $num_ficha = $data['num_ficha'];
+                $num_grupo = $data['num_grupo'];
+                $name_programa_formacion = $data['name_programa_formacion'];
+                $name_nivel_programa_formacion = $data['name_nivel_programa_formacion'];
                 $stm = parent::conectar()->prepare(preparedSQL::FICHA_NEW);
-                $stm->bindParam(1, $dni, PDO::PARAM_STR);
-                $stm->bindParam(2, $nombre_instructor, PDO::PARAM_STR);
-                $stm->bindParam(3, $apellido_instructor, PDO::PARAM_STR);
-                $stm->bindParam(4, $email, PDO::PARAM_STR);
+                $stm->bindParam(1, $num_ficha, PDO::PARAM_STR);
+                $stm->bindParam(2, $num_grupo, PDO::PARAM_STR);
+                $stm->bindParam(3, $name_programa_formacion, PDO::PARAM_STR);
+                $stm->bindParam(4, $name_nivel_programa_formacion, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }

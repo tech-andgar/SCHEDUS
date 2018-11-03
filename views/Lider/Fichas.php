@@ -35,8 +35,8 @@
 				</thead>
 				<tbody class="">
 					<?php
-						foreach ( $data['data'] as $ficha) {
-    				?>
+						foreach ($data['data'] as $ficha) {
+  					  ?>
 					<tr>
 						<td>
 							<?php echo $ficha->num_ficha; ?>
@@ -53,23 +53,23 @@
 						<td>
 							<?php
 								switch ($ficha->name_estado_ficha) {
-									case 'Cancelado':
-										echo '<div class="p-2 bg-danger text-white rounded">'.$ficha->name_estado_ficha.'</div>';
-										break;
-									case 'Completado':
-										echo '<div class="p-2 bg-info text-white rounded">'.$ficha->name_estado_ficha.'</div>';
-										break;
-									case 'En formación':
-										echo '<div class="p-2 bg-success text-white rounded">'.$ficha->name_estado_ficha.'</div>';
-										break;
-									case 'Pendiente Asignado':
-										echo '<div class="p-2 bg-warning text-dark rounded">'.$ficha->name_estado_ficha.'</div>';
-										break;
-									default:
-										echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formacion '.$ficha->name_estado_ficha.'</div>';
-									break;
-								}
-								?>
+       							 case 'Cancelado':
+            					echo '<div class="p-2 bg-danger text-white rounded">' . $ficha->name_estado_ficha . '</div>';
+           						 break;
+       							 case 'Completado':
+          						  echo '<div class="p-2 bg-info text-white rounded">' . $ficha->name_estado_ficha . '</div>';
+            					break;
+        						case 'En formación':
+           						 echo '<div class="p-2 bg-success text-white rounded">' . $ficha->name_estado_ficha . '</div>';
+            					break;
+        						case 'Pendiente Asignado':
+            					echo '<div class="p-2 bg-warning text-dark rounded">' . $ficha->name_estado_ficha . '</div>';
+            					break;
+        						default:
+            					echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formacion ' . $ficha->name_estado_ficha . '</div>';
+            					break;
+    }
+    ?>
 						</td>
 						<td style="
 									padding-bottom: 0px;
@@ -80,8 +80,8 @@
 						</td>
 					</tr>
 					<?php
-						}
-					?>
+}
+?>
 				</tbody>
 			</table>
 		</div>
@@ -192,42 +192,60 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
+					<form method="post" action="?c=Lider&m=InsertarFicha" class="form-signin">
 						<div class="form-group">
-							<label for="txt_num_ficha">Numero de la Ficha</label>
-							<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control adsi-css" placeholder="" aria-describedby="helpIdNumFicha">
-							<small id="helpIdNumFicha" class="text-muted">Help text</small>
-							 <!-- style="width:80%; height:30px" -->
+							<h4>Numero de la Ficha</h4>
+							<input type="number" name="num_ficha" id="num_ficha" class="adsi-css form-control" placeholder=""
+							 aria-describedby="helpIdNumFicha">
+							<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
+							<!-- style="width:80%; height:30px" -->
 
 						</div>
 
-								<h4>Grupo:</h4>
-								<select class="adsi-css mb-3" required>
-									<option value="">Grupo</option>
-									<?php
-										foreach ( $data['partial0'] as $nivel) {
-									?>
-									<option value="<?php echo $grupo->id_grupo;?>"><?php echo $grupo->num_grupo . $grupo->duracion ;?></option>
-									<?php
-										}
-									?>
+						<h4>Grupo:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Grupo</option>
+							<?php
+foreach ($data['partial0'] as $grupo) {
+    ?>
+							<option value="<?php echo $grupo->id_grupo; ?>">
+								<?php echo $grupo->num_grupo; ?>
+							</option>
+							<?php
+}
+?>
 
-								</select>
-								<h4>Nivel:</h4>
-								<select class="adsi-css mb-3" required>
-									<option value="">Nivel</option>
-								<?php
-									foreach ($data['partial1'] as $nivel) {
-								?>
-									<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>"><?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion ; ?></option>
-								<?php
-									}
-								?>
-								</select>
+						</select>
+						<h4>Nivel:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Nivel</option>
+							<?php
+foreach ($data['partial1'] as $nivel) {
+    ?>
+							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
+								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
+							</option>
+							<?php
+}
+?>
+						</select>
 
 						<h4>Programa:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Programas</option>
+							<?php
+foreach ($data['partial2'] as $programa) {
+    //.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
+    ?>
+							<option value="<?php echo $programa->codigo; ?>">
+								<?php echo $programa->name_programa_formacion; ?>
+							</option>
+							<?php
+}
+?>
+						</select>
 						<script>
-						$(".updateDataInstructor").click(function(){
+							$(".updateDataInstructor").click(function(){
 							var id_instructor =$(this).attr('id-instructor');
 							$.ajax({
 								type:'POST',
@@ -247,17 +265,6 @@
 						});
 
 						</script>
-						<select class="adsi-css mb-3" required>
-						<option value="">Programas</option>
-								<?php
-								foreach ( $data['partial2'] as $programa) {
-									//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
-									?>
-									<option value="<?php echo $programa->codigo;?>"><?php echo $programa->name_programa_formacion;?></option>
-									<?php
-									}
-								?>
-								</select>
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
@@ -268,7 +275,7 @@
 </div>
 <!-- Modal actualizar datos -->
 <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
@@ -278,27 +285,91 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="?c=Lider&m=updateDataFicha" class="form-signin">
-						<h5>Numero de la Ficha</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<div class="row">
-							<div class="col-lg-5">
-								<h4>Grupo:</h4>
-								<select class="adsi-css" required>
-									<option value="">Grupo</option>
-									<option value="G1">G1</option>
-									<option value="G2">G2</option>
-									<option value="G3">G3</option>
-									<option value="G4">G4</option>
-								</select>
-							</div>
-							<div class="col-lg-6">
-								<h4>Nivel:</h4>
-								<input id="text-nivel" type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="nivel" />
-							</div>
+					<form method="post" action="#" class="form-signin">
+						<div class="form-group">
+							<label for="txt_num_ficha">Numero de la Ficha</label>
+							<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control adsi-css" placeholder=""
+							 aria-describedby="helpIdNumFicha">
+							<small id="helpIdNumFicha" class="text-muted">Help text</small>
+							<!-- style="width:80%; height:30px" -->
+
 						</div>
+
+						<h4>Grupo:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Grupo</option>
+							<?php
+foreach ($data['partial0'] as $grupo) {
+    ?>
+							<option value="<?php echo $grupo->num_grupo; ?>">
+								<?php echo $grupo->num_grupo . $grupo->version; ?>
+							</option>
+							<?php
+}
+?>
+
+						</select>
+						<h4>Nivel:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Nivel</option>
+							<?php
+foreach ($data['partial3'] as $nivel) {
+    ?>
+							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
+								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
+							</option>
+							<?php
+}
+?>
+						</select>
+						<h4>Estado:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Nivel</option>
+							<?php
+foreach ($data['partial1'] as $nivel) {
+    ?>
+							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
+								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
+							</option>
+							<?php
+}
+?>
+						</select>
+
 						<h4>Programa:</h4>
-						<input id="text-programa" type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="programa" />
+						<select class="adsi-css mb-3" required>
+							<option value="">Programas</option>
+							<?php
+foreach ($data['partial2'] as $programa) {
+    //.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
+    ?>
+							<option value="<?php echo $programa->codigo; ?>">
+								<?php echo $programa->name_programa_formacion; ?>
+							</option>
+							<?php
+}
+?><script>
+							$(".updateDataInstructor").click(function(){
+							var id_instructor =$(this).attr('id-instructor');
+							$.ajax({
+								type:'POST',
+								url:'?c=Lider&m=getDataInstructor',
+								dataType:"json",
+								data:{
+									id_instructor:id_instructor
+								},
+								success(response){
+									var instructor = jQuery.parseJSON(JSON.stringify(response));
+									$('#text-dni').val(instructor.dni);
+									$('#text-nombre').val(instructor.nombre);
+									$('#text-apellido').val(instructor.apellido);
+									$('#text-email').val(instructor.email);
+								}
+							});
+						});
+
+						</script>
+						</select>
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
 					</form>
@@ -310,6 +381,6 @@
 
 <?php
 if (!empty($data['msgType'])) {
-	echo "<script>toastr.".$data['msgType']['type']."('".$data['msgType']['msg']."','".$data['msgType']['title']."')</script>";
+    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
 }
 ?>

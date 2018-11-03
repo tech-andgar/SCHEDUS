@@ -42,12 +42,15 @@ class LiderController extends Path
 
     public function Fichas()
     {
+        //$grupo = $this->modelGrupo->getAllGrupo();
         $fichas = $this->modelFicha->getAllFichas();
         $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        
+
        // $data[0] = $msgType;
         $data[1] = $fichas;
-        $data[2] = null;
+        //$data[2] = $grupo;
         $data[3] = $nivelFormacion;
         $data[4] = $programaFormacion;
         parent::viewModule('lider', 'Fichas', 'Fichas', $data);
@@ -78,14 +81,14 @@ class LiderController extends Path
             $msgType = array(
                 'type' => 'success',
                 'title' => 'AVISO',
-                'msg' => 'Exito registrado nuevo instructor',
+                'msg' => 'Exito registrando nuevo instructor',
             );
 
         } else {
             $msgType = array(
                 'type' => 'error',
                 'title' => 'AVISO',
-                'msg' => 'No pudo registrar nuevo instructor',
+                'msg' => 'No se pudo registrar nuevo instructor',
             );
         }
         $this->Instructor($msgType);
@@ -134,7 +137,7 @@ class LiderController extends Path
             $msgType = array(
                 'type' => 'error',
                 'title' => 'AVISO',
-                'msg' => 'No pudo actualizar datos instructor',
+                'msg' => 'No se pudo actualizar datos instructor',
             );
         }
 
@@ -150,14 +153,14 @@ class LiderController extends Path
             $msgType = array(
                 'type' => 'success',
                 'title' => 'AVISO',
-                'msg' => 'Exito registrado nuevo instructor',
+                'msg' => 'Exito registrando nueva Ficha',
             );
 
         } else {
             $msgType = array(
                 'type' => 'error',
                 'title' => 'AVISO',
-                'msg' => 'No pudo registrar nuevo instructor',
+                'msg' => 'No pudo registrar nueva Ficha',
             );
         }
         $this->Ficha($msgType);
@@ -199,13 +202,13 @@ class LiderController extends Path
             $msgType = array(
                 'type' => 'success',
                 'title' => 'AVISO',
-                'msg' => 'Exito actualizado datos de instructor',
+                'msg' => 'Exito actualizando datos de la ficha',
             );
         } else {
             $msgType = array(
                 'type' => 'error',
                 'title' => 'AVISO',
-                'msg' => 'No pudo actualizar datos instructor',
+                'msg' => 'No pudo actualizar datos de la ficha',
             );
         }
 

@@ -74,6 +74,9 @@ class Path
         if (isset($data[4])) {
             $data['partial2'] = $data[4];
         }
+        if (isset($data[5])) {
+            $data['partial3'] = $data[5];
+        }
         require_once 'views/all/head.php';
         require_once 'views/all/header.php';
         require_once 'views/' . $module . '/navbar' . ucwords($module) . '.php';
