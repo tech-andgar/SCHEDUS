@@ -104,7 +104,7 @@ class SecurityModel extends DB
 
     public static function redirectRoleModule()
     {
-        
+
     }
 
     // public static function isLogged($user)

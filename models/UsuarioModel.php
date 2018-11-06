@@ -202,7 +202,7 @@ class UsuarioModel extends DB {
    * @access public
    * @param data
    */
-  public function VerificarLogin(array $data) {
+  public function verificarLogin(array $data) {
     try {
       // Verificar hay datos dni y password en $data
       if (isset($data['dni']) && isset($data['password'])) {
@@ -260,6 +260,50 @@ class UsuarioModel extends DB {
       die($e->getMessage());
     }
   }
+
+  /**
+   * Verificar Email desde <FORM> al DB
+   * @author Andres Garcia
+   * @param $array es $_POST
+   * @access public
+   * @param data
+   */
+  public function verificarEmail(array $data) {
+    try {
+      // Verificar hay datos email
+      if (isset($data['emailRecovery'])) {
+        $email = $data['emailRecovery'];
+
+        $stm = parent::conectar()->prepare(preparedSQL::GET_USER_EMAIL);
+        $stm->bindParam(1, $email, PDO::PARAM_STR);
+        $stm->execute();
+        $user = $stm->fetch(PDO::FETCH_OBJ);
+
+        // Encontrado usuario
+        if ($user) {
+          // Comprobar estado del usuario
+          if ($user->id_estado_usuario == 2) { // 2 Activo
+            return $user;
+          }
+          // Estado del usuario Inactivo
+          else {
+            return false;
+          }
+
+        } else {
+          // No encontrado usuario
+          return false;
+        }
+      } else {
+        // No hay datos email en $data
+        return false;
+      }
+
+    } catch (Exception $e) {
+      die($e->getMessage());
+    }
+  }
+
   public function SelectInstructorTabla(array $data) {
     try {
       // Verificar hay datos dni y password en $data

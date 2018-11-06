@@ -14,13 +14,16 @@ class InicioController extends Path
         $this->modelSecurity = parent::model('security');
     }
 
+    // Render Views
     public function index()
     {
+        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'infoUser['title' => '','msg' =>'']');
         parent::view('inicio', 'index', 'Horario de formación');
     }
 
     public function noAuth()
     {
+        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'infoUser['title' => '','msg' =>'']');
         parent::view(
             'inicio',
             'index',
@@ -34,6 +37,7 @@ class InicioController extends Path
 
     public function noRegistered()
     {
+        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'infoUser['title' => '','msg' =>'']');
         parent::view(
             'inicio',
             'index',
@@ -45,11 +49,74 @@ class InicioController extends Path
         );
     }
 
-    public function RecuperarContrasena()
+    public function recuperarContrasena()
     {
         parent::view('inicio', 'recuperarContrasena', 'Recuperar Contraseña');
     }
 
+    // Method Action
+    public function ValidarUsuario()
+    {
+        try {
+
+            $data = $_POST;
+            $user = $this->modelUsuario->verificarLogin($data);
+
+            if (!$user) {
+                header('location:?c=Inicio&m=noRegistered');
+            } else {
+                $this->modelSecurity->LoginSession($user);
+            }
+
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function sendMailRecoveryPassword()
+    {
+        try {
+            if (isset($_POST['emailRecovery'])) {
+                $data['emailRecovery'] = $_POST['emailRecovery'];
+                $user = $this->modelUsuario->verificarEmail($data);
+
+                if (!$user) {
+                    echo 'No encontrado correo en DB';
+                    // header('location:?c=Inicio&m=noRegistered');
+                } else {
+                    echo 'encontrado correo en DB';
+
+                    //Mando a llamar a la funcion que se encarga de enviar el correo eletronico
+                    require_once 'MailController.php';
+
+
+                    //Ruta de la plantilla HTML para enviar nuestro mensaje
+                    //$template = "./index.html";
+
+                    /* Inicio captura de datos enviados por $_POST para enviar el correo */
+
+                    //Correo electronico que recibira el mensaje
+                    // $txt_message = $_POST['message'];
+                    // $mail_subject = $_POST['subject'];
+                    $mail_sendtoAddAddressMail = $data['emailRecovery'];
+                    $mail_subject = 'Recuperar la contraseña';
+
+                    sendemail($mail_sendtoAddAddressMail, $mail_subject);
+                    //$this->modelSecurity->LoginSession($user);
+                }
+            }
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    // TODO FIX
+    public function cambiarContrasena()
+    {
+        parent::view('inicio', 'cambiarContrasena', 'Cambiar Contraseña');
+    }
+
+    // Test Render Views
     public function prueba()
     {
         $title = "PRUEBA";
@@ -65,31 +132,6 @@ class InicioController extends Path
         //require_once 'views/all/footer.php';
     }
 
-    public function ValidarUsuario()
-    {
-        try {
-            
-            $data = $_POST;
-            $user = $this->modelUsuario->VerificarLogin($data);
-            
-            if (!$user) {
-                header('location:?c=Inicio&m=noRegistered');
-            } else {
-                $this->modelSecurity->LoginSession($user);
-            }
-
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-
-    }
-
-    // TODO FIX
-    public function cambiarContrasena()
-    {
-        parent::view('inicio', 'cambiarContrasena', 'Cambiar Contraseña');
-    }
-
     // public function CambiarContrasena()
     // {
     //     $title = "Nueva Contraseña";
@@ -99,5 +141,4 @@ class InicioController extends Path
     //     require_once 'views/Inicio/Cambiar_contrasena.php';
     //     require_once 'views/all/footer.php';
     // }
-
 }
