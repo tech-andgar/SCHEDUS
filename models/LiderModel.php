@@ -40,7 +40,6 @@ class LiderModel extends DB
     {
         try {
             $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_INSTRUCTORES);
-            $stm->bindParam(1, $dni, PDO::PARAM_STR);
             $stm->execute();
             $users = $stm->fetchAll(PDO::FETCH_OBJ);
             return $users; // Retorno completa de lista de instructores
@@ -48,7 +47,7 @@ class LiderModel extends DB
             die($e->getMessage());
         }
     }
-    
+
     public function getInstructor($idInstructor)
     {
         try {
@@ -60,7 +59,7 @@ class LiderModel extends DB
             die($e->getMessage());
         }
     }
-    
+
 
     public function updateDataInstructor($data)
     {

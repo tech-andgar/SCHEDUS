@@ -3,6 +3,7 @@ class preparedSQL
 {
     // Usuario
     const USER1_QUERY_DNI = "SELECT * FROM v_usuarios WHERE dni = ?";
+    const GET_USER_EMAIL = "SELECT * FROM v_usuarios WHERE email = ?";
 
     //Instructores
     const GET_INSTRUCTOR = "SELECT * FROM `v_usuarios` WHERE id_usuario=? AND id_rol = 3";
