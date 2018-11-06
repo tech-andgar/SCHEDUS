@@ -1,5 +1,6 @@
 <?php
 
+
 class LiderController extends Path
 {
     // private $modelSecurity;
@@ -57,6 +58,8 @@ class LiderController extends Path
         $data[1] = $users;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
+
+
 
     public function insertarInstructor()
     {
