@@ -4,7 +4,7 @@
 			<h4 class="text-center my-4">Administar Instructores</h4>
 			<hr>
 		</div>
-		<div class="col-lg-12 col-md-6 col-12 mt-2">
+		<div class="col-lg-12 col-md-12 col-12 mt-2">
 			<div data-toggle="modal" data-target="#Insertar" class=" text-center">
 				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nuevo Instructor</button>
 			</div>
@@ -13,7 +13,8 @@
 	<div class="mt-5 row justify-content-center">
 		<div class="col-md-12">
 			<div class="row d-flex justify-content-center">
-				<table class="table table-hover" id="tableInstructores">
+			<div class="table-responsive">
+				<table class="table table-hover " id="tableInstructores">
 					<thead>
 						<tr class="success">
 							<th class="col-sm-1 ">Instructor</th>
@@ -22,33 +23,10 @@
 						</tr>
 					</thead>
 					<tbody class="">
-						<?php
-						foreach ($data['users'] as $user) {
-    				?>
-						<tr>
-							<td class="">
-								<?php echo $user->nombre . " " . $user->apellido; ?>
-							</td>
-							<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
-								<button type"button" id-instructor="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"
-								name-state="<?php echo $user->name_estado_usuario ?>" class="statusChange btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "
-								btn-success";} else {echo "btn-danger" ;}?>">
-									<?php echo $user->name_estado_usuario ?>
-								</button>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $user->id_usuario; ?>">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-						<?php
-						}
-					?>
+					
 					</tbody>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -67,8 +45,8 @@ $(document).ready(function() {
 			"sLengthMenu":     "Mostrar _MENU_ registros",
 			"sZeroRecords":    "No se encontraron resultados",
 			"sEmptyTable":     "Ningún dato disponible en esta tabla",
-			"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-			"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+			"sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
 			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
 			"sInfoPostFix":    "",
 			"sSearch":         "Buscar:",
@@ -91,7 +69,7 @@ $(document).ready(function() {
 			// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 			"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 			// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-			"<'row'<'col-sm-2'><'col-sm-10'i><'col-sm-3'><'col-sm-7'p>>" +
+			"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
 			// Pie de la tabla -- B-> Botones de exportar
 			"<'row'<'col-sm-12'B>>",
 		buttons: [
