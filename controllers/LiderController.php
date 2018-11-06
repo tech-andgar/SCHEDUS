@@ -13,6 +13,7 @@ class LiderController extends Path
         $this->modelFicha = parent::model('ficha');
         $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
         $this->modelProgramaFormacion = parent::model('programaFormacion');
+        $this->modelGrupo = parent::model('grupo');
     }
 
     public function index()
@@ -184,6 +185,13 @@ class LiderController extends Path
     {
         $idFicha = $_POST['id_Ficha'];
         $dataFicha = $this->modelFicha->getFicha($idFicha);
+        $dataFicha = json_encode($dataFicha);
+        echo $dataFicha;
+    }
+
+    public function getAllDataFichas()
+    {
+        $dataFicha = $this->modelFicha->getAllFichas();
         $dataFicha = json_encode($dataFicha);
         echo $dataFicha;
     }
