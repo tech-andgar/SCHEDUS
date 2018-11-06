@@ -40,17 +40,16 @@ class LiderController extends Path
         parent::viewModule('lider', 'Competencias', 'Competencias');
     }
 
-    public function Fichas()
+    public function Fichas($msgType=[])
     {
-        //$grupo = $this->modelGrupo->getAllGrupo();
+
         $fichas = $this->modelFicha->getAllFichas();
         $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
-        
 
-       // $data[0] = $msgType;
+
+        $data[0] = $msgType;
         $data[1] = $fichas;
-        //$data[2] = $grupo;
         $data[3] = $nivelFormacion;
         $data[4] = $programaFormacion;
         parent::viewModule('lider', 'Fichas', 'Fichas', $data);
@@ -163,7 +162,7 @@ class LiderController extends Path
                 'msg' => 'No pudo registrar nueva Ficha',
             );
         }
-        $this->Ficha($msgType);
+        $this->Fichas($msgType);
     }
     public function changeStatusFicha()
     {

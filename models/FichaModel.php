@@ -95,19 +95,13 @@ class FichaModel extends DB {
             // Verificar hay datos en $data
             if (
                 isset($data['num_ficha']) &&
-                isset($data['num_grupo']) &&
-                isset($data['name_programa_formacion']) &&
-                isset($data['name_nivel_programa_formacion'])
-            ) {
+                isset($data['cod_programa_formacion']))
+            {
                 $num_ficha = $data['num_ficha'];
-                $num_grupo = $data['num_grupo'];
-                $name_programa_formacion = $data['name_programa_formacion'];
-                $name_nivel_programa_formacion = $data['name_nivel_programa_formacion'];
-                $stm = parent::conectar()->prepare(preparedSQL::FICHA_NEW);
+                $cod_programa_formacion = $data['cod_programa_formacion'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_FICHA);
                 $stm->bindParam(1, $num_ficha, PDO::PARAM_STR);
-                $stm->bindParam(2, $num_grupo, PDO::PARAM_STR);
-                $stm->bindParam(3, $name_programa_formacion, PDO::PARAM_STR);
-                $stm->bindParam(4, $name_nivel_programa_formacion, PDO::PARAM_STR);
+                $stm->bindParam(2, $cod_programa_formacion, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }
@@ -128,7 +122,7 @@ class FichaModel extends DB {
             die($e->getMessage());
         }
     }
-    
+
     public function getFicha($idFichas)
     {
         try {
@@ -140,7 +134,7 @@ class FichaModel extends DB {
             die($e->getMessage());
         }
     }
-    
+
 
     public function updateDataFicha($data)
     {

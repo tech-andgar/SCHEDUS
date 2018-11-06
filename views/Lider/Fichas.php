@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<div class="col-lg-4 col-md-6 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Agregar_Grupo" class=" text-center">
+			<div data-toggle="modal" data-target="#Agregar_Grupo" class="text-center" id="btnAgregarGrupo">
 				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nuevo Grupo</button>
 			</div>
 		</div>
@@ -179,6 +179,10 @@
 
 });
     </script>
+
+
+
+
 <!-- Modal Agregar nueva Ficha-->
 <div class="modal fade" id="Agregar_Ficha" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
@@ -192,7 +196,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="?c=Lider&m=InsertarFicha" class="form-signin">
+					<form method="post" action="?c=Lider&m=insertarFicha" class="form-signin">
 						<div class="form-group">
 							<h4>Numero de la Ficha</h4>
 							<input type="number" name="num_ficha" id="num_ficha" class="adsi-css form-control" placeholder=""
@@ -201,48 +205,16 @@
 							<!-- style="width:80%; height:30px" -->
 
 						</div>
-
-						<h4>Grupo:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Grupo</option>
-							<?php
-foreach ($data['partial0'] as $grupo) {
-    ?>
-							<option value="<?php echo $grupo->id_grupo; ?>">
-								<?php echo $grupo->num_grupo; ?>
-							</option>
-							<?php
-}
-?>
-
-						</select>
-						<h4>Nivel:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Nivel</option>
-							<?php
-foreach ($data['partial1'] as $nivel) {
-    ?>
-							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
-								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
-							</option>
-							<?php
-}
-?>
-						</select>
-
 						<h4>Programa:</h4>
-						<select class="adsi-css mb-3" required>
+						<select class="adsi-css mb-3" name="cod_programa_formacion" required>
 							<option value="">Programas</option>
-							<?php
-foreach ($data['partial2'] as $programa) {
-    //.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
-    ?>
-							<option value="<?php echo $programa->codigo; ?>">
+							<?php foreach ($data['partial2'] as $programa) {
+								//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
+								?>
+							<option value="<?php echo $programa->cod_nivel_programa_formacion; ?>">
 								<?php echo $programa->name_programa_formacion; ?>
 							</option>
-							<?php
-}
-?>
+							<?php } ?>
 						</select>
 						<script>
 							$(".updateDataInstructor").click(function(){
@@ -263,10 +235,9 @@ foreach ($data['partial2'] as $programa) {
 								}
 							});
 						});
-
 						</script>
 						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+						<button class="btn-rounded" type="submit" style="width:110px">Insertar</button>
 					</form>
 				</div>
 			</div>
@@ -288,67 +259,49 @@ foreach ($data['partial2'] as $programa) {
 					<form method="post" action="#" class="form-signin">
 						<div class="form-group">
 							<label for="txt_num_ficha">Numero de la Ficha</label>
-							<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control adsi-css" placeholder=""
-							 aria-describedby="helpIdNumFicha">
+							<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control adsi-css" placeholder="" aria-describedby="helpIdNumFicha">
 							<small id="helpIdNumFicha" class="text-muted">Help text</small>
 							<!-- style="width:80%; height:30px" -->
-
 						</div>
-
 						<h4>Grupo:</h4>
 						<select class="adsi-css mb-3" required>
 							<option value="">Grupo</option>
-							<?php
-foreach ($data['partial0'] as $grupo) {
-    ?>
+							<?php foreach ($data['partial0'] as $grupo) { ?>
 							<option value="<?php echo $grupo->num_grupo; ?>">
 								<?php echo $grupo->num_grupo . $grupo->version; ?>
 							</option>
-							<?php
-}
-?>
-
+							<?php } ?>
+						</select>
+						<h4>Estado:</h4>
+						<select class="adsi-css mb-3" required>
+							<option value="">Estado</option>
+							<?php foreach ($data['partial3'] as $nivel) { ?>
+							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
+								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
+							</option>
+							<?php } ?>
 						</select>
 						<h4>Nivel:</h4>
 						<select class="adsi-css mb-3" required>
 							<option value="">Nivel</option>
-							<?php
-foreach ($data['partial3'] as $nivel) {
-    ?>
+							<?php foreach ($data['partial1'] as $nivel) { ?>
 							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
 								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
 							</option>
-							<?php
-}
-?>
+							<?php } ?>
 						</select>
-						<h4>Estado:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Nivel</option>
-							<?php
-foreach ($data['partial1'] as $nivel) {
-    ?>
-							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
-								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
-							</option>
-							<?php
-}
-?>
-						</select>
-
 						<h4>Programa:</h4>
 						<select class="adsi-css mb-3" required>
 							<option value="">Programas</option>
-							<?php
-foreach ($data['partial2'] as $programa) {
-    //.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
-    ?>
+							<?php foreach ($data['partial2'] as $programa) {
+								//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
+								?>
 							<option value="<?php echo $programa->codigo; ?>">
 								<?php echo $programa->name_programa_formacion; ?>
 							</option>
-							<?php
-}
-?><script>
+							<?php } ?>
+
+							<script>
 							$(".updateDataInstructor").click(function(){
 							var id_instructor =$(this).attr('id-instructor');
 							$.ajax({
@@ -378,6 +331,158 @@ foreach ($data['partial2'] as $programa) {
 		</div>
 	</div>
 </div>
+
+<!-- Modal Agregar nuevo Grupo-->
+<div class="modal fade" id="Agregar_Grupo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="col-11 modal-title text-center">Agregar Nuevo Grupo</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center text-center">
+                    <form method="post" action="#" class="form-signin">
+					<div class="form-group">
+						<div class="form-group">
+
+<label for="id_ficha"> Ficha<br/>
+	<input type="text" name="id_ficha" list="id_ficha" class="adsi-css"/>
+		<datalist id="id_ficha">
+			<label> or select one from the list:
+				<div id="form_select_ficha"></div>
+			</label>
+	</datalist>
+</label>
+
+
+
+
+<script>
+$("#btnAgregarGrupo").click(function(){
+	$.ajax({
+		type:'POST',
+		url:'?c=lider&m=getAllDataFichas',
+		dataType:"json",
+		data:{},
+		success(response){
+			var ficha = jQuery.parseJSON(JSON.stringify(response));
+			var ficha = removeDuplicates(ficha);
+
+			function removeDuplicates(json_all) {
+ 			   var arr = [],
+        			collection = [];
+
+				$.each(json_all, function (index, value) {
+					if ($.inArray(value.id, arr) == -1) {
+						arr.push(value.id);
+						collection.push(value);
+					}
+				});
+    			return collection;
+			};
+
+			var label = $("<label></label>").attr("for", "id_ficha").text("Ficha");
+ 			var select =  label;
+ 			var select = $("<select></select>").attr("id", "id_ficha").attr("name", "id_ficha").attr("class", "form-control");
+ 			$.each(ficha,function(i,json){
+  				select.append($("<option></option>").attr("value", ficha[i].id_ficha).text(ficha[i].num_ficha));
+ 			});
+ 			$("#form_select_ficha").html(select);
+			//$('#text-dni').val(instructor.dni);
+			//$('#text-nombre').val(instructor.nombre);
+			//$('#text-apellido').val(instructor.apellido);
+			//$('#text-email').val(instructor.email);
+		}
+	});
+});
+
+
+</script>
+						</div>
+					</div>
+					<div class="form-group">
+						<h5>Grupo</h5>
+						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+					</div>
+                        <hr>
+                        <button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Fusionar-->
+<div class="modal fade" id="Fusionar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <h3 class="col-11 modal-title text-center">Fusionar Fichas</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center text-center">
+                        <form>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                                    <h4>Ficha 1 :</h4>
+                                    <select class="adsi-css" required>
+                                        <option value="">Seleccione una ficha</option>
+                                        <option value="tab">8975312</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1320652 G4</option>
+                                        <option value="tab">2349858</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1878465</option>
+                                        <option value="tab">1328798 G1</option>
+                                        <option value="tab">1328798 G2</option>
+                                        <option value="tab">1328798 G3</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-5">
+                                    <h4>Ficha 2 :</h4>
+                                    <select class="adsi-css" required>
+                                        <option value="">Seleccione una ficha</option>
+                                        <option value="tab">8975312</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1320652 G4</option>
+                                        <option value="tab">2349858</option>
+                                        <option value="tab">1320652 G1</option>
+                                        <option value="tab">1320652 G2</option>
+                                        <option value="tab">1320652 G3</option>
+                                        <option value="tab">1878465</option>
+                                        <option value="tab">1328798 G1</option>
+                                        <option value="tab">1328798 G2</option>
+                                        <option value="tab">1328798 G3</option>
+                                    </select>
+                                </div>
+                                <h5>Nueva ruta de Ficha</h5>
+                                <input type="text" class="adsi-css" style="width:60%; height:30px" name="dni" />
+                                <div class="col-12">
+                                    <button class="mt-5 btn-rounded" type="submit" style="width:80px">Fusionar</button>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <?php
 if (!empty($data['msgType'])) {
