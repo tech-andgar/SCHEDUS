@@ -11,9 +11,8 @@
 							<tr>
 								<th>Codigo</th>
 								<th>Programa</th>
-								<th>Versión</th>
 								<th>Nivel</th>
-								<th>Duración</th>
+								<!-- <th>Duración</th> -->
 								<th>Estado</th>
 								<th class="text-center">Actualizar</th>
 							</tr>
@@ -25,17 +24,14 @@
 									<?php echo $programaFormacion->codigo . " " . $programaFormacion->short_name_programa_formacion; ?>
 								</td>
 								<td>
-									<?php echo $programaFormacion->name_programa_formacion; ?>
-								</td>
-								<td>
-									<?php echo  $programaFormacion->version_programa; ?>
+									<?php echo $programaFormacion->name_programa_formacion . " " .$programaFormacion->version_programa; ?>
 								</td>
 								<td>
 									<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
 								</td>
-								<td>
-									<?php echo $programaFormacion->duracion; ?>
-								</td>
+								<!-- <td>
+									<?php //echo $programaFormacion->duracion; ?>
+								</td> -->
 								<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
 									<span class="btn
 											<?php switch ($programaFormacion->id_estado_programa_formacion) {
@@ -141,3 +137,9 @@
 
 	});
 </script>
+
+<?php
+if (!empty($data['msgType'])) {
+    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
+}
+?>

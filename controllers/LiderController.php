@@ -3,20 +3,19 @@
 
 class LiderController extends Path
 {
-    // private $modelSecurity;
-    // public $model;
-
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
         $this->modelSecurity->securityLider();
         $this->modelLider = parent::model('lider');
         $this->modelFicha = parent::model('ficha');
+        $this->modelEstadoFicha = parent::model('estadoFicha');
         $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
         $this->modelProgramaFormacion = parent::model('programaFormacion');
         $this->modelGrupo = parent::model('grupo');
     }
 
+    // Renderizado vistas
     public function index()
     {
         parent::viewModule('lider', 'index', 'Asignar Horarios');
@@ -27,7 +26,7 @@ class LiderController extends Path
         parent::viewModule('lider', 'index', 'Asignar Horarios');
     }
 
-    public function Programas()
+    public function Programas($msgType = [])
     {
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
 
@@ -53,14 +52,16 @@ class LiderController extends Path
     {
 
         $fichas = $this->modelFicha->getAllFichas();
+        // TODO FIX MODEL
+        $estadoFicha = $this->modelEstadoFicha->getAllEstadoFicha();
         $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
 
-
-        $data[0] = $msgType;
-        $data[1] = $fichas;
-        $data[3] = $nivelFormacion;
-        $data[4] = $programaFormacion;
+        $data['msgType'] = $msgType;
+        $data['fichas'] = $fichas;
+        $data['estadoFicha'] = $estadoFicha;
+        $data['nivelFormacion'] = $nivelFormacion;
+        $data['programaFormacion'] = $programaFormacion;
         parent::viewModule('lider', 'Fichas', 'Fichas', $data);
     }
 
@@ -74,9 +75,9 @@ class LiderController extends Path
     }
     public function Instructor($msgType = [])
     {
-        $users = $this->modelLider->getAllInstructores();
+        $instructores = $this->modelLider->getAllInstructores();
         $data[0] = $msgType;
-        $data[1] = $users;
+        $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
 

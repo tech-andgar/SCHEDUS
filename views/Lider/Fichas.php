@@ -1,3 +1,4 @@
+<?php var_dump($data);?>
 <div class="col-lg-9 col-md-12 col-12">
 	<div class="row">
 		<div class="col-md-12">
@@ -35,7 +36,7 @@
 				</thead>
 				<tbody class="">
 					<?php
-						foreach ($data['data'] as $ficha) {
+						foreach ($data['fichas'] as $ficha) {
   					  ?>
 					<tr>
 						<td>
@@ -199,19 +200,17 @@
 					<form method="post" action="?c=Lider&m=insertarFicha" class="form-signin">
 						<div class="form-group">
 							<h4>Numero de la Ficha</h4>
-							<input type="number" name="num_ficha" id="num_ficha" class="adsi-css form-control" placeholder=""
-							 aria-describedby="helpIdNumFicha">
+							<input type="number" name="num_ficha" id="num_ficha" class="adsi-css form-control" placeholder="" aria-describedby="helpIdNumFicha">
 							<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
 							<!-- style="width:80%; height:30px" -->
-
 						</div>
 						<h4>Programa:</h4>
 						<select class="adsi-css mb-3" name="cod_programa_formacion" required>
 							<option value="">Programas</option>
-							<?php foreach ($data['partial2'] as $programa) {
+							<?php foreach ($data['programaFormacion'] as $programa) {
 								//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
 								?>
-							<option value="<?php echo $programa->cod_nivel_programa_formacion; ?>">
+							<option value="<?php echo $programa->id_programa_formacion; ?>">
 								<?php echo $programa->name_programa_formacion; ?>
 							</option>
 							<?php } ?>
@@ -275,29 +274,22 @@
 						<h4>Estado:</h4>
 						<select class="adsi-css mb-3" required>
 							<option value="">Estado</option>
-							<?php foreach ($data['partial3'] as $nivel) { ?>
-							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
-								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
-							</option>
-							<?php } ?>
-						</select>
-						<h4>Nivel:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Nivel</option>
-							<?php foreach ($data['partial1'] as $nivel) { ?>
-							<option value="<?php echo $nivel->id_nivel_programa_formacion; ?>">
-								<?php echo $nivel->name_nivel_programa_formacion . $nivel->duracion; ?>
+							<?php
+							// TODO FIX GET ALL ESTADIO DE FICHA
+							foreach ($data['programaFormacion'] as $programa) { ?>
+							<option value="<?php echo $programa->id_estado_programa_formacion; ?>">
+								<?php echo $programa->name_estado_programa_formacion; ?>
 							</option>
 							<?php } ?>
 						</select>
 						<h4>Programa:</h4>
 						<select class="adsi-css mb-3" required>
 							<option value="">Programas</option>
-							<?php foreach ($data['partial2'] as $programa) {
+							<?php foreach ($data['programaFormacion'] as $programa) {
 								//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
 								?>
-							<option value="<?php echo $programa->codigo; ?>">
-								<?php echo $programa->name_programa_formacion; ?>
+							<option value="<?php echo $programa->id_programa_formacion; ?>">
+								<?php echo $programa->name_programa_formacion . ' '. $programa->name_nivel_programa_formacion; ?>
 							</option>
 							<?php } ?>
 

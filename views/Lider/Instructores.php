@@ -18,12 +18,32 @@
 					<thead>
 						<tr class="success">
 							<th class="col-sm-1 ">Instructor</th>
-							<th class="">Estado</th>
+							<th>Estado</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
 					</thead>
-					<tbody class="">
-					
+					<tbody>
+						<?php foreach ($data['instructores'] as $instructor) { ?>
+						<tr>
+							<td>
+								<?php echo $instructor->nombre . " " . $instructor->apellido; ?>
+							</td>
+							<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
+								<button type"button" id-instructor="<?php echo $instructor->id_usuario; ?>" id-state="<?php echo $instructor->id_estado_usuario; ?>"
+								name-state="<?php echo $instructor->name_estado_usuario; ?>" class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "
+								btn-success";} else {echo "btn-danger";}?>">
+									<?php echo $instructor->name_estado_usuario; ?>
+								</button>
+							</td>
+							<td style="
+									padding-bottom: 0px;
+									padding-top: 10px;">
+								<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $instructor->id_usuario; ?>">
+									<i class="far fa-edit fa-lg"></i>
+								</div>
+							</td>
+						</tr>
+						<?php } ?>
 					</tbody>
 				</table>
 				</div>
@@ -123,7 +143,7 @@ $(document).ready(function() {
 	});
 
 });
-    </script>
+</script>
 
 
 
