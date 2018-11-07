@@ -1,16 +1,12 @@
 
     <!-- FOOTER -->
-    <footer style=" height: 100px; background-color: #EC7C38;">
-      <div class="row d-flex justify-content-center text-center">
-        <div class="col-md-12">
-          <p class="p-4" style="color: white">SCHEDUS © 2018. Control de Horarios.</p>
-        </div>
-      </div>
+    <footer class="app-footer">
+        <span><a href="http://www.incanatoit.com/">IncanatoIT</a> &copy; 2017</span>
+        <span class="ml-auto">Desarrollado por <a href="http://www.incanatoit.com/">IncanatoIT</a></span>
     </footer>
     <!-- END FOOTER -->
 
-  </div>
-  <!-- END BODY -->
+  
 </body>
-
+<!-- END BODY -->
 </html>
