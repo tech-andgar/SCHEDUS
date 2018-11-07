@@ -8999,7 +8999,7 @@ app-root {
     text-align: center;
     background-color: #EC7C38;
     border-bottom: 1px solid #c2cfd6; }
-    .app-header.navbar .navbar-toggler {
+    pp-header.navbar .navbar-toggler {
       color: #536c79; }
     .app-header.navbar .navbar-brand {
       position: absolute;

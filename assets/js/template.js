@@ -137,9 +137,9 @@ if ($.ajaxLoad) {
     }
   });
 
-  $(document).on('click', 'a[href="#"]', function(e) {
-    e.preventDefault();
-  });
+  // $(document).on('click', 'a[href="#"]', function(e) {
+  //   e.preventDefault();
+  // });
 }
 
 function setUpUrl(url) {
