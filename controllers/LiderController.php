@@ -29,7 +29,14 @@ class LiderController extends Path
 
     public function Programas()
     {
-        parent::viewModule('lider', 'Programas', 'Programas');
+        $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
+
+        // $data[0] = $msgType;
+        // $data[1] = $fichas;
+        // $data[3] = $nivelFormacion;
+        // $data[4] = $programaFormacion;
+        $data['programaFormacion'] = $programaFormacion;
+        parent::viewModule('lider', 'Programas', 'Programas', $data);
     }
 
     public function TrimestresPrograma()
@@ -73,7 +80,7 @@ class LiderController extends Path
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
 
-  
+
     // Control de Instructor
     public function insertarInstructor()
     {

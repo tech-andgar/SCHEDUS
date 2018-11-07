@@ -23,7 +23,7 @@ class preparedSQL
     const GET_ALL_NIVEL_FORMACION = "SELECT * FROM `nivel_programa_formacion`";
 
     //Programa de formacion
-    const GET_ALL_PROGRAMA_FORMACION = "SELECT * FROM `programa_formacion`";
+    const GET_ALL_PROGRAMA_FORMACION = "SELECT * FROM `v_programa_formacion`";
 }
 
 
