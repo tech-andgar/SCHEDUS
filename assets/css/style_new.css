@@ -7636,19 +7636,18 @@ base-chart.chart {
   height: 55px;
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  background-color: #EC7C38;
   border-bottom: 1px solid #c2cfd6; }
   .app-header.navbar .navbar-brand {
     display: inline-block;
     width: 155px;
     height: 55px;
-    padding: 0.5rem 1rem;
     margin-right: 0;
-    background-color: #fff;
-    background-image: url("../../assets/images/logo.png");
+    background-color: #EC7C38;
+    background-image: url("../../assets/images/logoSena.png");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 70px auto;
+    background-size: 119px auto;
     border-bottom: 1px solid #c2cfd6; }
   .app-header.navbar .navbar-toggler {
     min-width: 50px;
@@ -7696,7 +7695,7 @@ base-chart.chart {
     color: #29363d; }
 
 .navbar-nav .nav-link, .navbar-nav .navbar .dropdown-toggle, .navbar .navbar-nav .dropdown-toggle {
-  color: #536c79; }
+  color: #ffffff; }
   .navbar-nav .nav-link:focus, .navbar-nav .navbar .dropdown-toggle:focus, .navbar .navbar-nav .dropdown-toggle:focus, .navbar-nav .nav-link:hover, .navbar-nav .navbar .dropdown-toggle:hover, .navbar .navbar-nav .dropdown-toggle:hover {
     color: #29363d; }
 
@@ -7737,7 +7736,7 @@ base-chart.chart {
   .brand-minimized .app-header.navbar .navbar-brand {
     width: 50px;
     background-color: #fff;
-    background-image: url("../img/logo-symbol.png");
+    background-image: url("../../assets/images/logo-symbol.png");
     background-size: 24px;
     border-bottom: 1px solid #c2cfd6; } }
 
@@ -8998,7 +8997,7 @@ app-root {
     z-index: 1020;
     width: 100%;
     text-align: center;
-    background-color: #fff;
+    background-color: #EC7C38;
     border-bottom: 1px solid #c2cfd6; }
     .app-header.navbar .navbar-toggler {
       color: #536c79; }
