@@ -19,12 +19,12 @@ class LiderController extends Path
 
     public function index()
     {
-        parent::viewModule('lider', 'index', 'Asignar Horarios');
+        parent::viewModule('lider', 'index', 'Incio');
     }
 
-    public function Lider()
+    public function Horarios()
     {
-        parent::viewModule('lider', 'index', 'Asignar Horarios');
+        parent::viewModule('lider', 'horarios', 'Horarios');
     }
 
     public function Programas()
