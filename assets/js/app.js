@@ -5,7 +5,6 @@ $(document).ready(function() {
 
 
 
-
   // Full Calendar
   $("#calendar").fullCalendar({
     header: {

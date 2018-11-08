@@ -7735,9 +7735,9 @@ base-chart.chart {
 @media (min-width: 992px) {
   .brand-minimized .app-header.navbar .navbar-brand {
     width: 50px;
-    background-color: #fff;
-    background-image: url("../../assets/images/logo-symbol.png");
-    background-size: 24px;
+    background-color: #EC7C38;
+    background-image: url("../../assets/images/SenaLogo1.png");
+    background-size: 36px;
     border-bottom: 1px solid #c2cfd6; } }
 
 .progress-xs {
