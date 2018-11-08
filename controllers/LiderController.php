@@ -52,7 +52,6 @@ class LiderController extends Path
     {
 
         $fichas = $this->modelFicha->getAllFichas();
-        // TODO FIX MODEL
         $estadoFicha = $this->modelEstadoFicha->getAllEstadoFicha();
         $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
