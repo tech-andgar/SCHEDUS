@@ -73,5 +73,31 @@ class EstadoFichaModel extends DB {
 	public function setName_estado_ficha($name_estado_ficha) {
 		$this->name_estado_ficha = $name_estado_ficha;
 	}
+
+
+	public function getAllEstadoFicha()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_ESTADO_FICHAS);
+            $stm->execute();
+            $fichas = $stm->fetchAll(PDO::FETCH_OBJ);
+            return $fichas; // Retorno completa de lista de Fichas
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function getEstadoFicha($idEstadoFichas)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ESTADO_FICHA_ID);
+            $stm->bindParam(1, $idEstadoFichas, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data instructor
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
 }
 ?>
