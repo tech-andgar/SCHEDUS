@@ -25,7 +25,7 @@
     <!-- Main styles for this application -->
     <link href="./vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-    <!-- <link href="./assets/css/style.css" rel="stylesheet"> -->
+    <link href="./assets/css/style.css" rel="stylesheet">
     <link href="./assets/css/style_new.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="./vendor/grimmlink/toastr/build/toastr.min.css">
