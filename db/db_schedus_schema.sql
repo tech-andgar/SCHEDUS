@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 07-11-2018 a las 17:43:07
+-- Tiempo de generación: 09-11-2018 a las 17:08:29
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -553,16 +553,34 @@ CREATE TABLE IF NOT EXISTS `v_competencias_resultado_aprendizaje_programa_formac
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `v_ficha_programa`
+-- Estructura Stand-in para la vista `v_ficha_grupo_programa_nivel_estado`
 -- (Véase abajo para la vista actual)
 --
-DROP VIEW IF EXISTS `v_ficha_programa`;
-CREATE TABLE IF NOT EXISTS `v_ficha_programa` (
+DROP VIEW IF EXISTS `v_ficha_grupo_programa_nivel_estado`;
+CREATE TABLE IF NOT EXISTS `v_ficha_grupo_programa_nivel_estado` (
 `id_ficha` int(10)
 ,`num_ficha` varchar(100)
 ,`num_grupo` varchar(3)
 ,`name_programa_formacion` varchar(191)
 ,`name_nivel_programa_formacion` varchar(100)
+,`name_estado_ficha` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_ficha_programa_nivel_estado`
+-- (Véase abajo para la vista actual)
+--
+DROP VIEW IF EXISTS `v_ficha_programa_nivel_estado`;
+CREATE TABLE IF NOT EXISTS `v_ficha_programa_nivel_estado` (
+`id_ficha` int(10)
+,`num_ficha` varchar(100)
+,`id_programa_formacion` int(10)
+,`name_programa_formacion` varchar(191)
+,`id_nivel_programa_formacion` int(10)
+,`name_nivel_programa_formacion` varchar(100)
+,`id_estado_ficha` int(10)
 ,`name_estado_ficha` varchar(100)
 );
 
@@ -695,11 +713,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `v_ficha_programa`
+-- Estructura para la vista `v_ficha_grupo_programa_nivel_estado`
 --
-DROP TABLE IF EXISTS `v_ficha_programa`;
+DROP TABLE IF EXISTS `v_ficha_grupo_programa_nivel_estado`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on(`ficha`.`id_ficha` = `grupo`.`cod_ficha`)) join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_grupo_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on(`ficha`.`id_ficha` = `grupo`.`cod_ficha`)) join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_programa_nivel_estado`
+--
+DROP TABLE IF EXISTS `v_ficha_programa_nivel_estado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from (((`ficha` join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
 
 -- --------------------------------------------------------
 
