@@ -190,9 +190,7 @@ class LiderController extends Path
 
     public function getDataFicha()
     {
-        $idFicha = $_POST['id_Ficha'];
-        $dataFicha = $this->modelFicha->getFicha($idFicha);
-        $dataFicha = json_encode($dataFicha);
+        $dataFicha = json_encode($this->modelFicha->getFicha($_POST['idFicha']));
         echo $dataFicha;
     }
 
