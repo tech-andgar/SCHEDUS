@@ -4,7 +4,7 @@
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">Inicio</li>
 		<li class="breadcrumb-item"><a href="#">Lider</a></li>
-		<li class="breadcrumb-item active">Programas</li>
+		<li class="breadcrumb-item active">Administrar programas de formación</li>
 	</ol>
 	<div class="container-fluid">
 		<!-- Ejemplo de tabla Listado -->
@@ -19,124 +19,48 @@
 				<div class="form-group row">
 					<div class="col-md-6">
 						<div class="input-group">
-							<select class="form-control col-md-3" id="opcion" name="opcion">
-								<option value="nombre">Nombre</option>
-								<option value="descripcion">Descripción</option>
-							</select>
 							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
 							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
 						</div>
 					</div>
 				</div>
-				<table class="table table-bordered table-striped table-sm">
+				<table class="table table-hover" id="tableInstructores">
 					<thead>
-						<tr>
-							<th>Opciones</th>
-							<th>Nombre</th>
-							<th>Descripción</th>
-							<th>Estado</th>
+						<tr class="success">
+							<th class="">Codigo</th>
+							<th class="">Programa</th>
+							<th class="">Estado</th>
+							<th class="text-center">Actualizar</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="">
+						<tbody class="">
+						<?php
+						foreach ($data['data'] as $user) {
+    				?>
 						<tr>
-							<td>
-								<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo">
-									<i class="icon-pencil"></i>
-								</button> &nbsp;
-								<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">
-									<i class="icon-trash"></i>
+							<td class="">
+								<?php echo $user->nombre . " " . $user->apellido; ?>
+							</td>
+							<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
+								<button type"button" id-programa="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"
+								name-state="<?php echo $user->name_estado_usuario ?>" class="statusChange btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "
+								btn-success";} else {echo "btn-danger" ;}?>">
+									<?php echo $user->name_estado_usuario ?>
 								</button>
 							</td>
-							<td>Equipos</td>
-							<td>Dispositivos electrónicos</td>
-							<td>
-								<span class="badge badge-success">Activo</span>
+							<td class="text-center">
+								<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_Prms" id-programa="<?php echo $user->id_usuario; ?>">
+									<i class="far fa-edit fa-lg"></i>
+								</div>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo">
-									<i class="icon-pencil"></i>
-								</button> &nbsp;
-								<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">
-									<i class="icon-trash"></i>
-								</button>
-							</td>
-							<td>Equipos</td>
-							<td>Dispositivos electrónicos</td>
-							<td>
-								<span class="badge badge-success">Activo</span>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo">
-									<i class="icon-pencil"></i>
-								</button> &nbsp;
-								<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">
-									<i class="icon-trash"></i>
-								</button>
-							</td>
-							<td>Equipos</td>
-							<td>Dispositivos electrónicos</td>
-							<td>
-								<span class="badge badge-secondary">Inactivo</span>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo">
-									<i class="icon-pencil"></i>
-								</button> &nbsp;
-								<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">
-									<i class="icon-trash"></i>
-								</button>
-							</td>
-							<td>Equipos</td>
-							<td>Dispositivos electrónicos</td>
-							<td>
-								<span class="badge badge-secondary">Inactivo</span>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalNuevo">
-									<i class="icon-pencil"></i>
-								</button>&nbsp;
-								<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar">
-									<i class="icon-trash"></i>
-								</button>
-							</td>
-							<td>Equipos</td>
-							<td>Dispositivos electrónicos</td>
-							<td>
-								<span class="badge badge-success">Activo</span>
-							</td>
-						</tr>
+						<?php
+						}
+					?>
 					</tbody>
 				</table>
-				<nav>
-					<ul class="pagination">
-						<li class="page-item">
-							<a class="page-link" href="#">Ant</a>
-						</li>
-						<li class="page-item active">
-							<a class="page-link" href="#">1</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">2</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">3</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">4</a>
-						</li>
-						<li class="page-item">
-							<a class="page-link" href="#">Sig</a>
-						</li>
-					</ul>
-				</nav>
+				
 			</div>
 		</div>
 		<!-- Fin ejemplo de tabla Listado -->

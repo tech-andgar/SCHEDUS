@@ -49,11 +49,14 @@
     <!-- GenesisUI main scripts -->
 	<!-- <script src="./assets/js/template.js"></script> -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
 
-    <script src="./assets/js/coreui/jquery.min.js"></script>
+
+    <!-- <script src="./assets/js/coreui/jquery.min.js"></script> -->
     <script src="./assets/js/coreui/popper.min.js"></script>
     <script src="./assets/js/coreui/bootstrap.min.js"></script>
-	<script src="./assets/js/coreui/pace.min.js"></script>
+	<script src="./assets/js/coreui/pace.min.js"></script> 
     <!-- Plugins and scripts required by all views -->
     <script src="./assets/js/coreui/Chart.min.js"></script>
     <!-- GenesisUI main scripts -->

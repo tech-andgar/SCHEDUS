@@ -13,19 +13,44 @@
 	<div class="mt-5 row justify-content-center">
 		<div class="col-md-12">
 			<div class="row d-flex justify-content-center">
-			<div class="table-responsive">
-				<table class="table table-hover " id="tableInstructores">
-					<thead>
-						<tr class="success">
-							<th class="col-sm-1 ">Instructor</th>
-							<th class="">Estado</th>
-							<th class="text-center">Actualizar</th>
-						</tr>
-					</thead>
-					<tbody class="">
-					
-					</tbody>
-				</table>
+				<div class="table-responsive">
+					<table class="table table-hover " id="tableInstructores">
+						<thead>
+							<tr class="success">
+								<th class="col-sm-1 ">Instructor</th>
+								<th class="">Estado</th>
+								<th class="text-center">Actualizar</th>
+							</tr>
+						</thead>
+						<tbody class="">
+								<?php
+								var_dump($data['data']);
+								foreach ($data['data'] as $user) {
+							?>
+								<tr>
+									<td class="">
+										<?php echo $user->nombre . " " . $user->apellido; ?>
+									</td>
+									<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
+										<button type"button" id-instructor="<?php echo $user->id_usuario; ?>" id-state="<?php echo $user->id_estado_usuario ?>"
+										name-state="<?php echo $user->name_estado_usuario ?>" class="statusChange btn  <?php if ($user->name_estado_usuario == 'Activo') {echo "
+										btn-success";} else {echo "btn-danger" ;}?>">
+											<?php echo $user->name_estado_usuario ?>
+										</button>
+									</td>
+									<td style="
+											padding-bottom: 0px;
+											padding-top: 10px;">
+										<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $user->id_usuario; ?>">
+											<i class="far fa-edit fa-lg"></i>
+										</div>
+									</td>
+								</tr>
+								<?php
+								}
+							?>
+							</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -37,7 +62,7 @@
 
 
 <script>
-$(document).ready(function() {
+	$(document).ready(function() {
 
 	$("#tableInstructores").DataTable({
 		"language":{
@@ -145,7 +170,7 @@ $(document).ready(function() {
 								<td>
 									<h5>Numero de Documento</h5>
 								</td>
-								<td><input id="text-dni" type="number" value=""  class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
+								<td><input id="text-dni" type="number" value="" class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
 							</tr>
 							<tr>
 								<td>
@@ -157,7 +182,8 @@ $(document).ready(function() {
 								<td>
 									<h5>Apellido</h5>
 								</td>
-								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido" required /></td>
+								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido"
+									 required /></td>
 							</tr>
 							<tr>
 								<td>

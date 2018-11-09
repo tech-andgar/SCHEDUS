@@ -3,7 +3,7 @@
 	<!-- Breadcrumb -->
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item">Inicio</li>
-		<li class="breadcrumb-item"><a href="#">Lider</a></li>
+		<li class="breadcrumb-item"><a href="?c=lider">Lider</a></li>
 		<li class="breadcrumb-item active">Escritorio</li>
 	</ol>
 	<div class="container-fluid">
