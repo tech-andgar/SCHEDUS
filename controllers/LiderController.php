@@ -122,8 +122,6 @@ class LiderController extends Path
     public function getDataInstructor()
     {
         $dataInstructor = json_encode($this->modelLider->getInstructor($_POST['id_instructor']));
-        $dataInstructor = $this->modelLider->getInstructor($idInstructor);
-        $dataInstructor = json_encode($dataInstructor);
         echo $dataInstructor;
     }
 
