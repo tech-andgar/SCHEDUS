@@ -52,12 +52,14 @@ class LiderController extends Path
     {
 
         $fichas = $this->modelFicha->getAllFichas();
+        $grupos = $this->modelGrupo->getAllGrupos();
         $estadoFicha = $this->modelEstadoFicha->getAllEstadoFicha();
         $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
 
         $data['msgType'] = $msgType;
         $data['fichas'] = $fichas;
+        $data['grupos'] = $grupos;
         $data['estadoFicha'] = $estadoFicha;
         $data['nivelFormacion'] = $nivelFormacion;
         $data['programaFormacion'] = $programaFormacion;
