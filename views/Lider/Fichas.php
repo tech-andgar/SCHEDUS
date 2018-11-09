@@ -66,7 +66,7 @@
 								}?>
 						</td>
 						<td style="padding-bottom: 0px;padding-top: 10px;">
-							<div class="updateDataFicha" data-toggle="modal" data-target="#Actualizar" id-instructor="<?php echo $ficha->id_ficha; ?>">
+							<div class="updateDataFicha" data-toggle="modal" data-target="#updateDataFicha" id-ficha="<?php echo $ficha->id_ficha; ?>">
 								<i class="far fa-edit fa-lg"></i>
 							</div>
 						</td>
@@ -125,58 +125,81 @@
 
 
 <!-- Modal actualizar datos de Ficha-->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="updateDataFicha" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<h3 class="col-11 modal-title text-center">Editar datos de ficha</h3>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<div class="form-group">
-							<label for="txt_num_ficha">Numero de la Ficha</label>
-							<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" placeholder="" aria-describedby="helpIdNumFicha">
-							<small id="helpIdNumFicha" class="text-muted">Help text</small>
-							<!-- style="width:80%; height:30px" -->
-						</div>
-						<h4>Grupo:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Grupo</option>
-							<?php foreach ($data['partial0'] as $grupo) { ?>
-							<option value="<?php echo $grupo->num_grupo; ?>">
-								<?php echo $grupo->num_grupo . $grupo->version; ?>
-							</option>
-							<?php } ?>
-						</select>
-						<h4>Estado:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Estado</option>
-							<?php
-							// TODO FIX GET ALL ESTADIO DE FICHA
-							foreach ($data['programaFormacion'] as $programa) { ?>
-							<option value="<?php echo $programa->id_estado_programa_formacion; ?>">
-								<?php echo $programa->name_estado_programa_formacion; ?>
-							</option>
-							<?php } ?>
-						</select>
-						<h4>Programa:</h4>
-						<select class="adsi-css mb-3" required>
-							<option value="">Programas</option>
-							<?php foreach ($data['programaFormacion'] as $programa) {
-								//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
-								?>
-							<option value="<?php echo $programa->id_programa_formacion; ?>">
-								<?php echo $programa->name_programa_formacion . ' '. $programa->name_nivel_programa_formacion; ?>
-							</option>
-							<?php } ?>
-						</select>
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-					</form>
+					<form method="POST" action="?c=Lider&m=updateFicha" class="form-signin">
+							<table>
+								<tr>
+									<td>
+										<label for="txt_num_ficha">Numero de la Ficha</label>
+										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+									</td>
+									<td>
+										<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha" readonly>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h4><label for="txt_num_ficha">Grupo:</label></h4>
+										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+									</td>
+									<td>
+										<select class="adsi-css mb-3" required>
+											<option value="">Grupo</option>
+											<?php foreach ($data['grupos'] as $grupo) { ?>
+											<option value="<?php echo $grupo->num_grupo; ?>"><?php echo $grupo->num_grupo . $grupo->version; ?></option>
+											<?php } ?>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h4>Estado:</h4>
+										<label for="txt_num_ficha"></label>
+										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+									</td>
+									<td>
+										<select class="adsi-css mb-3" required>
+										<option value="">Estado</option>
+										<?php
+										// TODO FIX GET ALL ESTADIO DE FICHA
+										foreach ($data['programaFormacion'] as $programa) { ?>
+										<option value="<?php echo $programa->id_estado_programa_formacion; ?>"><?php echo $programa->name_estado_programa_formacion; ?></option>
+										<?php } ?>
+									</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h4>Programa:</h4>
+										<label for="txt_num_ficha">Programa:</label>
+										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+									</td>
+									<td>
+										<select class="adsi-css mb-3" required>
+											<option value="">Programas</option>
+											<?php foreach ($data['programaFormacion'] as $programa) {
+												//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
+												?>
+											<option value="<?php echo $programa->id_programa_formacion; ?>"><?php echo $programa->name_programa_formacion . ' '. $programa->name_nivel_programa_formacion; ?></option>
+											<?php } ?>
+										</select>
+									</td>
+								</tr>
+							</table>
+							<div class="modal-body">
+								<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+							</div>
+						</form>
 				</div>
 			</div>
 		</div>
@@ -377,20 +400,21 @@
 
 		// get Data Ficha_ID form button -> Modal Form_update_ficha
 	    $(".updateDataFicha").click(function () {
-	        var id_instructor = $(this).attr('id-Ficha');
+			var idFicha = $(this).attr('id-ficha');
+
 	        $.ajax({
 	            type: 'POST',
-	            url: '?c=Lider&m=getDataFicha',
-	            dataType: "json",
-	            data: {
-	                id_Ficha: id_Ficha
-	            },
+	            url:'?c=Lider&m=getDataFicha',
+				data:{
+					idFicha:idFicha
+				},
 	            success(response) {
-	                var instructor = jQuery.parseJSON(JSON.stringify(response));
-	                $('#text-dni').val(Ficha.dni);
-	                $('#text-nombre').val(Ficha.nombre);
-	                $('#text-apellido').val(Ficha.apellido);
-	                $('#text-email').val(Ficha.email);
+					var ficha = jQuery.parseJSON(response);
+					console.log(ficha);
+					$('#txt_num_ficha').val(ficha.num_ficha);
+	                // $('#text-nombre').val(ficha.nombre);
+	                // $('#text-apellido').val(ficha.apellido);
+	                // $('#text-email').val(ficha.email);
 	            }
 	        });
 	    });
