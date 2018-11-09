@@ -35,9 +35,7 @@
 									<?php echo $instructor->name_estado_usuario; ?>
 								</button>
 							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
+							<td style="padding-bottom: 0px;padding-top: 10px;">
 								<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $instructor->id_usuario; ?>">
 									<i class="far fa-edit fa-lg"></i>
 								</div>
