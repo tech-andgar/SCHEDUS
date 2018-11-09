@@ -126,7 +126,7 @@ class FichaModel extends DB {
     public function getFicha($idFicha)
     {
         try {
-            $stm = parent::conectar()->prepare(preparedSQL::GET_FICHA_ID);
+            $stm = parent::conectar()->prepare(preparedSQL::GET_FICHA_PROGRAMA_NIVEL_ESTADO_ID);
             $stm->bindParam(1, $idFicha, PDO::PARAM_STR);
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ); // Retorno data instructor
