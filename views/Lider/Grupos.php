@@ -1,17 +1,16 @@
-
 <!-- Contenido Principal -->
 <main class="main">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Inicio</li>
         <li class="breadcrumb-item"><a href="#">Lider</a></li>
-        <li class="breadcrumb-item active">Administrar Trimestres de Programas de Formacion</li>
+        <li class="breadcrumb-item active">Grupos de Formacion</li>
     </ol>
     <div class="container-fluid">
         <!-- Ejemplo de tabla Listado -->
         <div class="card">
             <div class="card-header ">
-                <i class="fa fa-align-justify"></i> Administrar Trimestres de Programas de Formacion
+                <i class="fa fa-align-justify"></i> Grupos de Formacion
                 <button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar">
                     <i class="icon-plus "></i>&nbsp;Nuevo
                 </button>
@@ -28,24 +27,30 @@
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
                         <thead>
-						<tr class="success">
-							<th class="">Programa</th>
-							<th class="">Trimestre</th>
-							<th class="text-center">Actualizar</th>
-						</tr>
+                            <tr class="success">
+                                <th class="">Ficha</th>
+                                <th class="">Grupo</th>
+                                <th class="">Estado</th>
+                                <th class="text-center">Actualizar</th>
+                            </tr>
                         </thead>
                         <tbody class="">
-						<tr>
-							<td class="">Análisis y Diseño de Sistemas de Información</td>
-							<td >
-								5
-							</td>
-							<td>
-								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
+                            <tr>
+                                <td class="">1320652</td>
+                                <td class="">G2</td>
+                                <td>
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1"
+                                            checked>
+                                        <label class="onoffswitch-label" for="1"></label>
+                                    </div>
+                                </td>
+                                <td class=" text-center">
+                                    <div data-toggle="modal" data-target="#Actualizar">
+                                        <i class="far fa-edit fa-2x"></i>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -83,27 +88,26 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center text-center">
+                    <form method="post" action="#" class="form-signin">
+                        <h5>Nombre del Programa</h5>
+                        <input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+                        <hr>
+                        <button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

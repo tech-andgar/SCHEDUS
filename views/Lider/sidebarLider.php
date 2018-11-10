@@ -22,13 +22,13 @@
                     <a class="nav-link nav-dropdown-toggle"><i class="fas fa-code-branch "></i>Ruta Ficha</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link"><i class="fas fa-graduation-cap"></i>Fichas</a>
+                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=Fichas')"><i class="fas fa-graduation-cap"></i>Fichas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=')"><i class="fab fa-hubspot"></i>Grupos</a>
+                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=Grupos')"><i class="fab fa-hubspot"></i>Grupos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=instructor')"><i class="fas fa-project-diagram"></i>Fusionar</a>
+                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=Fusionar')"><i class="fas fa-project-diagram"></i>Fusionar</a>
                         </li>
                     </ul>
                 </li>
@@ -48,6 +48,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " onclick="LoadUrl('?c=lider&m=jornadas')"><i class="fas fa-cloud-sun"></i>Jornada</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " onclick="LoadUrl('?c=lider&m=ambiente')"><i class="fas fa-door-open "></i>Ambiente</a>
                 </li>
             </ul>
         </nav>

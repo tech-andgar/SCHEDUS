@@ -42,6 +42,11 @@ class LiderController extends Path
         parent::viewModule('lider', 'Competencias', 'Competencias');
     }
 
+    public function Ambiente()
+    {
+        parent::viewModule('lider', 'Ambiente', 'Ambiente');
+    }
+
     public function Fichas($msgType=[])
     {
 
@@ -72,7 +77,11 @@ class LiderController extends Path
         $data[1] = $users;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
-
+    
+    public function Grupos()
+    {
+        parent::viewModule('lider', 'Grupos', 'Grupos');
+    }
   
     // Control de Instructor
     public function insertarInstructor()

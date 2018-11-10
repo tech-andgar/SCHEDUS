@@ -1,109 +1,73 @@
-
 <!-- Contenido Principal -->
 <main class="main">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Inicio</li>
         <li class="breadcrumb-item"><a href="#">Lider</a></li>
-        <li class="breadcrumb-item active">Administrar Trimestres de Programas de Formacion</li>
+        <li class="breadcrumb-item active">Fusionar Fichas</li>
     </ol>
     <div class="container-fluid">
         <!-- Ejemplo de tabla Listado -->
         <div class="card">
             <div class="card-header ">
-                <i class="fa fa-align-justify"></i> Administrar Trimestres de Programas de Formacion
-                <button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar">
-                    <i class="icon-plus "></i>&nbsp;Nuevo
-                </button>
+                <i class="fa fa-align-justify"></i> Fusionar Fichas
             </div>
-            <div class="card-body">
-                <div class="form-group row">
-                    <div class="col-md-6">
+            <form>
+                <div class="card-body row">
+                    <div class="col-6">
+                        <h4>Ficha 1 :</h4>
                         <div class="input-group">
                             <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                         </div>
+                        <table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                            <thead>
+                                <tr class="success">
+                                    <th class="">Ficha</th>
+                                    <th class="">Grupo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr>
+                                    <td class="">1320652</td>
+                                    <td class="">G2</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <div class="col-6">
+                        <h4>Ficha 2 :</h4>
+                        <div class="input-group ">
+                            <input type="text" id="texto" name="texto" class="form-control " placeholder="Texto a buscar">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                        </div>
+                        <table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                            <thead>
+                                <tr class="success">
+                                    <th class="">Ficha</th>
+                                    <th class="">Grupo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr>
+                                    <td class="">1320652</td>
+                                    <td class="">G3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-4 mt-4">
+                    <h5>Nueva ruta de Ficha: </h5>
+                    <input type="text" class="adsi-css" style="width:50%" name="ruta" />
+                    <button class=" btn-rounded" type="submit">Fusionar</button></div>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
-                        <thead>
-						<tr class="success">
-							<th class="">Programa</th>
-							<th class="">Trimestre</th>
-							<th class="text-center">Actualizar</th>
-						</tr>
-                        </thead>
-                        <tbody class="">
-						<tr>
-							<td class="">Análisis y Diseño de Sistemas de Información</td>
-							<td >
-								5
-							</td>
-							<td>
-								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            </form>
         </div>
         <!-- Fin ejemplo de tabla Listado -->
     </div>
     <!-- Fin del modal Eliminar -->
 </main>
 <!-- /Fin del contenido principal -->
-</div>
-
-<!-- Modal Agregar nueva Competencias-->
-<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="col-11 modal-title text-center">Agregar Nuevo Programa</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin">
-                        <h5>Nombre del Programa</h5>
-                        <input type="text" class="adsi-css mb-3" name="Programa" />
-                        <hr>
-                        <button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>>
 </div>
 
 <script>
