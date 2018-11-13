@@ -87,11 +87,11 @@ class EstadoFichaModel extends DB {
         }
     }
 
-    public function getEstadoFicha($idEstadoFichas)
+    public function getEstadoFicha($idEstadoFicha)
     {
         try {
             $stm = parent::conectar()->prepare(preparedSQL::GET_ESTADO_FICHA_ID);
-            $stm->bindParam(1, $idEstadoFichas, PDO::PARAM_STR);
+            $stm->bindParam(1, $idEstadoFicha, PDO::PARAM_STR);
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ); // Retorno data instructor
         } catch (Exception $e) {
