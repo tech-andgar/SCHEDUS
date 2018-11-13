@@ -20,7 +20,7 @@
                             <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                         </div>
-                        <table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
                             <thead>
                                 <tr class="success">
                                     <th class="">Ficha</th>
@@ -41,7 +41,7 @@
                             <input type="text" id="texto" name="texto" class="form-control " placeholder="Texto a buscar">
                             <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                         </div>
-                        <table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
                             <thead>
                                 <tr class="success">
                                     <th class="">Ficha</th>

@@ -1,7 +1,13 @@
+
+
+
+
 <header class="app-header navbar">
-    <a class="navbar-brand" href="#"></a>
+    <a class="navbar-brand" href="#">
+        <img class="navbar-brand-full" src="./assets/images/logoSena.png" width="89" height="25" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="./assets/images/Senalogo1.png" width="30" height="30" alt="CoreUI Logo">
+    </a>
     <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-    
         <li class="dropdown order-1">
             <a class="nav-link dropdown-toggle nav-link mr-3 " data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">

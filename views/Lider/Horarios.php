@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-bordered table-striped table-sm">
+					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5">
 						<thead>
 							<tr>
 								<th class="text-center">Hora</th>

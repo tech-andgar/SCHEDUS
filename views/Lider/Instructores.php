@@ -24,7 +24,7 @@
 						</div>
 					</div>
 				</div>
-				<table class="table table-hover " id="tableInstructores">
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
 						<thead>
 					<tr class="success">
 								<th class="col-sm-1 ">Instructor</th>

@@ -29,7 +29,7 @@
 						</div>
 					</div>
 				</div>
-				<table class="table table-bordered table-striped table-sm mt-5" id="tableInstructores">
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
 						<thead>
             <tr class="success">
             <th class="text-center">Ficha</th>
