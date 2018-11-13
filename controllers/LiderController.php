@@ -203,14 +203,40 @@ class LiderController extends Path
         echo $dataFicha;
     }
 
+    public function getDataEstadoFicha()
+    {
+        $dataFicha = json_encode($this->modelEstadoFicha->getEstadoFicha($_POST['idEstadoFicha']));
+        echo $dataFicha;
+    }
+
+    public function getAllDataEstadoFicha()
+    {
+        $dataEstadoFicha = json_encode($this->modelEstadoFicha->getAllEstadoFicha());
+        echo $dataEstadoFicha;
+    }
+    public function getDataProgramaFormacion()
+    {
+        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
+        echo $dataFicha;
+    }
+
+    public function getAllDataProgramaFormacion()
+    {
+        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
+        echo $dataEstadoFicha;
+    }
+
+
+
     public function updateDataFicha()
     {
-        $data = array(
-            "dni" => $_POST['dni'],
-            "nombre" => $_POST['nombre'],
-            "apellido" => $_POST['apellido'],
-            "email" => $_POST['email'],
-        );
+var_dump($_POST);
+        // $data = array(
+        //     "dni" => $_POST['dni'],
+        //     "nombre" => $_POST['nombre'],
+        //     "apellido" => $_POST['apellido'],
+        //     "email" => $_POST['email'],
+        // );
         $result = $this->modelFicha->updateDataFicha($data);
         if ($result) {
             $msgType = array(
