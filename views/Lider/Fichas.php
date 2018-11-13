@@ -136,12 +136,11 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="?c=Lider&m=updateFicha" class="form-signin">
+					<form method="POST" action="?c=Lider&m=updateDataFicha" class="form-signin">
 							<table>
 								<tr>
 									<td>
-										<label for="txt_num_ficha">Numero de la Ficha</label>
-										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+										<h4 style="margin-bottom: 0px;" class="mr-5" for="txt_num_ficha">Numero de la Ficha:</h4>
 									</td>
 									<td>
 										<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha" readonly>
@@ -149,49 +148,22 @@
 								</tr>
 								<tr>
 									<td>
-										<h4><label for="txt_num_ficha">Grupo:</label></h4>
-										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+										<h4 style="margin-bottom: 0px;">Estado:</h4>
+										<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
+										<!-- <label for="txt_num_ficha"></label> -->
 									</td>
 									<td>
-										<select class="adsi-css mb-3" required>
-											<option value="">Grupo</option>
-											<?php foreach ($data['grupos'] as $grupo) { ?>
-											<option value="<?php echo $grupo->num_grupo; ?>"><?php echo $grupo->num_grupo . $grupo->version; ?></option>
-											<?php } ?>
+										<select id="list-estadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
 										</select>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<h4>Estado:</h4>
-										<label for="txt_num_ficha"></label>
-										<small id="helpIdNumFicha" class="text-muted">Help text</small>
+										<h4 style="margin-bottom: 0px;">Programa:</h4>
+										<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 									</td>
 									<td>
-										<select class="adsi-css mb-3" required>
-										<option value="">Estado</option>
-										<?php
-										// TODO FIX GET ALL ESTADIO DE FICHA
-										foreach ($data['programaFormacion'] as $programa) { ?>
-										<option value="<?php echo $programa->id_estado_programa_formacion; ?>"><?php echo $programa->name_estado_programa_formacion; ?></option>
-										<?php } ?>
-									</select>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h4>Programa:</h4>
-										<label for="txt_num_ficha">Programa:</label>
-										<small id="helpIdNumFicha" class="text-muted">Help text</small>
-									</td>
-									<td>
-										<select class="adsi-css mb-3" required>
-											<option value="">Programas</option>
-											<?php foreach ($data['programaFormacion'] as $programa) {
-												//.' Codigo nivel de formacion: ' .$programa->cod_nivel_programa_formacion . ', Codigo estado de progarama: '. $programa->cod_estado_programa_formacion
-												?>
-											<option value="<?php echo $programa->id_programa_formacion; ?>"><?php echo $programa->name_programa_formacion . ' '. $programa->name_nivel_programa_formacion; ?></option>
-											<?php } ?>
+										<select class="adsi-css mb-3" id="list-programa" name="id_programa_formacion" required>
 										</select>
 									</td>
 								</tr>
@@ -412,11 +384,51 @@
 					var ficha = jQuery.parseJSON(response);
 					console.log(ficha);
 					$('#txt_num_ficha').val(ficha.num_ficha);
-	                // $('#text-nombre').val(ficha.nombre);
-	                // $('#text-apellido').val(ficha.apellido);
-	                // $('#text-email').val(ficha.email);
+					// var id_estado_ficha =ficha.id_estado_ficha;
+					// var id_programa_formacion =ficha.id_programa_formacion;
+
+
+
+					// Call getAllEstadoFicha()
+					$.ajax({
+						type: 'POST',
+						url:'?c=Lider&m=getAllDataEstadoFicha',
+						success(response) {
+							var estadoFicha = jQuery.parseJSON(response);
+							console.log(estadoFicha);
+							$.each(estadoFicha, function (index, value) {
+								if (value.id_estado_ficha == ficha.id_estado_ficha) {
+									$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"' selected>"+value.name_estado_ficha +"</option>");
+								} else {
+									$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"'>"+value.name_estado_ficha +"</option>");
+								}
+							});
+						}
+					});
+
+					// Call getAllprogramaFormacion()
+					$.ajax({
+						type: 'POST',
+						url:'?c=Lider&m=getAllDataProgramaFormacion',
+						success(response) {
+							var programaFormacion = jQuery.parseJSON(response);
+							$.each(programaFormacion, function (index, value) {
+								if (value.id_programa_formacion == ficha.id_programa_formacion) {
+									$('#list-programa').append("<option value='"+value.id_programa_formacion+"' selected>"+value.name_programa_formacion +"</option>");
+								} else {
+									$('#list-programa').append("<option value='"+value.id_programa_formacion+"'>"+value.name_programa_formacion +"</option>");
+								}
+							});
+						}
+					});
 	            }
-	        });
+			});
+
+
+
+
+
+
 	    });
 
 		// get Data form Button -> Modal Form input
