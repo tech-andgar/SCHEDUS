@@ -1,0 +1,165 @@
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Escritorio | Centro de electricidad electr�nica y telecomunicaciones </title>
+    <link rel="shortcut icon" href="http://192.168.1.132/web/assets/img/FAVICON-SENA.ico">
+    <!-- Icons -->
+    <link href="http://192.168.1.132/web/assets/vendors/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://192.168.1.132/web/assets/vendors/css/simple-line-icons.min.css" rel="stylesheet">
+    <!-- Main styles for this application -->
+    <link href="http://192.168.1.132/web/assets/vendors/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <header class="app-header navbar">
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" onclick="loadURL('http://192.168.1.132/web/Apoyo/Home')">Escritorio</a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" href="#">Configuraciones</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item d-md-down-none">
+                <a class="nav-link" href="#" data-toggle="dropdown">
+                    <i class="icon-bell"></i>
+                    <span class="badge badge-pill badge-danger">5</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header text-center">
+                        <strong>Notificaciones</strong>
+                    </div>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-envelope-o"></i> Ingresos
+                        <span class="badge badge-success">3</span>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-tasks"></i> Ventas
+                        <span class="badge badge-danger">2</span>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" style="padding-right: 20px">
+                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="true" aria-expanded="false">
+                    <img src="http://192.168.1.132/web/assets/vendors/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+                    <span class="d-md-down-none">JANETH CECILIA RODRIGUEZ CARRE�O </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header text-center">
+                        <strong>Cuenta</strong>
+                    </div>
+                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+                    <a class="dropdown-item" onclick="loadURL('http://192.168.1.132/web/AccessDataSecurity/LogOut')"><i
+                            class="fa fa-lock"></i> Cerrar sesi�n</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="loadURL('http://192.168.1.132/web/Apoyo/Home')"><i class="icon-speedometer"></i>
+                            Escritorio</a>
+                    </li>
+                    <li class="nav-title">
+                        Modulos
+                    </li>
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-book"></i> Actos academicos</a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="loadURL('http://192.168.1.132/web/Apoyo/Aplazamiento');"><i
+                                        class="fa fa-circle-o"></i>Aplazamiento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://192.168.1.132/web/Instructor/ConsultarProcesoDeDesercion"><i
+                                        class="fa fa-circle-o"></i> Consultar Procesos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html"><i class="icon-book-open"></i> Ayuda <span class="badge badge-danger">PDF</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="main.html"><i class="icon-info"></i> Reportar Error<span class="badge badge-info">IT</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+
+
+        <main class="main">
+            <!-- Breadcrumb -->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">Escritorio</li>
+                <li class="breadcrumb-item active">Apoyo Coordinaci�n acad�mica</li>
+
+            </ol>
+            <div class="container-fluid">
+                <!-- Ejemplo de tabla Listado -->
+                <div class="card">
+                    <div class="card-header">
+                        Inicio
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <h2>Bienvenido(a) <br><br>
+                                    <small>
+                                        JANETH CECILIA RODRIGUEZ CARRE�O <br><b>Apoyo coordinaci�n acad�mica</b>
+                                    </small></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--<script src="http://192.168.1.132/web/assets/bootstrap/js/bootstrap.js"></script>
+<script src="http://192.168.1.132/web/assets/app/app.js"></script>
+<script src="http://192.168.1.132/web/assets/app/toastr.js"></script>
+<script src="http://192.168.1.132/web/assets/app/pace.js"></script>
+
+
+</body>
+</html>
+
+-->
+
+        <!-- /Fin del contenido principal -->
+    </div>
+    <footer class="app-footer">
+        <span><a href="">Centro de Electricidad Electronica y Telecomunicaciones</a> &copy; 2018</span>
+        <span class="ml-auto">Desarrollado por <a href="http://www.incanatoit.com/">Casa de Desarrollo CEET</a></span>
+    </footer>
+
+    <!-- Bootstrap and necessary plugins -->
+    <script src="http://192.168.1.132/web/assets/vendors/js/jquery.min.js"></script>
+    <script src="http://192.168.1.132/web/assets/vendors/js/popper.min.js"></script>
+    <script src="http://192.168.1.132/web/assets/vendors/js/bootstrap.min.js"></script>
+    <script src="http://192.168.1.132/web/assets/vendors/js/pace.min.js"></script>
+    <!-- Plugins and scripts required by all views -->
+    <script src="http://192.168.1.132/web/assets/vendors/js/Chart.min.js"></script>
+    <!-- GenesisUI main scripts -->
+    <script src="http://192.168.1.132/web/assets/vendors/js/template.js"></script>
+    <script src="http://192.168.1.132/web/assets/app/app.js"></script>
+</body>
+
+</html>

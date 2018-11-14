@@ -19,7 +19,7 @@ class SecurityModel extends DB
     {
         try {
             if ($user) {
-                $stm = parent::conectar()->prepare(preparedSQL::USER1_QUERY_DNI);
+                $stm = parent::conectar()->prepare(preparedSQL::GET_USER_DNI);
                 $stm->bindParam(1, $user->dni, PDO::PARAM_STR);
                 $stm->execute();
                 $_SESSION['user'] = $stm->fetch(PDO::FETCH_OBJ);

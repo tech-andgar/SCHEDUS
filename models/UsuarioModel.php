@@ -212,7 +212,7 @@ class UsuarioModel extends DB {
         // Verificar longuitud cadena de caracteres del dni y password
         // if (strlen($dni) > 0 && strlen($password) > 0) {
 
-        $stm = parent::conectar()->prepare(preparedSQL::USER1_QUERY_DNI);
+        $stm = parent::conectar()->prepare(preparedSQL::GET_USER_DNI);
         $stm->bindParam(1, $dni, PDO::PARAM_STR);
         $stm->execute();
         $user = $stm->fetch(PDO::FETCH_OBJ);
@@ -297,65 +297,6 @@ class UsuarioModel extends DB {
       } else {
         // No hay datos email en $data
         return false;
-      }
-
-    } catch (Exception $e) {
-      die($e->getMessage());
-    }
-  }
-
-  public function SelectInstructorTabla(array $data) {
-    try {
-      // Verificar hay datos dni y password en $data
-      if (isset($data['dni']) && isset($data['password'])) {
-        $dni = $data['dni'];
-        $password = $data['password'];
-
-        // Verificar longuitud cadena de caracteres del dni y password
-        // if (strlen($dni) > 0 && strlen($password) > 0) {
-
-        $stm = parent::conectar()->prepare(preparedSQL::TABLA_INSTRUCTOR);
-        $stm->bindParam(1, $dni, PDO::PARAM_STR);
-        $stm->execute();
-        $user = $stm->fetch(PDO::FETCH_OBJ);
-
-        // Encontrado usuario
-        if ($user) {
-
-          // var_dump($password);
-          // var_dump($user);
-          // Comprobar Password
-          if ($user->password == $password) {
-            // Correcto password
-            // header('Location: dashboard.php');
-            return $user;
-
-          }
-          // Incorrecta password
-          else {
-            //handle wrong password
-            // header('Location: ?c=Inicio&m=wrongPassword');
-            return false;
-          }
-
-        } else {
-          // No encontrado usuario
-          //handle no user found
-          // header('Location: ?c=Inicio&m=noUserFound');
-          return false;
-        }
-
-        // } else {
-        //   // 0 caracteres de dni y password
-
-        // }
-
-      } else {
-        // No hay datos dni y password en $data
-        //handle no data user
-        // header('Location: ?c=Inicio&m=noDataUser');
-        return false;
-
       }
 
     } catch (Exception $e) {

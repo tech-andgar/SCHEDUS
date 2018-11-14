@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 23-10-2018 a las 13:39:49
+-- Tiempo de generación: 09-11-2018 a las 17:08:29
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `actividad_proyecto` (
   KEY `actividad_proyecto` (`num_actividad_proyecto`),
   KEY `FK_cod_fase` (`cod_fase`),
   KEY `FK_cod_proyecto_actividad_proyecto` (`cod_proyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `ambiente` (
   KEY `ambiente` (`num_ambiente`,`cod_sede`),
   KEY `FK_cod_sede` (`cod_sede`),
   KEY `FK_cod_estado_ambiente` (`cod_estado_ambiente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `competencia` (
   UNIQUE KEY `name_competencia` (`name_competencia`),
   KEY `competencia` (`codigo_competencia`),
   KEY `FK_cod_programa_formacion` (`cod_programa_formacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `dias` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_dias`),
   UNIQUE KEY `name_dias` (`name_dias`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `estado_ambiente` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_ambiente`),
   UNIQUE KEY `name_estado_ambiente` (`name_estado_ambiente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `estado_ficha` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_ficha`),
   UNIQUE KEY `name_estado_ficha` (`name_estado_ficha`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `estado_horario_asignada` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_horario_asignada`),
   UNIQUE KEY `name_estado_horario_asignada` (`name_estado_horario_asignada`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `estado_programa_formacion` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_programa_formacion`),
   UNIQUE KEY `name_estado_programa_formacion` (`name_estado_programa_formacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `estado_usuario` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_usuario`),
   UNIQUE KEY `name_estado_usuario` (`name_estado_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `fase` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_fase`),
   UNIQUE KEY `name_fase` (`name_fase`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `ficha` (
   UNIQUE KEY `num_ficha` (`num_ficha`),
   KEY `FK_cod_estado_ficha` (`cod_estado_ficha`),
   KEY `FK_cod_programa_formacion_ficha` (`cod_programa_formacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `grupo` (
   PRIMARY KEY (`id_grupo`),
   KEY `grupo` (`cod_ficha`,`num_grupo`,`cod_ruta_ficha`),
   KEY `FK_cod_ruta_ficha` (`cod_ruta_ficha`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -280,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `horario_asignada` (
   KEY `FK_cod_resultado_aprendizaje` (`cod_resultado_aprendizaje`),
   KEY `FK_cod_ruta_ficha_horario_asignada` (`cod_ruta_ficha`),
   KEY `FK_cod_ambiente` (`cod_ambiente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -297,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `jornada` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_jornada`),
   UNIQUE KEY `name_jornada` (`name_jornada`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -314,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `modo` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_modo`),
   UNIQUE KEY `name_modo` (`name_modo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -332,7 +332,7 @@ CREATE TABLE IF NOT EXISTS `nivel_programa_formacion` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_nivel_programa_formacion`),
   UNIQUE KEY `name_nivel_programa_formacion` (`name_nivel_programa_formacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -359,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `programa_formacion` (
   KEY `FK_cod_estado_programa_formacion` (`cod_estado_programa_formacion`),
   KEY `FK_cod_nivel_programa_formacion` (`cod_nivel_programa_formacion`),
   KEY `FK_cod_proyecto_programa_formacion` (`cod_proyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -376,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_proyecto`),
   UNIQUE KEY `name_proyecto` (`name_proyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -398,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `resultado_aprendizaje` (
   UNIQUE KEY `name_resultado_aprendizaje` (`name_resultado_aprendizaje`),
   KEY `resultado_aprendizaje` (`num_resultado_aprendizaje1`,`num_resultado_aprendizaje2`),
   KEY `FK_cod_competencia` (`cod_competencia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -415,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `rol` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_rol`),
   UNIQUE KEY `name_rol` (`name_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -439,7 +439,7 @@ CREATE TABLE IF NOT EXISTS `ruta_ficha` (
   UNIQUE KEY `name_ruta_ficha` (`name_ruta_ficha`),
   KEY `ruta_ficha` (`name_ruta_ficha`,`num_ruta_ficha`),
   KEY `FK_cod_jornada` (`cod_jornada`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -457,7 +457,7 @@ CREATE TABLE IF NOT EXISTS `sede` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_sede`),
   UNIQUE KEY `name_sede` (`name_sede`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -476,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `trimestre` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_trimestre`),
   UNIQUE KEY `name_trimestre` (`name_trimestre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -492,6 +492,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `apellido` varchar(60) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `email` varchar(60) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `password` varchar(128) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_rol` int(10) DEFAULT NULL,
   `cod_estado_usuario` int(10) DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
@@ -500,9 +501,10 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `documento` (`dni`),
   UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `token` (`token`),
   KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   KEY `FK_cod_rol` (`cod_rol`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -522,16 +524,63 @@ CREATE TABLE IF NOT EXISTS `v_ambientes` (
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `v_ficha_programa`
+-- Estructura Stand-in para la vista `v_competencias_resultado_aprendizaje_programa_formacion`
 -- (Véase abajo para la vista actual)
 --
-DROP VIEW IF EXISTS `v_ficha_programa`;
-CREATE TABLE IF NOT EXISTS `v_ficha_programa` (
+DROP VIEW IF EXISTS `v_competencias_resultado_aprendizaje_programa_formacion`;
+CREATE TABLE IF NOT EXISTS `v_competencias_resultado_aprendizaje_programa_formacion` (
+`id_resultado_aprendizaje` int(10)
+,`cod_competencia` int(10)
+,`num_resultado_aprendizaje1` varchar(10)
+,`num_resultado_aprendizaje2` varchar(10)
+,`name_resultado_aprendizaje` varchar(100)
+,`cod_programa_formacion` int(10)
+,`codigo_competencia` int(10)
+,`num_competencia2` varchar(20)
+,`name_competencia` varchar(100)
+,`id_programa_formacion` int(10)
+,`codigo` varchar(10)
+,`short_name_programa_formacion` varchar(5)
+,`name_programa_formacion` varchar(191)
+,`version_programa` varchar(10)
+,`id_nivel_programa_formacion` int(10)
+,`name_nivel_programa_formacion` varchar(100)
+,`duracion` varchar(100)
+,`id_estado_programa_formacion` int(10)
+,`name_estado_programa_formacion` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_ficha_grupo_programa_nivel_estado`
+-- (Véase abajo para la vista actual)
+--
+DROP VIEW IF EXISTS `v_ficha_grupo_programa_nivel_estado`;
+CREATE TABLE IF NOT EXISTS `v_ficha_grupo_programa_nivel_estado` (
 `id_ficha` int(10)
 ,`num_ficha` varchar(100)
 ,`num_grupo` varchar(3)
 ,`name_programa_formacion` varchar(191)
 ,`name_nivel_programa_formacion` varchar(100)
+,`name_estado_ficha` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `v_ficha_programa_nivel_estado`
+-- (Véase abajo para la vista actual)
+--
+DROP VIEW IF EXISTS `v_ficha_programa_nivel_estado`;
+CREATE TABLE IF NOT EXISTS `v_ficha_programa_nivel_estado` (
+`id_ficha` int(10)
+,`num_ficha` varchar(100)
+,`id_programa_formacion` int(10)
+,`name_programa_formacion` varchar(191)
+,`id_nivel_programa_formacion` int(10)
+,`name_nivel_programa_formacion` varchar(100)
+,`id_estado_ficha` int(10)
 ,`name_estado_ficha` varchar(100)
 );
 
@@ -588,16 +637,7 @@ CREATE TABLE IF NOT EXISTS `v_horario_asignado` (
 --
 DROP VIEW IF EXISTS `v_programa_formacion`;
 CREATE TABLE IF NOT EXISTS `v_programa_formacion` (
-`id_resultado_aprendizaje` int(10)
-,`cod_competencia` int(10)
-,`num_resultado_aprendizaje1` varchar(10)
-,`num_resultado_aprendizaje2` varchar(10)
-,`name_resultado_aprendizaje` varchar(100)
-,`cod_programa_formacion` int(10)
-,`codigo_competencia` int(10)
-,`num_competencia2` varchar(20)
-,`name_competencia` varchar(100)
-,`id_programa_formacion` int(10)
+`id_programa_formacion` int(10)
 ,`codigo` varchar(10)
 ,`short_name_programa_formacion` varchar(5)
 ,`name_programa_formacion` varchar(191)
@@ -664,11 +704,29 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `v_ficha_programa`
+-- Estructura para la vista `v_competencias_resultado_aprendizaje_programa_formacion`
 --
-DROP TABLE IF EXISTS `v_ficha_programa`;
+DROP TABLE IF EXISTS `v_competencias_resultado_aprendizaje_programa_formacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on(`ficha`.`id_ficha` = `grupo`.`cod_ficha`)) join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_competencias_resultado_aprendizaje_programa_formacion`  AS  select `resultado_aprendizaje`.`id_resultado_aprendizaje` AS `id_resultado_aprendizaje`,`resultado_aprendizaje`.`cod_competencia` AS `cod_competencia`,`resultado_aprendizaje`.`num_resultado_aprendizaje1` AS `num_resultado_aprendizaje1`,`resultado_aprendizaje`.`num_resultado_aprendizaje2` AS `num_resultado_aprendizaje2`,`resultado_aprendizaje`.`name_resultado_aprendizaje` AS `name_resultado_aprendizaje`,`competencia`.`cod_programa_formacion` AS `cod_programa_formacion`,`competencia`.`codigo_competencia` AS `codigo_competencia`,`competencia`.`num_competencia2` AS `num_competencia2`,`competencia`.`name_competencia` AS `name_competencia`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((((`competencia` join `resultado_aprendizaje` on(`competencia`.`codigo_competencia` = `resultado_aprendizaje`.`cod_competencia`)) join `programa_formacion` on(`competencia`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_grupo_programa_nivel_estado`
+--
+DROP TABLE IF EXISTS `v_ficha_grupo_programa_nivel_estado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_grupo_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on(`ficha`.`id_ficha` = `grupo`.`cod_ficha`)) join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_programa_nivel_estado`
+--
+DROP TABLE IF EXISTS `v_ficha_programa_nivel_estado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from (((`ficha` join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
 
 -- --------------------------------------------------------
 
@@ -686,7 +744,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_programa_formacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `resultado_aprendizaje`.`id_resultado_aprendizaje` AS `id_resultado_aprendizaje`,`resultado_aprendizaje`.`cod_competencia` AS `cod_competencia`,`resultado_aprendizaje`.`num_resultado_aprendizaje1` AS `num_resultado_aprendizaje1`,`resultado_aprendizaje`.`num_resultado_aprendizaje2` AS `num_resultado_aprendizaje2`,`resultado_aprendizaje`.`name_resultado_aprendizaje` AS `name_resultado_aprendizaje`,`competencia`.`cod_programa_formacion` AS `cod_programa_formacion`,`competencia`.`codigo_competencia` AS `codigo_competencia`,`competencia`.`num_competencia2` AS `num_competencia2`,`competencia`.`name_competencia` AS `name_competencia`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((((`competencia` join `resultado_aprendizaje` on(`competencia`.`codigo_competencia` = `resultado_aprendizaje`.`cod_competencia`)) join `programa_formacion` on(`competencia`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((`programa_formacion` join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
 
 -- --------------------------------------------------------
 

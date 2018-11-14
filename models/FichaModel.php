@@ -87,7 +87,7 @@ class FichaModel extends DB {
 		$this->num_ficha = $num_ficha;
 	}
 
-	// FUCTION
+	// FUNCTION
 
 	public function insertarFicha(array $data)
     {
@@ -114,19 +114,19 @@ class FichaModel extends DB {
     public function getAllFichas()
     {
         try {
-            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_FICHAS);
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_FICHAS_PROGRAMA_NIVEL_ESTADO);
             $stm->execute();
             $fichas = $stm->fetchAll(PDO::FETCH_OBJ);
-            return $fichas; // Retorno completa de lista de Fichas
+            return $fichas; // Retorno completa de lista de Fichas con informacion detallado
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function getFicha($idFichas)
+    public function getFicha($idFicha)
     {
         try {
-            $stm = parent::conectar()->prepare(preparedSQL::GET_INSTRUCTOR);
+            $stm = parent::conectar()->prepare(preparedSQL::GET_FICHA_PROGRAMA_NIVEL_ESTADO_ID);
             $stm->bindParam(1, $idFicha, PDO::PARAM_STR);
             $stm->execute();
             return $stm->fetch(PDO::FETCH_OBJ); // Retorno data instructor

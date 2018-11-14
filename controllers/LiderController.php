@@ -3,33 +3,39 @@
 
 class LiderController extends Path
 {
-    // private $modelSecurity;
-    // public $model;
-
     public function __construct()
     {
         $this->modelSecurity = parent::model('security');
         $this->modelSecurity->securityLider();
         $this->modelLider = parent::model('lider');
         $this->modelFicha = parent::model('ficha');
+        $this->modelEstadoFicha = parent::model('estadoFicha');
         $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
         $this->modelProgramaFormacion = parent::model('programaFormacion');
         $this->modelGrupo = parent::model('grupo');
     }
 
+    // Renderizado vistas
     public function index()
     {
-        parent::viewModule('lider', 'index', 'Asignar Horarios');
+        parent::viewModule('lider', 'index', 'Incio');
     }
 
-    public function Lider()
+    public function Horarios()
     {
-        parent::viewModule('lider', 'index', 'Asignar Horarios');
+        parent::viewModule('lider', 'horarios', 'Horarios');
     }
 
-    public function Programas()
+    public function Programas($msgType = [])
     {
-        parent::viewModule('lider', 'Programas', 'Programas');
+        $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
+
+        // $data[0] = $msgType;
+        // $data[1] = $fichas;
+        // $data[3] = $nivelFormacion;
+        // $data[4] = $programaFormacion;
+        $data['programaFormacion'] = $programaFormacion;
+        parent::viewModule('lider', 'Programas', 'Programas', $data);
     }
 
     public function TrimestresPrograma()
@@ -42,18 +48,26 @@ class LiderController extends Path
         parent::viewModule('lider', 'Competencias', 'Competencias');
     }
 
+    public function Ambiente()
+    {
+        parent::viewModule('lider', 'Ambiente', 'Ambiente');
+    }
+
     public function Fichas($msgType=[])
     {
 
         $fichas = $this->modelFicha->getAllFichas();
+        $grupos = $this->modelGrupo->getAllGrupos();
+        $estadoFicha = $this->modelEstadoFicha->getAllEstadoFicha();
         $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
 
-
-        $data[0] = $msgType;
-        $data[1] = $fichas;
-        $data[3] = $nivelFormacion;
-        $data[4] = $programaFormacion;
+        $data['msgType'] = $msgType;
+        $data['fichas'] = $fichas;
+        $data['grupos'] = $grupos;
+        $data['estadoFicha'] = $estadoFicha;
+        $data['nivelFormacion'] = $nivelFormacion;
+        $data['programaFormacion'] = $programaFormacion;
         parent::viewModule('lider', 'Fichas', 'Fichas', $data);
     }
 
@@ -67,12 +81,16 @@ class LiderController extends Path
     }
     public function Instructor($msgType = [])
     {
-        $users = $this->modelLider->getAllInstructores();
+        $instructores = $this->modelLider->getAllInstructores();
         $data[0] = $msgType;
-        $data[1] = $users;
+        $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
-
+    
+    public function Grupos()
+    {
+        parent::viewModule('lider', 'Grupos', 'Grupos');
+    }
   
     // Control de Instructor
     public function insertarInstructor()
@@ -114,9 +132,7 @@ class LiderController extends Path
 
     public function getDataInstructor()
     {
-        $idInstructor = $_POST['id_instructor'];
-        $dataInstructor = $this->modelLider->getInstructor($idInstructor);
-        $dataInstructor = json_encode($dataInstructor);
+        $dataInstructor = json_encode($this->modelLider->getInstructor($_POST['id_instructor']));
         echo $dataInstructor;
     }
 
@@ -185,9 +201,7 @@ class LiderController extends Path
 
     public function getDataFicha()
     {
-        $idFicha = $_POST['id_Ficha'];
-        $dataFicha = $this->modelFicha->getFicha($idFicha);
-        $dataFicha = json_encode($dataFicha);
+        $dataFicha = json_encode($this->modelFicha->getFicha($_POST['idFicha']));
         echo $dataFicha;
     }
 
@@ -198,14 +212,40 @@ class LiderController extends Path
         echo $dataFicha;
     }
 
+    public function getDataEstadoFicha()
+    {
+        $dataFicha = json_encode($this->modelEstadoFicha->getEstadoFicha($_POST['idEstadoFicha']));
+        echo $dataFicha;
+    }
+
+    public function getAllDataEstadoFicha()
+    {
+        $dataEstadoFicha = json_encode($this->modelEstadoFicha->getAllEstadoFicha());
+        echo $dataEstadoFicha;
+    }
+    public function getDataProgramaFormacion()
+    {
+        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
+        echo $dataFicha;
+    }
+
+    public function getAllDataProgramaFormacion()
+    {
+        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
+        echo $dataEstadoFicha;
+    }
+
+
+
     public function updateDataFicha()
     {
-        $data = array(
-            "dni" => $_POST['dni'],
-            "nombre" => $_POST['nombre'],
-            "apellido" => $_POST['apellido'],
-            "email" => $_POST['email'],
-        );
+var_dump($_POST);
+        // $data = array(
+        //     "dni" => $_POST['dni'],
+        //     "nombre" => $_POST['nombre'],
+        //     "apellido" => $_POST['apellido'],
+        //     "email" => $_POST['email'],
+        // );
         $result = $this->modelFicha->updateDataFicha($data);
         if ($result) {
             $msgType = array(

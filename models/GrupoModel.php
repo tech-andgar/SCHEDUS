@@ -79,7 +79,7 @@ class GrupoModel extends DB {
 	public function setNum_grupo($num_grupo) {
 		$this->num_grupo = $num_grupo;
 	}
-	public function getAllGrupo()
+	public function getAllGrupos()
     {
         try {
             $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_GRUPO);
