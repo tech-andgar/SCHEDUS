@@ -1,18 +1,36 @@
-<div class="col-lg-9 col-md-12 col-12">
-	<div class="row justify-content-center ">
-		<div class="col-md-12">
-			<br>
-			<h4 class="text-center mb-1">Administrar programas de formación</h4>
-			<hr>
-			<div class="row d-flex justify-content-center">
+<!-- Contenido Principal -->
+<main class="main">
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">Inicio</li>
+		<li class="breadcrumb-item"><a href="#">Lider</a></li>
+		<li class="breadcrumb-item active">Administrar programas de formación</li>
+	</ol>
+	<div class="container-fluid">
+		<!-- Ejemplo de tabla Listado -->
+		<div class="card">
+			<div class="card-header ">
+				<i class="fa fa-align-justify"></i> Administrar Programas de Formacion
+				<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar">
+					<i class="icon-plus "></i>&nbsp;Nuevo
+				</button>
+			</div>
+			<div class="card-body">
+				<div class="form-group row">
+					<div class="col-md-6">
+						<div class="input-group">
+							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
+							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+						</div>
+					</div>
+				</div>
 				<div class="table-responsive">
-					<table class="table table-hover table-sm" id="tableProgramas">
+                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
 						<thead>
 							<tr>
 								<th>Codigo</th>
 								<th>Programa</th>
 								<th>Nivel</th>
-								<!-- <th>Duración</th> -->
 								<th>Estado</th>
 								<th class="text-center">Actualizar</th>
 							</tr>
@@ -29,9 +47,6 @@
 								<td>
 									<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
 								</td>
-								<!-- <td>
-									<?php //echo $programaFormacion->duracion; ?>
-								</td> -->
 								<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
 									<span class="btn
 											<?php switch ($programaFormacion->id_estado_programa_formacion) {
@@ -48,7 +63,7 @@
 									"><?php echo $programaFormacion->name_estado_programa_formacion ?></span>
 								</td>
 								<td class="text-center">
-									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_Prms" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
+									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
@@ -60,10 +75,59 @@
 					</table>
 				</div>
 			</div>
+		</div></div>
+		<!-- Fin ejemplo de tabla Listado -->
+	</div>
+	<!-- Fin del modal Eliminar -->
+</main>
+<!-- /Fin del contenido principal -->
+</div>
+
+<!-- Modal Agregar nueva Competencias-->
+<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="col-11 modal-title text-center">Agregar Nuevo Programa</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="d-flex justify-content-center text-center">
+					<form method="post" action="#" class="form-signin">
+						<h5>Nombre del Programa</h5>
+						<input type="text" class="adsi-css mb-3" name="Programa" />
+						<hr>
+						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-</div>
+	<!-- Modal -->
+	<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="d-flex justify-content-center text-center">
+					<form method="post" action="#" class="form-signin">
+						<h5>Nombre del Programa</h5>
+						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+						<hr>
+						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script>
@@ -114,6 +178,23 @@
 			//	'csvHtml5',
 			//	'pdfHtml5'
 			//]
+		});
+
+	$(".statusChange").click(function(){
+		var statetext =$(this).attr('name-state');
+		var state_id =$(this).attr('id-state');
+		var id_programa =$(this).attr('id-programa');
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=changeStatusPrograma',
+			data:{
+				statetext:statetext,
+				state_id:state_id,
+				id_programa:id_programa
+			},
+			success(response){
+				location.reload();
+			}
 		});
 
 		$(".updateDataPrograma").click(function () {

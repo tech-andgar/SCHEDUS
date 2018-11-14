@@ -1,16 +1,13 @@
 
     <!-- FOOTER -->
-    <footer style=" height: 100px; background-color: #EC7C38;">
-      <div class="row d-flex justify-content-center text-center">
-        <div class="col-md-12">
-          <p class="p-4" style="color: white">SCHEDUS © 2018. Control de Horarios.</p>
-        </div>
-      </div>
+    <footer class="app-footer" style="margin-left:0;">
+        <span><a href="#">SCHEDUS</a> &copy; 2018</span>
+        <span class="ml-auto mr-2">Desarrollado por <a href="https://github.com/andgar2010">Andres Garcia</a></span>
+        <span class="my-auto"><a href="https://github.com/johannbulls">Johann amaya</a></span>
     </footer>
     <!-- END FOOTER -->
 
-  </div>
-  <!-- END BODY -->
+  
 </body>
-
+<!-- END BODY -->
 </html>

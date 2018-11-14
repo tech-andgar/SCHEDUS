@@ -1,25 +1,29 @@
-<div class="col-lg-9 col-md-12 col-12">
-	<div class="row">
-		<div class="col-md-12">
-			<h4 class="text-center my-4">Administar Instructores</h4>
-			<hr>
-		</div>
-		<div class="col-lg-12 col-md-12 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Insertar" class=" text-center">
-				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nuevo Instructor</button>
+<!-- Contenido Principal -->
+<main class="main">
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">Inicio</li>
+		<li class="breadcrumb-item"><a href="#">Lider</a></li>
+		<li class="breadcrumb-item active">Instructor</li>
+	</ol>
+	<div class="container-fluid">
+		<!-- Ejemplo de tabla Listado -->
+		<div class="card">
+			<div class="card-header">
+				<i class="fa fa-align-justify"></i> Administrar Instructores
+				<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Insertar">
+					<i class="icon-plus"></i>&nbsp;Nuevo
+				</button>
 			</div>
-		</div>
-	</div>
-	<div class="mt-5 row justify-content-center">
-		<div class="col-md-12">
-			<div class="row d-flex justify-content-center">
-			<div class="table-responsive">
-				<table class="table table-hover " id="tableInstructores">
-					<thead>
-						<tr class="success">
-							<th class="col-sm-1 ">Instructor</th>
+			<div class="card-body">
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+						<thead>
+					<tr class="success">
+								<th class="col-sm-1 ">Instructor</th>
 							<th>Estado</th>
-							<th class="text-center">Actualizar</th>
+								<th class="text-center">Actualizar</th>
+							</tr>
+					</thead>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,15 +50,13 @@
 						<?php } ?>
 					</tbody>
 				</table>
-				</div>
 			</div>
 		</div>
+		<!-- Fin ejemplo de tabla Listado -->
 	</div>
+</main>
+<!-- /Fin del contenido principal -->
 </div>
-<br>
-</div>
-</div>
-
 
 <script>
 $(document).ready(function() {
@@ -125,6 +127,8 @@ $(document).ready(function() {
 
 	$(".updateDataInstructor").click(function(){
 		var id_instructor =$(this).attr('id-instructor');
+		console.log(id_instructor);
+
 		$.ajax({
 			type:'POST',
 			url:'?c=Lider&m=getDataInstructor',
@@ -143,11 +147,8 @@ $(document).ready(function() {
 	});
 
 });
-</script>
-
-
-
-<!-- Modal Actualizar_Instructores-->
+	</script>
+	<!-- Modal Actualizar_Instructores-->
 <div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
@@ -165,7 +166,7 @@ $(document).ready(function() {
 								<td>
 									<h5>Numero de Documento</h5>
 								</td>
-								<td><input id="text-dni" type="number" value=""  class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
+								<td><input id="text-dni" type="number" value="" class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
 							</tr>
 							<tr>
 								<td>
@@ -177,7 +178,8 @@ $(document).ready(function() {
 								<td>
 									<h5>Apellido</h5>
 								</td>
-								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido" required /></td>
+								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido"
+									 required /></td>
 							</tr>
 							<tr>
 								<td>

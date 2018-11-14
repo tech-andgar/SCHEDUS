@@ -1,20 +1,30 @@
-<?php // var_dump($data);?>
-<div class="col-lg-9 col-md-12 col-12">
-	<div class="row">
-		<div class="col-md-12">
-			<h4 class="text-center my-4">Administrar Fichas de programas de formación</h4>
-			<hr>
-		</div>
-		<div class="col-lg-4 col-md-6 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Agregar_Ficha" class=" text-center">
-				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nueva Ficha</button>
+<!-- Contenido Principal -->
+<main class="main">
+	<!-- Breadcrumb -->
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">Inicio</li>
+		<li class="breadcrumb-item"><a href="#">Lider</a></li>
+		<li class="breadcrumb-item active">Fichas</li>
+	<div class="container-fluid">
+	</ol>
+		<div class="card">
+		<!-- Ejemplo de tabla Listado -->
+			<div class="card-header ">
+				<i class="fa fa-align-justify"></i> Fichas
+				<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar_Ficha">
+					<i class="icon-plus "></i>&nbsp;Nuevo
+				</button>
 			</div>
-		</div>
-		<div class="col-lg-4 col-md-6 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Agregar_Grupo" class="text-center" id="btnAgregarGrupo">
-				<button class="btn-rounded"><i class="fas fa-plus-circle fa-lg"></i>&nbsp;&nbsp;Agregar Nuevo Grupo</button>
-			</div>
-		</div>
+			<div class="card-body">
+				<div class="form-group row">
+					<div class="col-md-6">
+						<div class="input-group">
+							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
+						</div>
+							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+					</div>
+				</div>
+				<div class="table-responsive">
 		<div class="col-lg-4 col-md-12 col-12 mt-2">
 			<div data-toggle="modal" data-target="#Fusionar" class=" text-center">
 				<button class="btn-rounded"><i class="fas fa-compress-alt fa-lg"></i>&nbsp;&nbsp;Fusionar</button>
@@ -24,8 +34,9 @@
 	<div class="mt-5 row d-flex justify-content-center">
 		<div class="container table-responsive">
 			<table class=" table table-hover table-condensed text-center" id="tableFichas">
-				<thead>
-					<tr>
+						<thead>
+					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+							<tr>
 						<th>Ficha</th>
 						<th>Programa</th>
 						<th>Nivel</th>

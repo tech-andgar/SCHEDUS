@@ -1,14 +1,20 @@
-body {
-  background-color: #787878;
+@import url('https://fonts.googleapis.com/css?family=Days+One');
+
+.app-header {
+  background-color: #ec7c38;
 }
 
-.container_1 {
-  width: 100%;
-  height: auto;
-  margin: 0%;
-  padding: 0 50px;
-  background-color: #fff;
+.navbar-nav .nav-link {
+  color: #fff;
 }
+
+.app-header .navbar-toggler-icon {
+  height: 23px;
+
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMzJweCIgaGVpZ2h0PSIzMnB4IiB2aWV3Qm94PSIwIDAgMzIgMzIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik00LDEwaDI0YzEuMTA0LDAsMi0wLjg5NiwyLTJzLTAuODk2LTItMi0ySDRDMi44OTYsNiwyLDYuODk2LDIsOFMyLjg5NiwxMCw0LDEweiBNMjgsMTRINA0KCWMtMS4xMDQsMC0yLDAuODk2LTIsMmMwLDEuMTA0LDAuODk2LDIsMiwyaDI0YzEuMTA0LDAsMi0wLjg5NiwyLTJDMzAsMTQuODk2LDI5LjEwNCwxNCwyOCwxNHogTTI4LDIySDRjLTEuMTA0LDAtMiwwLjg5Ni0yLDINCglzMC44OTYsMiwyLDJoMjRjMS4xMDQsMCwyLTAuODk2LDItMlMyOS4xMDQsMjIsMjgsMjJ6Ii8+DQo8L3N2Zz4NCg==);
+}
+
+
 
 a {
   font-family: "Exo 2", sans-serif;
@@ -39,23 +45,6 @@ h6 {
   font-family: "Exo 2", sans-serif;
   font-weight: 500;
   line-height: auto;
-}
-
-.navbar-brand {
-  font-size: 2.5rem;
-  display: inline-block;
-  padding-top: 0%;
-  padding-bottom: 0%;
-  margin-right: 0%;
-}
-
-.navbar-light .navbar-brand {
-  color: rgba(255, 255, 255);
-}
-
-.navbar-light .navbar-brand:hover,
-.navbar-light .navbar-brand:focus {
-  color: rgb(0, 0, 0);
 }
 
 .adsi-css {
@@ -167,154 +156,4 @@ h6 {
     width: 88%;
     float: none;
   }
-}
-
-.control {
-  font-family: arial;
-  display: block;
-  position: relative;
-  padding-left: 29px;
-  margin-bottom: 12px;
-  padding-top: 10px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.control input {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-
-.control_indicator {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  height: 30px;
-  width: 31px;
-  background: #ffffff;
-}
-
-.control-radio .control_indicator {
-  border-radius: undefined;
-}
-
-.control:hover input~.control_indicator,
-.control input:focus~.control_indicator {
-  background: #ffffff;
-}
-
-.control input:checked~.control_indicator {
-  background: #2aa1c0;
-}
-
-.control_indicator:after {
-  box-sizing: unset;
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.control input:checked~.control_indicator:after {
-  display: block;
-}
-
-.control-checkbox .control_indicator:after {
-  left: 11px;
-  top: 6px;
-  width: 4px;
-  height: 11px;
-  border: solid #ffffff;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-.control-checkbox input:disabled~.control_indicator:after {
-  border-color: #ffffff;
-}
-
-.control {
-  font-family: arial;
-  display: block;
-  position: relative;
-  padding-left: 39px;
-  margin-bottom: 16px;
-  padding-top: 10px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.control input {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-
-.control_indicator {
-  position: center;
-  top: 1px;
-  bottom: 1px;
-  right: 1px;
-  left: 8px;
-
-  background: #e6e6e6;
-}
-
-.control-radio .control_indicator {
-  border-radius: undefined;
-}
-
-.control:hover input~.control_indicator,
-.control input:focus~.control_indicator {
-  background: #ffffff;
-}
-
-.control input:checked~.control_indicator {
-  background: #2aa1c0;
-}
-
-.control input:disabled~.control_indicator {
-  background: #ffffff;
-  opacity: 21;
-  pointer-events: none;
-}
-
-.control_indicator:after {
-  box-sizing: unset;
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.control input:checked~.control_indicator:after {
-  display: block;
-}
-
-.control-checkbox .control_indicator:after {
-  left: 13px;
-  top: 5px;
-  width: 4px;
-  height: 15px;
-  border: solid #ffffff;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-.control-checkbox input:disabled~.control_indicator:after {
-  border-color: #ffffff;
-}
-
-.navbar-derecho {
-  background-color: #EC7C38;
-  height: 11rem;
-  padding-top: 10px;
-  margin-top: 20px;
-}
-
-.dropdown-content a:hover {
-  background-color: #EC7C38
-}
-
-.button:hover {
-  background-color: #EC7C38
 }

@@ -18,12 +18,12 @@ class LiderController extends Path
     // Renderizado vistas
     public function index()
     {
-        parent::viewModule('lider', 'index', 'Asignar Horarios');
+        parent::viewModule('lider', 'index', 'Incio');
     }
 
-    public function Lider()
+    public function Horarios()
     {
-        parent::viewModule('lider', 'index', 'Asignar Horarios');
+        parent::viewModule('lider', 'horarios', 'Horarios');
     }
 
     public function Programas($msgType = [])
@@ -46,6 +46,11 @@ class LiderController extends Path
     public function Competencias()
     {
         parent::viewModule('lider', 'Competencias', 'Competencias');
+    }
+
+    public function Ambiente()
+    {
+        parent::viewModule('lider', 'Ambiente', 'Ambiente');
     }
 
     public function Fichas($msgType=[])
@@ -81,8 +86,12 @@ class LiderController extends Path
         $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
-
-
+    
+    public function Grupos()
+    {
+        parent::viewModule('lider', 'Grupos', 'Grupos');
+    }
+  
     // Control de Instructor
     public function insertarInstructor()
     {

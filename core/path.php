@@ -40,8 +40,8 @@ class Path
     {
         $title = $title;
         require_once 'views/all/head.php';
-        require_once 'views/all/header.php';
-        require_once 'views/all/navbar.php';
+        require_once 'views/'.$module .'/header.php';
+        // require_once 'views/all/navbar.php';
         require_once 'views/' . $module . '/' . $view . '.php';
         require_once 'views/all/footer.php';
     }
@@ -78,14 +78,14 @@ class Path
         //     $data['partial3'] = $data[5];
         // }
         require_once 'views/all/head.php';
-        require_once 'views/all/header.php';
-        require_once 'views/' . $module . '/navbar' . ucwords($module) . '.php';
-        if ($module == 'lider')  {
-            echo '<div class="container bg-light"><div class="row">';
-            require_once 'views/' . $module . '/AsideMenuIzquierdo.php';
-        }
+        require_once 'views/' . $module . '/header' . ucwords($module) . '.php';
+        require_once 'views/' . $module . '/sidebar' . ucwords($module) . '.php';
+        // if ($module == 'lider')  {
+        //     echo '<div class="container bg-light"><div class="row">';
+        //     require_once 'views/' . $module . '/AsideMenuIzquierdo.php';
+        // }
         require_once 'views/' . $module . '/' . $view . '.php';
-        require_once 'views/all/footer.php';
+        require_once 'views/all/footerModule.php';
     }
 
     /**
