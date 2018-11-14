@@ -16,14 +16,6 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-						<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar"> 
-							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-						</div>
-					</div>
-				</div>
 				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
 						<thead>
 					<tr class="success">
@@ -135,6 +127,8 @@ $(document).ready(function() {
 
 	$(".updateDataInstructor").click(function(){
 		var id_instructor =$(this).attr('id-instructor');
+		console.log(id_instructor);
+
 		$.ajax({
 			type:'POST',
 			url:'?c=Lider&m=getDataInstructor',
