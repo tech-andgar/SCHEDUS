@@ -25,25 +25,16 @@
 					</div>
 				</div>
 				<div class="table-responsive">
-		<div class="col-lg-4 col-md-12 col-12 mt-2">
-			<div data-toggle="modal" data-target="#Fusionar" class=" text-center">
-				<button class="btn-rounded"><i class="fas fa-compress-alt fa-lg"></i>&nbsp;&nbsp;Fusionar</button>
-			</div>
-		</div>
-	</div>
-	<div class="mt-5 row d-flex justify-content-center">
-		<div class="container table-responsive">
-			<table class=" table table-hover table-condensed text-center" id="tableFichas">
-						<thead>
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+						<thead>
 							<tr>
 						<th>Ficha</th>
 						<th>Programa</th>
 						<th>Nivel</th>
 						<th>Estado</th>
-						<th>Editar</th>
-					</tr>
-				</thead>
+								<th class="text-center">Actualizar</th>
+							</tr>
+						</thead>
 				<tbody>
 					<?php foreach ($data['fichas'] as $ficha) { ?>
 					<tr>
@@ -85,11 +76,14 @@
 					<?php } ?>
 				</tbody>
 			</table>
+				</div>
+			</div>
 		</div>
+		<!-- Fin ejemplo de tabla Listado -->
 	</div>
-</div>
-<br>
-</div>
+	<!-- Fin del modal Eliminar -->
+</main>
+<!-- /Fin del contenido principal -->
 </div>
 
 <!-- Modal Agregar nueva Ficha-->
@@ -230,72 +224,6 @@
 </div>
 <!-- END Modal Agregar nuevo Grupo-->
 
-<!-- Modal Fusionar-->
-<div class="modal fade" id="Fusionar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Fusionar Fichas</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form>
-						<div class="row d-flex justify-content-center">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-								<h4>Ficha 1 :</h4>
-								<select class="adsi-css" required>
-									<option value="">Seleccione una ficha</option>
-									<option value="tab">8975312</option>
-									<option value="tab">1320652 G1</option>
-									<option value="tab">1320652 G2</option>
-									<option value="tab">1320652 G3</option>
-									<option value="tab">1320652 G4</option>
-									<option value="tab">2349858</option>
-									<option value="tab">1320652 G1</option>
-									<option value="tab">1320652 G2</option>
-									<option value="tab">1320652 G3</option>
-									<option value="tab">1878465</option>
-									<option value="tab">1328798 G1</option>
-									<option value="tab">1328798 G2</option>
-									<option value="tab">1328798 G3</option>
-								</select>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 mb-5">
-								<h4>Ficha 2 :</h4>
-								<select class="adsi-css" required>
-									<option value="">Seleccione una ficha</option>
-									<option value="tab">8975312</option>
-									<option value="tab">1320652 G1</option>
-									<option value="tab">1320652 G2</option>
-									<option value="tab">1320652 G3</option>
-									<option value="tab">1320652 G4</option>
-									<option value="tab">2349858</option>
-									<option value="tab">1320652 G1</option>
-									<option value="tab">1320652 G2</option>
-									<option value="tab">1320652 G3</option>
-									<option value="tab">1878465</option>
-									<option value="tab">1328798 G1</option>
-									<option value="tab">1328798 G2</option>
-									<option value="tab">1328798 G3</option>
-								</select>
-							</div>
-							<h5>Nueva ruta de Ficha</h5>
-							<input type="text" class="adsi-css" style="width:60%; height:30px" name="dni" />
-							<div class="col-12">
-								<button class="mt-5 btn-rounded" type="submit" style="width:80px">Fusionar</button>
-							</div>
-						</div>
-						<br>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- END Modal Fusionar-->
 
 <script>
 	function removeDuplicates(json_all) {
