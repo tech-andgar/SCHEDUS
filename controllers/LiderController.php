@@ -205,15 +205,23 @@ class LiderController extends Path
 
     public function getDataEstadoFicha()
     {
-        $dataFicha = json_encode($this->modelEstadoFicha->getEstadoFicha($_POST['idEstadoFicha']));
-        echo $dataFicha;
-    }
+        // Completa lista de estado de ficha
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelEstadoFicha->getAllEstadoFicha();
+        }
+        // Selecciona ID de estado de ficha
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelEstadoFicha->getEstadoFichaId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de ficha
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelEstadoFicha->getEstadoFichaName($_REQUEST['q']);
+        }
 
-    public function getAllDataEstadoFicha()
-    {
-        $dataEstadoFicha = json_encode($this->modelEstadoFicha->getAllEstadoFicha());
+        $dataEstadoFicha = json_encode($output);
         echo $dataEstadoFicha;
     }
+
     public function getDataProgramaFormacion()
     {
         $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
