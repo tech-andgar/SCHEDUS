@@ -59,24 +59,24 @@ class Path
     public function viewModule($module, $view, $title = "", $data = [], $c = '')
     {
         $title = $title;
-        if (isset($data[0])) {
-            $data['msgType']= $data[0];
-        }
-        if (isset($data[1])) {
-            $data['data'] = $data[1];
-        }
-        if (isset($data[2])) {
-            $data['partial0'] = $data[2];
-        }
-        if (isset($data[3])) {
-            $data['partial1'] = $data[3];
-        }
-        if (isset($data[4])) {
-            $data['partial2'] = $data[4];
-        }
-        if (isset($data[5])) {
-            $data['partial3'] = $data[5];
-        }
+        // if (isset($data[0])) {
+        //     $data['msgType']= $data[0];
+        // }
+        // if (isset($data[1])) {
+        //     $data['data'] = $data[1];
+        // }
+        // if (isset($data[2])) {
+        //     $data['partial0'] = $data[2];
+        // }
+        // if (isset($data[3])) {
+        //     $data['partial1'] = $data[3];
+        // }
+        // if (isset($data[4])) {
+        //     $data['partial2'] = $data[4];
+        // }
+        // if (isset($data[5])) {
+        //     $data['partial3'] = $data[5];
+        // }
         require_once 'views/all/head.php';
         require_once 'views/' . $module . '/header' . ucwords($module) . '.php';
         require_once 'views/' . $module . '/sidebar' . ucwords($module) . '.php';

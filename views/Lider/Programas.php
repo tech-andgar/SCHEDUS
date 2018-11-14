@@ -26,33 +26,54 @@
 				</div>
 				<div class="table-responsive">
                     <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
-				
-					<thead>
-						<tr class="success">
-							<th class="">Codigo</th>
-							<th class="">Programa</th>
-							<th class="">Estado</th>
-							<th class="text-center">Actualizar</th>
-						</tr>
-					</thead>
-					<tbody class="">
-						<tr>
-							<td class="">1</td>
-							<td class="">Análisis y Diseño de Sistemas de Información</td>
-							<td>
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1" checked>
-									<label class="onoffswitch-label" for="1"></label>
-								</div>
-							</td>
-							<td class=" text-center">
-								<div data-toggle="modal" data-target="#Actualizar">
-									<i class="far fa-edit fa-2x"></i>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+						<thead>
+							<tr>
+								<th>Codigo</th>
+								<th>Programa</th>
+								<th>Nivel</th>
+								<th>Estado</th>
+								<th class="text-center">Actualizar</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach ($data['programaFormacion'] as $programaFormacion) { ?>
+							<tr>
+								<td>
+									<?php echo $programaFormacion->codigo . " " . $programaFormacion->short_name_programa_formacion; ?>
+								</td>
+								<td>
+									<?php echo $programaFormacion->name_programa_formacion . " " .$programaFormacion->version_programa; ?>
+								</td>
+								<td>
+									<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
+								</td>
+								<td class="text-center" style="padding-bottom: 0px;padding-top: 10px;">
+									<span class="btn
+											<?php switch ($programaFormacion->id_estado_programa_formacion) {
+													case '1': //Activo
+														echo "btn-success";
+														break;
+													case '2' : //Inactivo
+														echo "btn-danger";
+														break;
+													default:
+														echo "btn-warning";
+														break;
+													}?>
+									"><?php echo $programaFormacion->name_estado_programa_formacion ?></span>
+								</td>
+								<td class="text-center">
+									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_Prms" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
+										<i class="far fa-edit fa-lg"></i>
+									</div>
+								</td>
+							</tr>
+							<?php
+						}
+					?>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div></div>
 		<!-- Fin ejemplo de tabla Listado -->
@@ -108,6 +129,8 @@
 		</div>
 	</div>
 </div>
+</div>
+</div>
 
 <script>
 	$(document).ready(function () {
@@ -159,22 +182,21 @@
 			//]
 		});
 
-		$(".statusChange").click(function () {
-			var statetext = $(this).attr('name-state');
-			var state_id = $(this).attr('id-state');
-			var id_programa = $(this).attr('id-programa');
-			$.ajax({
-				type: 'POST',
-				url: '?c=Lider&m=changeStatusPrograma',
-				data: {
-					statetext: statetext,
-					state_id: state_id,
-					id_programa: id_programa
-				},
-				success(response) {
-					location.reload();
-				}
-			});
+	$(".statusChange").click(function(){
+		var statetext =$(this).attr('name-state');
+		var state_id =$(this).attr('id-state');
+		var id_programa =$(this).attr('id-programa');
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=changeStatusPrograma',
+			data:{
+				statetext:statetext,
+				state_id:state_id,
+				id_programa:id_programa
+			},
+			success(response){
+				location.reload();
+			}
 		});
 
 		$(".updateDataPrograma").click(function () {
@@ -198,3 +220,9 @@
 
 	});
 </script>
+
+<?php
+if (!empty($data['msgType'])) {
+    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
+}
+?>

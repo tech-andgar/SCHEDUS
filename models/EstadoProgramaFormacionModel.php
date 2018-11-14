@@ -73,5 +73,29 @@ class EstadoProgramaFormacionModel extends DB {
 	public function setName_estado_programa_formacion($name_estado_programa_formacion) {
 		$this->name_estado_programa_formacion = $name_estado_programa_formacion;
 	}
+
+	public function getAllEstadoProgramasFormacion()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_ESTADO_PROGRAMAS_FORMACION);
+            $stm->execute();
+            $fichas = $stm->fetchAll(PDO::FETCH_OBJ);
+            return $fichas; // Retorno completa de lista de ProgramasFormacion
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function getEstadoProgramasFormacion($idEstadoProgramasFormacions)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ESTADO_PROGRAMA_FORMACION_ID);
+            $stm->bindParam(1, $idEstadoProgramasFormacions, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data instructor
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
 ?>

@@ -60,6 +60,8 @@ h6 {
   color: rgba(0, 0, 0, 1);
   -o-text-overflow: clip;
   text-overflow: clip;
+  height: 20px;
+  width: 15rem;
 }
 
 
@@ -93,7 +95,7 @@ h6 {
 }
 
 /* .botton_css {
-  
+
 } */
 
 /* ExtraSmall devices (landscape phones, 544px and up) */

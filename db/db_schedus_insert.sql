@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 23-10-2018 a las 13:39:13
+-- Tiempo de generación: 09-11-2018 a las 17:08:04
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -67,6 +67,7 @@ INSERT INTO `estado_ambiente` (`id_estado_ambiente`, `name_estado_ambiente`, `cr
 --
 
 INSERT INTO `estado_ficha` (`id_estado_ficha`, `name_estado_ficha`, `create_time`, `update_time`, `version`) VALUES
+(0, 'NULL', '2018-11-08 20:24:54', NULL, NULL),
 (1, 'Pendiente Asignado', '2018-10-03 22:57:14', '0000-00-00 00:00:00', NULL),
 (2, 'En formación', '2018-10-03 22:57:22', '0000-00-00 00:00:00', NULL),
 (3, 'Cancelado', '2018-10-03 22:57:30', '0000-00-00 00:00:00', NULL),
@@ -115,7 +116,8 @@ INSERT INTO `fase` (`id_fase`, `name_fase`, `create_time`, `update_time`, `versi
 
 INSERT INTO `ficha` (`id_ficha`, `num_ficha`, `create_time`, `update_time`, `version`, `cod_estado_ficha`, `cod_programa_formacion`) VALUES
 (1, '1320652', '2018-10-05 00:44:49', '0000-00-00 00:00:00', NULL, 2, 1),
-(2, '1320500', '2018-10-05 00:45:10', '0000-00-00 00:00:00', NULL, 2, 0);
+(2, '1320500', '2018-10-05 00:45:10', '0000-00-00 00:00:00', NULL, 2, 3),
+(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 1, 2);
 
 --
 -- Volcado de datos para la tabla `grupo`
@@ -151,6 +153,7 @@ INSERT INTO `modo` (`id_modo`, `name_modo`, `create_time`, `update_time`, `versi
 --
 
 INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_nivel_programa_formacion`, `duracion`, `create_time`, `update_time`, `version`) VALUES
+(0, 'NULL', 'NULL', '2018-11-08 20:21:23', NULL, NULL),
 (1, 'Curso complementario', NULL, '2018-10-03 02:39:11', '2018-10-03 22:49:08', NULL),
 (2, 'Certificación De Competencia Laboral', NULL, '2018-10-03 02:41:01', '2018-10-03 22:49:08', NULL),
 (3, 'Técnico', NULL, '2018-10-03 02:41:04', '2018-10-03 22:49:08', NULL),
@@ -166,6 +169,7 @@ INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_niv
 --
 
 INSERT INTO `programa_formacion` (`id_programa_formacion`, `codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`, `create_time`, `update_time`, `version`) VALUES
+(0, NULL, 'NULL', 'NULL', NULL, NULL, NULL, NULL, '2018-11-08 20:20:52', NULL, NULL),
 (1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 1, '2018-10-03 05:11:28', '2018-10-03 22:49:11', NULL),
 (2, '228106', 'PM', 'PRODUCCIÓN DE MULTIMEDIA', 'V 102', 3, 2, 1, '2018-10-03 05:12:27', '2018-10-03 22:49:11', NULL),
 (3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-03 05:15:53', '2018-10-03 22:49:11', NULL);
@@ -248,10 +252,13 @@ INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fech
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `password`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
-(1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
-(2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
-(3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02');
+INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `password`, `token`, `cod_rol`, `cod_estado_usuario`, `version`, `create_time`, `update_time`) VALUES
+(1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', NULL, 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
+(2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', NULL, 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
+(3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', NULL, 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02'),
+(4, '354654', 'asdd', 'sadd', 'afgarcia0479@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-23 15:08:33', NULL),
+(5, '1230', 'Johann', 'Amaya', 'jaamaya643@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:09:46', NULL),
+(6, '1239', 'Camilo', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:25:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -265,11 +272,29 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `v_ficha_programa`
+-- Estructura para la vista `v_competencias_resultado_aprendizaje_programa_formacion`
 --
-DROP TABLE IF EXISTS `v_ficha_programa`;
+DROP TABLE IF EXISTS `v_competencias_resultado_aprendizaje_programa_formacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on(`ficha`.`id_ficha` = `grupo`.`cod_ficha`)) join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_competencias_resultado_aprendizaje_programa_formacion`  AS  select `resultado_aprendizaje`.`id_resultado_aprendizaje` AS `id_resultado_aprendizaje`,`resultado_aprendizaje`.`cod_competencia` AS `cod_competencia`,`resultado_aprendizaje`.`num_resultado_aprendizaje1` AS `num_resultado_aprendizaje1`,`resultado_aprendizaje`.`num_resultado_aprendizaje2` AS `num_resultado_aprendizaje2`,`resultado_aprendizaje`.`name_resultado_aprendizaje` AS `name_resultado_aprendizaje`,`competencia`.`cod_programa_formacion` AS `cod_programa_formacion`,`competencia`.`codigo_competencia` AS `codigo_competencia`,`competencia`.`num_competencia2` AS `num_competencia2`,`competencia`.`name_competencia` AS `name_competencia`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((((`competencia` join `resultado_aprendizaje` on(`competencia`.`codigo_competencia` = `resultado_aprendizaje`.`cod_competencia`)) join `programa_formacion` on(`competencia`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_grupo_programa_nivel_estado`
+--
+DROP TABLE IF EXISTS `v_ficha_grupo_programa_nivel_estado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_grupo_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`grupo`.`num_grupo` AS `num_grupo`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from ((((`ficha` join `grupo` on(`ficha`.`id_ficha` = `grupo`.`cod_ficha`)) join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_ficha_programa_nivel_estado`
+--
+DROP TABLE IF EXISTS `v_ficha_programa_nivel_estado`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from (((`ficha` join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
 
 -- --------------------------------------------------------
 
@@ -287,7 +312,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_programa_formacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `resultado_aprendizaje`.`id_resultado_aprendizaje` AS `id_resultado_aprendizaje`,`resultado_aprendizaje`.`cod_competencia` AS `cod_competencia`,`resultado_aprendizaje`.`num_resultado_aprendizaje1` AS `num_resultado_aprendizaje1`,`resultado_aprendizaje`.`num_resultado_aprendizaje2` AS `num_resultado_aprendizaje2`,`resultado_aprendizaje`.`name_resultado_aprendizaje` AS `name_resultado_aprendizaje`,`competencia`.`cod_programa_formacion` AS `cod_programa_formacion`,`competencia`.`codigo_competencia` AS `codigo_competencia`,`competencia`.`num_competencia2` AS `num_competencia2`,`competencia`.`name_competencia` AS `name_competencia`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((((`competencia` join `resultado_aprendizaje` on(`competencia`.`codigo_competencia` = `resultado_aprendizaje`.`cod_competencia`)) join `programa_formacion` on(`competencia`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((`programa_formacion` join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
 
 -- --------------------------------------------------------
 

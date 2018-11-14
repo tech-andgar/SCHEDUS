@@ -65,5 +65,7 @@ class DiasModel extends DB {
 	public function setName_dias($name_dias) {
 		$this->name_dias = $name_dias;
 	}
+
+
 }
 ?>
