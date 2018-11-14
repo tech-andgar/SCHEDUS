@@ -97,5 +97,17 @@ class NivelProgramaFormacionModel extends DB {
 	public function setDuracion($duracion) {
 		$this->duracion = $duracion;
 	}
+
+	public function getAllNivelFormacion()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_NIVEL_FORMACION);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Nivel de Formacion
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    
 }
 ?>

@@ -79,5 +79,17 @@ class GrupoModel extends DB {
 	public function setNum_grupo($num_grupo) {
 		$this->num_grupo = $num_grupo;
 	}
+	public function getAllGrupos()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_GRUPO);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Grupo de Formacion
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
 }
+
 ?>
