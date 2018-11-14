@@ -63,7 +63,7 @@
 									"><?php echo $programaFormacion->name_estado_programa_formacion ?></span>
 								</td>
 								<td class="text-center">
-									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_Prms" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
+									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
@@ -128,8 +128,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 </div>
 
 <script>
