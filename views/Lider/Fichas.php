@@ -25,8 +25,8 @@
 					</div>
 				</div>
 				<div class="table-responsive">
-						<thead>
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+						<thead>
 							<tr>
 						<th>Ficha</th>
 						<th>Programa</th>
@@ -55,8 +55,8 @@
 									break;
 									case 'Completado':
 										echo '<div class="p-2 bg-info text-white rounded">' . $ficha->name_estado_ficha . '</div>';
-									case 'En formación':
 									break;
+									case 'En formación':
 										echo '<div class="p-2 bg-success text-white rounded">' . $ficha->name_estado_ficha . '</div>';
 									break;
 									case 'Pendiente Asignado':
@@ -155,7 +155,6 @@
 									<td>
 										<h4 style="margin-bottom: 0px;">Estado:</h4>
 										<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
-										<!-- <label for="txt_num_ficha"></label> -->
 									</td>
 									<td>
 										<select id="list-estadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
@@ -313,6 +312,7 @@
 	    $(".updateDataFicha").click(function () {
 			var idFicha = $(this).attr('id-ficha');
 
+			// Call AJAX getDataFicha()
 	        $.ajax({
 	            type: 'POST',
 	            url:'?c=Lider&m=getDataFicha',
@@ -321,54 +321,114 @@
 				},
 	            success(response) {
 					var ficha = jQuery.parseJSON(response);
-					console.log(ficha);
 					$('#txt_num_ficha').val(ficha.num_ficha);
-					// var id_estado_ficha =ficha.id_estado_ficha;
-					// var id_programa_formacion =ficha.id_programa_formacion;
 
 
 
-					// Call getAllEstadoFicha()
-					$.ajax({
-						type: 'POST',
-						url:'?c=Lider&m=getAllDataEstadoFicha',
-						success(response) {
-							var estadoFicha = jQuery.parseJSON(response);
-							console.log(estadoFicha);
-							$.each(estadoFicha, function (index, value) {
-								if (value.id_estado_ficha == ficha.id_estado_ficha) {
-									$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"' selected>"+value.name_estado_ficha +"</option>");
-								} else {
-									$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"'>"+value.name_estado_ficha +"</option>");
-								}
-							});
-						}
-					});
+					// Call AJAX getAllEstadoFicha()
 
-					// Call getAllprogramaFormacion()
-					$.ajax({
-						type: 'POST',
-						url:'?c=Lider&m=getAllDataProgramaFormacion',
-						success(response) {
-							var programaFormacion = jQuery.parseJSON(response);
-							$.each(programaFormacion, function (index, value) {
-								if (value.id_programa_formacion == ficha.id_programa_formacion) {
-									$('#list-programa').append("<option value='"+value.id_programa_formacion+"' selected>"+value.name_programa_formacion +"</option>");
-								} else {
-									$('#list-programa').append("<option value='"+value.id_programa_formacion+"'>"+value.name_programa_formacion +"</option>");
-								}
-							});
-						}
-					});
+					$('#list-estadoFicha').select2({
+						theme: 'bootstrap4',
+						ajax: {
+							url: '?c=Lider&m=getDataEstadoFicha',
+							dataType: 'json',
+							delay: 250,
+							data: function (params) {
+								return {
+									q: params.term, // search term
+									page: params.page
+								};
+							},
+							processResults: function (data, params) {
+								var data = $.map(data, function (obj) {
+									obj.id = obj.id || obj.id_estado_ficha; // replace pk with your identifier
+									obj.text = obj.text || obj.name_estado_ficha; // replace name with the property used for the text
+
+									console.log(ficha);
+									console.log(obj);
+									if (obj.id_estado_ficha == ficha.id_estado_ficha) {
+										obj.selected = true;
+									}
+
+									return obj;
+								});
+
+								return {
+									results: data,
+								};
+							},
+							cache: true
+						},
+						placeholder: $(this).attr('placeholder'),
+						allowClear: Boolean($(this).data('allow_clear')),
+						tags: true,
+						dropdownParent: $("#updateDataFicha"),
+					}).val(ficha.id_estado_ficha).trigger('change');
+
+					// $.ajax({
+					// 	type: 'POST',
+					// 	url:'?c=Lider&m=getAllDataEstadoFicha',
+					// 	success(response) {
+					// 		var estadoFicha = jQuery.parseJSON(response);
+					// 		$('#list-estadoFicha').empty();
+					// 		$.each(estadoFicha, function (index, value) {
+					// 			if (value.id_estado_ficha == ficha.id_estado_ficha) {
+					// 				$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"' selected>"+value.name_estado_ficha +"</option>");
+					// 			} else {
+					// 				$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"'>"+value.name_estado_ficha +"</option>");
+					// 			}
+					// 		});
+					// 	}
+					// });// END Call AJAX getAllEstadoFicha()
+
+					// Call AJAX getAllprogramaFormacion()
+
+
+
+
+			        // $('#list-programa').select2({
+					// 	language: "es",
+					// 	theme: "bootstrap",
+					// 	ajax: {
+					// 		url:'?c=Lider&m=getAllDataProgramaFormacion',
+					// 		dataType: 'json',
+					// 		processResults: function (data) {
+					// 			var data = $.map(data, function (obj) {
+					// 							obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
+					// 							obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+					// 							return obj;
+					// 						});
+					// 			return {
+					// 				results: data,
+					// 			};
+					// 		}
+					// 	},
+					// 	tags: true,
+    				// 	dropdownParent: $("#updateDataFicha"),
+					// });
+
+
+
+
+					// $.ajax({
+					// 	type: 'POST',
+					// 	url:'?c=Lider&m=getAllDataProgramaFormacion',
+					// 	success(response) {
+					// 		$('#list-programa').empty();
+					// 		var programaFormacion = jQuery.parseJSON(response);
+					// 		$.each(programaFormacion, function (index, value) {
+					// 			if (value.id_programa_formacion == ficha.id_programa_formacion) {
+					// 				$('#list-programa').append("<option value='"+value.id_programa_formacion+"' selected>"+value.name_programa_formacion +"</option>");
+					// 			} else {
+					// 				$('#list-programa').append("<option value='"+value.id_programa_formacion+"'>"+value.name_programa_formacion +"</option>");
+					// 			}
+					// 		});
+					// 	}
+					// }); // End Call AJAX getAllprogramaFormacion()
 	            }
-			});
+			});// End Call AJAX getDataFicha()
 
-
-
-
-
-
-	    });
+	    });// End get Data Ficha_ID form button -> Modal Form_update_ficha
 
 		// get Data form Button -> Modal Form input
 	    $(".updateDataInstructor").click(function () {

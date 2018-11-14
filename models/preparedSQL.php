@@ -26,6 +26,7 @@ class preparedSQL
     //Estado de Fichas
     const GET_ALL_ESTADO_FICHAS = "SELECT `id_estado_ficha`, `name_estado_ficha` FROM `estado_ficha`";
     const GET_ESTADO_FICHA_ID = "SELECT `id_estado_ficha`, `name_estado_ficha` FROM `estado_ficha` WHERE `id_estado_ficha` = ?";
+    const GET_ESTADO_FICHA_NAME = "SELECT `name_estado_ficha`, `id_estado_ficha` FROM `estado_ficha` WHERE `name_estado_ficha` LIKE ?";
 
     // Grupo
     const GET_ALL_GRUPO = "SELECT * FROM `grupo`";
