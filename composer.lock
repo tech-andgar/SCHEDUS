@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e948e1dc43679e4dc5623919bd1c6070",
+    "content-hash": "02672ce2fb48f93e8f2b7b83ddf4d6b5",
     "packages": [
         {
             "name": "components/flag-icon-css",
@@ -46,38 +46,38 @@
         },
         {
             "name": "components/font-awesome",
-            "version": "5.4.2",
+            "version": "4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/components/font-awesome.git",
-                "reference": "2273b93337e2296539665c40520308207b35ff6d"
+                "reference": "885308b939369d147bec93174722786bc2c4eedd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/font-awesome/zipball/2273b93337e2296539665c40520308207b35ff6d",
-                "reference": "2273b93337e2296539665c40520308207b35ff6d",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/885308b939369d147bec93174722786bc2c4eedd",
+                "reference": "885308b939369d147bec93174722786bc2c4eedd",
                 "shasum": ""
             },
             "type": "component",
             "extra": {
                 "component": {
                     "styles": [
-                        "css/fontawesome-all.css"
+                        "css/font-awesome.css"
                     ],
                     "files": [
-                        "css/fontawesome-all.min.css",
-                        "webfonts/*"
+                        "css/font-awesome.min.css",
+                        "css/font-awesome.css.map",
+                        "fonts/*"
                     ]
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "CC-BY-4.0",
                 "MIT",
                 "OFL-1.1"
             ],
-            "description": "Font Awesome, the iconic SVG, font, and CSS framework.",
-            "time": "2018-10-31T11:12:29+00:00"
+            "description": "The iconic font designed for use with Twitter Bootstrap.",
+            "time": "2016-10-25T10:56:23+00:00"
         },
         {
             "name": "components/jquery",

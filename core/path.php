@@ -20,8 +20,8 @@
  * @link       https://github.com/andgar2010/SCHEDUS
  * @since      File available since Release 0.0.1
  * @Create At: 2018-10-03 09:39:03
- * @Last Modified By: Andrés Garcia
- * @Last Modified At: 2018-10-03 12:09:49
+ * @Last Modified By: Andrés García
+ * @Last Modified At: 2018-11-15 13:48:41
  */
 
 class Path
@@ -59,7 +59,7 @@ class Path
     {
         $title = $title;
         require_once 'views/all/head.php';
-        require_once 'views/'.ucwords($module).'/header'.ucwords($module).'.php';
+        require_once 'views/all/headerModule.php';
         require_once 'views/'.ucwords($module).'/sidebar'.ucwords($module).'.php';
         require_once 'views/'.ucwords($module).'/'.ucwords($view).'.php';
         require_once 'views/all/footerModule.php';
