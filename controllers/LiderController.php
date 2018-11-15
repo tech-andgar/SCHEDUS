@@ -23,7 +23,7 @@ class LiderController extends Path
 
     public function Horarios()
     {
-        parent::viewModule('lider', 'horarios', 'Horarios');
+        parent::viewModule('lider', 'Horarios', 'Horarios');
     }
 
     public function Programas($msgType = [])
