@@ -40,6 +40,43 @@
         "description": "CSS for vector based country flags"
     },
     {
+        "name": "components/font-awesome",
+        "version": "5.4.2",
+        "version_normalized": "5.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/font-awesome.git",
+            "reference": "2273b93337e2296539665c40520308207b35ff6d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/font-awesome/zipball/2273b93337e2296539665c40520308207b35ff6d",
+            "reference": "2273b93337e2296539665c40520308207b35ff6d",
+            "shasum": ""
+        },
+        "time": "2018-10-31T11:12:29+00:00",
+        "type": "component",
+        "extra": {
+            "component": {
+                "styles": [
+                    "css/fontawesome-all.css"
+                ],
+                "files": [
+                    "css/fontawesome-all.min.css",
+                    "webfonts/*"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "CC-BY-4.0",
+            "MIT",
+            "OFL-1.1"
+        ],
+        "description": "Font Awesome, the iconic SVG, font, and CSS framework."
+    },
+    {
         "name": "components/jquery",
         "version": "3.3.1",
         "version_normalized": "3.3.1.0",
@@ -1301,42 +1338,5 @@
             "sass",
             "web"
         ]
-    },
-    {
-        "name": "components/font-awesome",
-        "version": "4.7.0",
-        "version_normalized": "4.7.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/components/font-awesome.git",
-            "reference": "885308b939369d147bec93174722786bc2c4eedd"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/components/font-awesome/zipball/885308b939369d147bec93174722786bc2c4eedd",
-            "reference": "885308b939369d147bec93174722786bc2c4eedd",
-            "shasum": ""
-        },
-        "time": "2016-10-25T10:56:23+00:00",
-        "type": "component",
-        "extra": {
-            "component": {
-                "styles": [
-                    "css/font-awesome.css"
-                ],
-                "files": [
-                    "css/font-awesome.min.css",
-                    "css/font-awesome.css.map",
-                    "fonts/*"
-                ]
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT",
-            "OFL-1.1"
-        ],
-        "description": "The iconic font designed for use with Twitter Bootstrap."
     }
 ]
