@@ -34,10 +34,12 @@ class preparedSQL
 
     //Nivel Formacion
     const GET_ALL_NIVEL_FORMACION = "SELECT * FROM `nivel_programa_formacion`";
-    const GET_ALL_NIVEL_ID = "SELECT * FROM `nivel_programa_formacion` WHERE `id_nivel_programa_formacion` = ?";
+    const GET_NIVEL_FORMACION_ID = "SELECT * FROM `nivel_programa_formacion` WHERE `id_nivel_programa_formacion` = ?";
+    const GET_NIVEL_FORMACION_NAME = "SELECT `name_nivel_programa_formacion`, `id_nivel_programa_formacion` FROM `nivel_programa_formacion` WHERE `name_nivel_programa_formacion` LIKE ?";
 
     //Programa de formacion
     const GET_ALL_PROGRAMA_FORMACION = "SELECT * FROM `v_programa_formacion`";
+    const PROGRAMA_FORMACION_NEW = "INSERT INTO  `programa_formacion`(`codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`) VALUES (?,?,?,?,?,?,1)"; // 1-> ACtIVO
 
     //Estado Programa de Formacion
     const GET_ALL_ESTADO_PROGRAMAS_FORMACION = "SELECT `id_estado_programa_formacion`, `name_estado_programa_formacion` FROM `estado_programa_formacion`";

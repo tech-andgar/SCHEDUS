@@ -107,6 +107,31 @@ class NivelProgramaFormacionModel extends DB {
         } catch (Exception $e) {
             die($e->getMessage());
         }
+	}
+	
+	public function getNivelFormacionId($idNivelFormacion)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_NIVEL_FORMACION_ID);
+            $stm->bindParam(1, $idNivelFormacion, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Nivel Formacion
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+	public function getNivelFormacionName($nameNivelFormacion)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_NIVEL_FORMACION_NAME);
+            $nameNivelFormacion = '%'.$nameNivelFormacion.'%';
+            $stm->bindParam(1, $nameNivelFormacion, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Nivel Formacion
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
     
 }

@@ -17,14 +17,6 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-						</div>
-						<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-					</div>
-				</div>
 				<div class="table-responsive">
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableFichas">
 						<thead>

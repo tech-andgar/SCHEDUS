@@ -180,5 +180,35 @@ class ProgramaFormacionModel extends DB {
 			die($e->getMessage());
 		}
 	}
+
+	/**
+ * Actulizar programa desde <FORM> al DB
+ * @author Andres Garcia
+ * @param $array es $_POST
+ * @access public
+ * @param data
+ */
+
+public function insertarProgramaFormacion(array $data)
+{
+	try {
+		// Verificar hay datos en $data
+		if (
+			isset($data['num_ficha']) &&
+			isset($data['cod_programa_formacion']))
+		{
+			$num_ficha = $data['num_ficha'];
+			$cod_programa_formacion = $data['cod_programa_formacion'];
+			$stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_FICHA);
+			$stm->bindParam(1, $num_ficha, PDO::PARAM_STR);
+			$stm->bindParam(2, $cod_programa_formacion, PDO::PARAM_STR);
+			$stm->execute();
+			return true;
+		}
+	} catch (Exception $e) {
+		return false;
+		die($e->getMessage());
+	}
+}
 }
 ?>

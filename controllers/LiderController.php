@@ -8,6 +8,7 @@ class LiderController extends Path
         $this->modelSecurity = parent::model('security');
         $this->modelSecurity->securityLider();
         $this->modelLider = parent::model('lider');
+        $this->modelInstructor = parent::model('instructor');
         $this->modelFicha = parent::model('ficha');
         $this->modelEstadoFicha = parent::model('estadoFicha');
         $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
@@ -81,7 +82,7 @@ class LiderController extends Path
     }
     public function Instructor($msgType = [])
     {
-        $instructores = $this->modelLider->getAllInstructores();
+        $instructores = $this->modelInstructor->getAllInstructores();
         $data[0] = $msgType;
         $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
@@ -96,7 +97,7 @@ class LiderController extends Path
     public function insertarInstructor()
     {
         $data = $_POST;
-        $result = $this->modelLider->insertarInstructor($data);
+        $result = $this->modelInstructor->insertarInstructor($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -127,12 +128,12 @@ class LiderController extends Path
             "status" => $status,
         );
 
-        $result = $this->modelLider->updatedStatusInstructor($data); // Enviar al DB
+        $result = $this->modelInstructor->updatedStatusInstructor($data); // Enviar al DB
     }
 
     public function getDataInstructor()
     {
-        $dataInstructor = json_encode($this->modelLider->getInstructor($_POST['id_instructor']));
+        $dataInstructor = json_encode($this->modelInstructor->getInstructor($_POST['id_instructor']));
         echo $dataInstructor;
     }
 
@@ -144,7 +145,7 @@ class LiderController extends Path
             "apellido" => $_POST['apellido'],
             "email" => $_POST['email'],
         );
-        $result = $this->modelLider->updateDataInstructor($data);
+        $result = $this->modelInstructor->updateDataInstructor($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -231,20 +232,6 @@ class LiderController extends Path
         echo $dataEstadoFicha;
     }
 
-    public function getDataProgramaFormacion()
-    {
-        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
-        echo $dataFicha;
-    }
-
-    public function getAllDataProgramaFormacion()
-    {
-        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
-        echo $dataEstadoFicha;
-    }
-
-
-
     public function updateDataFicha()
     {
 var_dump($_POST);
@@ -271,4 +258,59 @@ var_dump($_POST);
 
         $this->Ficha($msgType);
     }
+
+//Control Programa de Formacion
+
+    public function getDataNivelProgramaFormacion()
+    {
+        // Completa lista de Nivel Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelNivelFormacion->getAllNivelFormacion();
+        }
+        // Selecciona ID de Nivel Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelNivelFormacion->getNivelFormacionId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Nivel Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelNivelFormacion->getNivelFormacionName($_REQUEST['q']);
+        }
+
+        $dataNivelFormacion = json_encode($output);
+        echo $dataNivelFormacion;
+    }
+    public function getDataProgramaFormacion()
+    {
+        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
+        echo $dataFicha;
+    }
+
+    public function getAllDataProgramaFormacion()
+    {
+        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
+        echo $dataEstadoFicha;
+    }
+
+    public function insertarProgramaFormacion()
+    {
+        $data = $_POST;
+        $result = $this->modelProgramaFormacion->insertarProgramaFormacion($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nueva Programa de Formacion',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nueva Programa de Formacion',
+            );
+        }
+        $this->Fichas($msgType);
+    }
+
+
 }
