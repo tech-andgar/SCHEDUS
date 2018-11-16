@@ -21,7 +21,7 @@
  * @since      File available since Release 0.0.1
  * @Create At: 2018-10-03 09:39:03
  * @Last Modified By: Andrés García
- * @Last Modified At: 2018-11-15 13:48:41
+ * @Last Modified At: 2018-11-16 12:11:04
  */
 
 class Path
@@ -62,7 +62,8 @@ class Path
         require_once 'views/all/headerModule.php';
         require_once 'views/'.ucwords($module).'/sidebar'.ucwords($module).'.php';
         require_once 'views/'.ucwords($module).'/'.ucwords($view).'.php';
-        require_once 'views/all/footerModule.php';
+        require_once 'views/all/footer.php';
+
     }
 
     /**
