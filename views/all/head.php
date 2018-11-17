@@ -63,7 +63,7 @@ else{
 if (isset($_SESSION['user'])) {
     echo '
     <!-- FONTS AWESOME 4.7 for tables-->
-    <link rel="stylesheet" type="text/css" href="./vendor/components/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./vendor/components/font-awesome/css/fontawesome.min.css"/>
 
     <!-- Material Design Icons for general-->
     <link rel="stylesheet" type="text/css" href="./node_modules/@mdi/font/css/materialdesignicons.min.css">
@@ -117,22 +117,22 @@ if (isset($_SESSION['user'])) {
     <!-- SCRIPTS -->
 
     <!-- CoreUI and necessary plugins-->
-    <script src="./assets/js/coreui/jquery.min.js"></script>
-    <script src="./assets/js/coreui/popper.min.js"></script>
-    <script src="./assets/js/coreui/bootstrap.min.js"></script>
+    <script async src="./assets/js/coreui/jquery.min.js"></script>
+    <script defer src="./assets/js/coreui/popper.min.js"></script>
+    <script defer src="./assets/js/coreui/bootstrap.min.js"></script>
     <!-- Plugins and scripts required by all views -->
-    <script src="./assets/js/coreui/pace.min.js"></script>
-    <script src="./assets/js/coreui/perfect-scrollbar.min.js"></script>
-    <script src="./assets/js/coreui/coreui.min.js"></script>
+    <script defer src="./assets/js/coreui/pace.min.js"></script>
+    <script defer src="./assets/js/coreui/perfect-scrollbar.min.js"></script>
+    <script defer src="./assets/js/coreui/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="./assets/js/coreui/Chart.min.js"></script>
-    <script src="./assets/js/coreui/custom-tooltips.min.js"></script>
-    <script src="./assets/js/coreui/main.js"></script>
+    <script defer src="./assets/js/coreui/Chart.min.js"></script>
+    <script defer src="./assets/js/coreui/custom-tooltips.min.js"></script>
+    <script defer src="./assets/js/coreui/main.js"></script>
 
     <!-- Plugins and scripts -->
     <!-- TOASTR JS -->
-    <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
-    <script>
+    <script async src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
+    <script async>
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -153,23 +153,23 @@ if (isset($_SESSION['user'])) {
     </script>
 
     <!-- SWEETALERT JS -->
-    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script> -->
+    <script defer src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script> -->
 
     <?php
     if (isset($_SESSION['user'])) {
         echo '
     <!-- SELECT2 JS -->
-    <script src="./node_modules/select2/dist/js/select2.full.min.js"></script>
-    <script src="./node_modules/select2/dist/js/i18n/es.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
+    <script defer src="./node_modules/select2/dist/js/select2.full.min.js"></script>
+    <script defer src="./node_modules/select2/dist/js/i18n/es.js"></script>
+    <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
 
     <!-- DATATABLES JS -->
-    <script src="./vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script src="./vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-    <script src="./node_modules/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="./node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js"></script>
-    <!-- <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script> -->
+    <script defer src="./vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script defer src="./vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script defer src="./node_modules/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script defer src="./node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js"></script>
+    <!-- <script defer src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script> -->
     <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script> -->';
     }
     ?>
