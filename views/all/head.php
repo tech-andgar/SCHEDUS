@@ -9,18 +9,18 @@ header("Cache-Control: max-age=86400");
 
 // if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'br')) {
 //     // header('Content-Encoding: br');
-// } 
+// }
 // elseif (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'deflate')) {
 //     header('Content-Encoding: deflate');
 //     ob_start("ob_gzhandler");
-// } 
+// }
 // else
 if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     header('Content-Encoding: gzip');
     ob_start("ob_gzhandler");
 }
 else{
- ob_start(); 
+ ob_start();
 }
 
 ?>
@@ -38,10 +38,8 @@ else{
     <meta name="author" content="Johann Amaya">
     <meta name="keyword" content="Sistema de control de horario SCHEDUS, SCHEDUS">
 
-
     <!-- FAVICON -->
     <link rel="icon" type="image/webp" sizes="32x32" href="./assets/images/favicon-32x32.webp">
-
     <!-- Main styles for this application-->
     <link rel="stylesheet" type="text/css" href="./assets/css/coreui/coreui_style.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/coreui/pace.min.css" >
@@ -50,10 +48,7 @@ else{
     <!-- PERSONALIZADO CSS  -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css" rel="stylesheet">
 
-
-
     <!-- Icons-->
-
     <!-- COREUI ICONS for CoreUI-->
     <link rel="stylesheet" type="text/css" href="./assets/css/coreui/coreui-icons.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="./vendor/components/flag-icon-css/css/flag-icon.min.css"> -->
@@ -75,8 +70,6 @@ if (isset($_SESSION['user'])) {
 
     <!-- FONTS AWESOME 5.5 for general-->
     <link rel="stylesheet" type="text/css" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-
-
 
     <!-- PLUGINS CSS -->
     <!-- TOASTR CSS -->
@@ -111,13 +104,9 @@ if (isset($_SESSION['user'])) {
     ?>
 
 
-
-
-
     <!-- SCRIPTS -->
-
     <!-- CoreUI and necessary plugins-->
-    <script async src="./assets/js/coreui/jquery.min.js"></script>
+    <script src="./assets/js/coreui/jquery.min.js"></script>
     <script defer src="./assets/js/coreui/popper.min.js"></script>
     <script defer src="./assets/js/coreui/bootstrap.min.js"></script>
     <!-- Plugins and scripts required by all views -->
@@ -131,8 +120,8 @@ if (isset($_SESSION['user'])) {
 
     <!-- Plugins and scripts -->
     <!-- TOASTR JS -->
-    <script async src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
-    <script async>
+    <script src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
+    <script>
         toastr.options = {
             "closeButton": true,
             "debug": false,
