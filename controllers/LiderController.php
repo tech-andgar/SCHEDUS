@@ -146,26 +146,27 @@ class LiderController extends Path
 
     public function updateDataInstructor()
     {
-        $data = array(
-            "dni" => $_POST['dni'],
-            "nombre" => $_POST['nombre'],
-            "apellido" => $_POST['apellido'],
-            "email" => $_POST['email'],
-        );
-        $result = $this->modelInstructor->updateDataInstructor($data);
-        if ($result) {
-            $msgType = array(
-                'type' => 'success',
-                'title' => 'AVISO',
-                'msg' => 'Exito actualizado datos de instructor',
-            );
-        } else {
-            $msgType = array(
-                'type' => 'error',
-                'title' => 'AVISO',
-                'msg' => 'No se pudo actualizar datos instructor',
-            );
-        }
+        var_dump($_POST);
+        // $data = array(
+        //     "dni" => $_POST['dni'],
+        //     "nombre" => $_POST['nombre'],
+        //     "apellido" => $_POST['apellido'],
+        //     "email" => $_POST['email'],
+        // );
+        // $result = $this->modelInstructor->updateDataInstructor($data);
+        // if ($result) {
+        //     $msgType = array(
+        //         'type' => 'success',
+        //         'title' => 'AVISO',
+        //         'msg' => 'Exito actualizado datos de instructor',
+        //     );
+        // } else {
+        //     $msgType = array(
+        //         'type' => 'error',
+        //         'title' => 'AVISO',
+        //         'msg' => 'No se pudo actualizar datos instructor',
+        //     );
+        // }
 
         $this->Instructor($msgType);
     }
