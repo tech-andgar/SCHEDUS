@@ -13,6 +13,7 @@ class LiderController extends Path
         $this->modelEstadoFicha = parent::model('estadoFicha');
         $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
         $this->modelProgramaFormacion = parent::model('programaFormacion');
+        $this->modelProyecto = parent::model('proyecto');
         $this->modelGrupo = parent::model('grupo');
     }
 
@@ -29,13 +30,8 @@ class LiderController extends Path
 
     public function Programas($msgType = [])
     {
-        $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
-
-        // $data[0] = $msgType;
-        // $data[1] = $fichas;
-        // $data[3] = $nivelFormacion;
-        // $data[4] = $programaFormacion;
-        $data['programaFormacion'] = $programaFormacion;
+        $data['programaFormacion'] = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Programas', 'Programas', $data);
     }
 
@@ -53,6 +49,17 @@ class LiderController extends Path
     {
         parent::viewModule('lider', 'Ambiente', 'Ambiente');
     }
+
+    public function Niveles()
+    {
+        parent::viewModule('lider', 'Niveles', 'Niveles');
+    }
+
+    public function Proyecto()
+    {
+        parent::viewModule('lider', 'Proyecto', 'Proyecto');
+    }
+
 
     public function Fichas($msgType=[])
     {
@@ -87,12 +94,12 @@ class LiderController extends Path
         $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
-    
+
     public function Grupos()
     {
         parent::viewModule('lider', 'Grupos', 'Grupos');
     }
-  
+
     // Control de Instructor
     public function insertarInstructor()
     {
