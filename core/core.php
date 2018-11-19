@@ -7,3 +7,5 @@ require_once 'path.php';
 require_once 'controllers/UsuarioController.php';
 require_once 'models/preparedSQL.php';
 require_once 'vendor/autoload.php';
+
+define("APP_URL", 'http://localhost/schedus/');

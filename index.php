@@ -32,8 +32,8 @@ try {
     $m = 'Index';
     $p = [];
 
-    $c = isset($_REQUEST['c']) ? $_REQUEST['c'] : 'inicio';
-    $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : 'index';
+    // $c = isset($_REQUEST['c']) ? $_REQUEST['c'] : 'inicio';
+    // $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : 'index';
 
     if (isset($url[0])) {
         $c = $url[0];

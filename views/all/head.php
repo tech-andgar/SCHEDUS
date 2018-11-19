@@ -9,18 +9,18 @@ header("Cache-Control: max-age=86400");
 
 // if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'br')) {
 //     // header('Content-Encoding: br');
-// } 
+// }
 // elseif (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'deflate')) {
 //     header('Content-Encoding: deflate');
 //     ob_start("ob_gzhandler");
-// } 
+// }
 // else
 if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     header('Content-Encoding: gzip');
     ob_start("ob_gzhandler");
 }
 else{
- ob_start(); 
+ ob_start();
 }
 
 ?>
@@ -40,33 +40,33 @@ else{
 
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/webp" sizes="32x32" href="./assets/images/favicon-32x32.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="<?php echo APP_URL ?>assets/images/favicon-32x32.webp">
 
     <!-- Main styles for this application-->
-    <link rel="stylesheet" type="text/css" href="./assets/css/coreui/coreui_style.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/coreui/pace.min.css" >
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL?>assets/css/coreui/coreui_style.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>assets/css/coreui/pace.min.css" >
     <!-- WebFonts -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/Font-Exo2.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>assets/css/Font-Exo2.css">
     <!-- PERSONALIZADO CSS  -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>assets/css/style.css" rel="stylesheet">
 
 
 
     <!-- Icons-->
 
     <!-- COREUI ICONS for CoreUI-->
-    <link rel="stylesheet" type="text/css" href="./assets/css/coreui/coreui-icons.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="./vendor/components/flag-icon-css/css/flag-icon.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/simple-line-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>assets/css/coreui/coreui-icons.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>vendor/components/flag-icon-css/css/flag-icon.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>assets/css/simple-line-icons.min.css">
 
 <?php
 if (isset($_SESSION['user'])) {
     echo '
     <!-- FONTS AWESOME 4.7 for tables-->
-    <link rel="stylesheet" type="text/css" href="./vendor/components/font-awesome/css/fontawesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'vendor/components/font-awesome/css/fontawesome.min.css"/>
 
     <!-- Material Design Icons for general-->
-    <link rel="stylesheet" type="text/css" href="./node_modules/@mdi/font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/@mdi/font/css/materialdesignicons.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css"> -->
 
     ';
@@ -74,35 +74,35 @@ if (isset($_SESSION['user'])) {
 ?>
 
     <!-- FONTS AWESOME 5.5 for general-->
-    <link rel="stylesheet" type="text/css" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 
 
 
     <!-- PLUGINS CSS -->
     <!-- TOASTR CSS -->
-    <link rel="stylesheet" type="text/css" href="./vendor/grimmlink/toastr/build/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo APP_URL ?>vendor/grimmlink/toastr/build/toastr.min.css">
 
     <!-- SWEETALERT2 CSS -->
-    <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
+    <link rel="stylesheet" href="<?php echo APP_URL ?>node_modules/sweetalert2/dist/sweetalert2.min.css" />
 
     <?php
     if (isset($_SESSION['user'])) {
         echo '
     <!-- DATATABLES CSS -->
-    <link rel="stylesheet" type="text/css" href="./vendor/datatables/datatables/media/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./node_modules/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'vendor/datatables/datatables/media/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.dataTables.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/datatables/dataTables.fontAwesome5.css" >
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'assets/css/datatables/dataTables.fontAwesome5.css" >
 
     <!-- SELECT2 CSS -->
-    <link rel="stylesheet" type="text/css" href="./node_modules/select2/dist/css/select2.min.css" />
-    <link rel="stylesheet" type="text/css" href="./node_modules/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/select2/dist/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" /> -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap4-select2-theme@1.0.3/src/css/bootstrap4-select2-theme.css"> -->
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.0.4/dist/select2-bootstrap4.min.css"> -->
 
     <!-- PRETTY CHECKBOX CSS -->
-    <link rel="stylesheet" href="./node_modules/pretty-checkbox/dist/pretty-checkbox.min.css" />
+    <link rel="stylesheet" href="'.APP_URL.'node_modules/pretty-checkbox/dist/pretty-checkbox.min.css" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" /> -->
 
     <!-- DISABLED CSS -->
@@ -117,22 +117,22 @@ if (isset($_SESSION['user'])) {
     <!-- SCRIPTS -->
 
     <!-- CoreUI and necessary plugins-->
-    <script async src="./assets/js/coreui/jquery.min.js"></script>
-    <script defer src="./assets/js/coreui/popper.min.js"></script>
-    <script defer src="./assets/js/coreui/bootstrap.min.js"></script>
+    <script src="<?php echo APP_URL ?>assets/js/coreui/jquery.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/popper.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/bootstrap.min.js"></script>
     <!-- Plugins and scripts required by all views -->
-    <script defer src="./assets/js/coreui/pace.min.js"></script>
-    <script defer src="./assets/js/coreui/perfect-scrollbar.min.js"></script>
-    <script defer src="./assets/js/coreui/coreui.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/pace.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/perfect-scrollbar.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script defer src="./assets/js/coreui/Chart.min.js"></script>
-    <script defer src="./assets/js/coreui/custom-tooltips.min.js"></script>
-    <script defer src="./assets/js/coreui/main.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/Chart.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/custom-tooltips.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>assets/js/coreui/main.js"></script>
 
     <!-- Plugins and scripts -->
     <!-- TOASTR JS -->
-    <script async src="./vendor/grimmlink/toastr/build/toastr.min.js"></script>
-    <script async>
+    <script src="<?php echo APP_URL ?>vendor/grimmlink/toastr/build/toastr.min.js"></script>
+    <script >
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -153,22 +153,22 @@ if (isset($_SESSION['user'])) {
     </script>
 
     <!-- SWEETALERT JS -->
-    <script defer src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script defer src="<?php echo APP_URL ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script> -->
 
     <?php
     if (isset($_SESSION['user'])) {
         echo '
     <!-- SELECT2 JS -->
-    <script defer src="./node_modules/select2/dist/js/select2.full.min.js"></script>
-    <script defer src="./node_modules/select2/dist/js/i18n/es.js"></script>
+    <script defer src="'.APP_URL.'node_modules/select2/dist/js/select2.full.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/select2/dist/js/i18n/es.js"></script>
     <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
 
     <!-- DATATABLES JS -->
-    <script defer src="./vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script defer src="./vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-    <script defer src="./node_modules/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script defer src="./node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js"></script>
+    <script defer src="'.APP_URL.'vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script defer src="'.APP_URL.'vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js"></script>
     <!-- <script defer src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script> -->
     <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script> -->';
     }
