@@ -286,17 +286,29 @@ var_dump($_POST);
         $dataNivelFormacion = json_encode($output);
         echo $dataNivelFormacion;
     }
+
     public function getDataProgramaFormacion()
     {
-        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
-        echo $dataFicha;
+        // Completa lista de Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id']) && !isset($_REQUEST['codigo'])) {
+            $output = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        }
+        // Selecciona ID de Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionId($_REQUEST['id']);
+        }
+        elseif (isset($_REQUEST['codigo'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionCodigo($_REQUEST['codigo']);
+        }
+        // Selecciona caracteres en lista de Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionName($_REQUEST['q']);
+        }
+
+        $dataFormacionPrograma = json_encode($output);
+        echo $dataFormacionPrograma;
     }
 
-    public function getAllDataProgramaFormacion()
-    {
-        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
-        echo $dataEstadoFicha;
-    }
 
     public function insertarProgramaFormacion()
     {
