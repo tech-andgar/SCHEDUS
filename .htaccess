@@ -6,6 +6,11 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+# RewriteRule ^inicio/(\w+)/?$ index.php?c=inicio&m=$1
+# RewriteRule ^lider/(\w+)/?$ index.php?c=lider&m=$1
+# RewriteRule ^coordinador/(\w+)/?$ index.php?c=coordinador&m=$1
+# RewriteRule ^instructor/(\w+)/?$ index.php?c=instructor&m=$1
+
 
 # 480 weeks
 <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff2|svg)$">
