@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 09-11-2018 a las 17:07:39
+-- Tiempo de generación: 19-11-2018 a las 16:28:32
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `actividad_proyecto`;
 CREATE TABLE IF NOT EXISTS `actividad_proyecto` (
   `id_actividad_proyecto` int(10) NOT NULL AUTO_INCREMENT,
-  `num_actividad_proyecto` varchar(5) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `name_actividad_proyecto` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `num_actividad_proyecto` varchar(5) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `name_actividad_proyecto` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_proyecto` int(10) DEFAULT NULL,
   `cod_fase` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `actividad_proyecto` (
   KEY `actividad_proyecto` (`num_actividad_proyecto`),
   KEY `FK_cod_fase` (`cod_fase`),
   KEY `FK_cod_proyecto_actividad_proyecto` (`cod_proyecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `actividad_proyecto` (
 DROP TABLE IF EXISTS `ambiente`;
 CREATE TABLE IF NOT EXISTS `ambiente` (
   `id_ambiente` int(10) NOT NULL AUTO_INCREMENT,
-  `num_ambiente` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `num_ambiente` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_sede` int(10) DEFAULT NULL,
   `cod_estado_ambiente` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `ambiente` (
   KEY `ambiente` (`num_ambiente`,`cod_sede`),
   KEY `FK_cod_sede` (`cod_sede`),
   KEY `FK_cod_estado_ambiente` (`cod_estado_ambiente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `ambiente`
@@ -85,8 +85,8 @@ CREATE TABLE IF NOT EXISTS `competencia` (
   `id_competencia` int(10) NOT NULL,
   `cod_programa_formacion` int(10) DEFAULT NULL,
   `codigo_competencia` int(10) NOT NULL,
-  `num_competencia2` varchar(20) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `name_competencia` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `num_competencia2` varchar(20) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `name_competencia` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `competencia` (
   UNIQUE KEY `name_competencia` (`name_competencia`),
   KEY `competencia` (`codigo_competencia`),
   KEY `FK_cod_programa_formacion` (`cod_programa_formacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `competencia`
@@ -117,11 +117,11 @@ INSERT INTO `competencia` (`id_competencia`, `cod_programa_formacion`, `codigo_c
 DROP TABLE IF EXISTS `dias`;
 CREATE TABLE IF NOT EXISTS `dias` (
   `id_dias` int(10) NOT NULL AUTO_INCREMENT,
-  `name_dias` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_dias` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_dias`),
   UNIQUE KEY `name_dias` (`name_dias`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `dias`
@@ -145,13 +145,13 @@ INSERT INTO `dias` (`id_dias`, `name_dias`, `version`) VALUES
 DROP TABLE IF EXISTS `estado_ambiente`;
 CREATE TABLE IF NOT EXISTS `estado_ambiente` (
   `id_estado_ambiente` int(10) NOT NULL AUTO_INCREMENT,
-  `name_estado_ambiente` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_estado_ambiente` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_ambiente`),
   UNIQUE KEY `name_estado_ambiente` (`name_estado_ambiente`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `estado_ambiente`
@@ -170,20 +170,19 @@ INSERT INTO `estado_ambiente` (`id_estado_ambiente`, `name_estado_ambiente`, `cr
 DROP TABLE IF EXISTS `estado_ficha`;
 CREATE TABLE IF NOT EXISTS `estado_ficha` (
   `id_estado_ficha` int(10) NOT NULL AUTO_INCREMENT,
-  `name_estado_ficha` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_estado_ficha` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_ficha`),
   UNIQUE KEY `name_estado_ficha` (`name_estado_ficha`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `estado_ficha`
 --
 
 INSERT INTO `estado_ficha` (`id_estado_ficha`, `name_estado_ficha`, `create_time`, `update_time`, `version`) VALUES
-(0, 'NULL', '2018-11-08 20:24:54', NULL, NULL),
 (1, 'Pendiente Asignado', '2018-10-03 22:57:14', '0000-00-00 00:00:00', NULL),
 (2, 'En formación', '2018-10-03 22:57:22', '0000-00-00 00:00:00', NULL),
 (3, 'Cancelado', '2018-10-03 22:57:30', '0000-00-00 00:00:00', NULL),
@@ -198,13 +197,13 @@ INSERT INTO `estado_ficha` (`id_estado_ficha`, `name_estado_ficha`, `create_time
 DROP TABLE IF EXISTS `estado_horario_asignada`;
 CREATE TABLE IF NOT EXISTS `estado_horario_asignada` (
   `id_estado_horario_asignada` int(10) NOT NULL AUTO_INCREMENT,
-  `name_estado_horario_asignada` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_estado_horario_asignada` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_horario_asignada`),
   UNIQUE KEY `name_estado_horario_asignada` (`name_estado_horario_asignada`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `estado_horario_asignada`
@@ -225,13 +224,13 @@ INSERT INTO `estado_horario_asignada` (`id_estado_horario_asignada`, `name_estad
 DROP TABLE IF EXISTS `estado_programa_formacion`;
 CREATE TABLE IF NOT EXISTS `estado_programa_formacion` (
   `id_estado_programa_formacion` int(10) NOT NULL AUTO_INCREMENT,
-  `name_estado_programa_formacion` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_estado_programa_formacion` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_programa_formacion`),
   UNIQUE KEY `name_estado_programa_formacion` (`name_estado_programa_formacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `estado_programa_formacion`
@@ -250,13 +249,13 @@ INSERT INTO `estado_programa_formacion` (`id_estado_programa_formacion`, `name_e
 DROP TABLE IF EXISTS `estado_usuario`;
 CREATE TABLE IF NOT EXISTS `estado_usuario` (
   `id_estado_usuario` int(10) NOT NULL AUTO_INCREMENT,
-  `name_estado_usuario` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_estado_usuario` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_usuario`),
   UNIQUE KEY `name_estado_usuario` (`name_estado_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `estado_usuario`
@@ -276,13 +275,13 @@ INSERT INTO `estado_usuario` (`id_estado_usuario`, `name_estado_usuario`, `creat
 DROP TABLE IF EXISTS `fase`;
 CREATE TABLE IF NOT EXISTS `fase` (
   `id_fase` int(10) NOT NULL AUTO_INCREMENT,
-  `name_fase` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_fase` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_fase`),
   UNIQUE KEY `name_fase` (`name_fase`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `fase`
@@ -303,7 +302,7 @@ INSERT INTO `fase` (`id_fase`, `name_fase`, `create_time`, `update_time`, `versi
 DROP TABLE IF EXISTS `ficha`;
 CREATE TABLE IF NOT EXISTS `ficha` (
   `id_ficha` int(10) NOT NULL AUTO_INCREMENT,
-  `num_ficha` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `num_ficha` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
@@ -313,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `ficha` (
   UNIQUE KEY `num_ficha` (`num_ficha`),
   KEY `FK_cod_estado_ficha` (`cod_estado_ficha`),
   KEY `FK_cod_programa_formacion_ficha` (`cod_programa_formacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `ficha`
@@ -334,7 +333,7 @@ DROP TABLE IF EXISTS `grupo`;
 CREATE TABLE IF NOT EXISTS `grupo` (
   `id_grupo` int(10) NOT NULL AUTO_INCREMENT,
   `cod_ficha` int(10) DEFAULT NULL,
-  `num_grupo` varchar(3) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `num_grupo` varchar(3) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_ruta_ficha` int(10) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
@@ -342,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `grupo` (
   PRIMARY KEY (`id_grupo`),
   KEY `grupo` (`cod_ficha`,`num_grupo`,`cod_ruta_ficha`),
   KEY `FK_cod_ruta_ficha` (`cod_ruta_ficha`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `grupo`
@@ -368,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `horario_asignada` (
   `cod_trimestre_horario` int(10) DEFAULT NULL,
   `cod_modo` int(10) DEFAULT NULL,
   `cod_ruta_ficha` int(10) DEFAULT NULL,
-  `trimestre_ficha` varchar(4) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `trimestre_ficha` varchar(4) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_resultado_aprendizaje` int(10) DEFAULT NULL,
   `cod_instructor` int(10) DEFAULT NULL,
   `cod_dias` int(10) DEFAULT NULL,
@@ -389,7 +388,7 @@ CREATE TABLE IF NOT EXISTS `horario_asignada` (
   KEY `FK_cod_resultado_aprendizaje` (`cod_resultado_aprendizaje`),
   KEY `FK_cod_ruta_ficha_horario_asignada` (`cod_ruta_ficha`),
   KEY `FK_cod_ambiente` (`cod_ambiente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -400,13 +399,13 @@ CREATE TABLE IF NOT EXISTS `horario_asignada` (
 DROP TABLE IF EXISTS `jornada`;
 CREATE TABLE IF NOT EXISTS `jornada` (
   `id_jornada` int(10) NOT NULL AUTO_INCREMENT,
-  `name_jornada` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_jornada` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_jornada`),
   UNIQUE KEY `name_jornada` (`name_jornada`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `jornada`
@@ -426,13 +425,13 @@ INSERT INTO `jornada` (`id_jornada`, `name_jornada`, `create_time`, `update_time
 DROP TABLE IF EXISTS `modo`;
 CREATE TABLE IF NOT EXISTS `modo` (
   `id_modo` int(10) NOT NULL AUTO_INCREMENT,
-  `name_modo` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_modo` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_modo`),
   UNIQUE KEY `name_modo` (`name_modo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `modo`
@@ -451,14 +450,14 @@ INSERT INTO `modo` (`id_modo`, `name_modo`, `create_time`, `update_time`, `versi
 DROP TABLE IF EXISTS `nivel_programa_formacion`;
 CREATE TABLE IF NOT EXISTS `nivel_programa_formacion` (
   `id_nivel_programa_formacion` int(10) NOT NULL AUTO_INCREMENT,
-  `name_nivel_programa_formacion` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `duracion` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_nivel_programa_formacion` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `duracion` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_nivel_programa_formacion`),
   UNIQUE KEY `name_nivel_programa_formacion` (`name_nivel_programa_formacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `nivel_programa_formacion`
@@ -485,10 +484,10 @@ INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_niv
 DROP TABLE IF EXISTS `programa_formacion`;
 CREATE TABLE IF NOT EXISTS `programa_formacion` (
   `id_programa_formacion` int(10) NOT NULL AUTO_INCREMENT,
-  `codigo` varchar(10) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `short_name_programa_formacion` varchar(5) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `name_programa_formacion` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `version_programa` varchar(10) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `codigo` varchar(10) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `short_name_programa_formacion` varchar(5) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `name_programa_formacion` varchar(191) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `version_programa` varchar(10) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_nivel_programa_formacion` int(10) DEFAULT NULL,
   `cod_proyecto` int(10) DEFAULT NULL,
   `cod_estado_programa_formacion` int(10) DEFAULT NULL,
@@ -501,7 +500,7 @@ CREATE TABLE IF NOT EXISTS `programa_formacion` (
   KEY `FK_cod_estado_programa_formacion` (`cod_estado_programa_formacion`),
   KEY `FK_cod_nivel_programa_formacion` (`cod_nivel_programa_formacion`),
   KEY `FK_cod_proyecto_programa_formacion` (`cod_proyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `programa_formacion`
@@ -522,13 +521,13 @@ INSERT INTO `programa_formacion` (`id_programa_formacion`, `codigo`, `short_name
 DROP TABLE IF EXISTS `proyecto`;
 CREATE TABLE IF NOT EXISTS `proyecto` (
   `id_proyecto` int(10) NOT NULL AUTO_INCREMENT,
-  `name_proyecto` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_proyecto` varchar(191) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_proyecto`),
   UNIQUE KEY `name_proyecto` (`name_proyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `proyecto`
@@ -548,10 +547,10 @@ INSERT INTO `proyecto` (`id_proyecto`, `name_proyecto`, `create_time`, `update_t
 DROP TABLE IF EXISTS `resultado_aprendizaje`;
 CREATE TABLE IF NOT EXISTS `resultado_aprendizaje` (
   `id_resultado_aprendizaje` int(10) NOT NULL AUTO_INCREMENT,
-  `num_resultado_aprendizaje1` varchar(10) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `num_resultado_aprendizaje2` varchar(10) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `num_resultado_aprendizaje1` varchar(10) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `num_resultado_aprendizaje2` varchar(10) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_competencia` int(10) DEFAULT NULL,
-  `name_resultado_aprendizaje` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_resultado_aprendizaje` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
@@ -559,7 +558,7 @@ CREATE TABLE IF NOT EXISTS `resultado_aprendizaje` (
   UNIQUE KEY `name_resultado_aprendizaje` (`name_resultado_aprendizaje`),
   KEY `resultado_aprendizaje` (`num_resultado_aprendizaje1`,`num_resultado_aprendizaje2`),
   KEY `FK_cod_competencia` (`cod_competencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `resultado_aprendizaje`
@@ -601,13 +600,13 @@ INSERT INTO `resultado_aprendizaje` (`id_resultado_aprendizaje`, `num_resultado_
 DROP TABLE IF EXISTS `rol`;
 CREATE TABLE IF NOT EXISTS `rol` (
   `id_rol` int(10) NOT NULL AUTO_INCREMENT,
-  `name_rol` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_rol` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_rol`),
   UNIQUE KEY `name_rol` (`name_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -627,12 +626,12 @@ INSERT INTO `rol` (`id_rol`, `name_rol`, `create_time`, `update_time`, `version`
 DROP TABLE IF EXISTS `ruta_ficha`;
 CREATE TABLE IF NOT EXISTS `ruta_ficha` (
   `id_ruta_ficha` int(10) NOT NULL AUTO_INCREMENT,
-  `name_ruta_ficha` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `num_ruta_ficha` varchar(10) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_ruta_ficha` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `num_ruta_ficha` varchar(10) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_jornada` int(10) DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
-  `observaciones` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `observaciones` varchar(191) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
@@ -640,7 +639,7 @@ CREATE TABLE IF NOT EXISTS `ruta_ficha` (
   UNIQUE KEY `name_ruta_ficha` (`name_ruta_ficha`),
   KEY `ruta_ficha` (`name_ruta_ficha`,`num_ruta_ficha`),
   KEY `FK_cod_jornada` (`cod_jornada`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `ruta_ficha`
@@ -660,14 +659,14 @@ INSERT INTO `ruta_ficha` (`id_ruta_ficha`, `name_ruta_ficha`, `num_ruta_ficha`, 
 DROP TABLE IF EXISTS `sede`;
 CREATE TABLE IF NOT EXISTS `sede` (
   `id_sede` int(10) NOT NULL AUTO_INCREMENT,
-  `name_sede` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `direccion` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_sede` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `direccion` varchar(191) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
   `update_time` timestamp NULL DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_sede`),
   UNIQUE KEY `name_sede` (`name_sede`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `sede`
@@ -687,7 +686,7 @@ INSERT INTO `sede` (`id_sede`, `name_sede`, `direccion`, `create_time`, `update_
 DROP TABLE IF EXISTS `trimestre`;
 CREATE TABLE IF NOT EXISTS `trimestre` (
   `id_trimestre` int(10) NOT NULL AUTO_INCREMENT,
-  `name_trimestre` varchar(100) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name_trimestre` varchar(100) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `fecha_inicio` date DEFAULT NULL,
   `fecha_fin` date DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT current_timestamp(),
@@ -695,7 +694,7 @@ CREATE TABLE IF NOT EXISTS `trimestre` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_trimestre`),
   UNIQUE KEY `name_trimestre` (`name_trimestre`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `trimestre`
@@ -713,12 +712,12 @@ INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fech
 DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id_usuario` int(10) NOT NULL AUTO_INCREMENT,
-  `dni` varchar(15) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `nombre` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `apellido` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `email` varchar(60) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `password` varchar(128) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `dni` varchar(15) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `nombre` varchar(60) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `apellido` varchar(60) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `email` varchar(60) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `password` varchar(128) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_520_nopad_ci DEFAULT NULL,
   `cod_rol` int(10) DEFAULT NULL,
   `cod_estado_usuario` int(10) DEFAULT NULL,
   `version` int(10) DEFAULT NULL,
@@ -730,7 +729,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `token` (`token`),
   KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   KEY `FK_cod_rol` (`cod_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -740,9 +739,17 @@ INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `pass
 (1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', NULL, 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
 (2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', NULL, 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
 (3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', NULL, 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02'),
-(4, '354654', 'asdd', 'sadd', 'afgarcia0479@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-23 15:08:33', NULL),
+(4, '354654', 'Andres', 'Garcia', 'afgarcia0479@misena.edu.co', NULL, NULL, 3, 3, NULL, '2018-10-23 15:08:33', NULL),
 (5, '1230', 'Johann', 'Amaya', 'jaamaya643@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:09:46', NULL),
-(6, '1239', 'Camilo', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:25:08', NULL);
+(6, '1239', 'Camilo', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:25:08', NULL),
+(8, '452452', 'olñlñ', 'lñlñl', 'abdg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:44:34', NULL),
+(9, '45242', 'yjkh', 'khgkhk', 'abdtghfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:44:46', NULL),
+(10, '415242', 'uhkhjk', 'khgkjhk', 'abdghgkhk@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:44:55', NULL),
+(11, '54522', 'jukjk', 'kjkjk', 'abujkjhkdg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:45:01', NULL),
+(12, '5463655', 'yiyik', 'hkhkh', 'abdtgjkjikkhfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:45:11', NULL),
+(13, '75425', 'ljklñ', 'kljklk', 'abjljljdtghfghg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:45:18', NULL),
+(14, '563453', 'ygjj', 'gjgujgj', 'hjhjtghfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:45:33', NULL),
+(15, '254525', 'holas', 'jhkjhk', 'ayhujtgjgjbdg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:46:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -880,6 +887,8 @@ CREATE TABLE IF NOT EXISTS `v_programa_formacion` (
 ,`short_name_programa_formacion` varchar(5)
 ,`name_programa_formacion` varchar(191)
 ,`version_programa` varchar(10)
+,`id_proyecto` int(10)
+,`name_proyecto` varchar(191)
 ,`id_nivel_programa_formacion` int(10)
 ,`name_nivel_programa_formacion` varchar(100)
 ,`duracion` varchar(100)
@@ -982,7 +991,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_programa_formacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((`programa_formacion` join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`proyecto`.`id_proyecto` AS `id_proyecto`,`proyecto`.`name_proyecto` AS `name_proyecto`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from (((`programa_formacion` join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) join `proyecto` on(`programa_formacion`.`cod_proyecto` = `proyecto`.`id_proyecto`)) ;
 
 -- --------------------------------------------------------
 
