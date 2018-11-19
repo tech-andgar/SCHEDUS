@@ -11,7 +11,7 @@
 		<div class="card">
 			<div class="card-header">
 				<i class="fa fa-align-justify"></i> Administrar Instructores
-				<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Insertar">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Insertar">
 					<i class="icon-plus"></i>&nbsp;Nuevo
 				</button>
 			</div>
@@ -32,8 +32,8 @@
 							<td>
 								<?php echo $instructor->nombre . " " . $instructor->apellido; ?>
 							</td>
-							<td class="text-center" ">
-								<button type"button"
+							<td class="text-center" >
+								<button type="button"
 										id-instructor="<?php echo $instructor->id_usuario; ?>"
 										id-state="<?php echo $instructor->id_estado_usuario; ?>"
 										name-state="<?php echo $instructor->name_estado_usuario; ?>"
@@ -160,7 +160,7 @@ $(document).ready(function() {
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="?c=Lider&m=updateDataInstructor">
+					<form method="POST" action="?c=Lider&m=updateDataProgramaFormacion">
 						<table>
 							<tr>
 								<td>

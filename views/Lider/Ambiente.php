@@ -10,7 +10,7 @@
         <!-- Ejemplo de tabla Listado -->
         <div class="card">
             <div class="card-header ">
-                <i class="fa fa-align-justify"></i> Ambientes de Formacion <button type="button" class="btn btn-secondary "
+                <i class="fa fa-align-justify"></i> Ambientes de Formacion <button type="button" class="btn btn-primary "
                     data-toggle="modal" data-target="#Agregar">
                     <i class="icon-plus "></i>&nbsp;Nuevo
                 </button>
