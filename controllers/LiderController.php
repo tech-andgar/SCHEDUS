@@ -328,7 +328,55 @@ var_dump($_POST);
                 'msg' => 'No pudo registrar nueva Programa de Formacion',
             );
         }
-        $this->Fichas($msgType);
+        $this->Programas($msgType);
+    }
+
+    public function updateDataProgramaFormacion()
+    {
+        $data = array(
+            "txto_cod_programa" => $_POST['txto_cod_programa'],
+            "txto_short_name_programa" => $_POST['txto_short_name_programa'],
+            "txto_name_programa_formacion" => $_POST['txt_name_programa_formacion'],
+            "txto_version_programa" => $_POST['txt_version_programa'],
+            "txto_id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
+            "txto_cod_proyecto" => $_POST['txt_cod_proyecto'],
+        );
+        $result = $this->modelInstructor->updateDataProgramaFormacion($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Programa de Formacion',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar Programa de Formacion',
+            );
+        }
+
+        $this->Instructor($msgType);
+    }
+
+    // Control de Proyecto
+    public function getDataProyecto()
+    {
+        // Completa lista de Proyecto
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelProyecto->getAllProyecto();
+        }
+        // Selecciona ID de Proyecto
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelProyecto->getProyectoId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Proyecto
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelProyecto->getProyectoName($_REQUEST['q']);
+        }
+
+        $dataProyecto = json_encode($output);
+        echo $dataProyecto;
     }
 
 
