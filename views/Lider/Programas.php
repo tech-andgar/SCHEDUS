@@ -118,7 +118,7 @@
 									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha">
 								</td>
 							</tr>
-							
+
 							<tr>
 								<td>
 									<h4   for="txt_num_ficha">Siglas del Programa</h4>
