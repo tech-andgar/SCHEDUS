@@ -8,10 +8,12 @@ class LiderController extends Path
         $this->modelSecurity = parent::model('security');
         $this->modelSecurity->securityLider();
         $this->modelLider = parent::model('lider');
+        $this->modelInstructor = parent::model('instructor');
         $this->modelFicha = parent::model('ficha');
         $this->modelEstadoFicha = parent::model('estadoFicha');
         $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
         $this->modelProgramaFormacion = parent::model('programaFormacion');
+        $this->modelProyecto = parent::model('proyecto');
         $this->modelGrupo = parent::model('grupo');
     }
 
@@ -28,13 +30,8 @@ class LiderController extends Path
 
     public function Programas($msgType = [])
     {
-        $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
-
-        // $data[0] = $msgType;
-        // $data[1] = $fichas;
-        // $data[3] = $nivelFormacion;
-        // $data[4] = $programaFormacion;
-        $data['programaFormacion'] = $programaFormacion;
+        $data['programaFormacion'] = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Programas', 'Programas', $data);
     }
 
@@ -52,6 +49,17 @@ class LiderController extends Path
     {
         parent::viewModule('lider', 'Ambiente', 'Ambiente');
     }
+
+    public function Niveles()
+    {
+        parent::viewModule('lider', 'Niveles', 'Niveles');
+    }
+
+    public function Proyecto()
+    {
+        parent::viewModule('lider', 'Proyecto', 'Proyecto');
+    }
+
 
     public function Fichas($msgType=[])
     {
@@ -81,22 +89,22 @@ class LiderController extends Path
     }
     public function Instructor($msgType = [])
     {
-        $instructores = $this->modelLider->getAllInstructores();
+        $instructores = $this->modelInstructor->getAllInstructores();
         $data[0] = $msgType;
         $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
-    
+
     public function Grupos()
     {
         parent::viewModule('lider', 'Grupos', 'Grupos');
     }
-  
+
     // Control de Instructor
     public function insertarInstructor()
     {
         $data = $_POST;
-        $result = $this->modelLider->insertarInstructor($data);
+        $result = $this->modelInstructor->insertarInstructor($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -127,12 +135,12 @@ class LiderController extends Path
             "status" => $status,
         );
 
-        $result = $this->modelLider->updatedStatusInstructor($data); // Enviar al DB
+        $result = $this->modelInstructor->updatedStatusInstructor($data); // Enviar al DB
     }
 
     public function getDataInstructor()
     {
-        $dataInstructor = json_encode($this->modelLider->getInstructor($_POST['id_instructor']));
+        $dataInstructor = json_encode($this->modelInstructor->getInstructor($_POST['id_instructor']));
         echo $dataInstructor;
     }
 
@@ -144,7 +152,7 @@ class LiderController extends Path
             "apellido" => $_POST['apellido'],
             "email" => $_POST['email'],
         );
-        $result = $this->modelLider->updateDataInstructor($data);
+        $result = $this->modelInstructor->updateDataInstructor($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -231,20 +239,6 @@ class LiderController extends Path
         echo $dataEstadoFicha;
     }
 
-    public function getDataProgramaFormacion()
-    {
-        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
-        echo $dataFicha;
-    }
-
-    public function getAllDataProgramaFormacion()
-    {
-        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
-        echo $dataEstadoFicha;
-    }
-
-
-
     public function updateDataFicha()
     {
 var_dump($_POST);
@@ -271,4 +265,119 @@ var_dump($_POST);
 
         $this->Ficha($msgType);
     }
+
+//Control Programa de Formacion
+
+    public function getDataNivelProgramaFormacion()
+    {
+        // Completa lista de Nivel Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelNivelFormacion->getAllNivelFormacion();
+        }
+        // Selecciona ID de Nivel Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelNivelFormacion->getNivelFormacionId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Nivel Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelNivelFormacion->getNivelFormacionName($_REQUEST['q']);
+        }
+
+        $dataNivelFormacion = json_encode($output);
+        echo $dataNivelFormacion;
+    }
+
+    public function getDataProgramaFormacion()
+    {
+        // Completa lista de Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id']) && !isset($_REQUEST['codigo'])) {
+            $output = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        }
+        // Selecciona ID de Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionId($_REQUEST['id']);
+        }
+        elseif (isset($_REQUEST['codigo'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionCodigo($_REQUEST['codigo']);
+        }
+        // Selecciona caracteres en lista de Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionName($_REQUEST['q']);
+        }
+
+        $dataFormacionPrograma = json_encode($output);
+        echo $dataFormacionPrograma;
+    }
+
+
+    public function insertarProgramaFormacion()
+    {
+        $data = $_POST;
+        $result = $this->modelProgramaFormacion->insertarProgramaFormacion($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nueva Programa de Formacion',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nueva Programa de Formacion',
+            );
+        }
+        $this->Programas($msgType);
+    }
+
+    public function updateDataProgramaFormacion()
+    {
+        $data = array(
+            "txto_cod_programa" => $_POST['txto_cod_programa'],
+            "txto_short_name_programa" => $_POST['txto_short_name_programa'],
+            "txto_name_programa_formacion" => $_POST['txt_name_programa_formacion'],
+            "txto_version_programa" => $_POST['txt_version_programa'],
+            "txto_id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
+            "txto_cod_proyecto" => $_POST['txt_cod_proyecto'],
+        );
+        $result = $this->modelInstructor->updateDataProgramaFormacion($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Programa de Formacion',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar Programa de Formacion',
+            );
+        }
+
+        $this->Instructor($msgType);
+    }
+
+    // Control de Proyecto
+    public function getDataProyecto()
+    {
+        // Completa lista de Proyecto
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelProyecto->getAllProyecto();
+        }
+        // Selecciona ID de Proyecto
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelProyecto->getProyectoId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Proyecto
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelProyecto->getProyectoName($_REQUEST['q']);
+        }
+
+        $dataProyecto = json_encode($output);
+        echo $dataProyecto;
+    }
+
+
 }

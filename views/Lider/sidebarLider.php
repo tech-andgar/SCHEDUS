@@ -34,8 +34,22 @@
                     <a class="nav-link " onclick="LoadUrl('?c=lider&m=Instructor')"><i class="nav-icon fas fa-chalkboard-teacher"></i>
                         Instructor</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " onclick="LoadUrl('?c=lider&m=programas')"><i class="nav-icon fas fa-book"></i> Programa</a>
+                <li class="nav-item nav-dropdown" state-element="close">
+                    <a class="nav-link nav-dropdown-toggle"><i class="nav-icon fas fa-braille"></i> Formacion</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=Programas')"><i class="nav-icon  fas fa-book"></i>
+                                Programa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=Niveles')"><i class="nav-icon fas fa-level-up-alt"></i>
+                                Niveles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="LoadUrl('?c=lider&m=Proyecto')"><i class="nav-icon fas fa-briefcase"></i>
+                                Proyecto</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " onclick="LoadUrl('?c=lider&m=competencias')"><i class="nav-icon fas fa-torah"></i>

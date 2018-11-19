@@ -11,19 +11,11 @@
 			<!-- Ejemplo de tabla Listado -->
 			<div class="card-header ">
 				<i class="fa fa-align-justify"></i> Fichas
-				<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar_Ficha">
+				<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#Agregar_Ficha">
 					<i class="icon-plus "></i>&nbsp;Nuevo
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-						</div>
-						<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-					</div>
-				</div>
 				<div class="table-responsive">
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableFichas">
 						<thead>
