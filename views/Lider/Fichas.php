@@ -5,7 +5,6 @@
 		<li class="breadcrumb-item">Inicio</li>
 		<li class="breadcrumb-item"><a href="#">Lider</a></li>
 		<li class="breadcrumb-item active">Fichas</li>
-		<div class="container-fluid">
 	</ol>
 	<div class="container-fluid">
 		<div class="card">

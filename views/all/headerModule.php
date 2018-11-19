@@ -54,8 +54,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="./assets/images/logoSena.png" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="./assets/images/Senalogo1.png" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full img-fluid" src="./assets/images/Logo_SCHEDUS.svg" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized img-fluid" src="./assets/images/Sena_Colombia_logo.svg" alt="CoreUI Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle nav-link mr-5" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-home"></i><span class="d-md-down-none"> Lider </span>
+                <i class="fas fa-home"></i><span class="d-md-down-none"> <?php echo $_SESSION['user']->name_rol;?> </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right text-center">
                 <div class="dropdown-header">

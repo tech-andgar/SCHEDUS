@@ -1,11 +1,7 @@
-
-
-
-
 <header class="app-header navbar">
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="./assets/images/logoSena.png" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="./assets/images/Senalogo1.png" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="./assets/images/Logo_SCHEDUS.svg" width="200" height="50" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="./assets/images/Sena_Colombia_logo.svg" width="100" height="100" alt="CoreUI Logo">
     </a>
     <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
         <li class="dropdown order-1">

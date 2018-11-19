@@ -20,8 +20,8 @@
  * @link       https://github.com/andgar2010/SCHEDUS
  * @since      File available since Release 0.0.1
  * @Create At: 2018-10-03 09:39:03
- * @Last Modified By: Andrés Garcia
- * @Last Modified At: 2018-10-03 12:09:49
+ * @Last Modified By: Andrés García
+ * @Last Modified At: 2018-11-16 12:11:04
  */
 
 class Path
@@ -40,9 +40,8 @@ class Path
     {
         $title = $title;
         require_once 'views/all/head.php';
-        require_once 'views/'.$module .'/header.php';
-        // require_once 'views/all/navbar.php';
-        require_once 'views/' . $module . '/' . $view . '.php';
+        require_once 'views/'.ucwords($module).'/header.php' ;
+        require_once 'views/'.ucwords($module).'/'.ucwords($view).'.php';
         require_once 'views/all/footer.php';
     }
 
@@ -59,33 +58,12 @@ class Path
     public function viewModule($module, $view, $title = "", $data = [], $c = '')
     {
         $title = $title;
-        // if (isset($data[0])) {
-        //     $data['msgType']= $data[0];
-        // }
-        // if (isset($data[1])) {
-        //     $data['data'] = $data[1];
-        // }
-        // if (isset($data[2])) {
-        //     $data['partial0'] = $data[2];
-        // }
-        // if (isset($data[3])) {
-        //     $data['partial1'] = $data[3];
-        // }
-        // if (isset($data[4])) {
-        //     $data['partial2'] = $data[4];
-        // }
-        // if (isset($data[5])) {
-        //     $data['partial3'] = $data[5];
-        // }
         require_once 'views/all/head.php';
-        require_once 'views/' . $module . '/header' . ucwords($module) . '.php';
-        require_once 'views/' . $module . '/sidebar' . ucwords($module) . '.php';
-        // if ($module == 'lider')  {
-        //     echo '<div class="container bg-light"><div class="row">';
-        //     require_once 'views/' . $module . '/AsideMenuIzquierdo.php';
-        // }
-        require_once 'views/' . $module . '/' . $view . '.php';
-        require_once 'views/all/footerModule.php';
+        require_once 'views/all/headerModule.php';
+        require_once 'views/'.ucwords($module).'/sidebar'.ucwords($module).'.php';
+        require_once 'views/'.ucwords($module).'/'.ucwords($view).'.php';
+        require_once 'views/all/footer.php';
+
     }
 
     /**
