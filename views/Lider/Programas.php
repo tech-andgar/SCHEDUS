@@ -13654,6 +13654,2316 @@
 			}
 		});
 	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
+				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+
+		// Call AJAX getDataNivelProgramaFormacion to SELECT
+		$('#list-NivelProgramaFormacion').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		// Call AJAX getDataProyecto to SELECT
+		$('#list-Proyecto').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: '?c=Lider&m=getDataProyecto',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_proyecto; // replace pk with your identifier
+						obj.text = obj.text || obj.name_proyecto; // replace name with the property used for the text
+
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modal-Agregar-programa"),
+		});
+
+		$(".updateDataPrograma").click(function(){
+		var id_programa =$(this).attr('id-programa');
+		console.log(id_programa);
+
+		$.ajax({
+			type:'POST',
+			url:'?c=Lider&m=getDataProgramaFormacion',
+			dataType:"json",
+			data:{
+				id:id_programa
+			},
+			success(response){
+				var programa  = jQuery.parseJSON(JSON.stringify(response));
+				console.log(programa);
+				$('#txt_upd_cod_programa').val(programa.codigo);
+				$('#txt_upd_short_name_programa').val(programa.short_name_programa);
+				$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
+				$('#txt_upd_version_programa').val(programa.version_programa);
+				$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
+				$('#txt_upd_version_programa').val(programa .txt_upd_version_programa);
+			}
+		});
+	});
 
 	});
 </script>
