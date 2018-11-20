@@ -24,12 +24,12 @@ class SecurityModel extends DB
                 $stm->execute();
                 $_SESSION['user'] = $stm->fetch(PDO::FETCH_OBJ);
                 $_SESSION['user']->conectado = 1;
-                header('location:?c=' . $_SESSION['user']->name_rol);
+                header('location:'.APP_URL . $_SESSION['user']->name_rol);
                 // return true;
             } else {
                 // No autenticado ni encontrado DB, retorna falso
                 // return false;
-                header('location:?c=Inicio&m=NoAuthSession');
+                header('location:' . APP_URL . 'Inicio/NoAuthSession');
             }
 
         } catch (Exception $e) {
@@ -41,7 +41,8 @@ class SecurityModel extends DB
     {
         if (isset($_SESSION['user']->id_rol) && $_SESSION['user']->id_rol == '1') {
         }else{
-            header('location:?c=inicio&m=noAuth');
+            $url = APP_URL . 'inicio/noAuth';
+            header('location:'.$url);
         }
     }
 
@@ -49,7 +50,7 @@ class SecurityModel extends DB
     {
         if (isset($_SESSION['user']->id_rol) && $_SESSION['user']->id_rol == '2') {
         }else{
-            header('location:?c=inicio&m=noAuth');
+            header('location:' . APP_URL . 'inicio/noAuth');
         }
     }
 
@@ -57,7 +58,7 @@ class SecurityModel extends DB
     {
         if (isset($_SESSION['user']->id_rol) && $_SESSION['user']->id_rol == '3') {
         }else{
-            header('location:?c=inicio&m=noAuth');
+            header('location:'.APP_URL.'inicio/noAuth');
         }
     }
 
@@ -67,7 +68,7 @@ class SecurityModel extends DB
         session_destroy();
         // session_start();
         // session_regenerate_id(true);
-        header('location:?c=Inicio&m=index');
+        header('location:'.APP_URL.'Inicio/index');
         // exit();
     }
 
