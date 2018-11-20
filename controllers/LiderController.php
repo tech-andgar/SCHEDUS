@@ -267,7 +267,8 @@ var_dump($_POST);
         $this->Ficha($msgType);
     }
 
-//Control Programa de Formacion
+
+    //Control Nivel Programa de Formacion
 
     public function getDataNivelProgramaFormacion()
     {
@@ -285,6 +286,10 @@ var_dump($_POST);
         }
 
         $dataNivelFormacion = json_encode($output);
+
+        //
+        //$dataNivelFormacion = $_REQUEST['q'];
+
         echo $dataNivelFormacion;
     }
 

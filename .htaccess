@@ -1,3 +1,16 @@
+
+############################
+### Config on httpd.conf ###
+############################
+# # Enabled Log HTTP2
+# <IfModule http2_module>
+#    LogLevel http2:info
+# </IfModule>
+
+# # Enabled HTTP2 server
+# Protocols h2 h2c http/1.1
+############################
+
 ErrorDocument 404 /views/all/404.php
 ErrorDocument 500 /views/all/500.php
 ErrorDocument 503 /views/all/503.php
@@ -11,22 +24,7 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 # RewriteRule ^coordinador/(\w+)/?$ index.php?c=coordinador&m=$1
 # RewriteRule ^instructor/(\w+)/?$ index.php?c=instructor&m=$1
 
-
-# 480 weeks
-<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff2|svg)$">
-Header set Cache-Control "max-age=290304000, public"
-</FilesMatch>
-
-# 2 HOURS
-<FilesMatch "\.(html|htm)$">
-Header set Cache-Control "max-age=7200, must-revalidate"
-</FilesMatch>
-
-# One month for css and js
-<filesMatch ".(css|js)$">
-Header set Cache-Control "max-age=2628000, public"
-</filesMatch>
-
+# Config mod_deflate for compress gzip
 <IfModule mod_deflate.so>
 	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|html|php|txt|xml)$">
 		SetOutputFilter DEFLATE
@@ -46,7 +44,8 @@ Header set Cache-Control "max-age=2628000, public"
 	Header append Vary User-Agent env=!dont-vary
 </IfModule>
 
-<ifModule mod_gzip.so>
+# Config mod_gzip
+<IfModule mod_gzip.so>
     mod_gzip_on Yes
     mod_gzip_dechunk Yes
     mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
@@ -55,4 +54,20 @@ Header set Cache-Control "max-age=2628000, public"
     mod_gzip_item_include mime ^application/x-javascript.*
     mod_gzip_item_exclude mime ^image/.*
     mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
-</ifModule>
+</IfModule>
+
+# Config Cache-Control
+# 480 weeks
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff2|svg)$">
+    Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+
+# 2 HOURS
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
+
+# One month for css and js
+<FilesMatch ".(css|js)$">
+    Header set Cache-Control "max-age=2628000, public"
+</FilesMatch>
