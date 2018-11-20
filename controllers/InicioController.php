@@ -51,7 +51,7 @@ class InicioController extends Path
     }
 
     // Method Action
-    public function ValidarUsuario()
+    public function validarUsuario()
     {
         try {
 
@@ -59,7 +59,7 @@ class InicioController extends Path
             $user = $this->modelUsuario->verificarLogin($data);
 
             if (!$user) {
-                header('location:?c=Inicio&m=noRegistered');
+                header('location:noRegistered');
             } else {
                 $this->modelSecurity->LoginSession($user);
             }
