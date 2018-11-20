@@ -21,7 +21,7 @@
  * @since      File available since Release 0.0.1
  * @Create At: 2018-10-03 09:39:03
  * @Last Modified By: Andrés García
- * @Last Modified At: 2018-10-22 13:30:02
+ * @Last Modified At: 2018-11-20 12:26:42
  */
 //
 
@@ -43,6 +43,7 @@ try {
         $m = $url[1];
         unset($url[1]);
     }
+
     $c = ucwords($c) . 'Controller';
 
     // if (!@include_once ('controllers/' . $c . '.php')) // @ - to suppress warnings,

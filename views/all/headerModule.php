@@ -71,7 +71,7 @@
                     <strong><i class="fas fa-cog"></i></strong>
                 </div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#Perfil"><i class="fas fa-home"></i>Cuenta</a>
-                <a class="dropdown-item" href="?c=security&m=logOut"><i class="fas fa-sign-in-alt"></i>Cerrar sesión</a>
+                <a class="dropdown-item" href="<?php echo APP_URL?>security/logOut"><i class="fas fa-sign-in-alt"></i>Cerrar sesión</a>
             </div>
         </li>
     </ul>
