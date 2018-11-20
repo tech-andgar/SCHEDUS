@@ -39,7 +39,7 @@ else{
     <meta name="keyword" content="Sistema de control de horario SCHEDUS, SCHEDUS">
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/webp" sizes="32x32" href="<?php echo APP_URL ?>assets/images/favicon-32x32.webp">
+    <link rel="shortcut icon" type="image/webp" sizes="32x32" href="<?php echo APP_URL ?>assets/images/favicon-32x32.webp">
 
     <!-- Main styles for this application-->
     <link rel="stylesheet" type="text/css" href="<?php echo APP_URL?>assets/css/coreui/coreui_style.min.css">
