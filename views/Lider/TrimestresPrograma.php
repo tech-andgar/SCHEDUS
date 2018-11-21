@@ -17,36 +17,37 @@
                 </button>
             </div>
             <div class="card-body">
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                        </div>
-                    </div>
-                </div>
                 <div class="table-responsive">
-                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableTrimestre">
                         <thead>
 						<tr class="success">
-							<th class="">Programa</th>
 							<th class="">Trimestre</th>
+							<th class="">Inicio</th>
+                            <th class="">Fin</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
                         </thead>
-                        <tbody class="">
-						<tr>
-							<td class="">Análisis y Diseño de Sistemas de Información</td>
-							<td >
-								5
-							</td>
-							<td>
-								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-                        </tbody>
+                        <tbody>
+							<?php foreach ($data['trimestre'] as $trimestre) { ?>
+							<tr>
+								<td>
+									<?php echo $trimestre->name_trimestre; ?>
+								</td>
+                                <td>
+									<?php echo $trimestre->fecha_inicio; ?>
+								</td>
+                                <td>
+									<?php echo $trimestre->fecha_fin; ?>
+								</td>
+								<td class="text-center">
+									<div class="updateDataTrimestresPrograma" data-toggle="modal" data-target="#Actualizar_TrimestresPrograma" id-trimestre="<?php echo $trimestre->id_trimestre; ?>">
+										<i class="far fa-edit fa-lg"></i></div>
+								</td>
+							</tr>
+							<?php
+						}
+					?>
+						</tbody>
                     </table>
                 </div>
             </div>
@@ -81,8 +82,8 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Modal Actualizar TrimestresPrograma -->
+<div class="modal fade" id="Actualizar_TrimestresPrograma" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -109,7 +110,7 @@
 <script>
     $(document).ready(function () {
 
-        $("#tableProgramas").DataTable({
+        $("#tableTrimestre").DataTable({
             "language": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",
@@ -140,7 +141,7 @@
                 // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
                 "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
                 // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-                "<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+                "<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
                 // Pie de la tabla -- B-> Botones de exportar
                 "<'row'<'col-sm-12'B>>",
             buttons: [

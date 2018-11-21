@@ -16,43 +16,42 @@
                 </button>
             </div>
             <div class="card-body">
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                        </div>
-                    </div>
-                </div>
                 <div class="table-responsive">
-                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
-                        <thead>
-                            <tr class="success">
-                                <th class="">Ambiente</th>
-
-                                <th class="">Estado</th>
-                                <th class="text-center">Actualizar</th>
-                            </tr>
-                        </thead>
-                        <tbody class="">
-                            <tr>
-                                <td class="">305</td>
-                               
+                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableAmbiente">
+                    <thead>
+					<tr class="success">
+							<th>Ambiente</th>
+                            <th>Sede</th>
+                            <th>Direccion</th>
+                            <th>Estado</th>
+							<th class="text-center">Actualizar</th>
+						</tr>
+					</thead>
+					<tbody>
+							<?php foreach ($data['ambiente'] as $ambiente) { ?>
+							<tr>
+								<td>
+									<?php echo $ambiente->num_ambiente; ?>
+								</td>
                                 <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1"
-                                            checked>
-                                        <label class="onoffswitch-label" for="1"></label>
-                                    </div>
-                                </td>
-                                <td class=" text-center">
-                                    <div data-toggle="modal" data-target="#Actualizar">
-                                        <i class="far fa-edit fa-2x"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+									<?php echo $ambiente->name_sede; ?>
+								</td>
+                                <td>
+									<?php echo $ambiente->direccion; ?>
+								</td>
+                                <td>
+									<?php echo $ambiente->name_estado_ambiente; ?>
+								</td>
+								<td class="text-center">
+									<div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel" id-ambiente="<?php echo $ambiente->id_ambiente; ?>">
+										<i class="far fa-edit fa-lg"></i></div>
+								</td>
+							</tr>
+							<?php
+						}
+					?>
+						</tbody>
+				</table>
                 </div>
             </div>
         </div>
@@ -113,7 +112,7 @@
 <script>
     $(document).ready(function () {
 
-        $("#tableProgramas").DataTable({
+        $("#tableAmbiente").DataTable({
             "language": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",

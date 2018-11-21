@@ -16,36 +16,29 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-						</div>
-					</div>
-				</div>
 				<div class="table-responsive">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableProyecto">
 						<thead>
 							<tr>
-								
 								<th>Proyecto</th>
-								<th>Creacion</th>
-								<th>Modificacion</th>
 								<th class="text-center">Actualizar</th>
 							</tr>
 						</thead>
 						<tbody>
-                            <td>SISTEMA INTEGRAL WEB PARA GESTION DE PROCESOS EDUCATIVOS DEL CEET</td>
-                            <td><?php echo date('d,M,Y') ?></td>
-                            <td><?php echo date('d,M,Y') ?></td>
+						<?php foreach ($data['proyecto'] as $proyecto) { ?>
+						<tr>
+						<td>
+									<?php echo $proyecto->name_proyecto; ?>
+								</td>
 								<td class="text-center">
-									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar" >
+									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar" id-NivelFormacion="<?php echo $proyecto->id_proyecto; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
 							</tr>
-							
+							<?php
+						}
+					?>
 						</tbody>
 					</table>
 				</div>
@@ -129,7 +122,7 @@
 <script>
 	$(document).ready(function () {
 
-		$("#tableProgramas").DataTable({
+		$("#tableProyecto").DataTable({
 			"language": {
 				"sProcessing": "Procesando...",
 				"sLengthMenu": "Mostrar _MENU_ registros",

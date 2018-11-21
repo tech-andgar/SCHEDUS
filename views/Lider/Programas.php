@@ -16,16 +16,8 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-						</div>
-					</div>
-				</div>
 				<div class="table-responsive">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableProgramas">
 						<thead>
 							<tr>
 								<th>Codigo</th>
@@ -108,7 +100,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="?c=lider&m=insertarProgramaFormacion" class="form-signin form-modal">
+					<form method="post" action="insertarProgramaFormacion" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -121,7 +113,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="number" name="txt_cod_programa" id="txt_cod_programa" class="adsi-css" aria-describedby="helpIdNumFicha" required>
+									<input type="number" name="txt_cod_programa" id="txt_cod_programa" class="adsi-css"  required>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -140,8 +132,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Escriba Programa de Formacion</small>
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion" class="adsi-css"
-									aria-describedby="helpIdNumFicha" required>
+									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion" class="adsi-css" required>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -150,7 +141,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Escriba Version de Formacion</small>
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_version_programa" id="txt_version_programa" class="adsi-css" aria-describedby="helpIdNumFicha" required>
+									<input type="text" name="txt_version_programa" id="txt_version_programa" class="adsi-css"  required>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -174,7 +165,6 @@
 									</button>
 								</div>
 							</div>
-
 							<div class="row pt-4">
 								<div class="col-lg-2 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="txt_nom_proyecto">Nombre del Proyecto</h4>
@@ -206,7 +196,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="?c=Lider&m=updateDataInstructor" class="form-signin form-modal">
+					<form method="post" action="updateDataInstructor" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -219,7 +209,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="adsi-css" aria-describedby="helpIdNumFicha">
+									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="adsi-css" >
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -229,7 +219,7 @@
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
 									<input type="text" name="txt_upd_short_name_programa" id="txt_upd_short_name_programa" class="adsi-css"
-									aria-describedby="helpIdNumFicha">
+									>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -239,7 +229,7 @@
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
 									<input type="text" name="txt_upd_name_programa_formacion" id="txt_upd_name_programa_formacion" class="adsi-css"
-									aria-describedby="helpIdNumFicha">
+									>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -248,7 +238,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Escriba Version de Formacion</small>
 								</div>
 								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_upd_version_programa" id="txt_upd_version_programa" class="adsi-css" aria-describedby="helpIdNumFicha">
+									<input type="text" name="txt_upd_version_programa" id="txt_upd_version_programa" class="adsi-css" >
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -329,7 +319,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [
@@ -349,7 +339,7 @@
 		$('#list-NivelProgramaFormacion').select2({
 			theme: 'bootstrap4',
 			ajax: {
-				url: '?c=Lider&m=getDataNivelProgramaFormacion',
+				url: 'getDataNivelProgramaFormacion',
 				dataType: 'json',
 				delay: 250,
 				data: function (params) {
@@ -382,7 +372,7 @@
 		$('#list-Proyecto').select2({
 			theme: 'bootstrap4',
 			ajax: {
-				url: '?c=Lider&m=getDataProyecto',
+				url: 'getDataProyecto',
 				dataType: 'json',
 				delay: 250,
 				data: function (params) {
@@ -412,13 +402,13 @@
 		}); //END Call AJAX getDataProyecto to SELECT
 
 		//Call getDataPrograma for data update
-		$(".updateDataPrograma").click(function(){
+		$(".updateDataProgramaFormacion").click(function(){
 			var id_programa = $(this).attr('id-programa');
 			console.log(id_programa);
 
 			$.ajax({
 				type:'POST',
-				url:'?c=Lider&m=getDataProgramaFormacion',
+				url:'getDataProgramaFormacion',
 				dataType:"json",
 				data:{
 					id:id_programa
@@ -439,7 +429,7 @@
 					$('#list-upd-NivelProgramaFormacion').select2({
 						theme: 'bootstrap4',
 						ajax: {
-							url: '?c=Lider&m=getDataNivelProgramaFormacion',
+							url: 'getDataNivelProgramaFormacion',
 							dataType: 'json',
 							delay: 250,
 							data: function (params) {
@@ -473,7 +463,7 @@
 					$('#list-upd-Proyecto').select2({
 						theme: 'bootstrap4',
 						ajax: {
-							url: '?c=Lider&m=getDataProyecto',
+							url: 'getDataProyecto',
 							dataType: 'json',
 							delay: 250,
 							data: function (params) {
