@@ -16,39 +16,33 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-						</div>
-					</div>
-				</div>
-				<div class="table-responsive">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableNivel">
 						<thead>
 							<tr>
-								
-								<th>Nivel</th>
-								<th>Creacion</th>
-								<th>Modificacion</th>
-								<th class="text-center">Actualizar</th>
+							<th>Nivel</th>
+							<th>Duracion</th>
+							<th class="text-center">Actualizar</th>
 							</tr>
 						</thead>
 						<tbody>
-                            <td>SISTEMA INTEGRAL WEB PARA GESTION DE PROCESOS EDUCATIVOS DEL CEET</td>
-                            <td><?php echo date('d,M,Y') ?></td>
-                            <td><?php echo date('d,M,Y') ?></td>
+							<?php foreach ($data['nivelProgramaFormacion'] as $nivelProgramaFormacion) { ?>
+							<tr>
+								<td>
+									<?php echo $nivelProgramaFormacion->name_nivel_programa_formacion; ?>
+								</td>
+								<td>
+									<?php echo $nivelProgramaFormacion->duracion; ?>
+								</td>
 								<td class="text-center">
-									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar" >
-										<i class="far fa-edit fa-lg"></i>
-									</div>
+									<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-NivelFormacion="<?php echo $nivelProgramaFormacion->id_nivel_programa_formacion; ?>">
+										<i class="far fa-edit fa-lg"></i></div>
 								</td>
 							</tr>
-							
+							<?php
+						}
+					?>
 						</tbody>
 					</table>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -102,9 +96,9 @@
 		</div>
 	</div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+<!-- Modal Actualizar -->
+<div class="modal fade bd-example-modal-lg" id="Actualizar_Nivel" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered  modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
@@ -113,12 +107,39 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+				<div class="d-flex justify-content-center">
+					<form method="post" action="updateDataNivelFormacion" class="form-signin" id="modalFormUpdNivelFormacion">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-12">
+									<h3>Nivel</h3>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+									<h4 for="codig">Nivel Formacion</h4>
+									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Nivel de Formacion</small>
+								</div>
+								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
+									<input id="txt_id_nivel_programa_formacion" type="number" name="txt_id_nivel_programa_formacion"  class="adsi-css" hidden>
+									<input id="txt_name_nivel_programa_formacion" type="text" name="txt_name_nivel_programa_formacion"  class="adsi-css">
+								</div>
+							</div>
+						</div>
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+									<h4 for="txt_upd_num_proyecto">Duracion</h4>
+									<small id="helpIdNumFicha" class="text-muted">Escriba El tiempo de Duracion</small>
+								</div>
+								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
+									<input id="txt_duracion" type="text" name="txt_duracion" class="adsi-css" >
+								</div>
+							</div>
+						</div>
+						<div class="modal-body text-center">
+							<button class="btn-rounded " type="submit">Actualizar datos</button>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -126,10 +147,11 @@
 	</div>
 </div>
 
+
 <script>
 	$(document).ready(function () {
 
-		$("#tableProgramas").DataTable({
+		$("#tableNivel").DataTable({
 			"language": {
 				"sProcessing": "Procesando...",
 				"sLengthMenu": "Mostrar _MENU_ registros",
@@ -160,7 +182,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [
@@ -176,6 +198,25 @@
 			//]
 		});
 
+
+	$(".updateDataNivelFormacion").click(function(){
+		var idNivelFormacion =$(this).attr('id-NivelFormacion');
+		
+		$.ajax({
+			type:'POST',
+			url:'getDataNivelFormacion',
+			dataType:"json",
+			data:{
+				id:idNivelFormacion
+			},
+			success(response){
+				var nivel = jQuery.parseJSON(JSON.stringify(response));
+				$('#txt_id_nivel_programa_formacion').val(idNivelFormacion);
+				$('#txt_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
+				$('#txt-duracion').val(nivel.duracion);
+			}
+		});
+	});
 
 	});
 </script>

@@ -16,72 +16,29 @@
                 </button>
             </div>
             <div class="card-body">
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
-                        <thead>
-						<tr class="success">
-							<th class="">Programa</th>
-							<th class="">Diurna</th>
-							<th class="">Nocturna</th>
-							<th class="">Madrugada</th>
-							<th class="text-center">Fin de Semana</th>
-							<th class="text-center">Editar</th>
+            <table class="table table-responsive-sm table-striped table-sm mt-5" id="tableJornada">
+					<thead>
+					<tr class="success">
+							<th>Jornada</th>
+							<th class="text-center">Actualizar</th>
 						</tr>
-                        </thead>
-                        <tbody class="">
-						<tr>
-							<td class="">Análisis y Diseño de Sistemas de Información</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1" checked>
-									<label class="onoffswitch-label" for="1"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="5" checked>
-									<label class="onoffswitch-label" for="5"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="6" checked>
-									<label class="onoffswitch-label" for="6"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div class="onoffswitch">
-									<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="7" checked>
-									<label class="onoffswitch-label" for="7"></label>
-								</div>
-							</td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-                        </tbody>
-                    </table>
-                </div>
+					</thead>
+					<tbody>
+							<?php foreach ($data['jornada'] as $jornada) { ?>
+							<tr>
+								<td>
+									<?php echo $jornada->name_jornada; ?>
+								</td>
+								<td class="text-center">
+									<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-jornada="<?php echo $jornada->id_jornada; ?>">
+										<i class="far fa-edit fa-lg"></i></div>
+								</td>
+							</tr>
+							<?php
+						}
+					?>
+						</tbody>
+				</table>
             </div>
         </div>
         <!-- Fin ejemplo de tabla Listado -->
@@ -141,7 +98,7 @@
 <script>
     $(document).ready(function () {
 
-        $("#tableProgramas").DataTable({
+        $("#tableJornada").DataTable({
             "language": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",

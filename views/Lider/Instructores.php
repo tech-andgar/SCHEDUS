@@ -16,7 +16,7 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+				<table class="table table-responsive-sm table-striped table-sm mt-5" id="tableInstructores">
 						<thead>
 					<tr class="success">
 								<th class="col-sm-1 ">Instructor</th>
@@ -91,7 +91,7 @@ $(document).ready(function() {
 			// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 			"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 			// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-			"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+			"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-8'p>>" +
 			// Pie de la tabla -- B-> Botones de exportar
 			"<'row'<'col-sm-12'B>>",
 		buttons: [
@@ -113,14 +113,14 @@ $(document).ready(function() {
 		var id_instructor =$(this).attr('id-instructor');
 		$.ajax({
 			type:'POST',
-			url:'?c=Lider&m=changeStatusInstructor',
+			url:'changeStatusInstructor',
 			data:{
 				statetext:statetext,
 				state_id:state_id,
 				id_instructor:id_instructor
 			},
 			success(response){
-				location.reload();
+				window.location.href = "Instructores";
 			}
 		});
 	});
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type:'POST',
-			url:'?c=Lider&m=getDataInstructor',
+			url:'getDataInstructor',
 			dataType:"json",
 			data:{
 				id_instructor:id_instructor
@@ -160,7 +160,7 @@ $(document).ready(function() {
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="?c=Lider&m=updateDataProgramaFormacion">
+					<form method="POST" action="updateDataInstructor">
 						<table>
 							<tr>
 								<td>
@@ -209,7 +209,7 @@ $(document).ready(function() {
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="?c=Lider&m=InsertarInstructor" class="form-signin">
+					<form method="POST" action="InsertarInstructor" class="form-signin">
 						<table>
 							<tr>
 								<td>

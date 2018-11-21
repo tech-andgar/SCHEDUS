@@ -25,33 +25,82 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                    <table class="table table-responsive-sm  table-sm mt-5 " id="tableInstructores">
                         <thead>
                             <tr class="success">
-                                <th class="">Ficha</th>
-                                <th class="">Grupo</th>
-                                <th class="">Estado</th>
+                                <th>Id Ruta</th>
+                                <th>Ruta Ficha</th>
+                                <th>Ficha</th>
+                                <th>Grupo</th>
                                 <th class="text-center">Actualizar</th>
                             </tr>
                         </thead>
-                        <tbody class="">
+                        <tbody>
                             <tr>
-                                <td class="">1320652</td>
-                                <td class="">G2</td>
-                                <td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1"
-                                            checked>
-                                        <label class="onoffswitch-label" for="1"></label>
-                                    </div>
-                                </td>
-                                <td class=" text-center">
-                                    <div data-toggle="modal" data-target="#Actualizar">
-                                        <i class="far fa-edit fa-2x"></i>
-                                    </div>
+                                <td rowspan="3">1</td>
+                                <td rowspan="3">123210 G1-G2-G3</td>
+                                <td rowspan="3">123210</td>
+                                <td>G1</td>
+                                <td class="text-center">
+                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel"
+                                        id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>G2</td>
+                                <td>BOTON </td>
+                            </tr>
+                            <tr>
+                                <td>G3</td>
+                                <td class="text-center">
+                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel" id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> 
+                                        <i class="far fa-edit fa-lg"></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">2</td>
+                                <td rowspan="2">123210 G4-G5</td>
+                                <td rowspan="2">123210</td>
+                                <td>G4</td>
+                                <td class="text-center">
+                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel" id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>G5</td>
+                                <td>BOTON </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">2</td>
+                                <td rowspan="2">123210 G4-G5</td>
+                                <td rowspan="2">123210</td>
+                                <td>G4</td>
+                                <td class="text-center">
+                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel"
+                                        id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>G5</td>
+                                <td>BOTON </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">2</td>
+                                <td rowspan="2">123210 G4-G5</td>
+                                <td rowspan="2">123210</td>
+                                <td>G4</td>
+                                <td class="text-center">
+                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel"
+                                        id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>G5</td>
+                                <td>BOTON </td>
+                            </tr>
                         </tbody>
+                    </table>
+
                     </table>
                 </div>
             </div>
