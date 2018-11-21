@@ -133,6 +133,28 @@ class NivelProgramaFormacionModel extends DB {
             die($e->getMessage());
         }
     }
-    
+	
+	public function updateDataNivelFormacion($data)
+    {
+        try {
+            // Verificar hay datos en $data
+			if (isset($data['id_nivel_programa_formacion']) &&
+				isset($data['name_nivel_programa_formacion']) &&
+				isset($data['duracion'])) {
+                $name_nivel_programa_formacion = $data['name_nivel_programa_formacion'];
+                $id_nivel_programa_formacion = $data['id_nivel_programa_formacion'];
+                $duracion = $data['duracion'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_NIVEL_FORMACION);
+                $stm->bindParam(1, $name_nivel_programa_formacion, PDO::PARAM_STR);
+                $stm->bindParam(2, $duracion, PDO::PARAM_STR);
+                $stm->bindParam(3, $id_nivel_programa_formacion, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 }
 ?>

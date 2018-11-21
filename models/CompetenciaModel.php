@@ -127,5 +127,40 @@ class CompetenciaModel extends DB {
 	public function setName_competencia($name_competencia) {
 		$this->name_competencia = $name_competencia;
 	}
+	public function getAllCompetencia()
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_COMPETENCIA);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Programa de Formacion
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getCompetenciaId($idProyecto)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_COMPETENCIA_ID);
+			$stm->bindParam(1, $idProyecto, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getCompetenciaName($nameProyecto)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_COMPETENCIA_NAME);
+			$nameProyecto = '%' . $nameProyecto . '%';
+			$stm->bindParam(1, $nameProyecto, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 ?>
