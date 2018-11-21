@@ -35,6 +35,7 @@ class preparedSQL
     const GET_ALL_NIVEL_FORMACION = "SELECT * FROM `nivel_programa_formacion`";
     const GET_NIVEL_FORMACION_ID = "SELECT * FROM `nivel_programa_formacion` WHERE `id_nivel_programa_formacion` = ?";
     const GET_NIVEL_FORMACION_NAME = "SELECT `name_nivel_programa_formacion`, `id_nivel_programa_formacion` FROM `nivel_programa_formacion` WHERE `name_nivel_programa_formacion` LIKE ?";
+    const UPDATE_DATA_NIVEL_FORMACION = "UPDATE `nivel_programa_formacion` SET `name_nivel_programa_formacion`= ? ,`duracion`= ? WHERE `id_nivel_programa_formacion` = ?    ";
 
     //Programa de formacion
     const GET_ALL_PROGRAMA_FORMACION = "SELECT * FROM `v_programa_formacion`";
@@ -57,8 +58,27 @@ class preparedSQL
     // Trimestre
     const GET_ALL_TRIMESTRE = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin`FROM `trimestre`";
     const GET_TRIMESTRE_ID = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin` FROM `trimestre` WHERE `id_trimestre`=?";
+    const GET_TRIMESTRE_NAME = "SELECT * FROM `trimestre` WHERE `name_trimestre` LIKE ?";
     const INSERT_NEW_TRIMESTRE="INSERT INTO `trimestre`(`name_trimestre`, `fecha_inicio`, `fecha_fin`) VALUES (?,?,?)";
     const UPDATE_DATA_TRIMESTRE_ID = "UPDATE `trimestre` SET `name_trimestre`=[value-2],`fecha_inicio`=[value-3],`fecha_fin`=[value-4],`create_time`=[value-5],`update_time`=[value-6],`version`=[value-7] WHERE `id_trimestre`";
+
+    //Competencia
+    const GET_ALL_COMPETENCIA = "SELECT * FROM `competencia`";
+    const GET_COMPETENCIA_ID = "SELECT * FROM `competencia` WHERE `	id_competencia` = ?";
+    const GET_COMPETENCIA_NAME = "SELECT * FROM `competencia` WHERE `name_competencia` LIKE ?";
+    const INSERT_NEW_COMPETENCIA = "";
+
+    //Jornada
+    const GET_ALL_JORNADA = "SELECT * FROM `jornada`";
+    const GET_JORNADA_ID = "SELECT * FROM `jornada` WHERE `	id_jornada` = ?";
+    const GET_JORNADA_NAME = "SELECT * FROM `jornada` WHERE `name_jornada` LIKE ?";
+    const INSERT_NEW_JORNADA = "";
+
+    //Ambiente
+    const GET_ALL_AMBIENTE = "SELECT * FROM `v_ambientes`";
+    const GET_AMBIENTE_ID = "SELECT * FROM `v_ambientes` WHERE `id_ambiente` = ?";
+    const GET_AMBIENTE_NAME = "SELECT * FROM `v_ambientes` WHERE `name_ambiente` LIKE ?";
+    const INSERT_NEW_AMBIENTE = "";
 }
 
 

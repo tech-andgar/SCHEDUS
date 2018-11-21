@@ -270,7 +270,7 @@ class ProgramaFormacionModel extends DB
         }
     }
 
-    public function updateDataInstructor($data)
+    public function updateDataProgramaFormacion($data)
     {
         try {
             // Verificar hay datos en $data
