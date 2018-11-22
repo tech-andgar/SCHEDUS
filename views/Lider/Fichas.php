@@ -120,7 +120,7 @@
 	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Editar datos de ficha</h3>
+				<h3 class="col-11 modal-title text-center">Actualizar datos de ficha</h3>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -139,16 +139,6 @@
 							</tr>
 							<tr>
 								<td>
-									<h4 style="margin-bottom: 0px;">Estado:</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
-								</td>
-								<td>
-									<select id="SelectUpdListEstadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
 									<h4 style="margin-bottom: 0px;">Programa:</h4>
 									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</td>
@@ -157,6 +147,17 @@
 									</select>
 								</td>
 							</tr>
+							<tr>
+								<td>
+									<h4 style="margin-bottom: 0px;">Estado:</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
+								</td>
+								<td>
+									<select id="SelectUpdListEstadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
+									</select>
+								</td>
+							</tr>
+							
 						</table>
 						<div class="modal-body">
 							<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
@@ -276,7 +277,6 @@
 			//]
 		});
 
-
 		// Change status of ficha from button
 		$(".statusChange").click(function () {
 			var statetext = $(this).attr('name-state');
@@ -295,13 +295,6 @@
 				}
 			});
 		});
-
-
-
-
-
-
-
 
 		// get Data Ficha_ID form button -> Modal Form_update_ficha
 		$(".updateDataFicha").click(function () {
