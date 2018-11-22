@@ -19,10 +19,14 @@ class LiderController extends Path
         $this->modelTrimestre = parent::model('trimestre');
         $this->modelJornada = parent::model('jornada');
         $this->modelAmbiente = parent::model('ambiente');
-        
+        $this->modelRutaFicha = parent::model('rutaFicha');
     }
 
-    // Renderizado vistas
+    //
+    // ──────────────────────────────────────────────────────────────────────────── I ──────────
+    //   :::::: R E N D E R I Z A D O   V I S T A S : :  :   :    :     :        :          :
+    // ──────────────────────────────────────────────────────────────────────────────────────
+    //
     public function index()
     {
         parent::viewModule('lider', 'index', 'Incio');
@@ -114,12 +118,22 @@ class LiderController extends Path
 
     public function Grupos($msgType = [])
     {
-        // $data['proyecto'] = $this->modelGrupo->getAllProyecto();
-        // $data['msgType'] = $msgType;
-        parent::viewModule('lider', 'Grupos', 'Grupos');
+        $data['rutaFichas'] = $this->modelRutaFicha->getAllRutaFichas();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Grupos', 'Grupos', $data);
     }
 
-    // Control de Instructor
+    //
+    // ────────────────────────────────────────────────────────────────────────── I ──────────
+    //   :::::: C O N T R O L   D E   M O D U L O : :  :   :    :     :        :          :
+    // ────────────────────────────────────────────────────────────────────────────────────
+    //
+
+    //
+    // ─── CONTROL DE INSTRUCTOR ──────────────────────────────────────────────────────
+    //
+
+
     public function insertarInstructor()
     {
         $data = $_POST;
@@ -190,7 +204,11 @@ class LiderController extends Path
         $this->Instructor($msgType);
     }
 
-    // Control de Ficha
+    //
+    // ─── CONTROL DE FICHA ───────────────────────────────────────────────────────────
+    //
+
+
     public function insertarFicha()
     {
         $data = $_POST;
@@ -287,7 +305,10 @@ var_dump($_POST);
     }
 
 
-    //Control Nivel Programa de Formacion
+    //
+    // ─── CONTROL NIVEL PROGRAMA DE FORMACION ────────────────────────────────────────
+    //
+
 
     public function getDataNivelProgramaFormacion()
     {
@@ -384,7 +405,11 @@ var_dump($_POST);
         $this->Instructor($msgType);
     }
 
-    // Control de Proyecto
+    //
+    // ─── CONTROL DE PROYECTO ────────────────────────────────────────────────────────
+    //
+
+
     public function getDataProyecto()
     {
         // Completa lista de Proyecto
@@ -406,7 +431,11 @@ var_dump($_POST);
 
 
 
-    // Control de Nivel de Formacion
+    //
+    // ─── CONTROL DE NIVEL DE FORMACION ──────────────────────────────────────────────
+    //
+
+
     public function getDataNivelFormacion()
     {
         // Completa lista de Nivel de formacion
@@ -421,8 +450,6 @@ var_dump($_POST);
         elseif (isset($_REQUEST['q'])) {
             $output = $this->modelNivelProgramaFormacion->getNivelFormacionName($_REQUEST['q']);
         }
-
-        
         $dataNivelFormacion = json_encode($output);
         echo $dataNivelFormacion;
     }
@@ -454,8 +481,35 @@ var_dump($_POST);
         $this->Niveles($msgType);
     }
 
-    //Control de Ambiente
+    //
+    // ─── CONTROL DE AMBIENTE ────────────────────────────────────────────────────────
+    //
+
+
     public function getDataAmbiente()
+    {
+        // Completa lista de estado de ficha
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelAmbiente->getAllAmbiente();
+        }
+        // Selecciona ID de estado de ficha
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelAmbiente->getAmbienteId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de ficha
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelAmbiente->getAmbienteName($_REQUEST['q']);
+        }
+
+        $dataAmbiente = json_encode($output);
+        echo $dataAmbiente;
+    }
+
+    //
+    // ─── CONTROL DE GRUPO ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataGrupo()
     {
         // Completa lista de estado de ficha
         if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {

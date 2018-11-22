@@ -25,82 +25,41 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-responsive-sm  table-sm mt-5 " id="tableInstructores">
+                    <table class="table table-bordered table-striped table-responsive-sm table-sm mt-5" id="tableGrupos">
                         <thead>
-                            <tr class="success">
-                                <th>Id Ruta</th>
-                                <th>Ruta Ficha</th>
-                                <th>Ficha</th>
-                                <th>Grupo</th>
-                                <th class="text-center">Actualizar</th>
-                            </tr>
+                            <th>Id Ruta</th>
+                            <th>Ruta Ficha</th>
+                            <th>Ficha</th>
+                            <th>Grupo</th>
+                            <th class="text-center">Actualizar</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td rowspan="3">1</td>
-                                <td rowspan="3">123210 G1-G2-G3</td>
-                                <td rowspan="3">123210</td>
-                                <td>G1</td>
-                                <td class="text-center">
-                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel"
-                                        id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>G2</td>
-                                <td>BOTON </td>
-                            </tr>
-                            <tr>
-                                <td>G3</td>
-                                <td class="text-center">
-                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel" id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> 
-                                        <i class="far fa-edit fa-lg"></i></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">123210 G4-G5</td>
-                                <td rowspan="2">123210</td>
-                                <td>G4</td>
-                                <td class="text-center">
-                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel" id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>G5</td>
-                                <td>BOTON </td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">123210 G4-G5</td>
-                                <td rowspan="2">123210</td>
-                                <td>G4</td>
-                                <td class="text-center">
-                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel"
-                                        id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>G5</td>
-                                <td>BOTON </td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">123210 G4-G5</td>
-                                <td rowspan="2">123210</td>
-                                <td>G4</td>
-                                <td class="text-center">
-                                    <div class="updateDataAmbiente" data-toggle="modal" data-target="#Actualizar_Nivel"
-                                        id-ambiente="<?php echo $ambiente->id_ambiente; ?>"> <i class="far fa-edit fa-lg"></i></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>G5</td>
-                                <td>BOTON </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <?php
+                                foreach ($data['rutaFichas'] as $rutaFicha):
+                                    require_once './models/grupoModel.php';
+                                    $fichas = GrupoModel::getGrupoIdRutaFicha($rutaFicha->id_ruta_ficha);
+                                    // var_dump($fichas);
+                                    $rowSpan = count($fichas);
+                                ?>
 
+                                
+                            <tr>
+                                <td rowspan="<?php echo $rowSpan; ?>"><?php echo $rutaFicha->id_ruta_ficha; ?></td>
+                                <td rowspan="<?php echo $rowSpan; ?>"><?php echo $rutaFicha->num_ruta_ficha; ?></td>
+                            </tr>
+                                <?php foreach ($fichas as $ficha) : ?>
+                                <tr>
+                                    <td><?php echo $ficha->num_ficha; ?></td>
+                                    <td><?php echo $ficha->num_grupo; ?></td>
+                                    <td class="text-center">
+                                        <div class="updateDataGrupoFicha" data-toggle="modal" data-target="#ActualizarGrupoFicha" id-Grupo="<?php echo $ficha->id_grupo ?>">
+                                            <i class="far fa-edit fa-lg"></i>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -136,7 +95,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="Actualizar_Grupo" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -162,7 +121,7 @@
 <script>
     $(document).ready(function () {
 
-        $("#tableProgramas").DataTable({
+        $("#tableGrupos").DataTable({
             "language": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",
@@ -209,41 +168,41 @@
             //]
         });
 
-        $(".statusChange").click(function () {
-            var statetext = $(this).attr('name-state');
-            var state_id = $(this).attr('id-state');
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=changeStatusPrograma',
-                data: {
-                    statetext: statetext,
-                    state_id: state_id,
-                    id_programa: id_programa
-                },
-                success(response) {
-                    location.reload();
-                }
-            });
-        });
+        // $(".statusChange").click(function () {
+        //     var statetext = $(this).attr('name-state');
+        //     var state_id = $(this).attr('id-state');
+        //     var id_programa = $(this).attr('id-programa');
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '?c=Lider&m=changeStatusPrograma',
+        //         data: {
+        //             statetext: statetext,
+        //             state_id: state_id,
+        //             id_programa: id_programa
+        //         },
+        //         success(response) {
+        //             location.reload();
+        //         }
+        //     });
+        // });
 
-        $(".updateDataPrograma").click(function () {
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=getDataPrograma',
-                dataType: "json",
-                data: {
-                    id_programa: id_programa
-                },
-                success(response) {
-                    var programa = jQuery.parseJSON(JSON.stringify(response));
-                    $('#text-dni').val(programa.dni);
-                    $('#text-nombre').val(programa.nombre);
-                    $('#text-apellido').val(programa.apellido);
-                    $('#text-email').val(programa.email);
-                }
-            });
+        // $(".updateDataGrupo").click(function () {
+        //     var id_programa = $(this).attr('id-programa');
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '?c=Lider&m=getDataPrograma',
+        //         dataType: "json",
+        //         data: {
+        //             id_programa: id_programa
+        //         },
+        //         success(response) {
+        //             var programa = jQuery.parseJSON(JSON.stringify(response));
+        //             $('#text-dni').val(programa.dni);
+        //             $('#text-nombre').val(programa.nombre);
+        //             $('#text-apellido').val(programa.apellido);
+        //             $('#text-email').val(programa.email);
+        //         }
+        //     });
         });
 
     });
