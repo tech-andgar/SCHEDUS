@@ -181,5 +181,41 @@ class RutaFichaModel extends DB {
 	public function setObservaciones($observaciones) {
 		$this->observaciones = $observaciones;
 	}
+
+	public function getAllRutaFichas()
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_RUTA_FICHA);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Ruta de ficha
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	// public function getRutaFichaId($idRutaFicha)
+	// {
+	// 	try {
+	// 		$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_ID);
+	// 		$stm->bindParam(1, $idRutaFicha, PDO::PARAM_STR);
+	// 		$stm->execute();
+	// 		return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Programa
+	// 	} catch (Exception $e) {
+	// 		die($e->getMessage());
+	// 	}
+	// }
+
+	// public function getRutaFichaName($nameRutaFicha)
+	// {
+	// 	try {
+	// 		$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_NAME);
+	// 		$nameRutaFicha = '%' . $nameRutaFicha . '%';
+	// 		$stm->bindParam(1, $nameRutaFicha, PDO::PARAM_STR);
+	// 		$stm->execute();
+	// 		return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
+	// 	} catch (Exception $e) {
+	// 		die($e->getMessage());
+	// 	}
+	// }
 }
 ?>
