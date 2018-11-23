@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 19-11-2018 a las 16:27:59
+-- Tiempo de generación: 23-11-2018 a las 21:36:50
 -- Versión del servidor: 10.3.9-MariaDB
--- Versión de PHP: 7.2.10
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -587,6 +587,27 @@ CREATE TABLE IF NOT EXISTS `v_ficha_programa_nivel_estado` (
 -- --------------------------------------------------------
 
 --
+-- Estructura Stand-in para la vista `v_grupo_ficha`
+-- (Véase abajo para la vista actual)
+--
+DROP VIEW IF EXISTS `v_grupo_ficha`;
+CREATE TABLE IF NOT EXISTS `v_grupo_ficha` (
+`id_grupo` int(10)
+,`id_ficha` int(10)
+,`num_ficha` varchar(100)
+,`num_grupo` varchar(3)
+,`id_ruta_ficha` int(10)
+,`name_ruta_ficha` varchar(100)
+,`num_ruta_ficha` varchar(10)
+,`cod_jornada` int(10)
+,`fecha_inicio` date
+,`fecha_fin` date
+,`observaciones` varchar(191)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura Stand-in para la vista `v_horario_asignado`
 -- (Véase abajo para la vista actual)
 --
@@ -729,6 +750,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_ficha_programa_nivel_estado`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from (((`ficha` join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_grupo_ficha`
+--
+DROP TABLE IF EXISTS `v_grupo_ficha`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_grupo_ficha`  AS  select `g`.`id_grupo` AS `id_grupo`,`f`.`id_ficha` AS `id_ficha`,`f`.`num_ficha` AS `num_ficha`,`g`.`num_grupo` AS `num_grupo`,`rf`.`id_ruta_ficha` AS `id_ruta_ficha`,`rf`.`name_ruta_ficha` AS `name_ruta_ficha`,`rf`.`num_ruta_ficha` AS `num_ruta_ficha`,`rf`.`cod_jornada` AS `cod_jornada`,`rf`.`fecha_inicio` AS `fecha_inicio`,`rf`.`fecha_fin` AS `fecha_fin`,`rf`.`observaciones` AS `observaciones` from ((`grupo` `g` join `ruta_ficha` `rf` on(`rf`.`id_ruta_ficha` = `g`.`cod_ruta_ficha`)) join `ficha` `f` on(`f`.`id_ficha` = `g`.`cod_ficha`)) ;
 
 -- --------------------------------------------------------
 
