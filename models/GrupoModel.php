@@ -88,7 +88,21 @@ class GrupoModel extends DB {
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
+	}
+
+
+	public static function getGrupoIdRutaFicha($idRutaFicha)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_GRUPO_ID_RUTA_FICHA);
+            $stm->bindParam(1, $idRutaFicha, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno seleccionado lista de Grupo de Ficha por filtro de ID Ruta de Ficha
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+
 
 }
 
