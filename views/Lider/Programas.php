@@ -1,4 +1,6 @@
+
 <!-- Contenido Principal -->
+
 <main class="main">
 	<!-- Breadcrumb -->
 	<ol class="breadcrumb">
@@ -196,7 +198,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="updateDataInstructor" class="form-signin form-modal">
+					<form method="post" action="<?php echo APP_URL ?>updateDataInstructor" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -335,11 +337,12 @@
 			//]
 		});
 
+
 		// Call AJAX getDataNivelProgramaFormacion to SELECT
 		$('#list-NivelProgramaFormacion').select2({
 			theme: 'bootstrap4',
 			ajax: {
-				url: 'getDataNivelProgramaFormacion',
+				url: APP_URL+'lider/getDataNivelProgramaFormacion',
 				dataType: 'json',
 				delay: 250,
 				data: function (params) {
@@ -408,7 +411,7 @@
 
 			$.ajax({
 				type:'POST',
-				url:'getDataProgramaFormacion',
+				url:'lider/getDataProgramaFormacion',
 				dataType:"json",
 				data:{
 					id:id_programa
@@ -429,7 +432,7 @@
 					$('#list-upd-NivelProgramaFormacion').select2({
 						theme: 'bootstrap4',
 						ajax: {
-							url: 'getDataNivelProgramaFormacion',
+							url: 'lider/getDataNivelProgramaFormacion',
 							dataType: 'json',
 							delay: 250,
 							data: function (params) {
@@ -463,7 +466,7 @@
 					$('#list-upd-Proyecto').select2({
 						theme: 'bootstrap4',
 						ajax: {
-							url: 'getDataProyecto',
+							url: 'lider/getDataProyecto',
 							dataType: 'json',
 							delay: 250,
 							data: function (params) {

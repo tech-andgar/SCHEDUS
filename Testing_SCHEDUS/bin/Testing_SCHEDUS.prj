@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+   <description>Testing Project SCHEDUS
+By Andrés Garcia &amp; Johann Amaya</description>
+   <name>Testing_SCHEDUS</name>
+   <tag></tag>
+   <UUID>2bd9e9ae-ab06-4546-8d3d-33aaa3f31d49</UUID>
+   <migratedVersion>5.7.0</migratedVersion>
+   <pageLoadTimeout>0</pageLoadTimeout>
+   <sourceContent>
+      <sourceFolderList>
+         <sourceFolderConfiguration>
+            <url>Include/scripts/groovy</url>
+         </sourceFolderConfiguration>
+      </sourceFolderList>
+      <systemFolderList>
+         <systemFolderConfiguration>
+            <url>Include/scripts/groovy</url>
+         </systemFolderConfiguration>
+         <systemFolderConfiguration>
+            <url>Include/features</url>
+         </systemFolderConfiguration>
+      </systemFolderList>
+   </sourceContent>
+   <type>GENERIC</type>
+</Project>
