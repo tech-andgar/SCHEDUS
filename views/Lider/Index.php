@@ -16,7 +16,7 @@
 						<h2 class="text-center"> BIENVENIDO LIDER</h2>
 					</div>
 					<div class="col-md-12">
-						<img src="<?php echo APP_URL ?>assets/images/avatar-default-icon.png" width="300rem" >
+						<img src="<?php echo APP_URL ?>assets/images/avatar-default-icon.png" class="img-avatar"  >
 					</div>
 					<div class="col-md-12">
 						<h2 class="text-center"> <?php echo $_SESSION['user']->nombre . ' '. $_SESSION['user']->apellido;?> </h2>

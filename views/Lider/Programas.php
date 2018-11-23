@@ -112,8 +112,8 @@
 									<h4 for="codig">Codigo</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="number" name="txt_cod_programa" id="txt_cod_programa" class="adsi-css"  required>
+								<div class="col-lg-5">
+									<input type="number" name="txt_cod_programa" id="txt_cod_programa" class="form-control"  required>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -121,8 +121,8 @@
 									<h4 for="short_name_programa">Siglas del Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_short_name_programa" id="txt_short_name_programa" class="adsi-css"
+								<div class="col-lg-5">
+									<input type="text" name="txt_short_name_programa" id="txt_short_name_programa"class="form-control"
 									aria-describedby="helpIdNumFicha " required>
 								</div>
 							</div>
@@ -131,8 +131,8 @@
 									<h4 for="name_Programa_formacion">Nombre del Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Programa de Formacion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion" class="adsi-css" required>
+								<div class="col-lg-5">
+									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" required>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -140,8 +140,8 @@
 									<h4 for="version_Programa">Version del Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Version de Formacion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_version_programa" id="txt_version_programa" class="adsi-css"  required>
+								<div class="col-lg-5">
+									<input type="text" name="txt_version_programa" id="txt_version_programa"class="form-control"  required>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -149,8 +149,8 @@
 									<h4>Nivel</h4>
 									<small id="helpIdNumFicha" class="text-muted ">Selecciona Nivel de Formacion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<select id="list-NivelProgramaFormacion" class="adsi-css " name="txt_id_nivel_programa_formacion" required></select>
+								<div class="col-lg-5">
+									<select id="list-NivelProgramaFormacion" class="adsi-css" name="txt_id_nivel_programa_formacion" required></select>
 								</div>
 							</div>
 						</div>
@@ -166,12 +166,12 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-2 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="txt_nom_proyecto">Nombre del Proyecto</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<select id="list-Proyecto" class="adsi-css" id="txt_cod_proyecto" name="txt_cod_proyecto" required></select>
+								<div class="col-lg-5">
+									<select id="list-Proyecto"  id="txt_cod_proyecto" name="txt_cod_proyecto" class="adsi-css" required></select>
 								</div>
 							</div>
 						</div>
@@ -208,8 +208,8 @@
 									<h4 for="codig">Codigo</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="adsi-css" >
+								<div class="col-lg-5">
+									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa"class="form-control" >
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -217,8 +217,8 @@
 									<h4 for="short_name_programa">Siglas del Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_upd_short_name_programa" id="txt_upd_short_name_programa" class="adsi-css"
+								<div class="col-lg-5">
+									<input type="text" name="txt_upd_short_name_programa" id="txt_upd_short_name_programa"class="form-control"
 									>
 								</div>
 							</div>
@@ -227,8 +227,8 @@
 									<h4 for="name_Programa_formacion">Nombre del Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Programa de Formacion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_upd_name_programa_formacion" id="txt_upd_name_programa_formacion" class="adsi-css"
+								<div class="col-lg-5">
+									<input type="text" name="txt_upd_name_programa_formacion" id="txt_upd_name_programa_formacion"class="form-control"
 									>
 								</div>
 							</div>
@@ -237,8 +237,8 @@
 									<h4 for="version_Programa">Version del Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Version de Formacion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input type="text" name="txt_upd_version_programa" id="txt_upd_version_programa" class="adsi-css" >
+								<div class="col-lg-5">
+									<input type="text" name="txt_upd_version_programa" id="txt_upd_version_programa"class="form-control" >
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -247,8 +247,8 @@
 									<small id="helpIdNumFicha" class="text-muted ">Selecciona Nivel de Formacion</small>
 								</div>
 
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<select id="list-upd-NivelProgramaFormacion" name="txt_upd_id_nivel_programa_formacion" class="adsi-css" >
+								<div class="col-lg-5">
+									<select id="list-upd-NivelProgramaFormacion" name="txt_upd_id_nivel_programa_formacion"class="form-control" >
 									</select>
 								</div>
 							</div>
@@ -270,8 +270,8 @@
 									<h4 for="txt_upd_num_proyecto">Nombre del Proyecto</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre de Proyecto</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<select id="list-upd-Proyecto" name="txt_upd_cod_proyecto" class="adsi-css"></select>
+								<div class="col-lg-5">
+									<select id="list-upd-Proyecto" name="txt_upd_cod_proyecto"class="form-control"></select>
 								</div>
 							</div>
 						</div>

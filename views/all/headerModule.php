@@ -1,52 +1,62 @@
 <div class="modal fade" id="Perfil" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="col-11 modal-title text-center">Perfil</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center text-center">
-                        <form method="POST" action="../controlador/validar.php" class="form-signin">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <h5>Numero de Documento</h5>
-                                    </td>
-                                    <td><input type="number" class="adsi-css" name="Documento" placeholder="Documento"
-                                            readonly /></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Nombre</h5>
-                                    </td>
-                                    <td><input type="text" class="adsi-css" name="text" placeholder="Nombre" required /></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Correo</h5>
-                                    </td>
-                                    <td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h5>Contraseña</h5>
-                                    </td>
-                                    <td><input type="password" class="adsi-css" name="password" placeholder="Contraseña"
-                                            required /></td>
-                                </tr>
-                            </table>
-                            <div class="modal-body">
-                                <button class="btn-rounded" type="submit" style="width:180px">Actualizar</button>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title text-center col-11 ">Perfil</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="justify-content-center">
+                    <form method="POST" action="../controlador/validar.php" class="form-signin">
+                        <div class="container-fluid">
+                            <div class="row pt-2">
+                                <div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+                                    <h5>Numero de Documento</h5>
+                                </div>
+                                <div class="col-lg-5 col-12">
+                                    <input type="number" class="form-control" name="Documento" placeholder="Documento"
+                                        readonly />
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="row pt-2">
+                                <div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+                                    <h5>Nombre</h5>
+                                </div>
+                                <div class="col-lg-5 col-12">
+                                    <input type="text" class="form-control" name="text" placeholder="Nombre" required />
+                                </div>
+                            </div>
+                            <div class="row pt-2">
+                                <div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+                                    <h5>Correo</h5>
+                                </div>
+                                <div class="col-lg-5 col-12">
+                                    <input type="email" class="form-control" name="email" placeholder="Correo" required />
+                                </div>
+                            </div>
+                            <div class="row  pt-2">
+                                <div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+                                    <h5>Contraseña</h5>
+                                </div>
+                                <div class="col-lg-5 col-12">
+                                    <input type="password" class="form-control" name="password" placeholder="Contraseña"
+                                        required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-body text-center">
+                            <button class="btn-rounded" type="submit">Actualizar</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!-- HEADER -->
 <header class="app-header navbar">
@@ -55,7 +65,8 @@
     </button>
     <a class="navbar-brand" href="#">
         <img class="navbar-brand-full img-fluid" src="<?php echo APP_URL?>assets/images/Logo_SCHEDUS.svg" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized img-fluid" src="<?php echo APP_URL?>assets/images/Sena_Colombia_logo.svg" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized img-fluid" src="<?php echo APP_URL?>assets/images/Sena_Colombia_logo.svg"
+            alt="CoreUI Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -64,17 +75,18 @@
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle nav-link mr-5" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-home"></i><span class="d-md-down-none"> <?php echo $_SESSION['user']->name_rol;?> </span>
+                <i class="fas fa-home"></i><span class="d-md-down-none">
+                    <?php echo $_SESSION['user']->name_rol;?> </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right text-center">
                 <div class="dropdown-header">
                     <strong><i class="fas fa-cog"></i></strong>
                 </div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#Perfil"><i class="fas fa-home"></i>Cuenta</a>
-                <a class="dropdown-item" href="<?php echo APP_URL?>security/logOut"><i class="fas fa-sign-in-alt"></i>Cerrar sesión</a>
+                <a class="dropdown-item" href="<?php echo APP_URL?>security/logOut"><i class="fas fa-sign-in-alt"></i>Cerrar
+                    sesión</a>
             </div>
         </li>
     </ul>
 </header>
 <!-- END HEADER -->
-
