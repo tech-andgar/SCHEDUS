@@ -305,10 +305,6 @@ var_dump($_POST);
         }
 
         $dataNivelFormacion = json_encode($output);
-
-        //
-        //$dataNivelFormacion = $_REQUEST['q'];
-
         echo $dataNivelFormacion;
     }
 
