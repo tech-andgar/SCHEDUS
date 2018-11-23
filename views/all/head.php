@@ -118,6 +118,7 @@ if (isset($_SESSION['user'])) {
 
     <!-- CoreUI and necessary plugins-->
     <script src="<?php echo APP_URL ?>assets/js/coreui/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/popper.min.js"></script>
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/bootstrap.min.js"></script>
     <!-- Plugins and scripts required by all views -->
