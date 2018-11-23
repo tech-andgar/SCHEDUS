@@ -91,21 +91,30 @@
 
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
+				<div class="d-flex justify-content-center ">
 					<form method="post" action="insertarFicha" class="form-signin">
-						<div class="form-group">
-							<h4>Numero de la Ficha</h4>
-							<input type="text" name="num_ficha" id="num_ficha" class="form-control adsi-css" aria-describedby="helpIdNumFicha">
-							<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
+						<div class="container-fluid">
+							<div class="row pt-2">
+								<div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+									<h4>Numero de la Ficha</h4>
+								</div>
+								<div class="col-lg-5 col-12">
+									<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
+								</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+									<h4>Programa:</h4>
+								</div>
+								<div class="col-lg-5 col-12">
+									<select id="selectNewListPrograma" class="adsi-css mb-3" name="cod_programa_formacion" required></select>
+								</div>
+							</div>
 						</div>
-						<div class="form-group">
-
-							<h4>Programa:</h4>
-							<select id="selectNewListPrograma" class="adsi-css mb-3" name="cod_programa_formacion" required></select>
+						<div class="modal-body text-center">
+							<button class="btn-rounded" type="submit" style="width:110px">Insertar</button>
 						</div>
-
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Insertar</button>
 					</form>
 				</div>
 			</div>
@@ -134,7 +143,8 @@
 									<h4 style="margin-bottom: 0px;" class="mr-5" for="txt_num_ficha">Numero de la Ficha:</h4>
 								</td>
 								<td>
-									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha" readonly>
+									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha"
+									 readonly>
 								</td>
 							</tr>
 							<tr>
@@ -157,7 +167,7 @@
 									</select>
 								</td>
 							</tr>
-							
+
 						</table>
 						<div class="modal-body">
 							<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
@@ -365,7 +375,7 @@
 							type: 'select2:select'
 						});
 						// END PRE-SELECTED SelectUpdListEstadoFicha
-					}// END getDataEstadoFichaToUpdSelect()
+					} // END getDataEstadoFichaToUpdSelect()
 
 
 					// FUNCTION
@@ -387,10 +397,10 @@
 								processResults: function (data, params) {
 									console.log(data);
 									var data = $.map(data, function (obj) {
-													obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
-													obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
-													return obj;
-												});
+										obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
+										obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+										return obj;
+									});
 
 									return {
 										results: data,
@@ -416,7 +426,7 @@
 							type: 'select2:select'
 						});
 						// END PRE-SELECTED SelectUpdListEstadoFicha
-					}//END getDataProgramaFormacionToUpdSelect()
+					} //END getDataProgramaFormacionToUpdSelect()
 
 					// END FUNCTIONS
 				}
@@ -441,10 +451,10 @@
 				},
 				processResults: function (data, params) {
 					var data = $.map(data, function (obj) {
-									obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
-									obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
-									return obj;
-								});
+						obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+						return obj;
+					});
 
 					return {
 						results: data,
