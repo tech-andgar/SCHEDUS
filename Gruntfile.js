@@ -15,12 +15,12 @@ module.exports = function (grunt) {
                         "js/*.js",
                         "*.html",
                         "*.php",
-                        "view/*.php"
+                        "views/*.php"
                     ]
                 },
                 options: {
                     watchTask: true,
-                    proxy: "http://localhost:80/schedus/"
+                    proxy: "http://localhost:80/SCHEDUS/"
                 }
             }
         }
