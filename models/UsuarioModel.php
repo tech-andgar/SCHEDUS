@@ -203,6 +203,7 @@ class UsuarioModel extends DB {
    * @param data
    */
   public function verificarLogin(array $data) {
+
     try {
       // Verificar hay datos dni y password en $data
       if (isset($data['dni']) && isset($data['password'])) {
