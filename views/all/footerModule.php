@@ -5,6 +5,12 @@
     </footer>
     <!-- END FOOTER -->
 
+<?php
+if (!empty($data['msgType'])) {
+    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
+    unset($data);
+}
+?>
 
 </body>
 <!-- END BODY -->

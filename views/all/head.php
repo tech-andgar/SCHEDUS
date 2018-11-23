@@ -168,6 +168,9 @@ if (isset($_SESSION['user'])) {
         function LoadUrl(url) {
             window.location.href = url;
         }
+
+        const APP_URL='<?php echo APP_URL ?>'
+
     </script>
 
 

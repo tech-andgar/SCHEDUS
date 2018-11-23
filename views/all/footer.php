@@ -14,7 +14,7 @@
 
 <!-- <canvas id="myChart" width="400" height="400"></canvas>
 
-<script>    
+<script>
     var ctx = document.getElementById("myChart");
     console.log(ctx);
 
@@ -54,7 +54,7 @@
         options: options
     })
 </script> -->
- 
+
 </body>
 <!-- END BODY -->
 </html>
