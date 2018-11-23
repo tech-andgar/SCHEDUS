@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Ingreso usuario rol Coordinador</description>
+   <name>CoordinadorLogin</name>
+   <tag>Coodinador, Login, Login Coodinador,</tag>
+   <comment></comment>
+   <testCaseGuid>ea662ec0-b047-43e9-904a-258614f52d3e</testCaseGuid>
+</TestCaseEntity>
