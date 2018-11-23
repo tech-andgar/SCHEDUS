@@ -10,55 +10,35 @@
 		<div class="card">
 			<div class="card-header ">
 				<i class="fa fa-align-justify"></i> Administrar competencias de programas de formación
-				<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar">
+				<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#Agregar">
 					<i class="icon-plus "></i>&nbsp;Nuevo
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="form-group row">
-					<div class="col-md-6">
-						<div class="input-group">
-							<input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-							<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-						</div>
-					</div>
-				</div>
-				<div class="table-responsive">
-                    <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
+                    <table class="table table-responsive-sm table-striped table-sm mt-5" id="tableCompetencia">
 					<thead>
 					<tr class="success">
-							<th class="">Programa</th>
-							<th class="text-center">Competencia</th>
-							<th class="text-center">Estado</th>
+							<th>Competencia</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
 					</thead>
-					<tbody class="">
-						<tbody class="">
-						<tr>
-							<td class="">Análisis y Diseño de Sistemas de Información</td>
-							<td>
-								Definir los requerimientos necesarios para construir el sistema de información de acuerdo con las necesidades
-								del cliente.
-							</td>
-							<td>
-                                    <div class="onoffswitch">
-                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="1"
-                                            checked>
-                                        <label class="onoffswitch-label" for="1"></label>
-                                    </div>
-                                </td>
-							<td style="
-									padding-bottom: 0px;
-									padding-top: 10px;">
-								<div data-toggle="modal" data-target="#Actualizar" class=" text-center">
-									<i class="far fa-edit fa-lg"></i>
-								</div>
-							</td>
-						</tr>
-					</tbody>
+					<tbody>
+							<?php foreach ($data['competencia'] as $competencia) { ?>
+							<tr>
+								<td>
+									<?php echo $competencia->name_competencia; ?>
+								</td>
+								<td class="text-center">
+									<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-competencia="<?php echo $competencia->id_competencia; ?>">
+										<i class="far fa-edit fa-lg"></i></div>
+								</td>
+							</tr>
+							<?php
+						}
+					?>
+						</tbody>
 				</table>
-			</div></div>
+			
 		</div>
 		<!-- Fin ejemplo de tabla Listado -->
 	</div>
@@ -120,3 +100,60 @@
 </main>
 <!-- /Fin del contenido principal -->
 </div>
+<script>
+	$(document).ready(function () {
+
+		$("#tableCompetencia").DataTable({
+			"language": {
+				"sProcessing": "Procesando...",
+				"sLengthMenu": "Mostrar _MENU_ registros",
+				"sZeroRecords": "No se encontraron resultados",
+				"sEmptyTable": "Ningún dato disponible en esta tabla",
+				"sInfo": "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
+				"sInfoEmpty": "Registros del 0 al 0 de un total de 0 registros",
+				"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+				"sInfoPostFix": "",
+				"sSearch": "Buscar:",
+				"sUrl": "",
+				"sInfoThousands": ",",
+				"sLoadingRecords": "Cargando...",
+				"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Último",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior"
+				},
+				"oAria": {
+					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+				}
+			},
+			"dom": // Insertar objeto tabla por formato:
+				// Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
+				"<'row'<'col-sm-6'f><'col-sm-6'l>>" +
+				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
+				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
+				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
+				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
+				// Pie de la tabla -- B-> Botones de exportar
+				"<'row'<'col-sm-12'B>>",
+			buttons: [
+				'copy',
+				'excel',
+				'pdf'
+			]
+			//buttons: [
+			//	'copyHtml5',
+			//	'excelHtml5',
+			//	'csvHtml5',
+			//	'pdfHtml5'
+			//]
+		});
+	});
+</script>
+
+<?php
+if (!empty($data['msgType'])) {
+    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
+}
+?>

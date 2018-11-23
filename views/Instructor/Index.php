@@ -1,3 +1,12 @@
+<?php if (isset($_GET['failed'])) {
+            if ($_REQUEST['failed'] == 1) {
+                $msg = "'Tener presente que la infomación aquí diligenciada deberá ser debidamente soportada cuando sea requerida por la Coordinación Académica'";
+                $title = "'AVISO'";
+                echo '<script type="text/javascript"> toastr.error(' . $msg . ',' . $title . ')</script>';
+            }
+        }
+    ?>
+
 <!-- SECTION -->
 <section class="container bg-light">
 
@@ -489,7 +498,7 @@
       }
     });
     //Cambia el color cuando pasas el mouse encima de una celda o sales de ella,
-    //si y solo si la option del select es diferente a la default	
+    //si y solo si la option del select es diferente a la default
     $("td").mouseover(function () {
       if ($("#selector_profesores option:selected").val() != 0) {
         if ($(this).attr("bgcolor") != "#5cb85c") {
@@ -506,7 +515,7 @@
     });
   });
 
-  //Coloca las celdas de color blanco, puesto que inicialmente son transparentes 
+  //Coloca las celdas de color blanco, puesto que inicialmente son transparentes
   //y limpia los campos deshabilitados
   function limpiarCeldas() {
     $("#tabla_horario tbody tr td").attr("bgcolor", "#fff");
@@ -600,7 +609,7 @@
   }
 
   //Esta funcion llena las celdas cuando existe algun registro guardado en la tabla
-  //disponibilidad_profesores. Recibe un conjunto de registros equivalentes a lo 
+  //disponibilidad_profesores. Recibe un conjunto de registros equivalentes a lo
   //encontrado en la DB
   function llenarCeldas(datos) {
     for (var k = 0; k < Object.keys(datos).length; k++) {
@@ -625,7 +634,7 @@
     cargarDisponibilidad();
   });
 
-  //Esto se ejecuta solo si la persona seleccionada cuenta con disponibilidad 
+  //Esto se ejecuta solo si la persona seleccionada cuenta con disponibilidad
   //previamente almacenada y borra dicha disponibilidad
   $("#borrar_disponibilidad").click(function () {
     var cedula = $("#selector_profesores option:selected").val();

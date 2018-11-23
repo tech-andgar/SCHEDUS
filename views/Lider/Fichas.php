@@ -5,14 +5,13 @@
 		<li class="breadcrumb-item">Inicio</li>
 		<li class="breadcrumb-item"><a href="#">Lider</a></li>
 		<li class="breadcrumb-item active">Fichas</li>
-		<div class="container-fluid">
 	</ol>
 	<div class="container-fluid">
 		<div class="card">
 			<!-- Ejemplo de tabla Listado -->
 			<div class="card-header ">
 				<i class="fa fa-align-justify"></i> Fichas
-				<button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#Agregar_Ficha">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalAgregarNuevaFicha">
 					<i class="icon-plus "></i>&nbsp;Nuevo
 				</button>
 			</div>
@@ -81,7 +80,7 @@
 <!-- /Fin del contenido principal -->
 
 <!-- Modal Agregar nueva Ficha-->
-<div class="modal fade" id="Agregar_Ficha" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="ModalAgregarNuevaFicha" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -93,7 +92,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="?c=Lider&m=insertarFicha" class="form-signin">
+					<form method="post" action="insertarFicha" class="form-signin">
 						<div class="form-group">
 							<h4>Numero de la Ficha</h4>
 							<input type="text" name="num_ficha" id="num_ficha" class="form-control adsi-css" aria-describedby="helpIdNumFicha">
@@ -102,14 +101,7 @@
 						<div class="form-group">
 
 							<h4>Programa:</h4>
-							<select class="adsi-css mb-3" name="cod_programa_formacion" required>
-								<option value="">Programas</option>
-								<?php foreach ($data['programaFormacion'] as $programa) { ?>
-								<option value="<?php echo $programa->id_programa_formacion; ?>">
-									<?php echo $programa->name_programa_formacion; ?>
-								</option>
-								<?php } ?>
-							</select>
+							<select id="selectNewListPrograma" class="adsi-css mb-3" name="cod_programa_formacion" required></select>
 						</div>
 
 						<hr>
@@ -135,7 +127,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="?c=Lider&m=updateDataFicha" class="form-signin">
+					<form method="POST" action="updateDataFicha" class="form-signin">
 						<table>
 							<tr>
 								<td>
@@ -151,7 +143,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
 								</td>
 								<td>
-									<select id="list-estadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
+									<select id="SelectUpdListEstadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
 									</select>
 								</td>
 							</tr>
@@ -161,7 +153,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</td>
 								<td>
-									<select class="adsi-css mb-3" id="list-programa" name="id_programa_formacion" required>
+									<select class="adsi-css mb-3" id="selectUpdListPrograma" name="id_programa_formacion" required>
 									</select>
 								</td>
 							</tr>
@@ -233,6 +225,8 @@
 		return collection;
 	};
 
+
+
 	$(document).ready(function () {
 
 		$("#tableFichas").DataTable({
@@ -290,7 +284,7 @@
 			var id_Ficha = $(this).attr('id-Ficha');
 			$.ajax({
 				type: 'POST',
-				url: '?c=Lider&m=changeStatusFicha',
+				url: 'changeStatusFicha',
 				data: {
 					statetext: statetext,
 					state_id: state_id,
@@ -302,6 +296,13 @@
 			});
 		});
 
+
+
+
+
+
+
+
 		// get Data Ficha_ID form button -> Modal Form_update_ficha
 		$(".updateDataFicha").click(function () {
 			var idFicha = $(this).attr('id-ficha');
@@ -309,127 +310,169 @@
 			// Call AJAX getDataFicha()
 			$.ajax({
 				type: 'POST',
-				url: '?c=Lider&m=getDataFicha',
+				url: 'getDataFicha',
 				data: {
 					idFicha: idFicha
 				},
 				success(response) {
 					var ficha = jQuery.parseJSON(response);
 					$('#txt_num_ficha').val(ficha.num_ficha);
+					getDataEstadoFichaToUpdSelect();
+					getDataProgramaFormacionToUpdSelect();
 
+					//FUNCTIONS
+					//
+					// Call AJAX getDataEstadoFicha() to SELECT ON FORM UPDATE
+					function getDataEstadoFichaToUpdSelect() {
+						$('#SelectUpdListEstadoFicha').select2({
+							theme: 'bootstrap4',
+							ajax: {
+								url: 'getDataEstadoFicha',
+								dataType: 'json',
+								delay: 250,
+								data: function (params) {
+									return {
+										q: params.term, // search term
+										page: params.page
+									};
+								},
+								processResults: function (data, params) {
+									var data = $.map(data, function (obj) {
+										obj.id = obj.id || obj.id_estado_ficha; // replace pk with your identifier
+										obj.text = obj.text || obj.name_estado_ficha; // replace name with the property used for the text
 
+										if (obj.id_estado_ficha == ficha.id_estado_ficha) {
+											obj.selected = true;
+										}
 
-					// Call AJAX getAllEstadoFicha()
+										return obj;
+									});
 
-					$('#list-estadoFicha').select2({
-						theme: 'bootstrap4',
-						ajax: {
-							url: '?c=Lider&m=getDataEstadoFicha',
-							dataType: 'json',
-							delay: 250,
-							data: function (params) {
-								return {
-									q: params.term, // search term
-									page: params.page
-								};
+									return {
+										results: data,
+									};
+								},
+								cache: true
 							},
-							processResults: function (data, params) {
-								var data = $.map(data, function (obj) {
-									obj.id = obj.id || obj.id_estado_ficha; // replace pk with your identifier
-									obj.text = obj.text || obj.name_estado_ficha; // replace name with the property used for the text
+							placeholder: $(this).attr('placeholder'),
+							allowClear: Boolean($(this).data('allow_clear')),
+							tags: true,
+							dropdownParent: $("#updateDataFicha"),
+						});
 
-									console.log(ficha);
-									console.log(obj);
-									if (obj.id_estado_ficha == ficha.id_estado_ficha) {
-										obj.selected = true;
-									}
+						// PRE-SELECTED SelectUpdListEstadoFicha
+						// Fetch the preselected item, and add to the control
+						var EstadoFichaSelect = $('#SelectUpdListEstadoFicha');
+						// create the option and append to Select2
+						var option = new Option(ficha.name_estado_ficha, ficha.id_estado_ficha, true, true);
+						EstadoFichaSelect.append(option).trigger('change');
 
-									return obj;
-								});
+						// manually trigger the `select2:select` event
+						EstadoFichaSelect.trigger({
+							type: 'select2:select'
+						});
+						// END PRE-SELECTED SelectUpdListEstadoFicha
+					}// END getDataEstadoFichaToUpdSelect()
 
-								return {
-									results: data,
-								};
+
+					// FUNCTION
+					//
+					// Call AJAX getDataProgramaFormacion() to SELECT ON FORM UPDATE
+					function getDataProgramaFormacionToUpdSelect() {
+						$('#selectUpdListPrograma').select2({
+							theme: 'bootstrap4',
+							ajax: {
+								url: 'getDataProgramaFormacion',
+								dataType: 'json',
+								delay: 250,
+								data: function (params) {
+									return {
+										q: params.term, // search term
+										page: params.page
+									};
+								},
+								processResults: function (data, params) {
+									console.log(data);
+									var data = $.map(data, function (obj) {
+													obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
+													obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+													return obj;
+												});
+
+									return {
+										results: data,
+									};
+								},
+								cache: true
 							},
-							cache: true
-						},
-						placeholder: $(this).attr('placeholder'),
-						allowClear: Boolean($(this).data('allow_clear')),
-						tags: true,
-						dropdownParent: $("#updateDataFicha"),
-					});
+							placeholder: $(this).attr('placeholder'),
+							allowClear: Boolean($(this).data('allow_clear')),
+							tags: true,
+							dropdownParent: $("#updateDataFicha"),
+						});
 
-					// $.ajax({
-					// 	type: 'POST',
-					// 	url:'?c=Lider&m=getAllDataEstadoFicha',
-					// 	success(response) {
-					// 		var estadoFicha = jQuery.parseJSON(response);
-					// 		$('#list-estadoFicha').empty();
-					// 		$.each(estadoFicha, function (index, value) {
-					// 			if (value.id_estado_ficha == ficha.id_estado_ficha) {
-					// 				$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"' selected>"+value.name_estado_ficha +"</option>");
-					// 			} else {
-					// 				$('#list-estadoFicha').append("<option value='"+value.id_estado_ficha+"'>"+value.name_estado_ficha +"</option>");
-					// 			}
-					// 		});
-					// 	}
-					// });// END Call AJAX getAllEstadoFicha()
+						// PRE-SELECTED selectUpdListPrograma
+						// Fetch the preselected item, and add to the control
+						var ProgramaFormacionSelect = $('#selectUpdListPrograma');
+						// create the option and append to Select2
+						var option = new Option(ficha.name_programa_formacion, ficha.id_programa_formacion, true, true);
+						ProgramaFormacionSelect.append(option).trigger('change');
 
-					// Call AJAX getAllprogramaFormacion()
+						// manually trigger the `select2:select` event
+						ProgramaFormacionSelect.trigger({
+							type: 'select2:select'
+						});
+						// END PRE-SELECTED SelectUpdListEstadoFicha
+					}//END getDataProgramaFormacionToUpdSelect()
 
-
-
-
-					// $('#list-programa').select2({
-					// 	language: "es",
-					// 	theme: "bootstrap",
-					// 	ajax: {
-					// 		url:'?c=Lider&m=getAllDataProgramaFormacion',
-					// 		dataType: 'json',
-					// 		processResults: function (data) {
-					// 			var data = $.map(data, function (obj) {
-					// 							obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
-					// 							obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
-					// 							return obj;
-					// 						});
-					// 			return {
-					// 				results: data,
-					// 			};
-					// 		}
-					// 	},
-					// 	tags: true,
-					// 	dropdownParent: $("#updateDataFicha"),
-					// });
-
-
-
-
-					// $.ajax({
-					// 	type: 'POST',
-					// 	url:'?c=Lider&m=getAllDataProgramaFormacion',
-					// 	success(response) {
-					// 		$('#list-programa').empty();
-					// 		var programaFormacion = jQuery.parseJSON(response);
-					// 		$.each(programaFormacion, function (index, value) {
-					// 			if (value.id_programa_formacion == ficha.id_programa_formacion) {
-					// 				$('#list-programa').append("<option value='"+value.id_programa_formacion+"' selected>"+value.name_programa_formacion +"</option>");
-					// 			} else {
-					// 				$('#list-programa').append("<option value='"+value.id_programa_formacion+"'>"+value.name_programa_formacion +"</option>");
-					// 			}
-					// 		});
-					// 	}
-					// }); // End Call AJAX getAllprogramaFormacion()
+					// END FUNCTIONS
 				}
 			}); // End Call AJAX getDataFicha()
 
 		}); // End get Data Ficha_ID form button -> Modal Form_update_ficha
+
+
+
+
+		$('#selectNewListPrograma').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: 'getDataProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					var data = $.map(data, function (obj) {
+									obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
+									obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+									return obj;
+								});
+
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#ModalAgregarNuevaFicha"),
+		});
+
+
 
 		// get Data form Button -> Modal Form input
 		$(".updateDataInstructor").click(function () {
 			var id_instructor = $(this).attr('id-instructor');
 			$.ajax({
 				type: 'POST',
-				url: '?c=Lider&m=getDataInstructor',
+				url: 'getDataInstructor',
 				dataType: "json",
 				data: {
 					id_instructor: id_instructor

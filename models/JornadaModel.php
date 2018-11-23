@@ -73,5 +73,41 @@ class JornadaModel extends DB {
 	public function setName_jornada($name_jornada) {
 		$this->name_jornada = $name_jornada;
 	}
+
+	public function getAllJornada()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_JORNADA);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Jornadas
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+	
+	public function getJornadaId($idNivelFormacion)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_JORNADA_ID);
+            $stm->bindParam(1, $idNivelFormacion, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Jornadas
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+	public function getJornadaName($nameNivelFormacion)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_JORNADA_NAME);
+            $nameNivelFormacion = '%'.$nameNivelFormacion.'%';
+            $stm->bindParam(1, $nameNivelFormacion, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Jornadas
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
 ?>

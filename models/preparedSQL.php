@@ -16,7 +16,6 @@ class preparedSQL
     const GET_ALL_FICHAS_GRUPO_PROGRAMA_NIVEL_ESTADO = "SELECT * FROM `v_ficha_grupo_programa_nivel_estado`";
     const GET_FICHA_GRUPO_PROGRAMA_NIVEL_ESTADO_ID = "SELECT * FROM `v_ficha_grupo_programa_nivel_estado` WHERE `id_ficha` = ? ";
 
-
     //Fichas
     const GET_ALL_FICHAS_PROGRAMA_NIVEL_ESTADO = "SELECT * FROM `v_ficha_programa_nivel_estado`";
     const GET_FICHA_PROGRAMA_NIVEL_ESTADO_ID = "SELECT * FROM `v_ficha_programa_nivel_estado` WHERE `id_ficha` = ? ";
@@ -36,10 +35,21 @@ class preparedSQL
     const GET_ALL_NIVEL_FORMACION = "SELECT * FROM `nivel_programa_formacion`";
     const GET_NIVEL_FORMACION_ID = "SELECT * FROM `nivel_programa_formacion` WHERE `id_nivel_programa_formacion` = ?";
     const GET_NIVEL_FORMACION_NAME = "SELECT `name_nivel_programa_formacion`, `id_nivel_programa_formacion` FROM `nivel_programa_formacion` WHERE `name_nivel_programa_formacion` LIKE ?";
+    const UPDATE_DATA_NIVEL_FORMACION = "UPDATE `nivel_programa_formacion` SET `name_nivel_programa_formacion`= ? ,`duracion`= ? WHERE `id_nivel_programa_formacion` = ?    ";
 
     //Programa de formacion
     const GET_ALL_PROGRAMA_FORMACION = "SELECT * FROM `v_programa_formacion`";
-    const PROGRAMA_FORMACION_NEW = "INSERT INTO  `programa_formacion`(`codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`) VALUES (?,?,?,?,?,?,1)"; // 1-> ACtIVO
+    const GET_PROGRAMA_FORMACION_ID = "SELECT * FROM `v_programa_formacion` WHERE `id_programa_formacion` = ?";
+    const GET_PROGRAMA_FORMACION_CODIGO = "SELECT * FROM `v_programa_formacion` WHERE `codigo` = ?";
+    const GET_PROGRAMA_FORMACION_NAME = "SELECT * FROM `v_programa_formacion` WHERE `name_nivel_programa_formacion` LIKE ?";
+    const INSERT_NEW_PROGRAMA_FORMACION = "INSERT INTO  `programa_formacion`(`codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`) VALUES (?,?,?,?,?,?,1)"; // 1-> ACtIVO
+    const UPDATE_DATA_PROGRAMA_FORMACION = "UPDATE `programa_formacion` SET `short_name_programa_formacion`= ? , `name_programa_formacion`= ? , `version_programa`= ? , `cod_nivel_programa_formacion`= ? , `cod_proyecto`= ? , `cod_estado_programa_formacion`= 1  WHERE `codigo` = ? ";
+
+    //Proyecto
+    const GET_ALL_PROYECTO = "SELECT * FROM `proyecto`";
+    const GET_PROYECTO_ID = "SELECT * FROM `proyecto` WHERE `id_proyecto` = ?";
+    const GET_PROYECTO_NAME = "SELECT * FROM `proyecto` WHERE `name_proyecto` LIKE ?";
+    const INSERT_NEW_PROYECTO = "INSERT INTO `proyecto`(`name_proyecto`) VALUES (?)";
 
     //Estado Programa de Formacion
     const GET_ALL_ESTADO_PROGRAMAS_FORMACION = "SELECT `id_estado_programa_formacion`, `name_estado_programa_formacion` FROM `estado_programa_formacion`";
@@ -48,8 +58,27 @@ class preparedSQL
     // Trimestre
     const GET_ALL_TRIMESTRE = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin`FROM `trimestre`";
     const GET_TRIMESTRE_ID = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin` FROM `trimestre` WHERE `id_trimestre`=?";
+    const GET_TRIMESTRE_NAME = "SELECT * FROM `trimestre` WHERE `name_trimestre` LIKE ?";
     const INSERT_NEW_TRIMESTRE="INSERT INTO `trimestre`(`name_trimestre`, `fecha_inicio`, `fecha_fin`) VALUES (?,?,?)";
     const UPDATE_DATA_TRIMESTRE_ID = "UPDATE `trimestre` SET `name_trimestre`=[value-2],`fecha_inicio`=[value-3],`fecha_fin`=[value-4],`create_time`=[value-5],`update_time`=[value-6],`version`=[value-7] WHERE `id_trimestre`";
+
+    //Competencia
+    const GET_ALL_COMPETENCIA = "SELECT * FROM `competencia`";
+    const GET_COMPETENCIA_ID = "SELECT * FROM `competencia` WHERE `	id_competencia` = ?";
+    const GET_COMPETENCIA_NAME = "SELECT * FROM `competencia` WHERE `name_competencia` LIKE ?";
+    const INSERT_NEW_COMPETENCIA = "";
+
+    //Jornada
+    const GET_ALL_JORNADA = "SELECT * FROM `jornada`";
+    const GET_JORNADA_ID = "SELECT * FROM `jornada` WHERE `	id_jornada` = ?";
+    const GET_JORNADA_NAME = "SELECT * FROM `jornada` WHERE `name_jornada` LIKE ?";
+    const INSERT_NEW_JORNADA = "";
+
+    //Ambiente
+    const GET_ALL_AMBIENTE = "SELECT * FROM `v_ambientes`";
+    const GET_AMBIENTE_ID = "SELECT * FROM `v_ambientes` WHERE `id_ambiente` = ?";
+    const GET_AMBIENTE_NAME = "SELECT * FROM `v_ambientes` WHERE `name_ambiente` LIKE ?";
+    const INSERT_NEW_AMBIENTE = "";
 }
 
 

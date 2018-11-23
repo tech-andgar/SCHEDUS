@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Days+One');
+/* @import url('https://fonts.googleapis.com/css?family=Days+One'); */
 
 .app-header {
   background-color: #ec7c38;
@@ -60,7 +60,6 @@ h6 {
   color: rgba(0, 0, 0, 1);
   -o-text-overflow: clip;
   text-overflow: clip;
-  height: 20px;
   width: 15rem;
 }
 
@@ -156,4 +155,8 @@ h6 {
     width: 88%;
     float: none;
   }
+}
+
+.form-modal{
+  width: 95%;
 }

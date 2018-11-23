@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 09-11-2018 a las 17:08:29
+-- Tiempo de generación: 19-11-2018 a las 16:27:59
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -642,6 +642,8 @@ CREATE TABLE IF NOT EXISTS `v_programa_formacion` (
 ,`short_name_programa_formacion` varchar(5)
 ,`name_programa_formacion` varchar(191)
 ,`version_programa` varchar(10)
+,`id_proyecto` int(10)
+,`name_proyecto` varchar(191)
 ,`id_nivel_programa_formacion` int(10)
 ,`name_nivel_programa_formacion` varchar(100)
 ,`duracion` varchar(100)
@@ -744,7 +746,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_programa_formacion`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from ((`programa_formacion` join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_programa_formacion`  AS  select `programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`codigo` AS `codigo`,`programa_formacion`.`short_name_programa_formacion` AS `short_name_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`programa_formacion`.`version_programa` AS `version_programa`,`proyecto`.`id_proyecto` AS `id_proyecto`,`proyecto`.`name_proyecto` AS `name_proyecto`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`nivel_programa_formacion`.`duracion` AS `duracion`,`estado_programa_formacion`.`id_estado_programa_formacion` AS `id_estado_programa_formacion`,`estado_programa_formacion`.`name_estado_programa_formacion` AS `name_estado_programa_formacion` from (((`programa_formacion` join `estado_programa_formacion` on(`programa_formacion`.`cod_estado_programa_formacion` = `estado_programa_formacion`.`id_estado_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) join `proyecto` on(`programa_formacion`.`cod_proyecto` = `proyecto`.`id_proyecto`)) ;
 
 -- --------------------------------------------------------
 

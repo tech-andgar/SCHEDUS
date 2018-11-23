@@ -1,11 +1,7 @@
-
-
-
-
 <header class="app-header navbar">
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="./assets/images/logoSena.png" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="./assets/images/Senalogo1.png" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="<?php echo APP_URL?>assets/images/Logo_SCHEDUS.svg" width="200" height="50" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="<?php echo APP_URL?>assets/images/Sena_Colombia_logo.svg" width="100" height="100" alt="CoreUI Logo">
     </a>
     <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
         <li class="dropdown order-1">
@@ -15,7 +11,7 @@
             <ul class="dropdown-menu dropdown-menu-right mt-2">
                 <li class="p-4" style="width: 320px;">
                     <div class="d-flex justify-content-center text-center">
-                        <form method="post" action="?c=Inicio&m=ValidarUsuario" class="form-signin" >
+                        <form method="post" action="<?php echo APP_URL ?>Inicio/validarUsuario" class="form-signin" >
                             <div class="form-group">
                                 <h6>Documento</h6>
                                 <input type="number" class="adsi-css my-3" name="dni"

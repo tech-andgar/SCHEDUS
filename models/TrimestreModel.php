@@ -121,5 +121,41 @@ class TrimestreModel extends DB {
 	public function setFecha_fin(Date &$fecha_fin) {
 		$this->fecha_fin = $fecha_fin;
 	}
+
+	public function getAllTrimestre()
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_TRIMESTRE);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Trimestres Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getTrimestreId($idTrimestre)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_TRIMESTRE_ID);
+			$stm->bindParam(1, $idTrimestre, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Trimestres Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getTrimestreName($nameTrimestre)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_TRIMESTRE_NAME);
+			$nameTrimestre = '%' . $nameTrimestre . '%';
+			$stm->bindParam(1, $nameTrimestre, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Trimestres Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 ?>

@@ -23,30 +23,26 @@ class InicioController extends Path
 
     public function noAuth()
     {
-        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'infoUser['title' => '','msg' =>'']');
-        parent::view(
-            'inicio',
-            'index',
-            'Horario de formación',
-            array(
-                'title' => 'Se requiere autorización',
-                'msg' => 'la solicitud requiere autenticación de usuario',
-            )
+        $data['msgType'] = array(
+            'type' => 'error',
+            'title' => 'Se requiere autorización',
+            'msg' => 'la solicitud requiere autenticación de usuario',
         );
+
+        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'data['msgType']['type'=>'', title' => '','msg' =>'']');
+        parent::view('inicio', 'index', 'Horario de formación', $data);
     }
 
     public function noRegistered()
     {
-        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'infoUser['title' => '','msg' =>'']');
-        parent::view(
-            'inicio',
-            'index',
-            'Horario de formación',
-            array(
-                'title' => 'AVISO',
-                'msg' => 'Esta cuenta no existe o la contraseña es incorrecta. Si no recuerdas la cuenta, restablécela ahora.',
-            )
+        $data['msgType'] = array(
+            'type' => 'error',
+            'title' => 'AVISO',
+            'msg' => 'Esta cuenta no existe o la contraseña es incorrecta. Si no recuerdas la cuenta, restablécela ahora.',
         );
+
+        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'data['msgType']['type'=>'', title' => '','msg' =>'']');
+        parent::view('inicio', 'index', 'Horario de formación', $data);
     }
 
     public function recuperarContrasena()
@@ -55,7 +51,7 @@ class InicioController extends Path
     }
 
     // Method Action
-    public function ValidarUsuario()
+    public function validarUsuario()
     {
         try {
 
@@ -63,7 +59,7 @@ class InicioController extends Path
             $user = $this->modelUsuario->verificarLogin($data);
 
             if (!$user) {
-                header('location:?c=Inicio&m=noRegistered');
+                header('location:noRegistered');
             } else {
                 $this->modelSecurity->LoginSession($user);
             }

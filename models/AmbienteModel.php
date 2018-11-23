@@ -85,5 +85,41 @@ class AmbienteModel extends DB {
 	public function setNum_ambiente($num_ambiente) {
 		$this->num_ambiente = $num_ambiente;
 	}
+
+	public function getAllAmbiente()
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_AMBIENTE);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Ambientes
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+
+	public function getAmbienteId($idNivelFormacion)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_AMBIENTE_ID);
+            $stm->bindParam(1, $idNivelFormacion, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Ambientes
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+	public function getAmbienteName($nameNivelFormacion)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_AMBIENTE_NAME);
+            $nameNivelFormacion = '%'.$nameNivelFormacion.'%';
+            $stm->bindParam(1, $nameNivelFormacion, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Ambientes
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
 ?>

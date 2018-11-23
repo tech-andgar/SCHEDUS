@@ -11,9 +11,15 @@ class LiderController extends Path
         $this->modelInstructor = parent::model('instructor');
         $this->modelFicha = parent::model('ficha');
         $this->modelEstadoFicha = parent::model('estadoFicha');
-        $this->modelNivelFormacion = parent::model('nivelProgramaFormacion');
+        $this->modelNivelProgramaFormacion = parent::model('nivelProgramaFormacion');
         $this->modelProgramaFormacion = parent::model('programaFormacion');
+        $this->modelProyecto = parent::model('proyecto');
         $this->modelGrupo = parent::model('grupo');
+        $this->modelCompetencia = parent::model('competencia');
+        $this->modelTrimestre = parent::model('trimestre');
+        $this->modelJornada = parent::model('jornada');
+        $this->modelAmbiente = parent::model('ambiente');
+        
     }
 
     // Renderizado vistas
@@ -24,35 +30,51 @@ class LiderController extends Path
 
     public function Horarios()
     {
-        parent::viewModule('lider', 'horarios', 'Horarios');
+        parent::viewModule('lider', 'Horarios', 'Horarios');
     }
 
     public function Programas($msgType = [])
     {
-        $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
-
-        // $data[0] = $msgType;
-        // $data[1] = $fichas;
-        // $data[3] = $nivelFormacion;
-        // $data[4] = $programaFormacion;
-        $data['programaFormacion'] = $programaFormacion;
+        $data['programaFormacion'] = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Programas', 'Programas', $data);
     }
 
-    public function TrimestresPrograma()
+    public function TrimestresPrograma($msgType = [])
     {
-        parent::viewModule('lider', 'TrimestresPrograma', 'Trimestres Programa');
+        $data['trimestre'] = $this->modelTrimestre->getAllTrimestre();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'TrimestresPrograma', 'Trimestres Programa', $data);
     }
 
-    public function Competencias()
+    public function Competencias($msgType = [])
     {
-        parent::viewModule('lider', 'Competencias', 'Competencias');
+        $data['competencia'] = $this->modelCompetencia->getAllCompetencia();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Competencias', 'Competencias', $data);
     }
 
-    public function Ambiente()
+    public function Ambiente($msgType = [])
     {
-        parent::viewModule('lider', 'Ambiente', 'Ambiente');
+        $data['ambiente'] = $this->modelAmbiente->getAllAmbiente();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Ambiente', 'Ambiente', $data);
     }
+
+    public function Niveles($msgType = [])
+    {
+        $data['nivelProgramaFormacion'] = $this->modelNivelProgramaFormacion->getAllNivelFormacion();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Niveles', 'Niveles', $data);
+    }
+
+    public function Proyecto($msgType = [])
+    {
+        $data['proyecto'] = $this->modelProyecto->getAllProyecto();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Proyecto', 'Proyecto', $data);
+    }
+
 
     public function Fichas($msgType=[])
     {
@@ -60,7 +82,7 @@ class LiderController extends Path
         $fichas = $this->modelFicha->getAllFichas();
         $grupos = $this->modelGrupo->getAllGrupos();
         $estadoFicha = $this->modelEstadoFicha->getAllEstadoFicha();
-        $nivelFormacion = $this->modelNivelFormacion->getAllNivelFormacion();
+        $nivelFormacion = $this->modelNivelProgramaFormacion->getAllNivelFormacion();
         $programaFormacion = $this->modelProgramaFormacion->getAllProgramaFormacion();
 
         $data['msgType'] = $msgType;
@@ -72,9 +94,11 @@ class LiderController extends Path
         parent::viewModule('lider', 'Fichas', 'Fichas', $data);
     }
 
-    public function Jornadas()
+    public function Jornadas($msgType = [])
     {
-        parent::viewModule('lider', 'Jornadas', 'Jornadas');
+        $data['jornada'] = $this->modelJornada->getAllJornada();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Jornadas', 'Jornadas', $data);
     }
     public function Fusionar()
     {
@@ -83,16 +107,18 @@ class LiderController extends Path
     public function Instructor($msgType = [])
     {
         $instructores = $this->modelInstructor->getAllInstructores();
-        $data[0] = $msgType;
+        $data['msgType'] = $msgType;
         $data['instructores'] = $instructores;
         parent::viewModule('lider', 'Instructores', 'Instructores', $data);
     }
-    
-    public function Grupos()
+
+    public function Grupos($msgType = [])
     {
+        // $data['proyecto'] = $this->modelGrupo->getAllProyecto();
+        // $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Grupos', 'Grupos');
     }
-  
+
     // Control de Instructor
     public function insertarInstructor()
     {
@@ -139,6 +165,7 @@ class LiderController extends Path
 
     public function updateDataInstructor()
     {
+        // var_dump($_POST);
         $data = array(
             "dni" => $_POST['dni'],
             "nombre" => $_POST['nombre'],
@@ -259,37 +286,50 @@ var_dump($_POST);
         $this->Ficha($msgType);
     }
 
-//Control Programa de Formacion
+
+    //Control Nivel Programa de Formacion
 
     public function getDataNivelProgramaFormacion()
     {
         // Completa lista de Nivel Programa de Formacion
         if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
-            $output = $this->modelNivelFormacion->getAllNivelFormacion();
+            $output = $this->modelNivelProgramaFormacion->getAllNivelFormacion();
         }
         // Selecciona ID de Nivel Programa de Formacion
         elseif (isset($_REQUEST['id'])) {
-            $output = $this->modelNivelFormacion->getNivelFormacionId($_REQUEST['id']);
+            $output = $this->modelNivelProgramaFormacion->getNivelFormacionId($_REQUEST['id']);
         }
         // Selecciona caracteres en lista de Nivel Programa de Formacion
         elseif (isset($_REQUEST['q'])) {
-            $output = $this->modelNivelFormacion->getNivelFormacionName($_REQUEST['q']);
+            $output = $this->modelNivelProgramaFormacion->getNivelFormacionName($_REQUEST['q']);
         }
 
         $dataNivelFormacion = json_encode($output);
         echo $dataNivelFormacion;
     }
+
     public function getDataProgramaFormacion()
     {
-        $dataFicha = json_encode($this->modelProgramaFormacion->getProgramaFormacion($_POST['idProgramaFormacion']));
-        echo $dataFicha;
+        // Completa lista de Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id']) && !isset($_REQUEST['codigo'])) {
+            $output = $this->modelProgramaFormacion->getAllProgramaFormacion();
+        }
+        // Selecciona ID de Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionId($_REQUEST['id']);
+        }
+        elseif (isset($_REQUEST['codigo'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionCodigo($_REQUEST['codigo']);
+        }
+        // Selecciona caracteres en lista de Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelProgramaFormacion->getProgramaFormacionName($_REQUEST['q']);
+        }
+
+        $dataFormacionPrograma = json_encode($output);
+        echo $dataFormacionPrograma;
     }
 
-    public function getAllDataProgramaFormacion()
-    {
-        $dataEstadoFicha = json_encode($this->modelProgramaFormacion->getAllProgramaFormacion());
-        echo $dataEstadoFicha;
-    }
 
     public function insertarProgramaFormacion()
     {
@@ -309,7 +349,125 @@ var_dump($_POST);
                 'msg' => 'No pudo registrar nueva Programa de Formacion',
             );
         }
-        $this->Fichas($msgType);
+        $this->Programas($msgType);
+    }
+
+    public function updateDataProgramaFormacion()
+    {
+        $data = array(
+            "txto_cod_programa" => $_POST['txto_cod_programa'],
+            "txto_short_name_programa" => $_POST['txto_short_name_programa'],
+            "txto_name_programa_formacion" => $_POST['txt_name_programa_formacion'],
+            "txto_version_programa" => $_POST['txt_version_programa'],
+            "txto_id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
+            "txto_cod_proyecto" => $_POST['txt_cod_proyecto'],
+        );
+        $result = $this->modelInstructor->updateDataProgramaFormacion($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Programa de Formacion',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar Programa de Formacion',
+            );
+        }
+
+        $this->Instructor($msgType);
+    }
+
+    // Control de Proyecto
+    public function getDataProyecto()
+    {
+        // Completa lista de Proyecto
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelProyecto->getAllProyecto();
+        }
+        // Selecciona ID de Proyecto
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelProyecto->getProyectoId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Proyecto
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelProyecto->getProyectoName($_REQUEST['q']);
+        }
+
+        $dataProyecto = json_encode($output);
+        echo $dataProyecto;
+    }
+
+
+
+    // Control de Nivel de Formacion
+    public function getDataNivelFormacion()
+    {
+        // Completa lista de Nivel de formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelNivelProgramaFormacion->getAllNivelFormacion();
+        }
+        // Selecciona ID de Nivel de formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelNivelProgramaFormacion->getNivelFormacionId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Nivel de formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelNivelProgramaFormacion->getNivelFormacionName($_REQUEST['q']);
+        }
+
+        
+        $dataNivelFormacion = json_encode($output);
+        echo $dataNivelFormacion;
+    }
+
+    public function updateDataNivelFormacion()
+    {
+        // var_dump($_POST);
+        $data = array(
+            "id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
+            "name_nivel_programa_formacion" => $_POST['txt_name_nivel_programa_formacion'],
+            "duracion" => $_POST['txt_duracion'],
+        );
+        $result = $this->modelNivelProgramaFormacion->updateDataNivelFormacion($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Nivel de formación',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Nivel de formación',
+            );
+        }
+
+        $this->Niveles($msgType);
+    }
+
+    //Control de Ambiente
+    public function getDataAmbiente()
+    {
+        // Completa lista de estado de ficha
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelAmbiente->getAllAmbiente();
+        }
+        // Selecciona ID de estado de ficha
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelAmbiente->getAmbienteId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de ficha
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelAmbiente->getAmbienteName($_REQUEST['q']);
+        }
+
+        $dataAmbiente = json_encode($output);
+        echo $dataAmbiente;
     }
 
 

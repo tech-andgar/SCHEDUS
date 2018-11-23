@@ -54,8 +54,8 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="./assets/images/logoSena.png" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="./assets/images/Senalogo1.png" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full img-fluid" src="<?php echo APP_URL?>assets/images/Logo_SCHEDUS.svg" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized img-fluid" src="<?php echo APP_URL?>assets/images/Sena_Colombia_logo.svg" alt="CoreUI Logo">
     </a>
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -64,14 +64,14 @@
         <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle nav-link mr-5" data-toggle="dropdown" href="#" role="button"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-home"></i><span class="d-md-down-none"> Lider </span>
+                <i class="fas fa-home"></i><span class="d-md-down-none"> <?php echo $_SESSION['user']->name_rol;?> </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right text-center">
                 <div class="dropdown-header">
                     <strong><i class="fas fa-cog"></i></strong>
                 </div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#Perfil"><i class="fas fa-home"></i>Cuenta</a>
-                <a class="dropdown-item" href="?c=security&m=logOut"><i class="fas fa-sign-in-alt"></i>Cerrar sesión</a>
+                <a class="dropdown-item" href="<?php echo APP_URL?>security/logOut"><i class="fas fa-sign-in-alt"></i>Cerrar sesión</a>
             </div>
         </li>
     </ul>
