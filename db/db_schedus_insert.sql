@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 19-11-2018 a las 16:27:26
+-- Tiempo de generación: 23-11-2018 a las 21:36:39
 -- Versión del servidor: 10.3.9-MariaDB
--- Versión de PHP: 7.2.10
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -116,7 +116,8 @@ INSERT INTO `fase` (`id_fase`, `name_fase`, `create_time`, `update_time`, `versi
 INSERT INTO `ficha` (`id_ficha`, `num_ficha`, `create_time`, `update_time`, `version`, `cod_estado_ficha`, `cod_programa_formacion`) VALUES
 (1, '1320652', '2018-10-05 00:44:49', '0000-00-00 00:00:00', NULL, 2, 1),
 (2, '1320500', '2018-10-05 00:45:10', '0000-00-00 00:00:00', NULL, 2, 3),
-(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 1, 2);
+(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 1, 2),
+(6, '1320658', '2018-11-23 13:18:02', NULL, NULL, 1, 3);
 
 --
 -- Volcado de datos para la tabla `grupo`
@@ -152,14 +153,13 @@ INSERT INTO `modo` (`id_modo`, `name_modo`, `create_time`, `update_time`, `versi
 --
 
 INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_nivel_programa_formacion`, `duracion`, `create_time`, `update_time`, `version`) VALUES
-(0, 'NULL', 'NULL', '2018-11-08 20:21:23', NULL, NULL),
 (1, 'Curso complementario', NULL, '2018-10-03 02:39:11', '2018-10-03 22:49:08', NULL),
-(2, 'Certificación De Competencia Laboral', NULL, '2018-10-03 02:41:01', '2018-10-03 22:49:08', NULL),
+(2, 'Certificación De Competencia Laboral', '2 años', '2018-10-03 02:41:01', '2018-10-03 22:49:08', NULL),
 (3, 'Técnico', NULL, '2018-10-03 02:41:04', '2018-10-03 22:49:08', NULL),
 (4, 'Tecnólogia', NULL, '2018-10-03 02:42:20', '2018-10-03 22:49:08', NULL),
-(5, 'Especialización Tecnológica', NULL, '2018-10-03 02:43:08', '2018-10-03 22:49:08', NULL),
+(5, 'Especialización Tecnológica', '6 meses', '2018-10-03 02:43:08', '2018-10-03 22:49:08', NULL),
 (6, 'Pregrado', NULL, '2018-10-03 02:43:16', '2018-10-03 22:49:08', NULL),
-(7, 'Especialización', NULL, '2018-10-03 02:43:22', '2018-10-03 22:49:08', NULL),
+(7, 'Especialización', '5 años', '2018-10-03 02:43:22', '2018-10-03 22:49:08', NULL),
 (8, 'Maestría', NULL, '2018-10-03 02:43:29', '2018-10-03 22:49:08', NULL),
 (9, 'Doctorado', NULL, '2018-10-03 02:43:40', '2018-10-03 22:49:08', NULL);
 
@@ -171,7 +171,12 @@ INSERT INTO `programa_formacion` (`id_programa_formacion`, `codigo`, `short_name
 (0, NULL, 'NULL', 'NULL', NULL, NULL, NULL, NULL, '2018-11-08 20:20:52', NULL, NULL),
 (1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 1, '2018-10-03 05:11:28', '2018-10-03 22:49:11', NULL),
 (2, '228106', 'PM', 'PRODUCCIÓN DE MULTIMEDIA', 'V 102', 3, 2, 1, '2018-10-03 05:12:27', '2018-10-03 22:49:11', NULL),
-(3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-03 05:15:53', '2018-10-03 22:49:11', NULL);
+(3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-03 05:15:53', '2018-10-03 22:49:11', NULL),
+(5, '228102', 'TPS', 'TECNICO DE PROGRAMACION DE SOTFWARE', '25', 3, 1, 1, '2018-11-19 19:11:18', NULL, NULL),
+(8, '4', 'sdf', 'dsfds ', 's 3', 8, 2, 1, '2018-11-21 14:33:35', NULL, NULL),
+(11, '4', 'sdf', 'asdfsdfsd', 'd 5 ', 8, 3, 1, '2018-11-21 14:34:32', NULL, NULL),
+(13, '2', 'sf', 'sdaf', 'd 5', 7, 3, 1, '2018-11-21 14:38:04', NULL, NULL),
+(14, '665', 'fc', 'vqfa', 'qva', 4, 2, 1, '2018-11-21 14:51:30', NULL, NULL);
 
 --
 -- Volcado de datos para la tabla `proyecto`
@@ -257,7 +262,7 @@ INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `pass
 (3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', NULL, 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02'),
 (4, '354654', 'Andres', 'Garcia', 'afgarcia0479@misena.edu.co', NULL, NULL, 3, 3, NULL, '2018-10-23 15:08:33', NULL),
 (5, '1230', 'Johann', 'Amaya', 'jaamaya643@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:09:46', NULL),
-(6, '1239', 'Camilo', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:25:08', NULL),
+(6, '1239', 'Camila', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 3, NULL, '2018-10-29 17:25:08', NULL),
 (8, '452452', 'olñlñ', 'lñlñl', 'abdg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:44:34', NULL),
 (9, '45242', 'yjkh', 'khgkhk', 'abdtghfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:44:46', NULL),
 (10, '415242', 'uhkhjk', 'khgkjhk', 'abdghgkhk@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:44:55', NULL),
@@ -265,7 +270,12 @@ INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `pass
 (12, '5463655', 'yiyik', 'hkhkh', 'abdtgjkjikkhfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:45:11', NULL),
 (13, '75425', 'ljklñ', 'kljklk', 'abjljljdtghfghg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:45:18', NULL),
 (14, '563453', 'ygjj', 'gjgujgj', 'hjhjtghfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:45:33', NULL),
-(15, '254525', 'holas', 'jhkjhk', 'ayhujtgjgjbdg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:46:03', NULL);
+(15, '254525', 'holas', 'jhkjhk', 'ayhujtgjgjbdg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:46:03', NULL),
+(23, '6546', 'sdfsdjkf', 'SDFSDFSD', 'SAD@ASD.COM', NULL, NULL, 3, 3, NULL, '2018-11-21 14:43:47', NULL),
+(25, '54464654', 'John Doe', 'SAFDSAFS', 'ASD@SADSA.COM', NULL, NULL, 3, 2, NULL, '2018-11-21 14:44:22', NULL),
+(28, '552', 'sadsadasdasdasd', 'degssad', 'dsfs@asfdsa', NULL, NULL, 3, 3, NULL, '2018-11-21 14:49:46', NULL),
+(29, '856546', 'jijijijijijijijijij', 'dsfsdfsd', 'dsfds@sadsa.com', NULL, NULL, 3, 2, NULL, '2018-11-21 14:52:09', NULL),
+(35, '123', 'pene', 'en salsa', 'pene@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-23 16:42:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -302,6 +312,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_ficha_programa_nivel_estado`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from (((`ficha` join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `v_grupo_ficha`
+--
+DROP TABLE IF EXISTS `v_grupo_ficha`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_grupo_ficha`  AS  select `g`.`id_grupo` AS `id_grupo`,`f`.`id_ficha` AS `id_ficha`,`f`.`num_ficha` AS `num_ficha`,`g`.`num_grupo` AS `num_grupo`,`rf`.`id_ruta_ficha` AS `id_ruta_ficha`,`rf`.`name_ruta_ficha` AS `name_ruta_ficha`,`rf`.`num_ruta_ficha` AS `num_ruta_ficha`,`rf`.`cod_jornada` AS `cod_jornada`,`rf`.`fecha_inicio` AS `fecha_inicio`,`rf`.`fecha_fin` AS `fecha_fin`,`rf`.`observaciones` AS `observaciones` from ((`grupo` `g` join `ruta_ficha` `rf` on(`rf`.`id_ruta_ficha` = `g`.`cod_ruta_ficha`)) join `ficha` `f` on(`f`.`id_ficha` = `g`.`cod_ficha`)) ;
 
 -- --------------------------------------------------------
 
