@@ -1,7 +1,20 @@
     <!-- FOOTER -->
-        <footer class="app-footer"<?php if(empty($_SESSION['user'])){echo 'style="margin-left:0;"';}?> >
-        <span><a href="#">SCHEDUS</a> &copy; <?php echo date('Y')?></span>
-        <span class="ml-auto mr-2">Desarrollado por <a href="https://github.com/andgar2010">Andres Garcia</a></span>&amp;&nbsp;&nbsp;<span class="my-auto"><a href="https://github.com/johannbulls">Johann Amaya</a></span>
+    <footer class="app-footer"<?php if(empty($_SESSION['user'])){echo 'style="margin-left:0;"';}?> >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 text-md-left">
+                    <span>
+                        <a href="#">SCHEDUS</a> &copy; <?php echo date('Y') ?>
+                    </span>
+                </div>
+
+                <div class="col-sm-6 col-md-6 text-md-right">
+                    <span class="text-muted small">
+                        Desarrollado por <a href="https://github.com/andgar2010">Andres Garcia </a>&amp;<a href="https://github.com/johannbulls"> Johann Amaya</a>
+                    </span>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- END FOOTER -->
 
@@ -14,7 +27,7 @@
 
 <!-- <canvas id="myChart" width="400" height="400"></canvas>
 
-<script>    
+<script>
     var ctx = document.getElementById("myChart");
     console.log(ctx);
 
@@ -54,7 +67,7 @@
         options: options
     })
 </script> -->
- 
+
 </body>
 <!-- END BODY -->
 </html>
