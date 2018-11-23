@@ -459,49 +459,6 @@
 		});
 
 
-
-		// get Data form Button -> Modal Form input
-		$(".updateDataInstructor").click(function () {
-			var id_instructor = $(this).attr('id-instructor');
-			$.ajax({
-				type: 'POST',
-				url: 'getDataInstructor',
-				dataType: "json",
-				data: {
-					id_instructor: id_instructor
-				},
-				success(response) {
-					var instructor = jQuery.parseJSON(JSON.stringify(response));
-					$('#text-dni').val(instructor.dni);
-					$('#text-nombre').val(instructor.nombre);
-					$('#text-apellido').val(instructor.apellido);
-					$('#text-email').val(instructor.email);
-				}
-			});
-		});
-
-		// Agregar nuevo grupo de ficha desde button agregar grupo
-		$("#btnAgregarGrupo").click(function () {
-			$.ajax({
-				type: 'POST',
-				url: '?c=lider&m=getAllDataFichas',
-				dataType: "json",
-				success(response) {
-					var ficha = jQuery.parseJSON(JSON.stringify(response));
-					console.log(ficha);
-					//var ficha = removeDuplicates(ficha);
-
-					var select = $("<select></select>").attr("id", "id_ficha").attr("name", "id_ficha").attr("class",
-						"form-control");
-					$.each(ficha, function (i, json) {
-						select.append($("<option></option>").attr("value", ficha[i].id_ficha).text(ficha[i].num_ficha));
-					});
-					$("#form_select_ficha").html(select);
-
-				}
-			});
-		});
-
 	});
 </script>
 
