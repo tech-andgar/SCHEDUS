@@ -1,0 +1,18 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+InstructorLogin-LogOut,Edge 17,,2018-11-24 12:20:55,2018-11-24 12:21:02,"7,244s",PASSED
+,,,,,,
+Test Cases/Login/InstructorLogin,Edge 17,Login Instructor desde pagina Inicio,2018-11-24 12:20:55,2018-11-24 12:20:58,"3,558s",PASSED
+openBrowser,Edge 17,,2018-11-24 12:20:55,2018-11-24 12:20:57,"1,951s",PASSED
+navigateToUrl,Edge 17,,2018-11-24 12:20:57,2018-11-24 12:20:57,"0,126s",PASSED
+click,Edge 17,,2018-11-24 12:20:57,2018-11-24 12:20:57,"0,058s",PASSED
+setText,Edge 17,,2018-11-24 12:20:57,2018-11-24 12:20:57,"0,044s",PASSED
+setEncryptedText,Edge 17,,2018-11-24 12:20:57,2018-11-24 12:20:57,"0,089s",PASSED
+click,Edge 17,,2018-11-24 12:20:57,2018-11-24 12:20:57,"0,030s",PASSED
+delay,Edge 17,,2018-11-24 12:20:57,2018-11-24 12:20:58,"1,018s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Edge 17,Cerrar sesión de Usuario,2018-11-24 12:20:58,2018-11-24 12:21:02,"3,376s",PASSED
+click,Edge 17,,2018-11-24 12:20:59,2018-11-24 12:20:59,"0,039s",PASSED
+click,Edge 17,,2018-11-24 12:20:59,2018-11-24 12:20:59,"0,024s",PASSED
+verifyElementText,Edge 17,,2018-11-24 12:20:59,2018-11-24 12:20:59,"0,545s",PASSED
+delay,Edge 17,,2018-11-24 12:20:59,2018-11-24 12:21:01,"2,003s",PASSED
+closeBrowser,Edge 17,,2018-11-24 12:21:01,2018-11-24 12:21:02,"0,600s",PASSED

@@ -1,0 +1,18 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+InstructorLogin-LogOut,Chrome 70.0.3538.102,,2018-11-24 12:18:34,2018-11-24 12:18:46,"11,425s",PASSED
+,,,,,,
+Test Cases/Login/InstructorLogin,Chrome 70.0.3538.102,Login Instructor desde pagina Inicio,2018-11-24 12:18:35,2018-11-24 12:18:42,"7,542s",PASSED
+openBrowser,Chrome 70.0.3538.102,,2018-11-24 12:18:35,2018-11-24 12:18:38,"3,248s",PASSED
+navigateToUrl,Chrome 70.0.3538.102,,2018-11-24 12:18:38,2018-11-24 12:18:40,"1,738s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-24 12:18:40,2018-11-24 12:18:40,"0,090s",PASSED
+setText,Chrome 70.0.3538.102,,2018-11-24 12:18:40,2018-11-24 12:18:40,"0,138s",PASSED
+setEncryptedText,Chrome 70.0.3538.102,,2018-11-24 12:18:40,2018-11-24 12:18:40,"0,139s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-24 12:18:40,2018-11-24 12:18:41,"0,935s",PASSED
+delay,Chrome 70.0.3538.102,,2018-11-24 12:18:41,2018-11-24 12:18:42,"1,015s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Chrome 70.0.3538.102,Cerrar sesión de Usuario,2018-11-24 12:18:42,2018-11-24 12:18:46,"3,567s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-24 12:18:42,2018-11-24 12:18:42,"0,062s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-24 12:18:42,2018-11-24 12:18:43,"0,569s",PASSED
+verifyElementText,Chrome 70.0.3538.102,,2018-11-24 12:18:43,2018-11-24 12:18:43,"0,052s",PASSED
+delay,Chrome 70.0.3538.102,,2018-11-24 12:18:43,2018-11-24 12:18:45,"2,001s",PASSED
+closeBrowser,Chrome 70.0.3538.102,,2018-11-24 12:18:45,2018-11-24 12:18:46,"0,746s",PASSED
