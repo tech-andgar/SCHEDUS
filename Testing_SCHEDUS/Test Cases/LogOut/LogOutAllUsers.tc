@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Cerrar sesión de Usuario</description>
+   <name>LogOutAllUsers</name>
+   <tag>LogOut, Cerrar Sesion, Cerrar</tag>
+   <comment></comment>
+   <testCaseGuid>fd5bfc51-d86f-48b1-a77b-de9636c0462b</testCaseGuid>
+</TestCaseEntity>

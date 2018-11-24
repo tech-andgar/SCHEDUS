@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>LiderLogin</name>
-   <tag>Login, Lider, Login Lider</tag>
-   <comment></comment>
-   <testCaseGuid>0b9ea257-e01a-415b-a8f2-e302823f2ed0</testCaseGuid>
-</TestCaseEntity>
