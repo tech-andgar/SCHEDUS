@@ -107,8 +107,7 @@
 								<h4>Programa:</h4>
 							</div>
 							<div class="col-lg-8  col-12">
-								<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width: 100%"
-								 required></select>
+								<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width: 100%" required></select>
 							</div>
 						</div>
 						<div class="modal-body text-center">
@@ -134,7 +133,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
+				<div class="justify-content-center">
 					<form method="POST" action="updateDataFicha" class="form-signin">
 						<div class="row pt-4">
 							<div class="col-lg-4 col-12 ">

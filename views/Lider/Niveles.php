@@ -66,14 +66,14 @@
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
 					<form method="post" action="#" class="form-signin">
-						<table>
-							<tr>
-								<td>
-									<h4 for="codig">Nivel</h4>
+					<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12">
+									<h4 >Nivel</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Nivel de Formacion
 									</small>
-								</td>
-								<td >
+									</div>
+								<div class="col-lg-4 col-12">
 									<input type="text" name="codig" id="codig" class="adsi-css" aria-describedby="helpIdNumFicha">
 								</td>
 							</tr>
