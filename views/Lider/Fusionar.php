@@ -56,11 +56,20 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-4 mt-4">
-                    <h5>Nueva ruta de Ficha: </h5>
-                    <input type="text" class="adsi-css" style="width:50%" name="ruta" />
-                    <button class=" btn-rounded" type="submit">Fusionar</button></div>
-                </div>
+                    <div class="container-fluid">
+                        <div class="row pt-2">
+                            <div class="col-lg-2  col-sm-5  col-12">
+                                <h5> Nueva ruta de Ficha: </h5>
+                            </div>
+                            <div class="col-lg-4 col-sm-7 col-12">
+                                <input type="text" class="form-control" name="ruta" />
+                            </div>
+                        </div>
+                        <div class="mr-2">
+                            <button class="btn-rounded" type="submit">Fusionar</button>
+                        </div>
+                    </div>
+
             </form>
         </div>
         <!-- Fin ejemplo de tabla Listado -->

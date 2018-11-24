@@ -46,11 +46,9 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="modal-body text-center">
                             <button class="btn-rounded" type="submit">Actualizar</button>
                         </div>
-
                     </form>
                 </div>
             </div>
