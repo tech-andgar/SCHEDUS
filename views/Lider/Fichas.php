@@ -81,7 +81,7 @@
 
 <!-- Modal Agregar nueva Ficha-->
 <div class="modal fade" id="ModalAgregarNuevaFicha" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h3 class="col-11 modal-title text-center">Agregar Nueva Ficha</h3>
@@ -93,23 +93,22 @@
 			<div class="modal-body">
 				<div class="d-flex justify-content-center ">
 					<form method="post" action="insertarFicha" class="form-signin">
-						<div class="container-fluid">
-							<div class="row pt-2">
-								<div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
-									<h4>Numero de la Ficha</h4>
-								</div>
-								<div class="col-lg-5 col-12">
-									<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
-									<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
-								</div>
+						<div class="row">
+							<div class="col-lg-4 col-12 ">
+								<h4>Numero de la Ficha</h4>
 							</div>
-							<div class="row pt-2">
-								<div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
-									<h4>Programa:</h4>
-								</div>
-								<div class="col-lg-5 col-12">
-									<select id="selectNewListPrograma" class="adsi-css mb-3" name="cod_programa_formacion" required></select>
-								</div>
+							<div class="col-lg-8 col-12">
+								<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+								<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-4  col-12">
+								<h4>Programa:</h4>
+							</div>
+							<div class="col-lg-8  col-12">
+								<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width: 100%"
+								 required></select>
 							</div>
 						</div>
 						<div class="modal-body text-center">
@@ -137,40 +136,36 @@
 			<div class="modal-body">
 				<div class="d-flex justify-content-center text-center">
 					<form method="POST" action="updateDataFicha" class="form-signin">
-						<table>
-							<tr>
-								<td>
-									<h4 style="margin-bottom: 0px;" class="mr-5" for="txt_num_ficha">Numero de la Ficha:</h4>
-								</td>
-								<td>
-									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha"
-									 readonly>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4 style="margin-bottom: 0px;">Programa:</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
-								</td>
-								<td>
-									<select class="adsi-css mb-3" id="selectUpdListPrograma" name="id_programa_formacion" required>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4 style="margin-bottom: 0px;">Estado:</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
-								</td>
-								<td>
-									<select id="SelectUpdListEstadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
-									</select>
-								</td>
-							</tr>
-
-						</table>
+						<div class="row pt-4">
+							<div class="col-lg-4 col-12 ">
+								<h4>Numero de la Ficha:</h4>
+							</div>
+							<div class="col-lg-8 col-12">
+								<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control" aria-describedby="helpIdNumFicha" readonly>
+							</div>
+						</div>
+						<div class="row pt-4">
+							<div class="col-lg-4  col-12">
+								<h4>Programa:</h4>
+								<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
+							</div>
+							<div class="col-lg-8 col-12">
+								<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="id_programa_formacion" required>
+								</select>
+							</div>
+						</div>
+						<div class="row pt-4">
+							<div class="col-lg-4  col-12">
+								<h4>Estado:</h4>
+								<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
+							</div>
+							<div class="col-lg-8 col-12">
+								<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="id_estado_ficha" required>
+								</select>
+							</div>
+						</div>
 						<div class="modal-body">
-							<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+							<button class="btn-rounded" type="submit" >Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -198,7 +193,7 @@
 								<label for="id_ficha">
 									<h5>Ficha</h5>
 									<br>
-									<input type="text" name="id_ficha" list="id_ficha" class="adsi-css" placeholder="Número de ficha" />
+									<input type="text" name="id_ficha" list="id_ficha" class="form-control" placeholder="Número de ficha" />
 									<datalist id="id_ficha">
 										<label> or select one from the list:
 											<div id="form_select_ficha"></div>
@@ -209,7 +204,7 @@
 						</div>
 						<div class="form-group">
 							<h5>Grupo</h5>
-							<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+							<input type="text" class="form-control" style="width:80%; height:30px" name="dni" />
 						</div>
 						<hr>
 						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>

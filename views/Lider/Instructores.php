@@ -17,14 +17,14 @@
 			</div>
 			<div class="card-body">
 				<table class="table table-responsive-sm table-striped table-sm mt-5" id="tableInstructores">
-						<thead>
-					<tr class="success">
-								<th class="col-sm-1 ">Instructor</th>
+					<thead>
+						<tr class="success">
+							<th>Instructor</th>
 							<th>Estado</th>
-								<th class="text-center">Actualizar</th>
-							</tr>
-					</thead>
+							<th class="text-center">Actualizar</th>
 						</tr>
+					</thead>
+					</tr>
 					</thead>
 					<tbody>
 						<?php foreach ($data['instructores'] as $instructor) { ?>
@@ -32,17 +32,17 @@
 							<td>
 								<?php echo $instructor->nombre . " " . $instructor->apellido; ?>
 							</td>
-							<td class="text-center" >
+							<td class="text-center">
 								<button type="button"
-										id-instructor="<?php echo $instructor->id_usuario; ?>"
-										id-state="<?php echo $instructor->id_estado_usuario; ?>"
-										name-state="<?php echo $instructor->name_estado_usuario; ?>"
-										class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>">
-								<?php echo $instructor->name_estado_usuario; ?>
+								id-instructor="<?php echo $instructor->id_usuario; ?>"
+								id-state="<?php echo $instructor->id_estado_usuario; ?>"
+								name-state="<?php echo $instructor->name_estado_usuario; ?>"
+								class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger" ;}?>">
+									<?php echo $instructor->name_estado_usuario; ?>
 								</button>
 							</td>
-							<td >
-								<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $instructor->id_usuario; ?>">
+							<td>
+								<div class="updateDataInstructor text-center" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $instructor->id_usuario; ?>">
 									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
@@ -59,7 +59,7 @@
 </div>
 
 <script>
-$(document).ready(function() {
+	$(document).ready(function() {
 
 	$("#tableInstructores").DataTable({
 		"language":{
@@ -148,7 +148,7 @@ $(document).ready(function() {
 
 });
 	</script>
-	<!-- Modal Actualizar_Instructores-->
+<!-- Modal Actualizar_Instructores-->
 <div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
@@ -159,37 +159,43 @@ $(document).ready(function() {
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
+				<div class=" justify-content-center">
 					<form method="POST" action="updateDataInstructor">
-						<table>
-							<tr>
-								<td>
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
-								</td>
-								<td><input id="text-dni" type="number" value="" class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
-							</tr>
-							<tr>
-								<td>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input id="text-dni" type="number" value="" class="form-control" name="dni" placeholder="Documento" readonly />
+								</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
-								</td>
-								<td><input id="text-nombre" type="text" value="" class="adsi-css" name="nombre" placeholder="Nombre" required /></td>
-							</tr>
-							<tr>
-								<td>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input id="text-nombre" type="text" value="" class="form-control" name="nombre" placeholder="Nombre" required />
+								</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
-								</td>
-								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido"
-									 required /></td>
-							</tr>
-							<tr>
-								<td>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input id="text-apellido" type="text" value="" class="form-control" name="apellido" placeholder="Apellido" required /> </div>
+							</div>
+							<div class="row  pt-2">
+								<div class="col-lg-4  col-12 ">
 									<h5>Correo</h5>
-								</td>
-								<td><input id="text-email" type="email" value="" class="adsi-css" name="email" placeholder="Correo" required /></td>
-							</tr>
-						</table>
-						<div class="modal-body">
-							<button class="btn-rounded" type="submit" style="width:180px">Actualizar</button>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input id="text-email" type="email" value="" class="form-control" name="email" placeholder="Correo" required />
+								</div>
+							</div>
+						</div>
+						<div class="modal-body text-center">
+							<button class="btn-rounded" type="submit" >Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -208,32 +214,36 @@ $(document).ready(function() {
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
+				<div class="justify-content-center">
 					<form method="POST" action="InsertarInstructor" class="form-signin">
-						<table>
-							<tr>
-								<td>
+					<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
-								</td>
-								<td><input type="number" class="adsi-css" name="dni" placeholder="Documento" /></td>
-							</tr>
-							<tr>
-								<td>
+									</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" class="form-control" name="dni" placeholder="Documento" />
+									</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
-								</td>
-								<td><input type="text" class="adsi-css" name="nombre_instructor" placeholder="Nombre" required /></td>
-							</tr>
-							<tr>
-								<td>
+									</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" class="form-control" name="nombre_instructor" placeholder="Nombre" required />
+									</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
 								</td>
-								<td><input type="text" class="adsi-css" name="apellido_instructor" placeholder="Apellido" required /></td>
+								<td><input type="text" class="form-control" name="apellido_instructor" placeholder="Apellido" required /></td>
 							</tr>
 							<tr>
 								<td>
 									<h5>Correo</h5>
 								</td>
-								<td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
+								<td><input type="email" class="form-control" name="email" placeholder="Correo" required /></td>
 							</tr>
 						</table>
 						<div class="modal-body">
