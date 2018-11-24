@@ -183,7 +183,8 @@
 									<h5>Apellido</h5>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input id="text-apellido" type="text" value="" class="form-control" name="apellido" placeholder="Apellido" required /> </div>
+									<input id="text-apellido" type="text" value="" class="form-control" name="apellido" placeholder="Apellido" required /> 
+									</div>
 							</div>
 							<div class="row  pt-2">
 								<div class="col-lg-4  col-12 ">
@@ -195,7 +196,7 @@
 							</div>
 						</div>
 						<div class="modal-body text-center">
-							<button class="btn-rounded" type="submit" >Actualizar</button>
+							<button class="btn-rounded" type="submit">Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -216,38 +217,42 @@
 			<div class="modal-body">
 				<div class="justify-content-center">
 					<form method="POST" action="InsertarInstructor" class="form-signin">
-					<div class="container-fluid">
+						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
-									</div>
+								</div>
 								<div class="col-lg-8 col-12">
 									<input type="number" class="form-control" name="dni" placeholder="Documento" />
-									</div>
+								</div>
 							</div>
 							<div class="row pt-2">
 								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
-									</div>
+								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" class="form-control" name="nombre_instructor" placeholder="Nombre" required />
-									</div>
+								</div>
 							</div>
 							<div class="row pt-2">
 								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
-								</td>
-								<td><input type="text" class="form-control" name="apellido_instructor" placeholder="Apellido" required /></td>
-							</tr>
-							<tr>
-								<td>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" class="form-control" name="apellido_instructor" placeholder="Apellido" required />
+								</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-lg-4  col-12 ">
 									<h5>Correo</h5>
-								</td>
-								<td><input type="email" class="form-control" name="email" placeholder="Correo" required /></td>
-							</tr>
-						</table>
-						<div class="modal-body">
-							<button class="btn-rounded" type="submit" style="width:180px">Agregar</button>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="email" class="form-control" name="email" placeholder="Correo" required />
+								</div>
+							</div>
+							<div class="modal-body text-center">
+								<button class="btn-rounded" type="submit">Agregar</button>
+							</div>
 						</div>
 					</form>
 				</div>
