@@ -249,9 +249,9 @@ class ProgramaFormacionModel extends DB
                 isset($data['txt_id_nivel_programa_formacion']) &&
                 isset($data['txt_cod_proyecto'])) {
                 $codigoPrograma = $data['txt_cod_programa'];
-                $shortNamePrograma = $data['txt_short_name_programa'];
-                $nameProgramaFormacion = $data['txt_name_programa_formacion'];
-                $versionPrograma = $data['txt_version_programa'];
+                $shortNamePrograma = mb_strtoupper($data['txt_short_name_programa'], 'UTF-8');
+                $nameProgramaFormacion = mb_strtoupper($data['txt_name_programa_formacion'], 'UTF-8');
+                $versionPrograma =  mb_strtoupper($data['txt_version_programa'], 'UTF-8');
                 $idNivelProgramaFormacion = $data['txt_id_nivel_programa_formacion'];
                 $codProyecto = $data['txt_cod_proyecto'];
                 $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_PROGRAMA_FORMACION);

@@ -279,7 +279,7 @@ class LiderController extends Path
 
     public function updateDataFicha()
     {
-var_dump($_POST);
+        var_dump($_POST);
         // $data = array(
         //     "dni" => $_POST['dni'],
         //     "nombre" => $_POST['nombre'],
