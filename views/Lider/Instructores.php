@@ -149,11 +149,13 @@
 });
 	</script>
 <!-- Modal Actualizar_Instructores-->
-<div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade  bd-example-modal-lg" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Actualizar Datos</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -165,37 +167,46 @@
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
+									<small id="" class="text-muted">Escriba Numero de Documento del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-dni" type="number" value="" class="form-control" name="dni" placeholder="Documento" readonly />
 								</div>
 							</div>
-							<div class="row pt-2">
+							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
+									<small id="" class="text-muted">Escriba Nombre del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-nombre" type="text" value="" class="form-control" name="nombre" placeholder="Nombre" required />
 								</div>
 							</div>
-							<div class="row pt-2">
+							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
+									<small id="" class="text-muted">Escriba Apellido del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-apellido" type="text" value="" class="form-control" name="apellido" placeholder="Apellido" required /> 
 									</div>
 							</div>
-							<div class="row  pt-2">
+							<div class="row  pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Correo</h5>
+									<small id="" class="text-muted">Escriba Correo del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-email" type="email" value="" class="form-control" name="email" placeholder="Correo" required />
 								</div>
 							</div>
 						</div>
-						<div class="modal-body text-center">
+						<hr>
+						<div class="text-center pt-2">
 							<button class="btn-rounded" type="submit">Actualizar</button>
 						</div>
 					</form>
@@ -205,11 +216,13 @@
 	</div>
 </div>
 <!-- Modal Insertar Instructor-->
-<div class="modal fade" id="Insertar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade bd-example-modal-lg" id="Insertar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Insertar Instructor</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Insertar Instructor</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -221,36 +234,44 @@
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
+									<small id="" class="text-muted">Escriba Numero de Documento del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="number" class="form-control" name="dni" placeholder="Documento" />
 								</div>
 							</div>
-							<div class="row pt-2">
+							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
+									<small id="" class="text-muted">Escriba Nombre del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" class="form-control" name="nombre_instructor" placeholder="Nombre" required />
 								</div>
 							</div>
-							<div class="row pt-2">
+							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
+									<small id="" class="text-muted">Escriba Apellido del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" class="form-control" name="apellido_instructor" placeholder="Apellido" required />
 								</div>
 							</div>
-							<div class="row pt-2">
+							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Correo</h5>
+									<small id="" class="text-muted">Escriba Correo del Instructor
+									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="email" class="form-control" name="email" placeholder="Correo" required />
 								</div>
 							</div>
-							<div class="modal-body text-center">
+							<div class="text-center pt-2">
 								<button class="btn-rounded" type="submit">Agregar</button>
 							</div>
 						</div>
