@@ -1,0 +1,27 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+CoordinadorLogin-LogOut,Chrome 70.0.3538.102,,2018-11-26 15:19:30,2018-11-26 15:19:43,"13,296s",PASSED
+,,,,,,
+Test Cases/OpenBrowserAppProject,Chrome 70.0.3538.102,Ingreso usuario rol Coordinador,2018-11-26 15:19:30,2018-11-26 15:19:37,"7,302s",PASSED
+openBrowser,Chrome 70.0.3538.102,,2018-11-26 15:19:30,2018-11-26 15:19:34,"3,480s",PASSED
+navigateToUrl,Chrome 70.0.3538.102,,2018-11-26 15:19:34,2018-11-26 15:19:37,"3,534s",PASSED
+waitForPageLoad,Chrome 70.0.3538.102,,2018-11-26 15:19:37,2018-11-26 15:19:37,"0,056s",PASSED
+,,,,,,
+Test Cases/Login/CoordinadorLogin,Chrome 70.0.3538.102,Ingreso usuario rol Coordinador,2018-11-26 15:19:37,2018-11-26 15:19:39,"1,711s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-26 15:19:37,2018-11-26 15:19:37,"0,102s",PASSED
+setText,Chrome 70.0.3538.102,,2018-11-26 15:19:37,2018-11-26 15:19:38,"0,115s",PASSED
+setEncryptedText,Chrome 70.0.3538.102,,2018-11-26 15:19:38,2018-11-26 15:19:38,"0,153s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-26 15:19:38,2018-11-26 15:19:39,"1,184s",PASSED
+,,,,,,
+Test Cases/Dashboard/CoordinadorVertifyDashboard,Chrome 70.0.3538.102,Ingreso usuario rol Coordinador,2018-11-26 15:19:39,2018-11-26 15:19:39,"0,251s",PASSED
+waitForPageLoad,Chrome 70.0.3538.102,,2018-11-26 15:19:39,2018-11-26 15:19:39,"0,008s",PASSED
+verifyElementText,Chrome 70.0.3538.102,,2018-11-26 15:19:39,2018-11-26 15:19:39,"0,048s",PASSED
+verifyElementText,Chrome 70.0.3538.102,,2018-11-26 15:19:39,2018-11-26 15:19:39,"0,038s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Chrome 70.0.3538.102,Cerrar sesión de Usuario,2018-11-26 15:19:39,2018-11-26 15:19:43,"3,679s",PASSED
+waitForPageLoad,Chrome 70.0.3538.102,,2018-11-26 15:19:39,2018-11-26 15:19:39,"0,007s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-26 15:19:39,2018-11-26 15:19:39,"0,063s",PASSED
+click,Chrome 70.0.3538.102,,2018-11-26 15:19:39,2018-11-26 15:19:40,"0,565s",PASSED
+waitForPageLoad,Chrome 70.0.3538.102,,2018-11-26 15:19:40,2018-11-26 15:19:40,"0,011s",PASSED
+verifyElementText,Chrome 70.0.3538.102,,2018-11-26 15:19:40,2018-11-26 15:19:40,"0,037s",PASSED
+delay,Chrome 70.0.3538.102,,2018-11-26 15:19:40,2018-11-26 15:19:42,"2,017s",PASSED
+closeBrowser,Chrome 70.0.3538.102,,2018-11-26 15:19:42,2018-11-26 15:19:43,"0,853s",PASSED

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>04.01.02 Agregar nuevo programa de formacion</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>3f934502-d5c1-49b7-8db1-9070b6b30fd2</testCaseGuid>
+   <variable>
+      <defaultValue>'83241844'</defaultValue>
+      <description></description>
+      <id>46e8d4db-91b8-4895-9baf-33b373581bcf</id>
+      <masked>false</masked>
+      <name>cod_programa</name>
+   </variable>
+   <variable>
+      <defaultValue>'AAAINSTALACION DE REDES DE COMPUTADORES'</defaultValue>
+      <description></description>
+      <id>bc6533cc-5ebb-4f02-ba41-c16a826e266e</id>
+      <masked>false</masked>
+      <name>name_programa</name>
+   </variable>
+</TestCaseEntity>

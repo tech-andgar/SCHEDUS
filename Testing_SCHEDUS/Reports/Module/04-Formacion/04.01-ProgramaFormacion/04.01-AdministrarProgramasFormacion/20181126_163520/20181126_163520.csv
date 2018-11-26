@@ -1,0 +1,25 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+04.01-AdministrarProgramasFormacion,Firefox 63.0,,2018-11-26 16:35:21,2018-11-26 16:35:36,"15,357s",PASSED
+,,,,,,
+Test Cases/OpenBrowserAppProject,Firefox 63.0,Accede Navegador con URL APP Project,2018-11-26 16:35:21,2018-11-26 16:35:28,"6,341s",PASSED
+openBrowser,Firefox 63.0,,2018-11-26 16:35:22,2018-11-26 16:35:27,"5,079s",PASSED
+navigateToUrl,Firefox 63.0,,2018-11-26 16:35:27,2018-11-26 16:35:28,"0,994s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 16:35:28,2018-11-26 16:35:28,"0,041s",PASSED
+,,,,,,
+Test Cases/Login/LiderLogin,Firefox 63.0,Ingreso usuario rol Lider,2018-11-26 16:35:28,2018-11-26 16:35:29,"1,654s",PASSED
+click,Firefox 63.0,,2018-11-26 16:35:28,2018-11-26 16:35:28,"0,260s",PASSED
+setText,Firefox 63.0,,2018-11-26 16:35:28,2018-11-26 16:35:28,"0,087s",PASSED
+setEncryptedText,Firefox 63.0,,2018-11-26 16:35:28,2018-11-26 16:35:28,"0,119s",PASSED
+click,Firefox 63.0,,2018-11-26 16:35:28,2018-11-26 16:35:29,"1,044s",PASSED
+,,,,,,
+Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/Accede modulo programa de formacion,Firefox 63.0,Acceder Modulo programa de formacion,2018-11-26 16:35:29,2018-11-26 16:35:30,"0,911s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 16:35:29,2018-11-26 16:35:29,"0,008s",PASSED
+click,Firefox 63.0,,2018-11-26 16:35:29,2018-11-26 16:35:30,"0,228s",PASSED
+click,Firefox 63.0,,2018-11-26 16:35:30,2018-11-26 16:35:30,"0,512s",PASSED
+,,,,,,
+Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/VertifyBreadcrumbsPrograma,Firefox 63.0,,2018-11-26 16:35:30,2018-11-26 16:35:35,"4,571s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 16:35:30,2018-11-26 16:35:30,"0,005s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-26 16:35:30,2018-11-26 16:35:30,"0,036s",PASSED
+delay,Firefox 63.0,,2018-11-26 16:35:30,2018-11-26 16:35:32,"2,021s",PASSED
+verifyTextPresent,Firefox 63.0,,2018-11-26 16:35:32,2018-11-26 16:35:33,"0,354s",PASSED
+delay,Firefox 63.0,,2018-11-26 16:35:33,2018-11-26 16:35:35,"2,002s",PASSED

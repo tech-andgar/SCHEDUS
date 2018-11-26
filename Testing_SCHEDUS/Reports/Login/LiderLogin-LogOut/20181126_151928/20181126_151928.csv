@@ -1,0 +1,27 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+LiderLogin-LogOut,Edge 17,,2018-11-26 15:22:13,2018-11-26 15:22:21,"7,710s",PASSED
+,,,,,,
+Test Cases/OpenBrowserAppProject,Edge 17,Ingreso usuario rol Coordinador,2018-11-26 15:22:14,2018-11-26 15:22:16,"2,423s",PASSED
+openBrowser,Edge 17,,2018-11-26 15:22:14,2018-11-26 15:22:16,"2,039s",PASSED
+navigateToUrl,Edge 17,,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,125s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,043s",PASSED
+,,,,,,
+Test Cases/Login/LiderLogin,Edge 17,Ingreso usuario rol Lider,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,347s",PASSED
+click,Edge 17,,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,059s",PASSED
+setText,Edge 17,,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,049s",PASSED
+setEncryptedText,Edge 17,,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,079s",PASSED
+click,Edge 17,,2018-11-26 15:22:16,2018-11-26 15:22:16,"0,028s",PASSED
+,,,,,,
+Test Cases/Dashboard/LiderVertifyDashboard,Edge 17,Ingreso usuario rol Lider,2018-11-26 15:22:16,2018-11-26 15:22:17,"0,709s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:17,"0,513s",PASSED
+verifyElementText,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:17,"0,040s",PASSED
+verifyElementText,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:17,"0,015s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Edge 17,Cerrar sesión de Usuario,2018-11-26 15:22:17,2018-11-26 15:22:21,"3,910s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:17,"0,007s",PASSED
+click,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:17,"0,024s",PASSED
+click,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:17,"0,025s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:17,2018-11-26 15:22:18,"0,515s",PASSED
+verifyElementText,Edge 17,,2018-11-26 15:22:18,2018-11-26 15:22:18,"0,055s",PASSED
+delay,Edge 17,,2018-11-26 15:22:18,2018-11-26 15:22:20,"2,015s",PASSED
+closeBrowser,Edge 17,,2018-11-26 15:22:20,2018-11-26 15:22:21,"1,149s",PASSED

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="InstructorLogin-LogOut" time="14" tests="4" failures="0" errors="0">
+   <testsuite name="InstructorLogin-LogOut" tests="4" failures="0" errors="0" time="14" timestamp="2018-11-26 15:20:47" hostname="SOPORTE - 192.168.1.154" id="Test Suites/Login/InstructorLogin-LogOut">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Login\\InstructorLogin-LogOut\\20181126_151926"/>
+         <property name="logFiles" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Login\\InstructorLogin-LogOut\\20181126_151926\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="SOPORTE - 192.168.1.154"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="5.8.6.1"/>
+         <property name="browser" value="Firefox 63.0"/>
+         <property name="hostAddress" value="192.168.1.154"/>
+         <property name="sessionId" value="7dac9a1e-a9fe-482d-8ac4-4fedb4f09e6e"/>
+         <property name="seleniumVersion" value="3.7.1"/>
+         <property name="proxyInformation" value="ProxyInformation{proxyOption=NO_PROXY, proxyServerType=HTTP, password=, proxyServerAddress=, proxyServerPort=0}"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/OpenBrowserAppProject" classname="Test Cases/OpenBrowserAppProject" status="PASSED">
+         <system-out><![CDATA[2018-11-26 15:20:47 - [TEST_CASE][PASSED] - Test Cases/OpenBrowserAppProject: Test Cases/OpenBrowserAppProject
+
+2018-11-26 15:20:47 - [TEST_STEP][PASSED] - openBrowser: Browser is opened with url: ''
+
+2018-11-26 15:20:53 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2018-11-26 15:20:53 - [TEST_STEP][PASSED] - navigateToUrl: Navigate to 'http://localhost/SCHEDUS/' successfully
+
+2018-11-26 15:20:55 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SCHEDUS/' successfully
+
+2018-11-26 15:20:55 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 15:20:55 - [MESSAGE][PASSED] - Wait for page load successfully]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Login/InstructorLogin" classname="Test Cases/Login/InstructorLogin" status="PASSED">
+         <system-out><![CDATA[2018-11-26 15:20:55 - [TEST_CASE][PASSED] - Test Cases/Login/InstructorLogin: Test Cases/Login/InstructorLogin
+
+2018-11-26 15:20:55 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Inicio/Login/a_Login' is clicked on
+
+2018-11-26 15:20:55 - [MESSAGE][PASSED] - Object: 'Object Repository/Inicio/Login/a_Login' is clicked on
+
+2018-11-26 15:20:55 - [TEST_STEP][PASSED] - setText: Text '1233' is set on object 'Object Repository/Inicio/Login/input_Documento_dni'
+
+2018-11-26 15:20:55 - [MESSAGE][PASSED] - Text '1233' is set on object 'Object Repository/Inicio/Login/input_Documento_dni'
+
+2018-11-26 15:20:55 - [TEST_STEP][PASSED] - setEncryptedText: Text ****** has been set on object 'Object Repository/Inicio/Login/input_Contrasea_password'
+
+2018-11-26 15:20:55 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Inicio/Login/input_Contrasea_password'
+
+2018-11-26 15:20:55 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Inicio/Login/button_Login' is clicked on
+
+2018-11-26 15:20:56 - [MESSAGE][PASSED] - Object: 'Object Repository/Inicio/Login/button_Login' is clicked on]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/InstructorVertifyDashboard" classname="Test Cases/Dashboard/InstructorVertifyDashboard" status="PASSED">
+         <system-out><![CDATA[2018-11-26 15:20:56 - [TEST_CASE][PASSED] - Test Cases/Dashboard/InstructorVertifyDashboard: Test Cases/Dashboard/InstructorVertifyDashboard
+
+2018-11-26 15:20:57 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 15:20:57 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 15:20:57 - [TEST_STEP][NOT_RUN] - verifyElementText: NOT_RUN: verifyElementText
+
+2018-11-26 15:20:57 - [MESSAGE][NOT_RUN] - NOT_RUN: verifyElementText
+
+2018-11-26 15:20:57 - [TEST_STEP][NOT_RUN] - verifyElementText: NOT_RUN: verifyElementText
+
+2018-11-26 15:20:57 - [MESSAGE][NOT_RUN] - NOT_RUN: verifyElementText]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/LogOut/LogOutAllUsers" classname="Test Cases/LogOut/LogOutAllUsers" status="PASSED">
+         <system-out><![CDATA[2018-11-26 15:20:57 - [TEST_CASE][PASSED] - Test Cases/LogOut/LogOutAllUsers: Test Cases/LogOut/LogOutAllUsers
+
+2018-11-26 15:20:57 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 15:20:57 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 15:20:57 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/HeaderModule/a_menuUsuario' is clicked on
+
+2018-11-26 15:20:57 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/HeaderModule/a_menuUsuario' is clicked on
+
+2018-11-26 15:20:57 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/HeaderModule/a_CerrarSesion' is clicked on
+
+2018-11-26 15:20:58 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/HeaderModule/a_CerrarSesion' is clicked on
+
+2018-11-26 15:20:58 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 15:20:58 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 15:20:58 - [TEST_STEP][PASSED] - verifyElementText: Actual text and expected text of test object 'Object Repository/Inicio/h2_HORARIO DE FORMACION E INFO' are matched.
+
+2018-11-26 15:20:58 - [MESSAGE][PASSED] - Actual text and expected text of test object 'Object Repository/Inicio/h2_HORARIO DE FORMACION E INFO' are matched.
+
+2018-11-26 15:20:58 - [TEST_STEP][PASSED] - delay: Delayed 2 second(s)
+
+2018-11-26 15:21:00 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+2018-11-26 15:21:00 - [TEST_STEP][PASSED] - closeBrowser: Browser is closed
+
+2018-11-26 15:21:01 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2018-11-26 15:20:47 - [TEST_SUITE][PASSED] - InstructorLogin-LogOut: Test Cases/LogOut/LogOutAllUsers]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
