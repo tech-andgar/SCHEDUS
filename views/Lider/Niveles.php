@@ -16,33 +16,33 @@
 				</button>
 			</div>
 			<div class="card-body">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableNivel">
-						<thead>
-							<tr>
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableNivel">
+					<thead>
+						<tr>
 							<th>Nivel</th>
 							<th>Duracion</th>
 							<th class="text-center">Actualizar</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ($data['nivelProgramaFormacion'] as $nivelProgramaFormacion) { ?>
-							<tr>
-								<td>
-									<?php echo $nivelProgramaFormacion->name_nivel_programa_formacion; ?>
-								</td>
-								<td>
-									<?php echo $nivelProgramaFormacion->duracion; ?>
-								</td>
-								<td class="text-center">
-									<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-NivelFormacion="<?php echo $nivelProgramaFormacion->id_nivel_programa_formacion; ?>">
-										<i class="far fa-edit fa-lg"></i></div>
-								</td>
-							</tr>
-							<?php
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($data['nivelProgramaFormacion'] as $nivelProgramaFormacion) { ?>
+						<tr>
+							<td>
+								<?php echo $nivelProgramaFormacion->name_nivel_programa_formacion; ?>
+							</td>
+							<td>
+								<?php echo $nivelProgramaFormacion->duracion; ?>
+							</td>
+							<td class="text-center">
+								<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-NivelFormacion="<?php echo $nivelProgramaFormacion->id_nivel_programa_formacion; ?>">
+									<i class="far fa-edit fa-lg"></i></div>
+							</td>
+						</tr>
+						<?php
 						}
 					?>
-						</tbody>
-					</table>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
@@ -55,10 +55,12 @@
 
 <!-- Modal Agregar nueva Programa-->
 <div class="modal fade bd-example-modal-lg" id="modal-Agregar-programa" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-lg">
+	<div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nuevo Nivel</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Agregar Nuevo Nivel</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -68,27 +70,28 @@
 					<form method="post" action="#" class="form-signin">
 					<div class="container-fluid">
 							<div class="row pt-4">
-								<div class="col-lg-4 col-12">
-									<h4 >Nivel</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Nivel de Formacion
-									</small>
-									</div>
-								<div class="col-lg-4 col-12">
-									<input type="text" name="codig" id="codig" class="adsi-css" aria-describedby="helpIdNumFicha">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4 for="short_name_programa">Fecha de Creacion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
-								</td>
-								<td >
-									<input name="short_name_programa" id="short_name_programa" class="adsi-css" aria-describedby="helpIdNumFicha" placeholder="<?php echo date('d,M,Y') ?>" readonly >
-								</td>
-							</tr>
-						</table>
-						<div class="modal-body  text-center">
-							<button class="btn-rounded " type="submit" style="width:110px">Agregar</button>
+								<div class="col-lg-4 col-12 ">
+								<h4 >Nivel Formacion</h4>
+									<small id="" class="text-muted">Escriba Nombre del Nivel de Formacion</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Fecha de Creacion</h4>
+									<small id="helpIdNumFicha" class="text-muted">Fecha de Creacion del Nievel</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input name="short_name_programa" id="short_name_programa" class="form-control" aria-describedby="helpIdNumFicha"
+									placeholder="<?php echo date('d,M,Y') ?>" readonly>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded " type="submit">Agregar</button>
 						</div>
 					</form>
 				</div>
@@ -96,49 +99,45 @@
 		</div>
 	</div>
 </div>
+
 <!-- Modal Actualizar -->
 <div class="modal fade bd-example-modal-lg" id="Actualizar_Nivel" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered  modal-lg">
+	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Actualizar Datos</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="updateDataNivelFormacion" class="form-signin" id="modalFormUpdNivelFormacion">
+					<form method="post" action="<?php echo APP_URL ?>updateDataNivelFormacion" class="form-signin" id="modalFormUpdNivelFormacion">
 						<div class="container-fluid">
 							<div class="row pt-4">
-								<div class="col-12">
-									<h3>Nivel</h3>
-								</div>
-							</div>
-							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
-									<h4 for="codig">Nivel Formacion</h4>
+								<div class="col-lg-4 col-12 ">
+									<h4 >Nivel Formacion</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Nivel de Formacion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input id="txt_id_nivel_programa_formacion" type="number" name="txt_id_nivel_programa_formacion"  class="adsi-css" hidden>
-									<input id="txt_name_nivel_programa_formacion" type="text" name="txt_name_nivel_programa_formacion"  class="adsi-css">
+								<div class="col-lg-8 col-12">
+									<input id="txt_name_nivel_programa_formacion" type="text" name="txt_name_nivel_programa_formacion" class="form-control">
 								</div>
 							</div>
-						</div>
-						<div class="container-fluid">
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-4 col-12 ">
 									<h4 for="txt_upd_num_proyecto">Duracion</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba El tiempo de Duracion</small>
 								</div>
-								<div class="col-lg-2 col-md-9 offset-md-1 col-sm-9 offset-sm-1">
-									<input id="txt_duracion" type="text" name="txt_duracion" class="adsi-css" >
+								<div class="col-lg-8 col-12">
+									<input id="txt_duracion" type="text" name="txt_duracion" class="form-control">
 								</div>
 							</div>
 						</div>
-						<div class="modal-body text-center">
-							<button class="btn-rounded " type="submit">Actualizar datos</button>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded " type="submit">Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -146,6 +145,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 <script>
@@ -199,24 +199,24 @@
 		});
 
 
-	$(".updateDataNivelFormacion").click(function(){
-		var idNivelFormacion =$(this).attr('id-NivelFormacion');
-		
-		$.ajax({
-			type:'POST',
-			url:'getDataNivelFormacion',
-			dataType:"json",
-			data:{
-				id:idNivelFormacion
-			},
-			success(response){
-				var nivel = jQuery.parseJSON(JSON.stringify(response));
-				$('#txt_id_nivel_programa_formacion').val(idNivelFormacion);
-				$('#txt_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
-				$('#txt-duracion').val(nivel.duracion);
-			}
+		$(".updateDataNivelFormacion").click(function () {
+			var idNivelFormacion = $(this).attr('id-NivelFormacion');
+
+			$.ajax({
+				type: 'POST',
+				url: 'getDataNivelFormacion',
+				dataType: "json",
+				data: {
+					id: idNivelFormacion
+				},
+				success(response) {
+					var nivel = jQuery.parseJSON(JSON.stringify(response));
+					$('#txt_id_nivel_programa_formacion').val(idNivelFormacion);
+					$('#txt_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
+					$('#txt-duracion').val(nivel.duracion);
+				}
+			});
 		});
-	});
 
 	});
 </script>
