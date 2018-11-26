@@ -13,9 +13,13 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
+WebUI.waitForPageLoad(2)
+
 WebUI.click(findTestObject('Dashboard/HeaderModule/a_menuUsuario'))
 
 WebUI.click(findTestObject('Dashboard/HeaderModule/a_CerrarSesion'))
+
+WebUI.waitForPageLoad(2)
 
 WebUI.verifyElementText(findTestObject('Inicio/h2_HORARIO DE FORMACION E INFO'), 'HORARIO DE FORMACION E INFORMACION PARA APRENDICES CEET')
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Ingreso usuario rol Coordinador</description>
+   <name>CoordinadorVertifyDashboard</name>
+   <tag>Coodinador, Login, Login Coodinador,</tag>
+   <comment></comment>
+   <testCaseGuid>fbc41e51-a880-4e06-884c-8714a6be02a2</testCaseGuid>
+</TestCaseEntity>

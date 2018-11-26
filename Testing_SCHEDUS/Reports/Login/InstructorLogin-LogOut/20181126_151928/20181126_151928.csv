@@ -1,0 +1,27 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+InstructorLogin-LogOut,Edge 17,,2018-11-26 15:22:23,2018-11-26 15:22:31,"8,260s",PASSED
+,,,,,,
+Test Cases/OpenBrowserAppProject,Edge 17,Ingreso usuario rol Coordinador,2018-11-26 15:22:23,2018-11-26 15:22:26,"2,415s",PASSED
+openBrowser,Edge 17,,2018-11-26 15:22:24,2018-11-26 15:22:26,"2,035s",PASSED
+navigateToUrl,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,134s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,042s",PASSED
+,,,,,,
+Test Cases/Login/InstructorLogin,Edge 17,Login Instructor desde pagina Inicio,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,334s",PASSED
+click,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,055s",PASSED
+setText,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,046s",PASSED
+setEncryptedText,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,072s",PASSED
+click,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:26,"0,031s",PASSED
+,,,,,,
+Test Cases/Dashboard/InstructorVertifyDashboard,Edge 17,Login Instructor desde pagina Inicio,2018-11-26 15:22:26,2018-11-26 15:22:27,"1,180s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:26,2018-11-26 15:22:27,"1,037s",PASSED
+verifyElementText,Edge 17,,2018-11-26 15:22:27,2018-11-26 15:22:27,"0,005s",NOT_RUN
+verifyElementText,Edge 17,,2018-11-26 15:22:27,2018-11-26 15:22:27,"0,003s",NOT_RUN
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Edge 17,Cerrar sesión de Usuario,2018-11-26 15:22:27,2018-11-26 15:22:31,"3,971s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:27,2018-11-26 15:22:27,"0,006s",PASSED
+click,Edge 17,,2018-11-26 15:22:27,2018-11-26 15:22:27,"0,031s",PASSED
+click,Edge 17,,2018-11-26 15:22:27,2018-11-26 15:22:28,"0,023s",PASSED
+waitForPageLoad,Edge 17,,2018-11-26 15:22:28,2018-11-26 15:22:28,"0,518s",PASSED
+verifyElementText,Edge 17,,2018-11-26 15:22:28,2018-11-26 15:22:28,"0,091s",PASSED
+delay,Edge 17,,2018-11-26 15:22:28,2018-11-26 15:22:30,"2,015s",PASSED
+closeBrowser,Edge 17,,2018-11-26 15:22:30,2018-11-26 15:22:31,"1,152s",PASSED

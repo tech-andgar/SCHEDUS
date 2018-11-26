@@ -13,10 +13,6 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import internal.GlobalVariable as GlobalVariable
 
-WebUI.openBrowser('')
-
-WebUI.navigateToUrl('http://localhost/SCHEDUS/')
-
 WebUI.click(findTestObject('Inicio/Login/a_Login'))
 
 WebUI.setText(findTestObject('Inicio/Login/input_Documento_dni'), '1231')
@@ -24,10 +20,4 @@ WebUI.setText(findTestObject('Inicio/Login/input_Documento_dni'), '1231')
 WebUI.setEncryptedText(findTestObject('Inicio/Login/input_Contrasea_password'), 'aeHFOx8jV/A=')
 
 WebUI.click(findTestObject('Inicio/Login/button_Login'))
-
-WebUI.verifyElementText(findTestObject('Dashboard/MainModule/Coordinador/h2_BIENVENIDO COORDINADOR'), 'BIENVENIDO COORDINADOR')
-
-WebUI.verifyElementText(findTestObject('Dashboard/BreadcrumbsModule/Coordinador/a_Coordinador'), 'Coordinador')
-
-WebUI.delay(2)
 

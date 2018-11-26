@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="04.01-AdministrarProgramasFormacion" time="29" tests="5" failures="0" errors="0">
+   <testsuite name="04.01-AdministrarProgramasFormacion" tests="5" failures="0" errors="0" time="29" timestamp="2018-11-26 17:41:58" hostname="SOPORTE - 192.168.1.154" id="Test Suites/Module/04-Formacion/04.01-ProgramaFormacion/04.01-AdministrarProgramasFormacion">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Module\\04-Formacion\\04.01-ProgramaFormacion\\04.01-AdministrarProgramasFormacion\\20181126_174156"/>
+         <property name="logFiles" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Module\\04-Formacion\\04.01-ProgramaFormacion\\04.01-AdministrarProgramasFormacion\\20181126_174156\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="SOPORTE - 192.168.1.154"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="5.8.6.1"/>
+         <property name="browser" value="Firefox 63.0"/>
+         <property name="hostAddress" value="192.168.1.154"/>
+         <property name="sessionId" value="5a487332-308f-41e7-bdb7-e6d93f78b9f9"/>
+         <property name="seleniumVersion" value="3.7.1"/>
+         <property name="proxyInformation" value="ProxyInformation{proxyOption=NO_PROXY, proxyServerType=HTTP, password=, proxyServerAddress=, proxyServerPort=0}"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/OpenBrowserAppProject" classname="Test Cases/OpenBrowserAppProject" status="PASSED">
+         <system-out><![CDATA[2018-11-26 17:41:58 - [TEST_CASE][PASSED] - Test Cases/OpenBrowserAppProject: Test Cases/OpenBrowserAppProject
+
+2018-11-26 17:41:58 - [TEST_STEP][PASSED] - openBrowser: Browser is opened with url: ''
+
+2018-11-26 17:42:04 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2018-11-26 17:42:04 - [TEST_STEP][PASSED] - navigateToUrl: Navigate to 'http://localhost/SCHEDUS/' successfully
+
+2018-11-26 17:42:05 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SCHEDUS/' successfully
+
+2018-11-26 17:42:05 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 17:42:05 - [MESSAGE][PASSED] - Wait for page load successfully]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Login/LiderLogin" classname="Test Cases/Login/LiderLogin" status="PASSED">
+         <system-out><![CDATA[2018-11-26 17:42:05 - [TEST_CASE][PASSED] - Test Cases/Login/LiderLogin: Test Cases/Login/LiderLogin
+
+2018-11-26 17:42:05 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Inicio/Login/a_Login' is clicked on
+
+2018-11-26 17:42:06 - [MESSAGE][PASSED] - Object: 'Object Repository/Inicio/Login/a_Login' is clicked on
+
+2018-11-26 17:42:06 - [TEST_STEP][PASSED] - setText: Text '1232' is set on object 'Object Repository/Inicio/Login/input_Documento_dni'
+
+2018-11-26 17:42:06 - [MESSAGE][PASSED] - Text '1232' is set on object 'Object Repository/Inicio/Login/input_Documento_dni'
+
+2018-11-26 17:42:06 - [TEST_STEP][PASSED] - setEncryptedText: Text ****** has been set on object 'Object Repository/Inicio/Login/input_Contrasea_password'
+
+2018-11-26 17:42:06 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Inicio/Login/input_Contrasea_password'
+
+2018-11-26 17:42:06 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Inicio/Login/button_Login' is clicked on
+
+2018-11-26 17:42:07 - [MESSAGE][PASSED] - Object: 'Object Repository/Inicio/Login/button_Login' is clicked on]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion" classname="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion" status="PASSED">
+         <system-out><![CDATA[2018-11-26 17:42:07 - [TEST_CASE][PASSED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion
+
+2018-11-26 17:42:07 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 17:42:07 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 17:42:07 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/a_MenuFormacion' is clicked on
+
+2018-11-26 17:42:07 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/a_MenuFormacion' is clicked on
+
+2018-11-26 17:42:07 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/SubModule/a_MenuPrograma' is clicked on
+
+2018-11-26 17:42:08 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/SubModule/a_MenuPrograma' is clicked on]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma" classname="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma" status="PASSED">
+         <system-out><![CDATA[2018-11-26 17:42:08 - [TEST_CASE][PASSED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma
+
+2018-11-26 17:42:08 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 17:42:08 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 17:42:08 - [TEST_STEP][PASSED] - verifyElementText: Actual text and expected text of test object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/breadcrumb_AdministrarProgramasFormacion' are matched.
+
+2018-11-26 17:42:08 - [MESSAGE][PASSED] - Actual text and expected text of test object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/breadcrumb_AdministrarProgramasFormacion' are matched.
+
+2018-11-26 17:42:08 - [TEST_STEP][PASSED] - verifyTextPresent: Text '' is present on page 
+
+2018-11-26 17:42:08 - [MESSAGE][PASSED] - Text '' is present on page]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion" classname="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion" status="PASSED">
+         <system-out><![CDATA[2018-11-26 17:42:08 - [TEST_CASE][PASSED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion
+
+2018-11-26 17:42:08 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:08 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:08 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:08 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:08 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:08 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:08 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:08 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:08 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Nuevo' is clicked on
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Nuevo' is clicked on
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - setText: Text '8324184' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Codigo del Progr'
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Text '8324184' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Codigo del Progr'
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - setText: Text 'TPS' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba las Sigals del P'
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Text 'TPS' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba las Sigals del P'
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - setText: Text 'INSTALACION DE REDES DE COMPUTADORESdd' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Programa de Form'
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Text 'INSTALACION DE REDES DE COMPUTADORESdd' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Programa de Form'
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - setText: Text 'V0.12' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Version de Forma'
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Text 'V0.12' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Version de Forma'
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Selecciona Nivel de Forma' is clicked on
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Selecciona Nivel de Forma' is clicked on
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Escriba Nombre del Proyec' is clicked on
+
+2018-11-26 17:42:09 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Escriba Nombre del Proyec' is clicked on
+
+2018-11-26 17:42:09 - [TEST_STEP][PASSED] - delay: Delayed 15 second(s)
+
+2018-11-26 17:42:24 - [MESSAGE][PASSED] - Delayed 15 second(s)
+
+2018-11-26 17:42:24 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:24 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:24 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:24 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:24 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar' is clicked on
+
+2018-11-26 17:42:25 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar' is clicked on
+
+2018-11-26 17:42:25 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:25 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:25 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:25 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:25 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:25 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:25 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 17:42:25 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 17:42:25 - [TEST_STEP][NOT_RUN] - setText: NOT_RUN: setText
+
+2018-11-26 17:42:25 - [MESSAGE][NOT_RUN] - NOT_RUN: setText]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2018-11-26 17:41:58 - [TEST_SUITE][PASSED] - 04.01-AdministrarProgramasFormacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
