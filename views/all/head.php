@@ -149,7 +149,11 @@ if (isset($_SESSION['user'])) {
     <!-- SWEETALERT JS -->
     <script defer src="<?php echo APP_URL ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script> -->
-
+    
+    <!-- DatePicker -->
+    <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    
     <?php
     if (isset($_SESSION['user'])) {
         echo '
@@ -169,12 +173,22 @@ if (isset($_SESSION['user'])) {
     ?>
 
     <script>
+
         function LoadUrl(url) {
             window.location.href = url;
         }
 
-        const APP_URL='<?php echo APP_URL ?>'
+        const APP_URL='<?php echo APP_URL ?>';
 
+        // TODO FIX CLASS INPUT DATEPICKER
+        $(document).ready(function() {
+            $('.datapicker').each(function(){
+                $(this).datepicker();
+            });
+            /* $('#datepicker').datepicker({
+                uiLibrary: 'bootstrap4'
+            }); */
+        });
     </script>
 
 
