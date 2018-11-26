@@ -11,8 +11,8 @@
 	<div class="container-fluid">
 		<!-- Ejemplo de tabla Listado -->
 		<div class="card">
-			<div class="card-header ">
-				<i class="fa fa-align-justify"></i> Administrar Programas de Formacion
+			<div class="card-header">
+				<i class="fa fa-align-justify"></i> Administrar Programas de Formación
 				<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-Agregar-programa">
 					<i class="icon-plus "></i>&nbsp;Nuevo
 				</button>
