@@ -25,9 +25,9 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php foreach ($data['proyecto'] as $proyecto) { ?>
-						<tr>
-						<td>
+							<?php foreach ($data['proyecto'] as $proyecto) {?>
+							<tr>
+								<td>
 									<?php echo $proyecto->name_proyecto; ?>
 								</td>
 								<td class="text-center">
@@ -37,8 +37,8 @@
 								</td>
 							</tr>
 							<?php
-						}
-					?>
+								}
+								?>
 						</tbody>
 					</table>
 				</div>
@@ -57,7 +57,9 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nuevo Proyecto</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Agregar Nuevo Proyecto</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -65,29 +67,31 @@
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
 					<form method="post" action="#" class="form-signin">
-						<table>
-                            <tr>
-								<td>
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12">
 									<h4 for="codig">Proyecto</h4>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto
 									</small>
-								</td>
-								<td >
-									<input type="text" name="codig" id="codig" class="adsi-css" aria-describedby="helpIdNumFicha">
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4 for="short_name_programa">Fecha de Creacion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
-								</td>
-								<td >
-									<input name="short_name_programa" id="short_name_programa" class="adsi-css" aria-describedby="helpIdNumFicha" placeholder="<?php echo date('d,M,Y') ?>" readonly >
-								</td>
-							</tr>
-						</table>
-						<div class="modal-body  text-center">
-							<button class="btn-rounded " type="submit" style="width:110px">Agregar</button>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Fecha de Creacion</h4>
+									<small id="helpIdNumFicha" class="text-muted">Fecha de Creacion del Proyecto</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input name="short_name_programa" id="short_name_programa" class="form-control" aria-describedby="helpIdNumFicha"
+									placeholder="<?php echo date('d,M,Y'); ?>" readonly>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded " type="submit">Agregar</button>
 						</div>
 					</form>
 				</div>
@@ -96,22 +100,46 @@
 	</div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+<div class="modal fade  bd-example-modal-lg" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Actualizar Proyecto</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
+				<div class="d-flex justify-content-center">
 					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12">
+									<h4 for="codig">Proyecto</h4>
+									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto
+									</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Fecha de Modificacion</h4>
+									<small id="helpIdNumFicha" class="text-muted">Fecha de Modificacion del proyecto</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input name="short_name_programa" id="short_name_programa" class="form-control" aria-describedby="helpIdNumFicha"
+									placeholder="<?php echo date('d,M,Y'); ?>" readonly>
+								</div>
+							</div>
+						</div>
 						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+						<div class="text-center pt-2">
+							<button class="btn-rounded " type="submit">Actualizar</button>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -153,7 +181,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [
