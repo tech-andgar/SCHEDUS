@@ -16,31 +16,30 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="table-responsive">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableFichas">
-						<thead>
-							<tr>
-								<th>Ficha</th>
-								<th>Programa</th>
-								<th>Nivel</th>
-								<th>Estado</th>
-								<th class="text-center">Actualizar</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ($data['fichas'] as $ficha) { ?>
-							<tr>
-								<td>
-									<?php echo $ficha->num_ficha; ?>
-								</td>
-								<td>
-									<?php echo $ficha->name_programa_formacion; ?>
-								</td>
-								<td>
-									<?php echo $ficha->name_nivel_programa_formacion; ?>
-								</td>
-								<td>
-									<?php
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableFichas">
+					<thead>
+						<tr>
+							<th>Ficha</th>
+							<th>Programa</th>
+							<th>Nivel</th>
+							<th>Estado</th>
+							<th class="text-center">Actualizar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($data['fichas'] as $ficha) { ?>
+						<tr>
+							<td>
+								<?php echo $ficha->num_ficha; ?>
+							</td>
+							<td>
+								<?php echo $ficha->name_programa_formacion; ?>
+							</td>
+							<td>
+								<?php echo $ficha->name_nivel_programa_formacion; ?>
+							</td>
+							<td>
+								<?php
 								switch ($ficha->name_estado_ficha) {
 									case 'Cancelado':
 										echo '<div class="p-2 bg-danger text-white rounded">' . $ficha->name_estado_ficha . '</div>';
@@ -58,19 +57,19 @@
 										echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formacion ' . $ficha->name_estado_ficha . '</div>';
 									break;
 								}?>
-								</td>
-								<td style="padding-bottom: 0px;padding-top: 10px;">
-									<div class="updateDataFicha" data-toggle="modal" data-target="#updateDataFicha" id-ficha="<?php echo $ficha->id_ficha; ?>">
-										<i class="far fa-edit fa-lg"></i>
-									</div>
-								</td>
-							</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>
+							</td>
+							<td style="padding-bottom: 0px;padding-top: 10px;">
+								<div class="updateDataFicha" data-toggle="modal" data-target="#updateDataFicha" id-ficha="<?php echo $ficha->id_ficha; ?>">
+									<i class="far fa-edit fa-lg"></i>
+								</div>
+							</td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<!-- Fin ejemplo de tabla Listado -->
@@ -80,38 +79,44 @@
 <!-- /Fin del contenido principal -->
 
 <!-- Modal Agregar nueva Ficha-->
-<div class="modal fade" id="ModalAgregarNuevaFicha" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade bd-example-modal-lg" id="ModalAgregarNuevaFicha" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nueva Ficha</h3>
+				<div class="col-11">
+					<h3 class=" modal-title text-center">Agregar Nueva Ficha</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center ">
 					<form method="post" action="insertarFicha" class="form-signin">
-						<div class="row">
-							<div class="col-lg-4 col-12 ">
-								<h4>Numero de la Ficha</h4>
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Numero de la Ficha</h4>
+									<small id="" class="text-muted">Escriba Numero de la Ficha
+									</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+								</div>
 							</div>
-							<div class="col-lg-8 col-12">
-								<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
-								<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Programa</h4>
+								</div>
+								<div class="col-lg-8  col-12">
+									<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width:100%"
+									required></select>
+								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-lg-4  col-12">
-								<h4>Programa:</h4>
-							</div>
-							<div class="col-lg-8  col-12">
-								<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width: 100%" required></select>
-							</div>
-						</div>
-						<div class="modal-body text-center">
-							<button class="btn-rounded" type="submit" style="width:110px">Insertar</button>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Insertar</button>
 						</div>
 					</form>
 				</div>
@@ -123,11 +128,13 @@
 
 
 <!-- Modal actualizar datos de Ficha-->
-<div class="modal fade" id="updateDataFicha" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+<div class="modal fade bd-example-modal-lg" id="updateDataFicha" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar datos de ficha</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Actualizar datos de ficha</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -135,36 +142,43 @@
 			<div class="modal-body">
 				<div class="justify-content-center">
 					<form method="POST" action="updateDataFicha" class="form-signin">
-						<div class="row pt-4">
-							<div class="col-lg-4 col-12 ">
-								<h4>Numero de la Ficha:</h4>
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Numero de la Ficha</h4>
+									<small id="" class="text-muted">Escriba Numero de la Ficha
+									</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
+									 readonly>
+								</div>
 							</div>
-							<div class="col-lg-8 col-12">
-								<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control" aria-describedby="helpIdNumFicha" readonly>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Programa</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="id_programa_formacion"
+									 required>
+									</select>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Estado</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="id_estado_ficha" required>
+									</select>
+								</div>
 							</div>
 						</div>
-						<div class="row pt-4">
-							<div class="col-lg-4  col-12">
-								<h4>Programa:</h4>
-								<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
-							</div>
-							<div class="col-lg-8 col-12">
-								<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="id_programa_formacion" required>
-								</select>
-							</div>
-						</div>
-						<div class="row pt-4">
-							<div class="col-lg-4  col-12">
-								<h4>Estado:</h4>
-								<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
-							</div>
-							<div class="col-lg-8 col-12">
-								<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="id_estado_ficha" required>
-								</select>
-							</div>
-						</div>
-						<div class="modal-body">
-							<button class="btn-rounded" type="submit" >Actualizar</button>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -174,46 +188,6 @@
 </div>
 <!-- END Modal actualizar datos de Ficha-->
 
-<!-- Modal Agregar nuevo Grupo-->
-<div class="modal fade" id="Agregar_Grupo" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nuevo Grupo</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<div class="form-group">
-							<div class="form-group">
-								<label for="id_ficha">
-									<h5>Ficha</h5>
-									<br>
-									<input type="text" name="id_ficha" list="id_ficha" class="form-control" placeholder="Número de ficha" />
-									<datalist id="id_ficha">
-										<label> or select one from the list:
-											<div id="form_select_ficha"></div>
-										</label>
-									</datalist>
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<h5>Grupo</h5>
-							<input type="text" class="form-control" style="width:80%; height:30px" name="dni" />
-						</div>
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- END Modal Agregar nuevo Grupo-->
 
 
 <script>
