@@ -345,6 +345,11 @@ class LiderController extends Path
         echo $dataNivelFormacion;
     }
 
+
+    //
+    // --- CONTROL PROGRAMA DE FORMACION ----------------------------------------
+    //
+
     public function getDataProgramaFormacion()
     {
         // Completa lista de Programa de Formacion
@@ -366,7 +371,6 @@ class LiderController extends Path
         $dataFormacionPrograma = json_encode($output);
         echo $dataFormacionPrograma;
     }
-
 
     public function insertarProgramaFormacion()
     {
@@ -399,7 +403,7 @@ class LiderController extends Path
             "txto_id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
             "txto_cod_proyecto" => $_POST['txt_cod_proyecto'],
         );
-        $result = $this->modelInstructor->updateDataProgramaFormacion($data);
+        $result = $this->modelProgramaFormacion->updateDataProgramaFormacion($data);
         if ($result) {
             $msgType = array(
                 'type' => 'success',
@@ -414,7 +418,39 @@ class LiderController extends Path
             );
         }
 
-        $this->Instructor($msgType);
+        $this->Programas($msgType);
+    }
+
+    public function changeStatusProgaramaFormaciom()
+    {
+
+        if ($_POST['state_id'] == "1") {
+            $status = "2";
+        } else if ($_POST['state_id'] == "2") {
+            $status = "1";
+        }
+
+        $data = array(
+            "id_programa_formacion" => $_POST['id_programa_formacion'],
+            "cod_estado_programa_formacion" => $status,
+        );
+
+        $result = $this->modelProgramaFormacion->updateStatusProgramaFormacion($data);
+        // if ($result) {
+        //     $msgType = array(
+        //         'type' => 'success',
+        //         'title' => 'AVISO',
+        //         'msg' => 'Exito actualizado estado de programa de formación',
+        //     );
+        // } else {
+        //     $msgType = array(
+        //         'type' => 'error',
+        //         'title' => 'AVISO',
+        //         'msg' => 'No se pudo actualizar estado de programa de formación',
+        //     );
+        // }
+
+        // $this->Programas($msgType);
     }
 
     //
