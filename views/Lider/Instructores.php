@@ -34,11 +34,14 @@
 							</td>
 							<td class="text-center">
 								<button type="button"
-								id-instructor="<?php echo $instructor->id_usuario; ?>"
-								id-state="<?php echo $instructor->id_estado_usuario; ?>"
-								name-state="<?php echo $instructor->name_estado_usuario; ?>"
-								class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger" ;}?>">
-									<?php echo $instructor->name_estado_usuario; ?>
+										id-instructor="<?php echo $instructor->id_usuario; ?>"
+										id-state="<?php echo $instructor->id_estado_usuario; ?>"
+										name-state="<?php echo $instructor->name_estado_usuario; ?>"
+										class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>"
+										data-toggle="tooltip"
+										data-placement="right"
+										title="Click cambia estado de instructor">
+								<?php echo $instructor->name_estado_usuario; ?>
 								</button>
 							</td>
 							<td class="text-center">
@@ -58,99 +61,9 @@
 <!-- /Fin del contenido principal -->
 </div>
 
-<script>
-	$(document).ready(function() {
-
-	$("#tableInstructores").DataTable({
-		"language":{
-			"sProcessing":     "Procesando...",
-			"sLengthMenu":     "Mostrar _MENU_ registros",
-			"sZeroRecords":    "No se encontraron resultados",
-			"sEmptyTable":     "Ningún dato disponible en esta tabla",
-			"sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
-			"sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
-			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-			"sInfoPostFix":    "",
-			"sSearch":         "Buscar:",
-			"sUrl":            "",
-			"sInfoThousands":  ",",
-			"sLoadingRecords": "Cargando...",
-			"oPaginate": {
-						"sFirst":    "Primero",
-						"sLast":     "Último",
-						"sNext":     "Siguiente",
-						"sPrevious": "Anterior"
-			},
-			"oAria": {
-						"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
-			}
-		},"dom": // Insertar objeto tabla por formato:
-			// Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
-			"<'row'<'col-sm-6'f><'col-sm-6'l>>" +
-			// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
-			"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
-			// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-			"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
-			// Pie de la tabla -- B-> Botones de exportar
-			"<'row'<'col-sm-12'B>>",
-		buttons: [
-			'copy',
-			'excel',
-			'pdf'
-    	]
-		//buttons: [
-		//	'copyHtml5',
-		//	'excelHtml5',
-		//	'csvHtml5',
-		//	'pdfHtml5'
-		//]
-	});
-
-	$(".statusChange").click(function(){
-		var statetext =$(this).attr('name-state');
-		var state_id =$(this).attr('id-state');
-		var id_instructor =$(this).attr('id-instructor');
-		$.ajax({
-			type:'POST',
-			url:'changeStatusInstructor',
-			data:{
-				statetext:statetext,
-				state_id:state_id,
-				id_instructor:id_instructor
-			},
-			success(response){
-				window.location.href = "Instructores";
-			}
-		});
-	});
-
-	$(".updateDataInstructor").click(function(){
-		var id_instructor =$(this).attr('id-instructor');
-		console.log(id_instructor);
-
-		$.ajax({
-			type:'POST',
-			url:'getDataInstructor',
-			dataType:"json",
-			data:{
-				id_instructor:id_instructor
-			},
-			success(response){
-				var instructor = jQuery.parseJSON(JSON.stringify(response));
-				$('#text-dni').val(instructor.dni);
-				$('#text-nombre').val(instructor.nombre);
-				$('#text-apellido').val(instructor.apellido);
-				$('#text-email').val(instructor.email);
-			}
-		});
-	});
-
-});
-	</script>
 <!-- Modal Actualizar_Instructores-->
-<div class="modal fade  bd-example-modal-lg" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<div class="col-11">
@@ -215,6 +128,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- Modal Insertar Instructor-->
 <div class="modal fade bd-example-modal-lg" id="Insertar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -282,3 +196,97 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$(document).ready(function() {
+
+
+
+	$("#tableInstructores").DataTable({
+		"language":{
+			"sProcessing":     "Procesando...",
+			"sLengthMenu":     "Mostrar _MENU_ registros",
+			"sZeroRecords":    "No se encontraron resultados",
+			"sEmptyTable":     "Ningún dato disponible en esta tabla",
+			"sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
+			"sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
+			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+			"sInfoPostFix":    "",
+			"sSearch":         "Buscar:",
+			"sUrl":            "",
+			"sInfoThousands":  ",",
+			"sLoadingRecords": "Cargando...",
+			"oPaginate": {
+						"sFirst":    "Primero",
+						"sLast":     "Último",
+						"sNext":     "Siguiente",
+						"sPrevious": "Anterior"
+			},
+			"oAria": {
+						"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+						"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+			}
+		},"dom": // Insertar objeto tabla por formato:
+			// Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
+			"<'row'<'col-sm-6'f><'col-sm-6'l>>" +
+			// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
+			"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
+			// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
+			"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-8'p>>" +
+			// Pie de la tabla -- B-> Botones de exportar
+			"<'row'<'col-sm-12'B>>",
+		buttons: [
+			'copy',
+			'excel',
+			'pdf'
+    	]
+		//buttons: [
+		//	'copyHtml5',
+		//	'excelHtml5',
+		//	'csvHtml5',
+		//	'pdfHtml5'
+		//]
+	});
+
+	$(".statusChange").click(function(){
+		var statetext =$(this).attr('name-state');
+		var state_id =$(this).attr('id-state');
+		var id_instructor =$(this).attr('id-instructor');
+		$.ajax({
+			type:'POST',
+			url:'changeStatusInstructor',
+			data:{
+				statetext:statetext,
+				state_id:state_id,
+				id_instructor:id_instructor
+			},
+			success(response){
+				// window.location.href = "Instructor";
+				location.reload();
+			}
+		});
+	});
+
+	$(".updateDataInstructor").click(function(){
+		var id_instructor =$(this).attr('id-instructor');
+		console.log(id_instructor);
+
+		$.ajax({
+			type:'POST',
+			url:'getDataInstructor',
+			dataType:"json",
+			data:{
+				id_instructor:id_instructor
+			},
+			success(response){
+				var instructor = jQuery.parseJSON(JSON.stringify(response));
+				$('#text-dni').val(instructor.dni);
+				$('#text-nombre').val(instructor.nombre);
+				$('#text-apellido').val(instructor.apellido);
+				$('#text-email').val(instructor.email);
+			}
+		});
+	});
+
+});
+	</script>

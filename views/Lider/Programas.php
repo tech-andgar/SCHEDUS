@@ -47,11 +47,15 @@
 									<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
 								</td>
 								<td class="text-center">
-									<button type="button"
+									<button
+										type="button"
 										id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>"
 										id-state="<?php echo $programaFormacion->id_estado_programa_formacion; ?>"
 										name-state="<?php echo $programaFormacion->name_estado_programa_formacion; ?>"
-										class="statusChange btn  <?php if ($programaFormacion->name_estado_programa_formacion == 'Activo') { echo "btn-success"; } else { echo "btn-danger";} ?>">
+										class="statusChange btn  <?php if ($programaFormacion->name_estado_programa_formacion == 'Activo') { echo "btn-success"; } else { echo "btn-danger";} ?>"
+										data-toggle="tooltip"
+										data-placement="right"
+										title="Click cambia estado de programa de formación">
 								<?php echo $programaFormacion->name_estado_programa_formacion; ?>
 								</button>
 								</td>
@@ -189,7 +193,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="<?php echo APP_URL ?>updateDataInstructor" class="form-signin form-modal">
+					<form method="post" action="updateDataProgramaFormacion" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -202,6 +206,7 @@
 									<small id="helpUpdCodPrograma" class="form-text text-muted">Escriba código del programa</small>
 								</div>
 								<div class="col-lg-5">
+									<input type="number" id="txt_upd_id_programa" name="txt_upd_id_programa" hidden>
 									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma" readonly>
 								</div>
 							</div>
@@ -349,7 +354,8 @@
 					id_programa_formacion:id_programa
 				},
 				success(response){
-					window.location.href = "Programas";
+					location.reload(true);
+					// window.location.href = "Programas";
 				}
 			});
 		});
@@ -453,6 +459,7 @@
 				success(response){
 					var programa  = jQuery.parseJSON(JSON.stringify(response));
 					console.log(programa);
+					$('#txt_upd_id_programa').val(programa.id_programa_formacion);
 					$('#txt_upd_cod_programa').val(programa.codigo);
 					$('#txt_upd_short_name_programa').val(programa.short_name_programa_formacion);
 					$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
