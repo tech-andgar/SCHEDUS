@@ -16,29 +16,30 @@
                 </button>
             </div>
             <div class="card-body">
-            <table class="table table-responsive-sm table-striped table-sm mt-5" id="tableJornada">
-					<thead>
-					<tr class="success">
-							<th>Jornada</th>
-							<th class="text-center">Actualizar</th>
-						</tr>
-					</thead>
-					<tbody>
-							<?php foreach ($data['jornada'] as $jornada) { ?>
-							<tr>
-								<td>
-									<?php echo $jornada->name_jornada; ?>
-								</td>
-								<td class="text-center">
-									<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-jornada="<?php echo $jornada->id_jornada; ?>">
-										<i class="far fa-edit fa-lg"></i></div>
-								</td>
-							</tr>
-							<?php
+                <table class="table table-responsive-sm table-striped table-sm mt-5" id="tableJornada">
+                    <thead>
+                        <tr class="success">
+                            <th>Jornada</th>
+                            <th class="text-center">Actualizar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($data['jornada'] as $jornada) { ?>
+                        <tr>
+                            <td>
+                                <?php echo $jornada->name_jornada; ?>
+                            </td>
+                            <td class="text-center">
+                                <div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Jornada"
+                                    id-jornada="<?php echo $jornada->id_jornada; ?>">
+                                    <i class="far fa-edit fa-lg"></i></div>
+                            </td>
+                        </tr>
+                        <?php
 						}
 					?>
-						</tbody>
-				</table>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!-- Fin ejemplo de tabla Listado -->
@@ -49,50 +50,86 @@
 </div>
 
 <!-- Modal Actualizar-->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="modal fade bd-example-modal-lg" id="Actualizar_Jornada" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-11">
+                    <h3 class="modal-title text-center">Actualizar Datos</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center ">
+                    <form method="post" action="#" class="form-signin form-modal">
+                        <div class="container-fluid">
+                            <div class="row pt-4">
+                                <div class="col-12">
+                                    <h3> Jornada de Formacion</h3>
+                                </div>
+                            </div>
+                            <div class="row pt-4">
+                                <div class="col-lg-4 col-12">
+                                    <h4 for="codig">Jornada</h4>
+                                    <small id="helpIdNumFicha" class="text-muted">Escriba la jornada</small>
+                                </div>
+                                <div class="col-lg-8 col-12">
+                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center pt-2">
+                            <button class="btn-rounded " type="submit">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Modal Agregar nuevo Programa-->
-<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nuevo Programa</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="modal fade bd-example-modal-lg" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-11">
+                    <h3 class="modal-title text-center">Agregar Nueva Jornada</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center ">
+                    <form method="post" action="#" class="form-signin form-modal">
+                        <div class="container-fluid">
+                            <div class="row pt-4">
+                                <div class="col-12">
+                                    <h3> Jornada de Formacion</h3>
+                                </div>
+                            </div>
+                            <div class="row pt-4">
+                                <div class="col-lg-4 col-12">
+                                    <h4 for="codig">Jornada</h4>
+                                    <small id="helpIdNumFicha" class="text-muted">Escriba la jornada</small>
+                                </div>
+                                <div class="col-lg-8 col-12">
+                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center pt-2">
+                            <button class="btn-rounded " type="submit">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -129,7 +166,7 @@
                 // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
                 "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
                 // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-                "<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+                "<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
                 // Pie de la tabla -- B-> Botones de exportar
                 "<'row'<'col-sm-12'B>>",
             buttons: [
