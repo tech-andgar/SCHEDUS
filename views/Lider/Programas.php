@@ -90,7 +90,9 @@
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nuevo Programa</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Agregar Nuevo Programa</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -116,7 +118,7 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="short_name_programa">Siglas del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
+									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigalas del Programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
 									<input type="text" name="txt_short_name_programa" id="txt_short_name_programa" class="form-control"
@@ -153,6 +155,7 @@
 								</div>
 							</div>
 						</div>
+						<hr>
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-6 col-md-12">
@@ -211,13 +214,13 @@
 									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+									<input type="number" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="short_name_programa">Siglas del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
+									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigalas del Programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
 									<input type="text" name="txt_upd_short_name_programa" id="txt_upd_short_name_programa" class="form-control">
@@ -319,7 +322,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [

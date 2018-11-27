@@ -16,7 +16,6 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="table-responsive">
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableProyecto">
 						<thead>
 							<tr>
@@ -66,7 +65,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="#" class="form-signin">
+					<form method="post" action="#" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
@@ -76,16 +75,6 @@
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
-								</div>
-							</div>
-							<div class="row pt-4">
-								<div class="col-lg-4  col-12">
-									<h4>Fecha de Creacion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Fecha de Creacion del Proyecto</small>
-								</div>
-								<div class="col-lg-8 col-12">
-									<input name="short_name_programa" id="short_name_programa" class="form-control" aria-describedby="helpIdNumFicha"
-									placeholder="<?php echo date('d,M,Y'); ?>" readonly>
 								</div>
 							</div>
 						</div>
@@ -113,7 +102,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="#" class="form-signin">
+					<form method="post" action="#" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
@@ -123,16 +112,6 @@
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
-								</div>
-							</div>
-							<div class="row pt-4">
-								<div class="col-lg-4  col-12">
-									<h4>Fecha de Modificacion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Fecha de Modificacion del proyecto</small>
-								</div>
-								<div class="col-lg-8 col-12">
-									<input name="short_name_programa" id="short_name_programa" class="form-control" aria-describedby="helpIdNumFicha"
-									placeholder="<?php echo date('d,M,Y'); ?>" readonly>
 								</div>
 							</div>
 						</div>
@@ -181,7 +160,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [
