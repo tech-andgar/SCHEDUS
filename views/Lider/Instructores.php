@@ -41,8 +41,8 @@
 									<?php echo $instructor->name_estado_usuario; ?>
 								</button>
 							</td>
-							<td>
-								<div class="updateDataInstructor text-center" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $instructor->id_usuario; ?>">
+							<td class="text-center">
+								<div class="updateDataInstructor" data-toggle="modal" data-target="#Actualizar_ins" id-instructor="<?php echo $instructor->id_usuario; ?>">
 									<i class="far fa-edit fa-lg"></i>
 								</div>
 							</td>
@@ -91,7 +91,7 @@
 			// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 			"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 			// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-			"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-8'p>>" +
+			"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 			// Pie de la tabla -- B-> Botones de exportar
 			"<'row'<'col-sm-12'B>>",
 		buttons: [
@@ -162,7 +162,7 @@
 			</div>
 			<div class="modal-body">
 				<div class=" justify-content-center">
-					<form method="POST" action="updateDataInstructor">
+					<form method="POST" action="updateDataInstructor" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
@@ -229,7 +229,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="justify-content-center">
-					<form method="POST" action="InsertarInstructor" class="form-signin">
+					<form method="POST" action="InsertarInstructor" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
@@ -271,6 +271,7 @@
 									<input type="email" class="form-control" name="email" placeholder="Correo" required />
 								</div>
 							</div>
+							<hr>
 							<div class="text-center pt-2">
 								<button class="btn-rounded" type="submit">Agregar</button>
 							</div>
