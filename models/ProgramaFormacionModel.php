@@ -302,4 +302,23 @@ class ProgramaFormacionModel extends DB
             die($e->getMessage());
         }
     }
+
+    public function updateStatusProgramaFormacion($data)
+    {
+        try {
+            // Verificar hay datos en $data
+            if (isset($data['cod_estado_programa_formacion']) && isset($data['id_programa_formacion'])) {
+                $cod_estado_programa_formacion = $data['cod_estado_programa_formacion'];
+                $id_programa_formacion = $data['id_programa_formacion'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_STATUS_PROGRAMA_FORMACION);
+                $stm->bindParam(1, $cod_estado_programa_formacion, PDO::PARAM_STR);
+                $stm->bindParam(2, $id_programa_formacion, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 }
