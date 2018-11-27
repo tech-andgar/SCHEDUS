@@ -84,7 +84,7 @@ class preparedSQL
     const GET_PROGRAMA_FORMACION_CODIGO = "SELECT * FROM `v_programa_formacion` WHERE `codigo` = ?";
     const GET_PROGRAMA_FORMACION_NAME = "SELECT * FROM `v_programa_formacion` WHERE `name_nivel_programa_formacion` LIKE ?";
     const INSERT_NEW_PROGRAMA_FORMACION = "INSERT INTO  `programa_formacion`(`codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`) VALUES (?,?,?,?,?,?,1)";  // 1-> ACtIVO
-    const UPDATE_DATA_PROGRAMA_FORMACION = "UPDATE `programa_formacion` SET `short_name_programa_formacion`= ? , `name_programa_formacion`= ? , `version_programa`= ? , `cod_nivel_programa_formacion`= ? , `cod_proyecto`= ? , `cod_estado_programa_formacion`= 1  WHERE `codigo` = ? ";
+    const UPDATE_DATA_PROGRAMA_FORMACION = "UPDATE `programa_formacion` SET `short_name_programa_formacion`=?, `name_programa_formacion`=?, `version_programa`=?, `cod_nivel_programa_formacion`=?, `cod_proyecto`=? WHERE `id_programa_formacion`=?";
     const UPDATE_STATUS_PROGRAMA_FORMACION = "UPDATE `programa_formacion` SET `cod_estado_programa_formacion` = ? WHERE `id_programa_formacion` = ?";
 
 
@@ -115,7 +115,7 @@ class preparedSQL
     const GET_TRIMESTRE_ID = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin` FROM `trimestre` WHERE `id_trimestre`=?";
     const GET_TRIMESTRE_NAME = "SELECT * FROM `trimestre` WHERE `name_trimestre` LIKE ?";
     const INSERT_NEW_TRIMESTRE="INSERT INTO `trimestre`(`name_trimestre`, `fecha_inicio`, `fecha_fin`) VALUES (?,?,?)";
-    const UPDATE_DATA_TRIMESTRE_ID = "UPDATE `trimestre` SET `name_trimestre`=[value-2],`fecha_inicio`=[value-3],`fecha_fin`=[value-4],`create_time`=[value-5],`update_time`=[value-6],`version`=[value-7] WHERE `id_trimestre`";
+    const UPDATE_DATA_TRIMESTRE_ID = "UPDATE `trimestre` SET `name_trimestre`=?,`fecha_inicio`=?,`fecha_fin`=? WHERE `id_trimestre`";
 
     //
     // ─── COMPETENCIA ────────────────────────────────────────────────────────────────
