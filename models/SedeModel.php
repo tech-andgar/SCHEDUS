@@ -97,5 +97,45 @@ class SedeModel extends DB {
 	public function setDireccion($direccion) {
 		$this->direccion = $direccion;
 	}
+
+	//
+	// ─── SEDE ───────────────────────────────────────────────────────────────────
+	//
+
+	public function getAllSede()
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_SEDE);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Sede
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+
+	public function getSedeId($idSede)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_SEDE_ID);
+            $stm->bindParam(1, $idSede, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Sede
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+	public function getSedeName($nameSede)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_SEDE_NAME);
+            $nameSede = '%'.$nameSede.'%';
+            $stm->bindParam(1, $nameSede, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Sede
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
 }
 ?>

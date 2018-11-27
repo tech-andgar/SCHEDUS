@@ -139,11 +139,28 @@ class preparedSQL
     // ─── AMBIENTE ───────────────────────────────────────────────────────────────────
     //
 
-        
     const GET_ALL_AMBIENTE = "SELECT * FROM `v_ambientes`";
     const GET_AMBIENTE_ID = "SELECT * FROM `v_ambientes` WHERE `id_ambiente` = ?";
     const GET_AMBIENTE_NAME = "SELECT * FROM `v_ambientes` WHERE `name_ambiente` LIKE ?";
     const INSERT_NEW_AMBIENTE = "";
+
+    //
+    // ─── SEDE ───────────────────────────────────────────────────────────────────
+    //
+
+    const GET_ALL_SEDE = "SELECT * FROM `sede`";
+    const GET_SEDE_ID = "SELECT * FROM `sede` WHERE `id_sede` = ?";
+    const GET_SEDE_NAME = "SELECT * FROM `sede` WHERE `name_sede` LIKE ?";
+    const INSERT_NEW_SEDE = "";
+
+    //
+    // ─── ESTADO DE AMBIENTE ───────────────────────────────────────────────────────────────────
+    //
+
+    const GET_ALL_ESTADO_AMBIENTE = "SELECT * FROM `estado_ambiente`";
+    const GET_ESTADO_AMBIENTE_ID = "SELECT * FROM `estado_ambiente` WHERE `id_estado_ambiente` = ?";
+    const GET_ESTADO_AMBIENTE_NAME = "SELECT * FROM `estado_ambiente` WHERE `name_estado_ambiente` LIKE ?";
+    const INSERT_NEW_ESTADO_AMBIENTE = "";
 }
 
 

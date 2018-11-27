@@ -73,5 +73,46 @@ class EstadoAmbienteModel extends DB {
 	public function setName_estado_ambiente($name_estado_ambiente) {
 		$this->name_estado_ambiente = $name_estado_ambiente;
 	}
+
+	//
+	// ─── ESTADO AMBIENTE ───────────────────────────────────────────────────────────────────
+	//
+
+	public function getAllEstadoAmbiente()
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_ESTADO_AMBIENTE);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Estado Ambiente
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+
+	public function getEstadoAmbienteId($idEstadoAmbiente)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ESTADO_AMBIENTE_ID);
+            $stm->bindParam(1, $idEstadoAmbiente, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Estado Ambiente
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+	public function getEstadoAmbienteName($nameEstadoAmbiente)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ESTADO_AMBIENTE_NAME);
+            $nameEstadoAmbiente = '%'.$nameEstadoAmbiente.'%';
+            $stm->bindParam(1, $nameEstadoAmbiente, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Aula
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+
 }
 ?>
