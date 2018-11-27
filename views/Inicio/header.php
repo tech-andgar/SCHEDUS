@@ -13,7 +13,7 @@
             <ul class="dropdown-menu dropdown-menu-right mt-2">
                 <li class="p-4" style="width: 320px;">
                     <div class="d-flex justify-content-center text-center">
-                        <form method="post" action="<?php echo APP_URL ?>Inicio/validarUsuario" class="form-signin">
+                        <form method="post" action="<?php echo APP_URL ?>Inicio/validarUsuario"class="form-signin form-modal">
                             <div class="container-fluid">
                                     <div class="row pt-2">
                                             <div class="col-12">
@@ -67,7 +67,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
-                    <form method="POST" action="?c=inicio&m=sendMailRecoveryPassword" class="form-signin">
+                    <form method="POST" action="?c=inicio&m=sendMailRecoveryPassword"class="form-signin form-modal">
                         <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-lg-4  col-12 ">
