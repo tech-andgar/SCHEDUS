@@ -34,7 +34,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="table-responsive">
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5">
 						<thead>
 							<tr>
