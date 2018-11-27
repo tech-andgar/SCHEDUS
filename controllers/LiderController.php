@@ -20,6 +20,8 @@ class LiderController extends Path
         $this->modelJornada = parent::model('jornada');
         $this->modelAmbiente = parent::model('ambiente');
         $this->modelRutaFicha = parent::model('rutaFicha');
+        $this->modelSede = parent::model('sede');
+        $this->modelEstadoAmbiente = parent::model('estadoAmbiente');
     }
 
     //
@@ -121,6 +123,20 @@ class LiderController extends Path
         $data['rutaFichas'] = $this->modelRutaFicha->getAllRutaFichas();
         $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Grupos', 'Grupos', $data);
+    }
+
+    public function EstadoAmbiente($msgType = [])
+    {
+        $data['estadoAmbiente'] = $this->modelEstadoAmbiente->getAllEstadoAmbiente();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'EstadoAmbiente', 'Estado Ambiente', $data);
+    }
+
+    public function Sede($msgType = [])
+    {
+        $data['sede'] = $this->modelSede->getAllSede();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Sede', 'Sede', $data);
     }
 
     //
