@@ -274,28 +274,30 @@ class ProgramaFormacionModel extends DB
     {
         try {
             // Verificar hay datos en $data
-			if (isset($data['txt_upd_cod_programa']) &&
-				isset($data['txt_upd_short_name_programa']) &&
-				isset($data['txt_upd_name_programa_formacion']) &&
-				isset($data['txt_upd_version_programa']) &&
-				isset($data['txt_upd_id_nivel_programa_formacion']) &&
-				isset($data['txt_upd_cod_proyecto']))
-				{
-                $txt_upd_cod_programa = $data['txt_upd_cod_programa'];
-                $txt_upd_short_name_programa = $data['txt_upd_short_name_programa'];
-                $txt_upd_name_programa_formacion = $data['txt_upd_name_programa_formacion'];
-				$txt_upd_version_programa = $data['txt_upd_version_programa'];
-				$txt_upd_id_nivel_programa_formacion = $data['txt_upd_id_nivel_programa_formacion'];
-				$txt_upd_cod_proyecto = $data['txt_upd_cod_proyecto'];
+			if (isset($data['txtUpdIdPrograma'] ) &&
+				isset($data['txtUpdShortNamePrograma']) &&
+				isset($data['txtUpdNameProgramaFormacion']) &&
+				isset($data['txtUpdVersionPrograma']) &&
+				isset($data['txtUpdIdNivelProgramaFormacion']) &&
+                isset($data['txtUpdCodProyecto'])
+            ){
+                $txtUpdIdPrograma = $data['txtUpdIdPrograma'];
+                // $txtUpdCodPrograma = $data['txtUpdCodPrograma'];
+                $txtUpdShortNamePrograma = mb_strtoupper($data['txtUpdShortNamePrograma'], 'UTF-8');
+                $txtUpdNameProgramaFormacion = mb_strtoupper($data['txtUpdNameProgramaFormacion'], 'UTF-8');
+				$txtUpdVersionPrograma = mb_strtoupper($data['txtUpdVersionPrograma'], 'UTF-8');
+				$txtUpdIdNivelProgramaFormacion = $data['txtUpdIdNivelProgramaFormacion'];
+				$txtUpdCodProyecto = $data['txtUpdCodProyecto'];
                 $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_PROGRAMA_FORMACION);
-                $stm->bindParam(1, $txt_upd_short_name_programa, PDO::PARAM_STR);
-                $stm->bindParam(2, $txt_upd_name_programa_formacion, PDO::PARAM_STR);
-                $stm->bindParam(3, $txt_upd_version_programa, PDO::PARAM_STR);
-				$stm->bindParam(4, $txt_upd_cod_programa, PDO::PARAM_STR);
-				$stm->bindParam(5, $txt_upd_id_nivel_programa_formacion, PDO::PARAM_STR);
-				$stm->bindParam(6, $txt_upd_cod_proyecto, PDO::PARAM_STR);
-                $stm->execute();
-                return true;
+                // $stm->bindParam(1, $txtUpdCodPrograma, PDO::PARAM_STR);
+                $stm->bindParam(1, $txtUpdShortNamePrograma, PDO::PARAM_STR);
+                $stm->bindParam(2, $txtUpdNameProgramaFormacion, PDO::PARAM_STR);
+				$stm->bindParam(3, $txtUpdVersionPrograma, PDO::PARAM_STR);
+				$stm->bindParam(4, $txtUpdIdNivelProgramaFormacion, PDO::PARAM_INT);
+				$stm->bindParam(5, $txtUpdCodProyecto, PDO::PARAM_INT);
+                $stm->bindParam(6, $txtUpdIdPrograma, PDO::PARAM_INT);
+                return $stm->execute();
+                // return true;
             }
         } catch (Exception $e) {
             return false;
