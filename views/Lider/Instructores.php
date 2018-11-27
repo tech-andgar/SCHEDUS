@@ -37,7 +37,10 @@
 										id-instructor="<?php echo $instructor->id_usuario; ?>"
 										id-state="<?php echo $instructor->id_estado_usuario; ?>"
 										name-state="<?php echo $instructor->name_estado_usuario; ?>"
-										class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>">
+										class="statusChange btn  <?php if ($instructor->name_estado_usuario == 'Activo') {echo "btn-success";} else {echo "btn-danger";}?>"
+										data-toggle="tooltip"
+										data-placement="right"
+										title="Click cambia estado de instructor">
 								<?php echo $instructor->name_estado_usuario; ?>
 								</button>
 							</td>
@@ -58,8 +61,109 @@
 <!-- /Fin del contenido principal -->
 </div>
 
+<!-- Modal Actualizar_Instructores-->
+<div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="d-flex justify-content-center text-center">
+					<form method="POST" action="updateDataInstructor">
+						<table>
+							<tr>
+								<td>
+									<h5>Numero de Documento</h5>
+								</td>
+								<td><input id="text-dni" type="number" value="" class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Nombre</h5>
+								</td>
+								<td><input id="text-nombre" type="text" value="" class="adsi-css" name="nombre" placeholder="Nombre" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Apellido</h5>
+								</td>
+								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido"
+									 required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Correo</h5>
+								</td>
+								<td><input id="text-email" type="email" value="" class="adsi-css" name="email" placeholder="Correo" required /></td>
+							</tr>
+						</table>
+						<div class="modal-body">
+							<button class="btn-rounded" type="submit" style="width:180px">Actualizar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal Insertar Instructor-->
+<div class="modal fade" id="Insertar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="col-11 modal-title text-center">Insertar Instructor</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="d-flex justify-content-center text-center">
+					<form method="POST" action="InsertarInstructor" class="form-signin">
+						<table>
+							<tr>
+								<td>
+									<h5>Numero de Documento</h5>
+								</td>
+								<td><input type="number" class="adsi-css" name="dni" placeholder="Documento" /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Nombre</h5>
+								</td>
+								<td><input type="text" class="adsi-css" name="nombre_instructor" placeholder="Nombre" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Apellido</h5>
+								</td>
+								<td><input type="text" class="adsi-css" name="apellido_instructor" placeholder="Apellido" required /></td>
+							</tr>
+							<tr>
+								<td>
+									<h5>Correo</h5>
+								</td>
+								<td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
+							</tr>
+						</table>
+						<div class="modal-body">
+							<button class="btn-rounded" type="submit" style="width:180px">Agregar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script>
 $(document).ready(function() {
+
+
 
 	$("#tableInstructores").DataTable({
 		"language":{
@@ -120,7 +224,8 @@ $(document).ready(function() {
 				id_instructor:id_instructor
 			},
 			success(response){
-				window.location.href = "Instructores";
+				// window.location.href = "Instructor";
+				location.reload();
 			}
 		});
 	});
@@ -148,100 +253,3 @@ $(document).ready(function() {
 
 });
 	</script>
-	<!-- Modal Actualizar_Instructores-->
-<div class="modal fade" id="Actualizar_ins" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="updateDataInstructor">
-						<table>
-							<tr>
-								<td>
-									<h5>Numero de Documento</h5>
-								</td>
-								<td><input id="text-dni" type="number" value="" class="adsi-css" name="dni" placeholder="Documento" readonly /></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Nombre</h5>
-								</td>
-								<td><input id="text-nombre" type="text" value="" class="adsi-css" name="nombre" placeholder="Nombre" required /></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Apellido</h5>
-								</td>
-								<td><input id="text-apellido" type="text" value="" class="adsi-css" name="apellido" placeholder="Apellido"
-									 required /></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Correo</h5>
-								</td>
-								<td><input id="text-email" type="email" value="" class="adsi-css" name="email" placeholder="Correo" required /></td>
-							</tr>
-						</table>
-						<div class="modal-body">
-							<button class="btn-rounded" type="submit" style="width:180px">Actualizar</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Modal Insertar Instructor-->
-<div class="modal fade" id="Insertar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Insertar Instructor</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="InsertarInstructor" class="form-signin">
-						<table>
-							<tr>
-								<td>
-									<h5>Numero de Documento</h5>
-								</td>
-								<td><input type="number" class="adsi-css" name="dni" placeholder="Documento" /></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Nombre</h5>
-								</td>
-								<td><input type="text" class="adsi-css" name="nombre_instructor" placeholder="Nombre" required /></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Apellido</h5>
-								</td>
-								<td><input type="text" class="adsi-css" name="apellido_instructor" placeholder="Apellido" required /></td>
-							</tr>
-							<tr>
-								<td>
-									<h5>Correo</h5>
-								</td>
-								<td><input type="email" class="adsi-css" name="email" placeholder="Correo" required /></td>
-							</tr>
-						</table>
-						<div class="modal-body">
-							<button class="btn-rounded" type="submit" style="width:180px">Agregar</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>

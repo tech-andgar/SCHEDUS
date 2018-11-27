@@ -175,11 +175,22 @@ if (isset($_SESSION['user'])) {
     ?>
 
     <script>
+    const APP_URL='<?php echo APP_URL ?>';
+
+    $(document).ready(function() {
+        $(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+        });
+
+        $(".btn").hover(
+		    function(){$(this).toggleClass('shadow');}
+	    );
+
         function LoadUrl(url) {
             window.location.href = url;
         }
+    });
 
-        const APP_URL='<?php echo APP_URL ?>'
 
     </script>
 
