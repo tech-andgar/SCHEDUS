@@ -85,7 +85,9 @@ class AmbienteModel extends DB {
 	public function setNum_ambiente($num_ambiente) {
 		$this->num_ambiente = $num_ambiente;
 	}
-
+	//
+	// ─── AMBIENTE ───────────────────────────────────────────────────────────────────
+	//
 	public function getAllAmbiente()
     {
         try {
@@ -120,6 +122,8 @@ class AmbienteModel extends DB {
         } catch (Exception $e) {
             die($e->getMessage());
         }
-    }
+	}
+
+	
 }
 ?>
