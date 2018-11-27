@@ -17,7 +17,6 @@
                 </button>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
                     <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableTrimestre">
                         <thead>
 						<tr class="success">
@@ -64,7 +63,9 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="col-11 modal-title text-center">Agregar Nuevo Programa</h3>
+                <div class="col-11">
+                    <h3 class="modal-title text-center">Agregar Nuevo Trimestre</h3>
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -79,30 +80,21 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="codig">Trimestre</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
+                            <div class="col-lg-4 col-12">
+									<h4 >Trimestre</h4>
+									<small id="helpIdNumFicha" class="text-muted">Escriba el Trimestre</small>
 								</div>
-								<div class="col-lg-6 col-12">
+								<div class="col-lg-8 col-12">
 									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="short_name_programa">Inicio</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigals del Programa</small>
+                            <div class="col-lg-4 col-12">
+									<h4>Fecha</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecione fecha de inio y fin </small>
 								</div>
-								<div class="col-lg-6 col-12">
+								<div class="col-lg-8 col-12">
 									<input name="txt_upd_short_name_programa"  class="datapicker form-control">
-								</div>
-							</div>
-							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="name_Programa_formacion">Fin</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Programa de Formacion</small>
-								</div>
-								<div class="col-lg-6 col-12">
-									<input  name="txt_upd_name_programa_formacion"  class="datapicker form-control">
 								</div>
 							</div>
                         </div>
@@ -117,22 +109,49 @@
     </div>
 </div>
 <!-- Modal Actualizar TrimestresPrograma -->
-<div class="modal fade" id="Actualizar_TrimestresPrograma" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+<div class="modal fade bd-example-modal-lg" id="Actualizar_TrimestresPrograma" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+                <div class="col-11">
+				    <h3 class="modal-title text-center">Actualizar Datos</h3>
+                </div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre del Programa</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+				<div class="d-flex justify-content-center ">
+					<form method="post" action="#" class="form-signin form-modal">
+                    <div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-12">
+									<h3> Trimestres de Programas de Formacion</h3>
+								</div>
+							</div>
+							<div class="row pt-4">
+                            <div class="col-lg-4 col-12">
+									<h4 for="codig">Trimestre</h4>
+									<small id="helpIdNumFicha" class="text-muted">Escriba el Trimestre</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+								</div>
+							</div>
+							<div class="row pt-4">
+                            <div class="col-lg-4 col-12">
+									<h4 for="short_name_programa">Fecha</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecione fecha de inio y fin </small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input name="txt_upd_short_name_programa"  class="datapicker form-control">
+								</div>
+							</div>
+                        </div>
+                        <hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded " type="submit" >Actualizar</button>
+						</div>
 					</form>
 				</div>
 			</div>
