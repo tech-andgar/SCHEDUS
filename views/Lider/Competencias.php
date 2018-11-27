@@ -60,10 +60,9 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
+				<div class="d-flex justify-content-center ">
+					<form method="post" action="#" class="form-signin form-modal">
 						<div class="container-fluid">
-							
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
 									<h4>Seleccione el Programa</h4>
@@ -108,7 +107,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-				<form method="post" action="#" class="form-signin">
+				<form method="post" action="#" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
@@ -176,7 +175,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [
