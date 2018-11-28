@@ -150,8 +150,8 @@
 									</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="number" id="id_ficha" name="id_ficha" hidden>
-									<input type="number" name="num_ficha" id="txt_num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
+									<input type="number" id="txt_id_ficha" name="id_ficha" value="" hidden>
+									<input type="number" id="txt_num_ficha" name="num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
 									 readonly>
 								</div>
 							</div>
@@ -161,7 +161,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="cod_programa_formacion"
+									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="upd_cod_programa_formacion"
 									 required>
 									</select>
 								</div>
@@ -172,7 +172,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="upd_estado_ficha" required>
+									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="upd_cod_estado_ficha" required>
 									</select>
 								</div>
 							</div>
@@ -289,6 +289,7 @@
 				success(response) {
 					var ficha = jQuery.parseJSON(response);
 					$('#txt_num_ficha').val(ficha.num_ficha);
+					$('#txt_id_ficha').val(ficha.id_ficha);
 					getDataEstadoFichaToUpdSelect();
 					getDataProgramaFormacionToUpdSelect();
 

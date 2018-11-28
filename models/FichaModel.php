@@ -140,16 +140,19 @@ class FichaModel extends DB {
     {
         try {
             // Verificar hay datos en $data
-            if (isset($data['dni']) && isset($data['nombre']) && isset($data['apellido']) && isset($data['email'])) {
-                $dni = $data['dni'];
-                $nombre = $data['nombre'];
-                $apellido = $data['apellido'];
-                $email  = $data['email'];
-                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_INSTRUCTOR);
-                $stm->bindParam(1, $nombre, PDO::PARAM_STR);
-                $stm->bindParam(2, $apellido, PDO::PARAM_STR);
-                $stm->bindParam(3, $email, PDO::PARAM_STR);
-                $stm->bindParam(4, $dni, PDO::PARAM_STR);
+            if (isset($data['num_ficha'])
+            && isset($data['upd_cod_programa_formacion'])
+            && isset($data['upd_cod_estado_ficha'])
+            && isset($data['id_ficha'])) {
+                $upd_num_ficha = $data['num_ficha'];
+                $upd_cod_programa_formacion = $data['upd_cod_programa_formacion'];
+                $upd_estado_ficha = $data['upd_cod_estado_ficha'];
+                $id_ficha = $data['id_ficha'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_FICHA_ID);
+                $stm->bindParam(1, $upd_num_ficha, PDO::PARAM_STR);
+                $stm->bindParam(2, $upd_estado_ficha, PDO::PARAM_STR);
+                $stm->bindParam(3, $upd_cod_programa_formacion, PDO::PARAM_STR);
+                $stm->bindParam(4, $id_ficha, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }
@@ -159,23 +162,23 @@ class FichaModel extends DB {
         }
     }
 
-    public function updatedStatusFicha($data)
-    {
-        try {
-            // Verificar hay datos en $data
-            if (isset($data['status']) && isset($data['id_instructor'])) {
-                $status = $data['status'];
-                $id_instructor = $data['id_instructor'];
-                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_STATUS_INSTRUCTOR);
-                $stm->bindParam(1, $status, PDO::PARAM_STR);
-                $stm->bindParam(2, $id_instructor, PDO::PARAM_STR);
-                $stm->execute();
-                return true;
-            }
-        } catch (Exception $e) {
-            return false;
-            die($e->getMessage());
-        }
-    }
+    // public function updatedStatusFicha($data)
+    // {
+    //     try {
+    //         // Verificar hay datos en $data
+    //         if (isset($data['status']) && isset($data['id_instructor'])) {
+    //             $status = $data['status'];
+    //             $id_instructor = $data['id_instructor'];
+    //             $stm = parent::conectar()->prepare(preparedSQL::UPDATE_STATUS_INSTRUCTOR);
+    //             $stm->bindParam(1, $status, PDO::PARAM_STR);
+    //             $stm->bindParam(2, $id_instructor, PDO::PARAM_STR);
+    //             $stm->execute();
+    //             return true;
+    //         }
+    //     } catch (Exception $e) {
+    //         return false;
+    //         die($e->getMessage());
+    //     }
+    // }
 }
 ?>
