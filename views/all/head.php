@@ -111,15 +111,15 @@ if (isset($_SESSION['user'])) {
     ?>
 
 
-
-
-
     <!-- SCRIPTS -->
 
     <!-- CoreUI and necessary plugins-->
     <script src="<?php echo APP_URL ?>assets/js/coreui/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/popper.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/bootstrap.min.js"></script>
     <!-- Plugins and scripts required by all views -->
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/pace.min.js"></script>
@@ -156,7 +156,11 @@ if (isset($_SESSION['user'])) {
     <!-- SWEETALERT JS -->
     <script defer src="<?php echo APP_URL ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script> -->
-
+    
+    <!-- DatePicker -->
+    <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    
     <?php
     if (isset($_SESSION['user'])) {
         echo '
@@ -176,12 +180,39 @@ if (isset($_SESSION['user'])) {
     ?>
 
     <script>
+    const APP_URL='<?php echo APP_URL ?>';
+    $(function () {
+        $("body").tooltip({
+            selector: '[data-toggle="tooltip"]',
+            container: 'body'
+        });
+    })
+
+    $(document).ready(function() {
+        //$(function () {
+            //$('[data-toggle="tooltip"]').tooltip();
+            //$('[data-toggle="tooltip"]').tooltip({
+            //    container : 'body'
+            //});
+        //});
+
+
+        //$(".btn").hover(
+		//    function(){$(this).toggleClass('shadow');}
+	    //);
+
         function LoadUrl(url) {
             window.location.href = url;
         }
 
-        const APP_URL='<?php echo APP_URL ?>'
-
+        // TODO FIX CLASS INPUT DATEPICKER
+        $('.datapicker').each(function(){
+            $(this).datepicker();
+        });
+        /* $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        }); */
+    });
     </script>
 
 

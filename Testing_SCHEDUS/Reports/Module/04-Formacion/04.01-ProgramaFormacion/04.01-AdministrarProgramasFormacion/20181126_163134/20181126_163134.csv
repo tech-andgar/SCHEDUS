@@ -1,0 +1,24 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+04.01-AdministrarProgramasFormacion,Firefox 63.0,,2018-11-26 16:31:36,2018-11-26 16:31:49,"13,653s",FAILED
+,,,,,,
+Test Cases/OpenBrowserAppProject,Firefox 63.0,Accede Navegador con URL APP Project,2018-11-26 16:31:36,2018-11-26 16:31:43,"6,615s",PASSED
+openBrowser,Firefox 63.0,,2018-11-26 16:31:36,2018-11-26 16:31:42,"5,565s",PASSED
+navigateToUrl,Firefox 63.0,,2018-11-26 16:31:42,2018-11-26 16:31:43,"0,722s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 16:31:43,2018-11-26 16:31:43,"0,073s",PASSED
+,,,,,,
+Test Cases/Login/LiderLogin,Firefox 63.0,Ingreso usuario rol Lider,2018-11-26 16:31:43,2018-11-26 16:31:44,"1,469s",PASSED
+click,Firefox 63.0,,2018-11-26 16:31:43,2018-11-26 16:31:43,"0,259s",PASSED
+setText,Firefox 63.0,,2018-11-26 16:31:43,2018-11-26 16:31:43,"0,089s",PASSED
+setEncryptedText,Firefox 63.0,,2018-11-26 16:31:43,2018-11-26 16:31:43,"0,137s",PASSED
+click,Firefox 63.0,,2018-11-26 16:31:43,2018-11-26 16:31:44,"0,799s",PASSED
+,,,,,,
+Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/Accede modulo programa de formacion,Firefox 63.0,Acceder Modulo programa de formacion,2018-11-26 16:31:44,2018-11-26 16:31:45,"0,877s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 16:31:44,2018-11-26 16:31:44,"0,008s",PASSED
+click,Firefox 63.0,,2018-11-26 16:31:44,2018-11-26 16:31:45,"0,227s",PASSED
+click,Firefox 63.0,,2018-11-26 16:31:45,2018-11-26 16:31:45,"0,475s",PASSED
+,,,,,,
+Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/VertifyBreadcrumbsPrograma,Firefox 63.0,,2018-11-26 16:31:45,2018-11-26 16:31:47,"2,396s",FAILED
+waitForPageLoad,Firefox 63.0,,2018-11-26 16:31:45,2018-11-26 16:31:45,"0,007s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-26 16:31:45,2018-11-26 16:31:45,"0,041s",PASSED
+delay,Firefox 63.0,,2018-11-26 16:31:45,2018-11-26 16:31:47,"2,019s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-26 16:31:47,2018-11-26 16:31:47,"0,176s",FAILED

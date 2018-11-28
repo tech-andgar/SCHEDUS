@@ -64,9 +64,19 @@
                     <a class="nav-link " href="<?php echo APP_URL ?>lider/jornadas"><i class="nav-icon fas fa-cloud-sun"></i>
                         Jornada</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="<?php echo APP_URL ?>lider/ambiente"><i class="nav-icon fas fa-door-open "></i>
-                        Ambiente</a>
+                <li class="nav-item nav-dropdown" state-element="close">
+                    <a class="nav-link nav-dropdown-toggle"><i class="nav-icon fas fa-door-closed"></i> Ambiente</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/ambiente"><i class="nav-icon fas fa-door-open "></i> Aula</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/estadoAmbiente"><i class="nav-icon fas fa-toggle-on"></i>Estado de aula</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/sede"><i class=" nav-icon fas fa-building"></i> Sede</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="nav-item mt-auto"> <a class="nav-link nav-link-success" href="<?php echo APP_URL ?>lider/https://coreui.io" target="_top">

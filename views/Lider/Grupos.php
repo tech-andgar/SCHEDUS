@@ -24,7 +24,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">
                     <table class="table table-bordered table-striped table-responsive-sm table-sm mt-5" id="tableGrupos">
                         <thead>
                             <th>Id Ruta</th>
@@ -120,7 +119,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin">
+                    <form method="post" action="#" class="form-signin form-modal">
                         <h5>Nombre del Programa</h5>
                         <input type="text" class="adsi-css mb-3" name="Programa" />
                         <hr>
@@ -143,7 +142,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin">
+                    <form method="post" action="#" class="form-signin form-modal">
                         <h5>Nombre del Programa</h5>
                         <input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
                         <hr>
@@ -189,7 +188,7 @@
             // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
             "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
             // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-            "<'row'<'col-sm-3'><'col-sm-9'i><'col-sm-4'><'col-sm-6'p>>" +
+            "<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
             // Pie de la tabla -- B-> Botones de exportar
             "<'row'<'col-sm-12'B>>",
         buttons: [

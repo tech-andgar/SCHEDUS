@@ -1,0 +1,26 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+CoordinadorLogin-LogOut,Firefox 63.0,,2018-11-26 15:07:20,2018-11-26 15:07:34,"14,153s",PASSED
+,,,,,,
+Test Cases/OpenBrowserAppProject,Firefox 63.0,Ingreso usuario rol Coordinador,2018-11-26 15:07:20,2018-11-26 15:07:28,"7,119s",PASSED
+openBrowser,Firefox 63.0,,2018-11-26 15:07:21,2018-11-26 15:07:26,"5,699s",PASSED
+navigateToUrl,Firefox 63.0,,2018-11-26 15:07:26,2018-11-26 15:07:28,"1,142s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,052s",PASSED
+,,,,,,
+Test Cases/Login/CoordinadorLogin,Firefox 63.0,Ingreso usuario rol Coordinador,2018-11-26 15:07:28,2018-11-26 15:07:29,"1,641s",PASSED
+openBrowser,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,002s",NOT_RUN
+navigateToUrl,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,001s",NOT_RUN
+waitForPageLoad,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,001s",NOT_RUN
+click,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,277s",PASSED
+setText,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,072s",PASSED
+setEncryptedText,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:28,"0,108s",PASSED
+click,Firefox 63.0,,2018-11-26 15:07:28,2018-11-26 15:07:29,"0,953s",PASSED
+waitForPageLoad,Firefox 63.0,,2018-11-26 15:07:29,2018-11-26 15:07:29,"0,014s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-26 15:07:29,2018-11-26 15:07:29,"0,039s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-26 15:07:29,2018-11-26 15:07:29,"0,019s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Firefox 63.0,Cerrar sesión de Usuario,2018-11-26 15:07:29,2018-11-26 15:07:34,"5,033s",PASSED
+click,Firefox 63.0,,2018-11-26 15:07:29,2018-11-26 15:07:30,"0,251s",PASSED
+click,Firefox 63.0,,2018-11-26 15:07:30,2018-11-26 15:07:30,"0,638s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-26 15:07:30,2018-11-26 15:07:30,"0,053s",PASSED
+delay,Firefox 63.0,,2018-11-26 15:07:30,2018-11-26 15:07:32,"2,017s",PASSED
+closeBrowser,Firefox 63.0,,2018-11-26 15:07:32,2018-11-26 15:07:34,"1,933s",PASSED

@@ -1,0 +1,20 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+LiderLogin-LogOut,Edge 17,,2018-11-24 12:20:43,2018-11-24 12:20:52,"9,800s",PASSED
+,,,,,,
+Test Cases/Login/LiderLogin,Edge 17,Ingreso usuario rol Lider,2018-11-24 12:20:43,2018-11-24 12:20:49,"5,710s",PASSED
+openBrowser,Edge 17,,2018-11-24 12:20:43,2018-11-24 12:20:45,"1,962s",PASSED
+navigateToUrl,Edge 17,,2018-11-24 12:20:45,2018-11-24 12:20:45,"0,134s",PASSED
+click,Edge 17,,2018-11-24 12:20:45,2018-11-24 12:20:45,"0,070s",PASSED
+setText,Edge 17,,2018-11-24 12:20:45,2018-11-24 12:20:45,"0,048s",PASSED
+setEncryptedText,Edge 17,,2018-11-24 12:20:45,2018-11-24 12:20:45,"0,089s",PASSED
+click,Edge 17,,2018-11-24 12:20:45,2018-11-24 12:20:45,"0,026s",PASSED
+verifyElementText,Edge 17,,2018-11-24 12:20:45,2018-11-24 12:20:47,"1,103s",PASSED
+verifyElementText,Edge 17,,2018-11-24 12:20:47,2018-11-24 12:20:47,"0,017s",PASSED
+delay,Edge 17,,2018-11-24 12:20:47,2018-11-24 12:20:49,"2,017s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Edge 17,Cerrar sesión de Usuario,2018-11-24 12:20:49,2018-11-24 12:20:52,"3,765s",PASSED
+click,Edge 17,,2018-11-24 12:20:49,2018-11-24 12:20:49,"0,030s",PASSED
+click,Edge 17,,2018-11-24 12:20:49,2018-11-24 12:20:49,"0,025s",PASSED
+verifyElementText,Edge 17,,2018-11-24 12:20:49,2018-11-24 12:20:49,"0,533s",PASSED
+delay,Edge 17,,2018-11-24 12:20:49,2018-11-24 12:20:51,"2,006s",PASSED
+closeBrowser,Edge 17,,2018-11-24 12:20:51,2018-11-24 12:20:52,"0,996s",PASSED

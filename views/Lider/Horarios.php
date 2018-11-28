@@ -17,18 +17,23 @@
 				<div class="form-group row">
 					<div class="col-md-6">
 						<div class="input-group">
-							<h4 class="mr-3">Instructor: </h4>
-							<select id="tipos" name="tipos" class="adsi-css" style="width: 40%;" required>
-								<option value="">Seleccione un Intructor</option>
-								<option value="tab">SANDRA MILENA PEÑARANDA SALAZAR</option>
-								<option value="tab">DANIEL MORA DIAZ</option>
-								<option value="tab">YULIETT CONSUELO PULIDO MONCADA</option>
-							</select>
+							<div class="row pt-2">
+								<div class="col-lg-4 col-sm-5 col-12">
+									<h4>Instructor</h4>
+								</div>
+								<div class="col-lg-8 col-sm-7 col-12">
+									<select id="tipos" name="tipos" class="form-control" style="width: 100%" required>
+										<option value="">Seleccione un Intructor</option>
+										<option value="tab">SANDRA MILENA PEÑARANDA SALAZAR</option>
+										<option value="tab">DANIEL MORA DIAZ</option>
+										<option value="tab">YULIETT CONSUELO PULIDO MONCADA</option>
+									</select>
+								</div>
+							</div>
 
 						</div>
 					</div>
 				</div>
-				<div class="table-responsive">
 					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5">
 						<thead>
 							<tr>

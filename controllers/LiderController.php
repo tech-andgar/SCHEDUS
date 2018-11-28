@@ -20,6 +20,8 @@ class LiderController extends Path
         $this->modelJornada = parent::model('jornada');
         $this->modelAmbiente = parent::model('ambiente');
         $this->modelRutaFicha = parent::model('rutaFicha');
+        $this->modelSede = parent::model('sede');
+        $this->modelEstadoAmbiente = parent::model('estadoAmbiente');
     }
 
     //
@@ -121,6 +123,20 @@ class LiderController extends Path
         $data['rutaFichas'] = $this->modelRutaFicha->getAllRutaFichas();
         $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Grupos', 'Grupos', $data);
+    }
+
+    public function EstadoAmbiente($msgType = [])
+    {
+        $data['estadoAmbiente'] = $this->modelEstadoAmbiente->getAllEstadoAmbiente();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'EstadoAmbiente', 'Estado Ambiente', $data);
+    }
+
+    public function Sede($msgType = [])
+    {
+        $data['sede'] = $this->modelSede->getAllSede();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Sede', 'Sede', $data);
     }
 
     //
@@ -279,13 +295,13 @@ class LiderController extends Path
 
     public function updateDataFicha()
     {
-var_dump($_POST);
-        // $data = array(
-        //     "dni" => $_POST['dni'],
-        //     "nombre" => $_POST['nombre'],
-        //     "apellido" => $_POST['apellido'],
-        //     "email" => $_POST['email'],
-        // );
+        //var_dump($_POST);
+        $data = array(
+            "id_ficha" => $_POST['id_ficha'],
+            "num_ficha" => $_POST['num_ficha'],
+            "upd_cod_programa_formacion" => $_POST['upd_cod_programa_formacion'],
+            "upd_cod_estado_ficha" => $_POST['upd_cod_estado_ficha'],
+        );
         $result = $this->modelFicha->updateDataFicha($data);
         if ($result) {
             $msgType = array(
@@ -300,8 +316,7 @@ var_dump($_POST);
                 'msg' => 'No pudo actualizar datos de la ficha',
             );
         }
-
-        $this->Ficha($msgType);
+        $this->Fichas($msgType);
     }
 
 
@@ -329,6 +344,11 @@ var_dump($_POST);
         echo $dataNivelFormacion;
     }
 
+
+    //
+    // --- CONTROL PROGRAMA DE FORMACION ----------------------------------------
+    //
+
     public function getDataProgramaFormacion()
     {
         // Completa lista de Programa de Formacion
@@ -350,7 +370,6 @@ var_dump($_POST);
         $dataFormacionPrograma = json_encode($output);
         echo $dataFormacionPrograma;
     }
-
 
     public function insertarProgramaFormacion()
     {
@@ -375,30 +394,51 @@ var_dump($_POST);
 
     public function updateDataProgramaFormacion()
     {
-        $data = array(
-            "txto_cod_programa" => $_POST['txto_cod_programa'],
-            "txto_short_name_programa" => $_POST['txto_short_name_programa'],
-            "txto_name_programa_formacion" => $_POST['txt_name_programa_formacion'],
-            "txto_version_programa" => $_POST['txt_version_programa'],
-            "txto_id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
-            "txto_cod_proyecto" => $_POST['txt_cod_proyecto'],
-        );
-        $result = $this->modelInstructor->updateDataProgramaFormacion($data);
-        if ($result) {
-            $msgType = array(
-                'type' => 'success',
-                'title' => 'AVISO',
-                'msg' => 'Exito actualizado datos de Programa de Formacion',
+
+        if (isset($_POST)) {
+            $data = array(
+                "txtUpdIdPrograma" => $_POST['txt_upd_id_programa'],
+                "txtUpdCodPrograma" => $_POST['txt_upd_cod_programa'],
+                "txtUpdShortNamePrograma" => $_POST['txt_upd_short_name_programa'],
+                "txtUpdNameProgramaFormacion" => $_POST['txt_upd_name_programa_formacion'],
+                "txtUpdVersionPrograma" => $_POST['txt_upd_version_programa'],
+                "txtUpdIdNivelProgramaFormacion" => $_POST['txt_upd_id_nivel_programa_formacion'],
+                "txtUpdCodProyecto" => $_POST['txt_upd_cod_proyecto'],
             );
-        } else {
-            $msgType = array(
-                'type' => 'error',
-                'title' => 'AVISO',
-                'msg' => 'No se pudo actualizar Programa de Formacion',
-            );
+            $result = $this->modelProgramaFormacion->updateDataProgramaFormacion($data);
+            if ($result) {
+                $msgType = array(
+                    'type' => 'success',
+                    'title' => 'AVISO',
+                    'msg' => 'Exito actualizado datos de Programa de Formacion',
+                );
+            } else {
+                $msgType = array(
+                    'type' => 'error',
+                    'title' => 'AVISO',
+                    'msg' => 'No se pudo actualizar Programa de Formacion',
+                );
+            }
+            $this->Programas($msgType);
         }
 
-        $this->Instructor($msgType);
+    }
+
+    public function changeStatusProgaramaFormaciom()
+    {
+
+        if ($_POST['state_id'] == "1") {
+            $status = "2";
+        } else if ($_POST['state_id'] == "2") {
+            $status = "1";
+        }
+
+        $data = array(
+            "id_programa_formacion" => $_POST['id_programa_formacion'],
+            "cod_estado_programa_formacion" => $status,
+        );
+
+        $this->modelProgramaFormacion->updateStatusProgramaFormacion($data);
     }
 
     //

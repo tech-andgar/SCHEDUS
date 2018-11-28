@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Accede Navegador con URL APP Project</description>
+   <name>OpenBrowserAppProject</name>
+   <tag>URL, Browser</tag>
+   <comment></comment>
+   <testCaseGuid>cdf60b41-403b-4a2c-a70c-94360523bf36</testCaseGuid>
+</TestCaseEntity>

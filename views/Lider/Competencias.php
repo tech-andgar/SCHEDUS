@@ -15,58 +15,77 @@
 				</button>
 			</div>
 			<div class="card-body">
-                    <table class="table table-responsive-sm table-striped table-sm mt-5" id="tableCompetencia">
+				<table class="table table-responsive-sm table-striped table-sm mt-5" id="tableCompetencia">
 					<thead>
-					<tr class="success">
+						<tr class="success">
 							<th>Competencia</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
 					</thead>
 					<tbody>
-							<?php foreach ($data['competencia'] as $competencia) { ?>
-							<tr>
-								<td>
-									<?php echo $competencia->name_competencia; ?>
-								</td>
-								<td class="text-center">
-									<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Nivel" id-competencia="<?php echo $competencia->id_competencia; ?>">
-										<i class="far fa-edit fa-lg"></i></div>
-								</td>
-							</tr>
-							<?php
-						}
-					?>
-						</tbody>
+						<?php foreach ($data['competencia'] as $competencia) {?>
+						<tr>
+							<td>
+								<?php echo $competencia->name_competencia; ?>
+							</td>
+							<td class="text-center">
+								<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Competencia" id-competencia="<?php echo $competencia->id_competencia; ?>">
+									<i class="far fa-edit fa-lg"></i></div>
+							</td>
+						</tr>
+						<?php
+}
+?>
+					</tbody>
 				</table>
-			
+			</div>
 		</div>
-		<!-- Fin ejemplo de tabla Listado -->
 	</div>
-	<!-- Modal Agregar nueva Competencias-->
-<div class="modal fade" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+	<!-- Fin ejemplo de tabla Listado -->
+	</div>
+	<!-- Fin del modal Eliminar -->
+</main>
+<!-- /Fin del contenido principal -->
+</div>
+<!-- Modal Agregar nueva Competencias-->
+<div class="modal fade bd-example-modal-lg" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nueva Competencia</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Agregar Nueva Competencia</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Seleccione del Programa</h5>
-						<select class="adsi-css mb-3" style="width:65%; height:30px" required>
-							<option value="">Seleccione del Programa</option>
-							<option value="ADSI">Analisis de sistema de informacion</option>
-							<option value="ISIG">Implementacion de sistemas de informacion geografica</option>
-							<option value="SGBD">Seguridad en gestion de bases de datos</option>
-							<option value="PS">Tecnico de programacion de software</option>
-						</select>
-						<h5>Nombre de la Competencia</h5>
-						<textarea class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
+				<div class="d-flex justify-content-center ">
+					<form method="post" action="#" class="form-signin form-modal">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12">
+									<h4>Seleccione el Programa</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona el Programa de Formacion</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<select class="form-control" style="width:100%" required>
+									</select>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Nombre de la Competencia</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<textarea class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
+								</div>
+							</div>
+						</div>
 						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit" >Agregar</button>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -74,32 +93,54 @@
 	</div>
 </div>
 
-	<!-- Modal -->
-<div class="modal fade" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
+<!-- Modal -->
+<div class="modal fade  bd-example-modal-lg" id="Actualizar_Competencia" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				<div class="col-11">
+					<h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<h5>Nombre de la Competencia</h5>
-						<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
+				<div class="d-flex justify-content-center">
+				<form method="post" action="#" class="form-signin form-modal">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12">
+									<h4>Seleccione del Programa</h4>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona Nivel de Formacion</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<select class="form-control" style="width:100%" required>
+									</select>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Nombre de la Competencia</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<textarea class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
+								</div>
+							</div>
+						</div>
 						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Agregar</button>
+						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-</main>
+
 <!-- /Fin del contenido principal -->
-</div>
+
 <script>
 	$(document).ready(function () {
 
@@ -134,7 +175,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-4'><'col-sm-7'i><'col-sm-4'><'col-sm-6'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [

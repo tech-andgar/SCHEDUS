@@ -16,31 +16,30 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="table-responsive">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableFichas">
-						<thead>
-							<tr>
-								<th>Ficha</th>
-								<th>Programa</th>
-								<th>Nivel</th>
-								<th>Estado</th>
-								<th class="text-center">Actualizar</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ($data['fichas'] as $ficha) { ?>
-							<tr>
-								<td>
-									<?php echo $ficha->num_ficha; ?>
-								</td>
-								<td>
-									<?php echo $ficha->name_programa_formacion; ?>
-								</td>
-								<td>
-									<?php echo $ficha->name_nivel_programa_formacion; ?>
-								</td>
-								<td>
-									<?php
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableFichas">
+					<thead>
+						<tr>
+							<th>Ficha</th>
+							<th>Programa</th>
+							<th>Nivel</th>
+							<th>Estado</th>
+							<th class="text-center">Actualizar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($data['fichas'] as $ficha) { ?>
+						<tr>
+							<td>
+								<?php echo $ficha->num_ficha; ?>
+							</td>
+							<td>
+								<?php echo $ficha->name_programa_formacion; ?>
+							</td>
+							<td>
+								<?php echo $ficha->name_nivel_programa_formacion; ?>
+							</td>
+							<td>
+								<?php
 								switch ($ficha->name_estado_ficha) {
 									case 'Cancelado':
 										echo '<div class="p-2 bg-danger text-white rounded">' . $ficha->name_estado_ficha . '</div>';
@@ -58,19 +57,19 @@
 										echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formacion ' . $ficha->name_estado_ficha . '</div>';
 									break;
 								}?>
-								</td>
-								<td style="padding-bottom: 0px;padding-top: 10px;">
-									<div class="updateDataFicha" data-toggle="modal" data-target="#updateDataFicha" id-ficha="<?php echo $ficha->id_ficha; ?>">
-										<i class="far fa-edit fa-lg"></i>
-									</div>
-								</td>
-							</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>
+							</td>
+							<td class="text-center">
+								<div class="updateDataFicha" data-toggle="modal" data-target="#updateDataFicha" id-ficha="<?php echo $ficha->id_ficha; ?>">
+									<i class="far fa-edit fa-lg"></i>
+								</div>
+							</td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<!-- Fin ejemplo de tabla Listado -->
@@ -80,40 +79,44 @@
 <!-- /Fin del contenido principal -->
 
 <!-- Modal Agregar nueva Ficha-->
-<div class="modal fade" id="ModalAgregarNuevaFicha" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+<div class="modal fade bd-example-modal-lg" id="ModalAgregarNuevaFicha" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nueva Ficha</h3>
+				<div class="col-11">
+					<h3 class=" modal-title text-center">Agregar Nueva Ficha</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center ">
-					<form method="post" action="insertarFicha" class="form-signin">
+					<form method="post" action="insertarFicha"class="form-signin form-modal">
 						<div class="container-fluid">
-							<div class="row pt-2">
-								<div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
 									<h4>Numero de la Ficha</h4>
+									<small id="" class="text-muted">Escriba Numero de la Ficha
+									</small>
 								</div>
-								<div class="col-lg-5 col-12">
-									<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
-									<small id="helpIdNumFicha" class="text-muted">Numero de la ficha</small>
+								<div class="col-lg-8 col-12">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
 								</div>
 							</div>
-							<div class="row pt-2">
-								<div class="col-lg-4 offset-lg-2 col-6 offset-md-1">
-									<h4>Programa:</h4>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Programa</h4>
 								</div>
-								<div class="col-lg-5 col-12">
-									<select id="selectNewListPrograma" class="adsi-css mb-3" name="cod_programa_formacion" required></select>
+								<div class="col-lg-8  col-12">
+									<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width:100%"
+									required></select>
 								</div>
 							</div>
 						</div>
-						<div class="modal-body text-center">
-							<button class="btn-rounded" type="submit" style="width:110px">Insertar</button>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Insertar</button>
 						</div>
 					</form>
 				</div>
@@ -125,52 +128,58 @@
 
 
 <!-- Modal actualizar datos de Ficha-->
-<div class="modal fade" id="updateDataFicha" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+<div class="modal fade bd-example-modal-lg" id="updateDataFicha" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Actualizar datos de ficha</h3>
+				<div class="col-11">
+					<h3 class="modal-title text-center">Actualizar datos de ficha</h3>
+				</div>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="POST" action="updateDataFicha" class="form-signin">
-						<table>
-							<tr>
-								<td>
-									<h4 style="margin-bottom: 0px;" class="mr-5" for="txt_num_ficha">Numero de la Ficha:</h4>
-								</td>
-								<td>
-									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="adsi-css" aria-describedby="helpIdNumFicha"
+				<div class="justify-content-center">
+					<form method="POST" action="updateDataFicha"class="form-signin form-modal">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Numero de la Ficha</h4>
+									<small id="" class="text-muted">Escriba Numero de la Ficha
+									</small>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" id="txt_id_ficha" name="id_ficha" value="" hidden>
+									<input type="number" id="txt_num_ficha" name="num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
 									 readonly>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4 style="margin-bottom: 0px;">Programa:</h4>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Programa</h4>
 									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
-								</td>
-								<td>
-									<select class="adsi-css mb-3" id="selectUpdListPrograma" name="id_programa_formacion" required>
+								</div>
+								<div class="col-lg-8 col-12">
+									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="upd_cod_programa_formacion"
+									 required>
 									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<h4 style="margin-bottom: 0px;">Estado:</h4>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Estado</h4>
 									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
-								</td>
-								<td>
-									<select id="SelectUpdListEstadoFicha" class="adsi-css mb-3" name="id_estado_ficha" required>
+								</div>
+								<div class="col-lg-8 col-12">
+									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="upd_cod_estado_ficha" required>
 									</select>
-								</td>
-							</tr>
-
-						</table>
-						<div class="modal-body">
-							<button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -180,46 +189,6 @@
 </div>
 <!-- END Modal actualizar datos de Ficha-->
 
-<!-- Modal Agregar nuevo Grupo-->
-<div class="modal fade" id="Agregar_Grupo" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="col-11 modal-title text-center">Agregar Nuevo Grupo</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<div class="d-flex justify-content-center text-center">
-					<form method="post" action="#" class="form-signin">
-						<div class="form-group">
-							<div class="form-group">
-								<label for="id_ficha">
-									<h5>Ficha</h5>
-									<br>
-									<input type="text" name="id_ficha" list="id_ficha" class="adsi-css" placeholder="Número de ficha" />
-									<datalist id="id_ficha">
-										<label> or select one from the list:
-											<div id="form_select_ficha"></div>
-										</label>
-									</datalist>
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<h5>Grupo</h5>
-							<input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-						</div>
-						<hr>
-						<button class="btn-rounded" type="submit" style="width:110px">Agregar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- END Modal Agregar nuevo Grupo-->
 
 
 <script>
@@ -271,7 +240,7 @@
 				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
 				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
 				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-7'p>>" +
+				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
 			buttons: [
@@ -320,6 +289,7 @@
 				success(response) {
 					var ficha = jQuery.parseJSON(response);
 					$('#txt_num_ficha').val(ficha.num_ficha);
+					$('#txt_id_ficha').val(ficha.id_ficha);
 					getDataEstadoFichaToUpdSelect();
 					getDataProgramaFormacionToUpdSelect();
 
@@ -471,9 +441,3 @@
 
 	});
 </script>
-
-<?php
-if (!empty($data['msgType'])) {
-    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
-}
-?>

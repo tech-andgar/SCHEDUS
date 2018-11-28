@@ -1,0 +1,27 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+InstructorLogin-LogOut,IE 11,,2018-11-26 15:21:42,2018-11-26 15:21:55,"13,437s",PASSED
+,,,,,,
+Test Cases/OpenBrowserAppProject,IE 11,Ingreso usuario rol Coordinador,2018-11-26 15:21:42,2018-11-26 15:21:45,"2,806s",PASSED
+openBrowser,IE 11,,2018-11-26 15:21:42,2018-11-26 15:21:44,"2,035s",PASSED
+navigateToUrl,IE 11,,2018-11-26 15:21:44,2018-11-26 15:21:45,"0,470s",PASSED
+waitForPageLoad,IE 11,,2018-11-26 15:21:45,2018-11-26 15:21:45,"0,089s",PASSED
+,,,,,,
+Test Cases/Login/InstructorLogin,IE 11,Login Instructor desde pagina Inicio,2018-11-26 15:21:45,2018-11-26 15:21:49,"4,448s",PASSED
+click,IE 11,,2018-11-26 15:21:45,2018-11-26 15:21:46,"0,994s",PASSED
+setText,IE 11,,2018-11-26 15:21:46,2018-11-26 15:21:46,"0,475s",PASSED
+setEncryptedText,IE 11,,2018-11-26 15:21:46,2018-11-26 15:21:47,"0,477s",PASSED
+click,IE 11,,2018-11-26 15:21:47,2018-11-26 15:21:49,"2,359s",PASSED
+,,,,,,
+Test Cases/Dashboard/InstructorVertifyDashboard,IE 11,Login Instructor desde pagina Inicio,2018-11-26 15:21:49,2018-11-26 15:21:49,"0,191s",PASSED
+waitForPageLoad,IE 11,,2018-11-26 15:21:49,2018-11-26 15:21:49,"0,039s",PASSED
+verifyElementText,IE 11,,2018-11-26 15:21:49,2018-11-26 15:21:49,"0,002s",NOT_RUN
+verifyElementText,IE 11,,2018-11-26 15:21:49,2018-11-26 15:21:49,"0,000s",NOT_RUN
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,IE 11,Cerrar sesión de Usuario,2018-11-26 15:21:49,2018-11-26 15:21:55,"5,659s",PASSED
+waitForPageLoad,IE 11,,2018-11-26 15:21:49,2018-11-26 15:21:49,"0,038s",PASSED
+click,IE 11,,2018-11-26 15:21:49,2018-11-26 15:21:50,"0,985s",PASSED
+click,IE 11,,2018-11-26 15:21:50,2018-11-26 15:21:52,"1,691s",PASSED
+waitForPageLoad,IE 11,,2018-11-26 15:21:52,2018-11-26 15:21:52,"0,081s",PASSED
+verifyElementText,IE 11,,2018-11-26 15:21:52,2018-11-26 15:21:52,"0,165s",PASSED
+delay,IE 11,,2018-11-26 15:21:52,2018-11-26 15:21:54,"2,015s",PASSED
+closeBrowser,IE 11,,2018-11-26 15:21:54,2018-11-26 15:21:55,"0,567s",PASSED

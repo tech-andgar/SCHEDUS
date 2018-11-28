@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="04.01-AdministrarProgramasFormacion" time="12" tests="4" failures="1" errors="0">
+   <testsuite name="04.01-AdministrarProgramasFormacion" tests="4" failures="1" errors="0" time="12" timestamp="2018-11-26 16:39:23" hostname="SOPORTE - 192.168.1.154" id="Test Suites/Module/04-Formacion/04.01-ProgramaFormacion/04.01-AdministrarProgramasFormacion">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Module\\04-Formacion\\04.01-ProgramaFormacion\\04.01-AdministrarProgramasFormacion\\20181126_163922"/>
+         <property name="logFiles" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Module\\04-Formacion\\04.01-ProgramaFormacion\\04.01-AdministrarProgramasFormacion\\20181126_163922\\execution0.log"/>
+         <property name="attachments" value="C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Module\\04-Formacion\\04.01-ProgramaFormacion\\04.01-AdministrarProgramasFormacion\\20181126_163922\\1543268374627.png"/>
+         <property name="hostName" value="SOPORTE - 192.168.1.154"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="5.8.6.1"/>
+         <property name="browser" value="Firefox 63.0"/>
+         <property name="hostAddress" value="192.168.1.154"/>
+         <property name="sessionId" value="478cc1db-74c1-4d70-acea-01e2e43c6201"/>
+         <property name="seleniumVersion" value="3.7.1"/>
+         <property name="proxyInformation" value="ProxyInformation{proxyOption=NO_PROXY, proxyServerType=HTTP, password=, proxyServerAddress=, proxyServerPort=0}"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/OpenBrowserAppProject" classname="Test Cases/OpenBrowserAppProject" status="PASSED">
+         <system-out><![CDATA[2018-11-26 16:39:24 - [TEST_CASE][PASSED] - Test Cases/OpenBrowserAppProject: Test Cases/OpenBrowserAppProject
+
+2018-11-26 16:39:24 - [TEST_STEP][PASSED] - openBrowser: Browser is opened with url: ''
+
+2018-11-26 16:39:29 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2018-11-26 16:39:29 - [TEST_STEP][PASSED] - navigateToUrl: Navigate to 'http://localhost/SCHEDUS/' successfully
+
+2018-11-26 16:39:30 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SCHEDUS/' successfully
+
+2018-11-26 16:39:30 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 16:39:30 - [MESSAGE][PASSED] - Wait for page load successfully]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Login/LiderLogin" classname="Test Cases/Login/LiderLogin" status="PASSED">
+         <system-out><![CDATA[2018-11-26 16:39:30 - [TEST_CASE][PASSED] - Test Cases/Login/LiderLogin: Test Cases/Login/LiderLogin
+
+2018-11-26 16:39:30 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Inicio/Login/a_Login' is clicked on
+
+2018-11-26 16:39:30 - [MESSAGE][PASSED] - Object: 'Object Repository/Inicio/Login/a_Login' is clicked on
+
+2018-11-26 16:39:30 - [TEST_STEP][PASSED] - setText: Text '1232' is set on object 'Object Repository/Inicio/Login/input_Documento_dni'
+
+2018-11-26 16:39:30 - [MESSAGE][PASSED] - Text '1232' is set on object 'Object Repository/Inicio/Login/input_Documento_dni'
+
+2018-11-26 16:39:30 - [TEST_STEP][PASSED] - setEncryptedText: Text ****** has been set on object 'Object Repository/Inicio/Login/input_Contrasea_password'
+
+2018-11-26 16:39:30 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Inicio/Login/input_Contrasea_password'
+
+2018-11-26 16:39:30 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Inicio/Login/button_Login' is clicked on
+
+2018-11-26 16:39:31 - [MESSAGE][PASSED] - Object: 'Object Repository/Inicio/Login/button_Login' is clicked on]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion" classname="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion" status="PASSED">
+         <system-out><![CDATA[2018-11-26 16:39:31 - [TEST_CASE][PASSED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.00 Accede modulo programa de formacion
+
+2018-11-26 16:39:32 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 16:39:32 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 16:39:32 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/a_MenuFormacion' is clicked on
+
+2018-11-26 16:39:32 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/a_MenuFormacion' is clicked on
+
+2018-11-26 16:39:32 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/SubModule/a_MenuPrograma' is clicked on
+
+2018-11-26 16:39:32 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/Sidebar/Lider/04-Formacion/SubModule/a_MenuPrograma' is clicked on]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma" classname="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma" status="PASSED">
+         <system-out><![CDATA[2018-11-26 16:39:32 - [TEST_CASE][PASSED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.01 VertifyBreadcrumbsPrograma
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - waitForPageLoad: Wait for page load successfully
+
+2018-11-26 16:39:33 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - verifyElementText: Actual text and expected text of test object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/breadcrumb_AdministrarProgramasFormacion' are matched.
+
+2018-11-26 16:39:33 - [MESSAGE][PASSED] - Actual text and expected text of test object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/breadcrumb_AdministrarProgramasFormacion' are matched.
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - verifyTextPresent: Text '' is present on page 
+
+2018-11-26 16:39:33 - [MESSAGE][PASSED] - Text '' is present on page]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion" classname="Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion" status="FAILED">
+         <failure type="FAILED" message="(Stack trace: com.kms.katalon.core.exception.StepFailedException: Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element &lt;button class=&quot;btn btn-primary&quot; type=&quot;button&quot;> is not clickable at point (866.2833251953125,747.25) because another element &lt;input class=&quot;select2-search__field&quot; type=&quot;search&quot;> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.stepFailed(KeywordMain.groovy:36)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.stepFailed(WebUIKeywordMain.groovy:65)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.runKeyword(WebUIKeywordMain.groovy:27)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.click(ClickKeyword.groovy:86)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.execute(ClickKeyword.groovy:67)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:53)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords.click(WebUiBuiltInKeywords.groovy:616)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords$click$2.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at Script1543268237217.run(Script1543268237217.groovy:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:183)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:108)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:294)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:264)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:256)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:200)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestCaseMainPhase(TestSuiteExecutor.java:129)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:112)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:81)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:142)
+	at com.kms.katalon.core.main.TestCaseMain$startTestSuite$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at TempTestSuite1543268362068.run(TempTestSuite1543268362068.groovy:36)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:507)
+	at groovy.ui.GroovyMain.processOnce(GroovyMain.java:653)
+	at groovy.ui.GroovyMain.run(GroovyMain.java:384)
+	at groovy.ui.GroovyMain.process(GroovyMain.java:370)
+	at groovy.ui.GroovyMain.processArgs(GroovyMain.java:129)
+	at groovy.ui.GroovyMain.main(GroovyMain.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.tools.GroovyStarter.rootLoader(GroovyStarter.java:109)
+	at org.codehaus.groovy.tools.GroovyStarter.main(GroovyStarter.java:131)
+)"/>
+         <system-out><![CDATA[2018-11-26 16:39:33 - [TEST_CASE][FAILED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion FAILED because (of) (Stack trace: com.kms.katalon.core.exception.StepFailedException: Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element <button class="btn btn-primary" type="button"> is not clickable at point (866.2833251953125,747.25) because another element <input class="select2-search__field" type="search"> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.stepFailed(KeywordMain.groovy:36)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.stepFailed(WebUIKeywordMain.groovy:65)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.runKeyword(WebUIKeywordMain.groovy:27)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.click(ClickKeyword.groovy:86)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.execute(ClickKeyword.groovy:67)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:53)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords.click(WebUiBuiltInKeywords.groovy:616)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords$click$2.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at Script1543268237217.run(Script1543268237217.groovy:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:183)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:108)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:294)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:264)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:256)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:200)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestCaseMainPhase(TestSuiteExecutor.java:129)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:112)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:81)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:142)
+	at com.kms.katalon.core.main.TestCaseMain$startTestSuite$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at TempTestSuite1543268362068.run(TempTestSuite1543268362068.groovy:36)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:507)
+	at groovy.ui.GroovyMain.processOnce(GroovyMain.java:653)
+	at groovy.ui.GroovyMain.run(GroovyMain.java:384)
+	at groovy.ui.GroovyMain.process(GroovyMain.java:370)
+	at groovy.ui.GroovyMain.processArgs(GroovyMain.java:129)
+	at groovy.ui.GroovyMain.main(GroovyMain.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.tools.GroovyStarter.rootLoader(GroovyStarter.java:109)
+	at org.codehaus.groovy.tools.GroovyStarter.main(GroovyStarter.java:131)
+)
+
+2018-11-26 16:39:33 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 16:39:33 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 16:39:33 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 16:39:33 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 16:39:33 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 16:39:33 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 16:39:33 - [TEST_STEP][NOT_RUN] - click: NOT_RUN: click
+
+2018-11-26 16:39:33 - [MESSAGE][NOT_RUN] - NOT_RUN: click
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Nuevo' is clicked on
+
+2018-11-26 16:39:33 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Nuevo' is clicked on
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - setText: Text '8524679321' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Codigo del Progr'
+
+2018-11-26 16:39:33 - [MESSAGE][PASSED] - Text '8524679321' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Codigo del Progr'
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - setText: Text 'TPS' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba las Sigals del P'
+
+2018-11-26 16:39:33 - [MESSAGE][PASSED] - Text 'TPS' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba las Sigals del P'
+
+2018-11-26 16:39:33 - [TEST_STEP][PASSED] - setText: Text 'Técnico en Programación de Software' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Programa de Form'
+
+2018-11-26 16:39:34 - [MESSAGE][PASSED] - Text 'Técnico en Programación de Software' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Programa de Form'
+
+2018-11-26 16:39:34 - [TEST_STEP][PASSED] - setText: Text 'V0.12' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Version de Forma'
+
+2018-11-26 16:39:34 - [MESSAGE][PASSED] - Text 'V0.12' is set on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/input_Escriba Version de Forma'
+
+2018-11-26 16:39:34 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Selecciona Nivel de Forma' is clicked on
+
+2018-11-26 16:39:34 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Selecciona Nivel de Forma' is clicked on
+
+2018-11-26 16:39:34 - [TEST_STEP][PASSED] - click: Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Escriba Nombre del Proyec' is clicked on
+
+2018-11-26 16:39:34 - [MESSAGE][PASSED] - Object: 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/span_Escriba Nombre del Proyec' is clicked on
+
+2018-11-26 16:39:34 - [TEST_STEP][FAILED] - click: Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element <button class="btn btn-primary" type="button"> is not clickable at point (866.2833251953125,747.25) because another element <input class="select2-search__field" type="search"> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+
+2018-11-26 16:39:34 - [MESSAGE][FAILED] - Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element <button class="btn btn-primary" type="button"> is not clickable at point (866.2833251953125,747.25) because another element <input class="select2-search__field" type="search"> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+[[ATTACHMENT|C:\\wamp64\\www\\SCHEDUS\\Testing_SCHEDUS\\Reports\\Module\\04-Formacion\\04.01-ProgramaFormacion\\04.01-AdministrarProgramasFormacion\\20181126_163922\\1543268374627.png]]]]></system-out>
+         <system-err><![CDATA[2018-11-26 16:39:33 - [TEST_CASE][FAILED] - Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion FAILED because (of) (Stack trace: com.kms.katalon.core.exception.StepFailedException: Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element <button class="btn btn-primary" type="button"> is not clickable at point (866.2833251953125,747.25) because another element <input class="select2-search__field" type="search"> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.stepFailed(KeywordMain.groovy:36)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.stepFailed(WebUIKeywordMain.groovy:65)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.runKeyword(WebUIKeywordMain.groovy:27)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.click(ClickKeyword.groovy:86)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.execute(ClickKeyword.groovy:67)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:53)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords.click(WebUiBuiltInKeywords.groovy:616)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords$click$2.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at Script1543268237217.run(Script1543268237217.groovy:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:183)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:108)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:294)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:264)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:256)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:200)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestCaseMainPhase(TestSuiteExecutor.java:129)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:112)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:81)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:142)
+	at com.kms.katalon.core.main.TestCaseMain$startTestSuite$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at TempTestSuite1543268362068.run(TempTestSuite1543268362068.groovy:36)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:507)
+	at groovy.ui.GroovyMain.processOnce(GroovyMain.java:653)
+	at groovy.ui.GroovyMain.run(GroovyMain.java:384)
+	at groovy.ui.GroovyMain.process(GroovyMain.java:370)
+	at groovy.ui.GroovyMain.processArgs(GroovyMain.java:129)
+	at groovy.ui.GroovyMain.main(GroovyMain.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.tools.GroovyStarter.rootLoader(GroovyStarter.java:109)
+	at org.codehaus.groovy.tools.GroovyStarter.main(GroovyStarter.java:131)
+)]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2018-11-26 16:39:23 - [TEST_SUITE][FAILED] - 04.01-AdministrarProgramasFormacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion FAILED because (of) (Stack trace: com.kms.katalon.core.exception.StepFailedException: Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element <button class="btn btn-primary" type="button"> is not clickable at point (866.2833251953125,747.25) because another element <input class="select2-search__field" type="search"> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.stepFailed(KeywordMain.groovy:36)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.stepFailed(WebUIKeywordMain.groovy:65)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.runKeyword(WebUIKeywordMain.groovy:27)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.click(ClickKeyword.groovy:86)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.execute(ClickKeyword.groovy:67)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:53)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords.click(WebUiBuiltInKeywords.groovy:616)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords$click$2.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at Script1543268237217.run(Script1543268237217.groovy:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:183)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:108)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:294)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:264)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:256)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:200)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestCaseMainPhase(TestSuiteExecutor.java:129)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:112)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:81)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:142)
+	at com.kms.katalon.core.main.TestCaseMain$startTestSuite$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at TempTestSuite1543268362068.run(TempTestSuite1543268362068.groovy:36)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:507)
+	at groovy.ui.GroovyMain.processOnce(GroovyMain.java:653)
+	at groovy.ui.GroovyMain.run(GroovyMain.java:384)
+	at groovy.ui.GroovyMain.process(GroovyMain.java:370)
+	at groovy.ui.GroovyMain.processArgs(GroovyMain.java:129)
+	at groovy.ui.GroovyMain.main(GroovyMain.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.tools.GroovyStarter.rootLoader(GroovyStarter.java:109)
+	at org.codehaus.groovy.tools.GroovyStarter.main(GroovyStarter.java:131)
+)]]></system-out>
+      <system-err><![CDATA[2018-11-26 16:39:23 - [TEST_SUITE][FAILED] - 04.01-AdministrarProgramasFormacion: Test Cases/Dashboard/Lider/Module/04-Formacion/04.01-Programa/04.01.02 Agregar nuevo programa de formacion FAILED because (of) (Stack trace: com.kms.katalon.core.exception.StepFailedException: Unable to click on object 'Object Repository/Dashboard/MainModule/Lider/04-Formacion/04.01-ProgramaFormacion/button_Agregar nuevo proyecto' (Root cause: org.openqa.selenium.ElementClickInterceptedException: Element <button class="btn btn-primary" type="button"> is not clickable at point (866.2833251953125,747.25) because another element <input class="select2-search__field" type="search"> obscures it
+Build info: version: '3.7.1', revision: '8a0099a', time: '2017-11-06T21:07:36.161Z'
+System info: host: 'SENA', ip: '192.168.1.154', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: com.kms.katalon.core.webui.driver.firefox.CGeckoDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 63.0.3, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.23.0, moz:headless: false, moz:processID: 20644, moz:profile: C:\Users\SOPORTE\AppData\Lo..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(direct), rotatable: false, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 478cc1db-74c1-4d70-acea-01e2e43c6201)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.stepFailed(KeywordMain.groovy:36)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.stepFailed(WebUIKeywordMain.groovy:65)
+	at com.kms.katalon.core.webui.keyword.internal.WebUIKeywordMain.runKeyword(WebUIKeywordMain.groovy:27)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.click(ClickKeyword.groovy:86)
+	at com.kms.katalon.core.webui.keyword.builtin.ClickKeyword.execute(ClickKeyword.groovy:67)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:53)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords.click(WebUiBuiltInKeywords.groovy:616)
+	at com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords$click$2.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at Script1543268237217.run(Script1543268237217.groovy:43)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:183)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:108)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:294)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:264)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:256)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:200)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestCaseMainPhase(TestSuiteExecutor.java:129)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:112)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:81)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:142)
+	at com.kms.katalon.core.main.TestCaseMain$startTestSuite$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:141)
+	at TempTestSuite1543268362068.run(TempTestSuite1543268362068.groovy:36)
+	at groovy.lang.GroovyShell.runScriptOrMainOrTestOrRunnable(GroovyShell.java:263)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:518)
+	at groovy.lang.GroovyShell.run(GroovyShell.java:507)
+	at groovy.ui.GroovyMain.processOnce(GroovyMain.java:653)
+	at groovy.ui.GroovyMain.run(GroovyMain.java:384)
+	at groovy.ui.GroovyMain.process(GroovyMain.java:370)
+	at groovy.ui.GroovyMain.processArgs(GroovyMain.java:129)
+	at groovy.ui.GroovyMain.main(GroovyMain.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.tools.GroovyStarter.rootLoader(GroovyStarter.java:109)
+	at org.codehaus.groovy.tools.GroovyStarter.main(GroovyStarter.java:131)
+)]]></system-err>
+   </testsuite>
+</testsuites>

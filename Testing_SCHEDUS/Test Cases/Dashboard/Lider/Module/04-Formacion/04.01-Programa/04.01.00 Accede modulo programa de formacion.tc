@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Acceder Modulo programa de formacion</description>
+   <name>04.01.00 Accede modulo programa de formacion</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>feeb8fec-3b6c-4e65-9cb6-2945303be306</testCaseGuid>
+</TestCaseEntity>
