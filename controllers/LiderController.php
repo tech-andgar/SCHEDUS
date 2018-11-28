@@ -295,13 +295,13 @@ class LiderController extends Path
 
     public function updateDataFicha()
     {
-        var_dump($_POST);
-        // $data = array(
-        //     "dni" => $_POST['dni'],
-        //     "nombre" => $_POST['nombre'],
-        //     "apellido" => $_POST['apellido'],
-        //     "email" => $_POST['email'],
-        // );
+        //var_dump($_POST);
+        $data = array(
+            "id_ficha" => $_POST['id_ficha'],
+            "num_ficha" => $_POST['num_ficha'],
+            "upd_cod_programa_formacion" => $_POST['upd_cod_programa_formacion'],
+            "upd_cod_estado_ficha" => $_POST['upd_cod_estado_ficha'],
+        );
         $result = $this->modelFicha->updateDataFicha($data);
         if ($result) {
             $msgType = array(
@@ -316,8 +316,7 @@ class LiderController extends Path
                 'msg' => 'No pudo actualizar datos de la ficha',
             );
         }
-
-        $this->Ficha($msgType);
+        $this->Fichas($msgType);
     }
 
 
