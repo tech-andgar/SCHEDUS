@@ -248,6 +248,8 @@ $(document).ready(function() {
 		//]
 	});
 
+
+});
 	$(".statusChange").click(function(){
 		var statetext =$(this).attr('name-state');
 		var state_id =$(this).attr('id-state');
@@ -266,11 +268,11 @@ $(document).ready(function() {
 			}
 		});
 	});
-
+	
 	$(".updateDataInstructor").click(function(){
 		var id_instructor =$(this).attr('id-instructor');
 		console.log(id_instructor);
-
+	
 		$.ajax({
 			type:'POST',
 			url:'getDataInstructor',
@@ -287,6 +289,4 @@ $(document).ready(function() {
 			}
 		});
 	});
-
-});
 	</script>
