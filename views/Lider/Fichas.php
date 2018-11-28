@@ -101,7 +101,7 @@
 									</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -150,7 +150,8 @@
 									</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="txt_num_ficha" id="txt_num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
+									<input type="number" id="id_ficha" name="id_ficha" hidden>
+									<input type="number" name="num_ficha" id="txt_num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
 									 readonly>
 								</div>
 							</div>
@@ -160,7 +161,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="id_programa_formacion"
+									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="cod_programa_formacion"
 									 required>
 									</select>
 								</div>
@@ -171,7 +172,7 @@
 									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="id_estado_ficha" required>
+									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="upd_estado_ficha" required>
 									</select>
 								</div>
 							</div>
@@ -439,9 +440,3 @@
 
 	});
 </script>
-
-<?php
-if (!empty($data['msgType'])) {
-    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
-}
-?>
