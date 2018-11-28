@@ -174,31 +174,38 @@ if (isset($_SESSION['user'])) {
 
     <script>
     const APP_URL='<?php echo APP_URL ?>';
+    $(function () {
+        $("body").tooltip({
+            selector: '[data-toggle="tooltip"]',
+            container: 'body'
+        });
+    })
 
     $(document).ready(function() {
-        $(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-        });
+        //$(function () {
+            //$('[data-toggle="tooltip"]').tooltip();
+            //$('[data-toggle="tooltip"]').tooltip({
+            //    container : 'body'
+            //});
+        //});
 
-        $(".btn").hover(
-		    function(){$(this).toggleClass('shadow');}
-	    );
+
+        //$(".btn").hover(
+		//    function(){$(this).toggleClass('shadow');}
+	    //);
 
         function LoadUrl(url) {
             window.location.href = url;
         }
-    });
-
 
         // TODO FIX CLASS INPUT DATEPICKER
-        $(document).ready(function() {
-            $('.datapicker').each(function(){
-                $(this).datepicker();
-            });
-            /* $('#datepicker').datepicker({
-                uiLibrary: 'bootstrap4'
-            }); */
+        $('.datapicker').each(function(){
+            $(this).datepicker();
         });
+        /* $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        }); */
+    });
     </script>
 
 
