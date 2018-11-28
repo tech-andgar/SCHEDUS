@@ -8,9 +8,9 @@
 	<div class="container-fluid">
 		<!-- Ejemplo de tabla Listado -->
 		<div class="card">
-			<div class="card-header ">
-				<i class="fa fa-align-justify"></i> Administrar Programas de Formacion
-				<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal-Agregar-programa">
+			<div class="card-header">
+				<i class="fa fa-align-justify"></i> Administrar Programas de Formación&nbsp;
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarPrograma">
 					<i class="icon-plus "></i>&nbsp;Nuevo
 				</button>
 			</div>
@@ -46,35 +46,27 @@
 								<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
 							</td>
 							<td class="text-center">
-								<span class="btn
-								<?php switch ($programaFormacion->id_estado_programa_formacion) {
-														case '1':
-														//Activo
-														echo "btn-success";
-														break;
-														case '2' :
-														//Inactivo
-														echo "btn-danger" ;
-														break;
-														default:
-														echo "btn-warning" ;
-														break;
-											}
-											?>
-										">
-										<?php echo $programaFormacion->name_estado_programa_formacion; ?></span>
+									<button
+										type="button"
+										id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>"
+										id-state="<?php echo $programaFormacion->id_estado_programa_formacion; ?>"
+										name-state="<?php echo $programaFormacion->name_estado_programa_formacion; ?>"
+										class="statusChange btn  <?php if ($programaFormacion->name_estado_programa_formacion == 'Activo') { echo "btn-success"; } else { echo "btn-danger";} ?>"
+										data-toggle="tooltip"
+										data-placement="right"
+										title="Click cambia estado de programa de formación">
+								<?php echo $programaFormacion->name_estado_programa_formacion; ?>
+								</button>
 								</td>
 								<td class="text-center">
-									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_programa" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
-										<i class="far fa-edit fa-lg"></i>
-									</div>
+									<div class="updateDataProgramaFormacion" data-toggle="modal" data-target="#modalActualizarPrograma" id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>">
+										<i class="far fa-edit fa-lg"></i></div>
 								</td>
-						</tr>
-						<?php
-						}
-					?>
-					</tbody>
-				</table>
+							</tr>
+							<?php } ?>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -86,7 +78,7 @@
 </div>
 
 <!-- Modal Agregar nueva Programa-->
-<div class="modal fade bd-example-modal-lg" id="modal-Agregar-programa" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="modalAgregarPrograma" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -108,50 +100,47 @@
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="codig">Codigo</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
+									<h4 for="txt_cod_programa">Código</h4>
+									<small id="helpCodPrograma" class="form-text text-muted">Escriba código del programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="number" name="txt_cod_programa" id="txt_cod_programa" class="form-control" required>
+									<input type="number" id="txt_cod_programa" class="form-control" name="txt_cod_programa" aria-describedby="helpCodPrograma" required>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="short_name_programa">Siglas del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigalas del Programa</small>
+									<h4 for="txt_short_name_programa">Siglas del programa</h4>
+									<small id="helpShortNamePrograma" class="form-text text-muted">Escriba las siglas del programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_short_name_programa" id="txt_short_name_programa" class="form-control"
-									 aria-describedby="helpIdNumFicha " required>
+									<input type="text" id="txt_short_name_programa" class="form-control" name="txt_short_name_programa" aria-describedby="helpShortNamePrograma" required>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="name_Programa_formacion">Nombre del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Programa de Formacion</small>
+									<h4 for="txt_name_programa_formacion">Nombre del programa</h4>
+									<small id="helpNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion" class="form-control"
-									 required>
+									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" aria-describedby="helpNameProgramaFormacion" required>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="version_Programa">Version del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Version de Formacion</small>
+									<h4 for="txt_version_programa">Versión del programa</h4>
+									<small id="helpVersionPrograma" class="form-text text-muted">Escriba versión de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_version_programa" id="txt_version_programa" class="form-control" required>
+									<input type="text" id="txt_version_programa" class="form-control" name="txt_version_programa" aria-describedby="helpVersionPrograma" required>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4>Nivel</h4>
-									<small id="helpIdNumFicha" class="text-muted ">Selecciona Nivel de Formacion</small>
+									<h4 for="SelectListNivelProgramaFormacion">Nivel</h4>
+									<small id="helpSelectNivelProgramaFormacion" class="form-text text-muted">Selecciona nivel de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<select id="list-NivelProgramaFormacion" class="form-control" name="txt_id_nivel_programa_formacion" style="width: 100%"
-									 required></select>
+									<select id="SelectListNivelProgramaFormacion" name="txt_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpSelectNivelProgramaFormacion" required ></select>
 								</div>
 							</div>
 						</div>
@@ -162,19 +151,18 @@
 									<h3>Proyecto</h3>
 								</div>
 								<div class="col-lg-3 offset-lg-2 col-md-12">
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
-										<i class="icon-plus "></i>&nbsp;Agregar nuevo proyecto
-									</button>
+								<?php //TODO FIX REDIRECT MODAL
+								?>
+									<a class="btn btn-primary" href="<?php echo APP_URL ?>lider/Proyecto"><i class="icon-plus "></i>&nbsp;Agregar nuevo proyecto</a>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="txt_nom_proyecto">Nombre del Proyecto</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto</small>
+									<h4 for="txt_cod_proyecto">Nombre del proyecto</h4>
+									<small id="helpSelectNameProyecto" class="form-text text-muted">Escriba nombre del proyecto</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<select id="list-Proyecto" class="form-control" id="txt_cod_proyecto" name="txt_cod_proyecto" style="width: 100%"
-									 required></select>
+									<select id="SelectlistProyecto" class="form-control" name="txt_cod_proyecto"  style="width:100%" aria-describedby="helpSelectNameProyecto" required></select>
 								</div>
 							</div>
 						</div>
@@ -187,8 +175,11 @@
 		</div>
 	</div>
 </div>
-<!-- Modal Actulizar datos-->
-<div class="modal fade bd-example-modal-lg" id="Actualizar_programa" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- END Modal Agregar nueva Programa-->
+
+
+<!-- Modal Actulizar datos Programa de formación-->
+<div class="modal fade bd-example-modal-lg" id="modalActualizarPrograma" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -201,7 +192,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="<?php echo APP_URL ?>updateDataInstructor" class="form-signin form-modal">
+					<form method="post" action="updateDataProgramaFormacion" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -210,53 +201,55 @@
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="codig">Codigo</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Codigo del Programa</small>
+									<h4 for="txt_cod_programa">Código</h4>
+									<small id="helpUpdCodPrograma" class="form-text text-muted">Escriba código del programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="number" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+									<input type="number" id="txt_upd_id_programa" name="txt_upd_id_programa" hidden>
+									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma" readonly>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="short_name_programa">Siglas del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba las Sigalas del Programa</small>
+									<h4 for="txt_upd_short_name_programa">Siglas del programa</h4>
+									<small id="helpUpdShortNamePrograma" class="form-text text-muted">Escriba las siglas del programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_upd_short_name_programa" id="txt_upd_short_name_programa" class="form-control">
+									<input type="text" id="txt_upd_short_name_programa"class="form-control" name="txt_upd_short_name_programa" aria-describedby="helpUpdShortNamePrograma" required >
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="name_Programa_formacion">Nombre del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Programa de Formacion</small>
+									<h4 for="txt_upd_name_programa_formacion">Nombre del Programa</h4>
+									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_upd_name_programa_formacion" id="txt_upd_name_programa_formacion" class="form-control">
+									<input type="text" id="txt_upd_name_programa_formacion" class="form-control" name="txt_upd_name_programa_formacion" aria-describedby="helpUpdNameProgramaFormacion" required>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="version_Programa">Version del Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Version de Formacion</small>
+									<h4 for="txt_upd_version_programa">Versión del programa</h4>
+									<small id="helpUpdVersionPrograma" class="form-text text-muted">Escriba versión de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_upd_version_programa" id="txt_upd_version_programa" class="form-control">
+									<input type="text" id="txt_upd_version_programa"class="form-control" name="txt_upd_version_programa" aria-describedby="helpUpdVersionPrograma" required>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4>Nivel</h4>
-									<small id="helpIdNumFicha" class="text-muted ">Selecciona Nivel de Formacion</small>
+									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel</h4>
+									<small id="helpUpdSelectNivelProgramaFormacion" class="form-text text-muted ">Selecciona nivel de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<select id="list-upd-NivelProgramaFormacion" name="txt_upd_id_nivel_programa_formacion" class="form-control">
+									<select id="SelectListUpdNivelProgramaFormacion" class="form-control" name="txt_upd_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpUpdSelectNivelProgramaFormacion" required>
 									</select>
 								</div>
 							</div>
 						</div>
 						<hr>
 						<div class="container-fluid">
+
 							<div class="row pt-4">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 									<h3>Proyecto</h3>
@@ -269,11 +262,11 @@
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="txt_upd_num_proyecto">Nombre del Proyecto</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre de Proyecto</small>
+									<h4 for="SelectListUpdProyecto">Nombre del proyecto</h4>
+									<small id="helpUpdSelectNameProyecto" class="form-text text-muted">Escriba nombre del proyecto</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<select id="list-upd-Proyecto" name="txt_upd_cod_proyecto" class="form-control"></select>
+									<select id="SelectListUpdProyecto" class="form-control" name="txt_upd_cod_proyecto"  style="width:100%" aria-describedby="helpUpdSelectNameProyecto" required></select>
 								</div>
 							</div>
 						</div>
@@ -290,6 +283,10 @@
 
 <script>
 	$(document).ready(function () {
+
+	//
+	// ─── TABLE LOAD ─────────────────────────────────────────────────────────────────
+	//
 
 		$("#tableProgramas").DataTable({
 			"language": {
@@ -337,10 +334,39 @@
 			//	'pdfHtml5'
 			//]
 		});
+	//
+	// ─── END TABLE LOAD ─────────────────────────────────────────────────────────────────
+	//
 
 
-		// Call AJAX getDataNivelProgramaFormacion to SELECT
-		$('#list-NivelProgramaFormacion').select2({
+	//
+	// ─── CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
+	//
+		$(".statusChange").click(function(){
+			var state_id =$(this).attr('id-state');
+			var id_programa =$(this).attr('id-programa');
+			$.ajax({
+				type:'POST',
+				url:'changeStatusProgaramaFormaciom',
+				data:{
+					state_id:state_id,
+					id_programa_formacion:id_programa
+				},
+				success(response){
+					location.reload(true);
+					// window.location.href = "Programas";
+				}
+			});
+		});
+	//
+	// ─── END CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
+	//
+
+
+	//
+	// ─── CALL AJAX GETDATANIVELPROGRAMAFORMACION TO SELECT ───────────
+	//
+		$('#SelectListNivelProgramaFormacion').select2({
 			theme: 'bootstrap4',
 			ajax: {
 				url: APP_URL + 'lider/getDataNivelProgramaFormacion',
@@ -369,14 +395,20 @@
 			placeholder: $(this).attr('placeholder'),
 			allowClear: Boolean($(this).data('allow_clear')),
 			tags: true,
-			dropdownParent: $("#modal-Agregar-programa"),
+			dropdownParent: $("#modalAgregarPrograma"),
 		});
+	//
+	// ─── END CALL AJAX GETDATANIVELPROGRAMAFORMACION TO SELECT ───────────
+	//
 
-		// Call AJAX getDataProyecto to SELECT
-		$('#list-Proyecto').select2({
+
+	//
+	// ─── CALL AJAX GETDATAPROYECTO TO SELECT ─────────────────────────
+	//
+		$('#SelectlistProyecto').select2({
 			theme: 'bootstrap4',
 			ajax: {
-				url: 'getDataProyecto',
+				url: 'getDataProyecto', // url: APP_URL+'lider/getDataProyecto',
 				dataType: 'json',
 				delay: 250,
 				data: function (params) {
@@ -402,38 +434,44 @@
 			placeholder: $(this).attr('placeholder'),
 			allowClear: Boolean($(this).data('allow_clear')),
 			tags: true,
-			dropdownParent: $("#modal-Agregar-programa"),
-		}); //END Call AJAX getDataProyecto to SELECT
+			dropdownParent: $("#modalAgregarPrograma"),
+		});
+	//
+	// ─── END CALL AJAX GETDATAPROYECTO TO SELECT ─────────────────────
+	//
 
-		//Call getDataPrograma for data update
-		$(".updateDataProgramaFormacion").click(function () {
+
+	//
+	// ─── CALL GETDATAPROGRAMA FOR DATA UPDATE ────────────────────────
+	//
+		$(".updateDataProgramaFormacion").click(function(){
 			var id_programa = $(this).attr('id-programa');
-			console.log(id_programa);
+			//console.log(id_programa);
 
 			$.ajax({
-				type: 'POST',
-				url: 'lider/getDataProgramaFormacion',
-				dataType: "json",
-				data: {
-					id: id_programa
+				type:'POST',
+				url:'getDataProgramaFormacion',
+				dataType:"json",
+				data:{
+					id:id_programa
 				},
-				success(response) {
-					//list-upd-NivelProgramaFormacion
-					var programa = jQuery.parseJSON(JSON.stringify(response));
+				success(response){
+					var programa  = jQuery.parseJSON(JSON.stringify(response));
 					console.log(programa);
+					$('#txt_upd_id_programa').val(programa.id_programa_formacion);
 					$('#txt_upd_cod_programa').val(programa.codigo);
 					$('#txt_upd_short_name_programa').val(programa.short_name_programa_formacion);
 					$('#txt_upd_name_programa_formacion').val(programa.name_programa_formacion);
 					$('#txt_upd_version_programa').val(programa.version_programa);
-					$('#txt_upd_id_nivel_programa_formacion').val(programa.id_nivel_programa_formacion);
-					// $('#txt_upd_cod_proyecto').val(programa.id_proyecto);
+					$('#SelectListUpdNivelProgramaFormacion').val(programa.id_nivel_programa_formacion);
+					$('#SelectListUpdProyecto').val(programa.id_proyecto);
 
 
 					// Call AJAX getDataUpdNivelProgramaFormacion to SELECT
-					$('#list-upd-NivelProgramaFormacion').select2({
+					$('#SelectListUpdNivelProgramaFormacion').select2({
 						theme: 'bootstrap4',
 						ajax: {
-							url: 'lider/getDataNivelProgramaFormacion',
+							url: 'getDataNivelProgramaFormacion',
 							dataType: 'json',
 							delay: 250,
 							data: function (params) {
@@ -443,7 +481,7 @@
 								};
 							},
 							processResults: function (data, params) {
-								console.log(data);
+								//console.log(data);
 								var data = $.map(data, function (obj) {
 									obj.id = obj.id || obj.id_nivel_programa_formacion; // replace pk with your identifier
 									obj.text = obj.text || obj.name_nivel_programa_formacion; // replace name with the property used for the text
@@ -459,15 +497,15 @@
 						placeholder: $(this).attr('placeholder'),
 						allowClear: Boolean($(this).data('allow_clear')),
 						tags: true,
-						dropdownParent: $("#Actualizar_programa"),
+						dropdownParent: $("#modalActualizarPrograma"),
 					});
 
 
 					// Call AJAX getDataProyecto to SELECT-UPD
-					$('#list-upd-Proyecto').select2({
+					$('#SelectListUpdProyecto').select2({
 						theme: 'bootstrap4',
 						ajax: {
-							url: 'lider/getDataProyecto',
+							url: 'getDataProyecto',
 							dataType: 'json',
 							delay: 250,
 							data: function (params) {
@@ -484,9 +522,7 @@
 									if (obj.id_proyecto == programa.id_proyecto) {
 										obj.selected = true;
 									}
-
-									console.log(data);
-
+									//console.log(data);
 									return obj;
 								});
 								return {
@@ -498,22 +534,46 @@
 						placeholder: $(this).attr('placeholder'),
 						allowClear: Boolean($(this).data('allow_clear')),
 						tags: true,
-						dropdownParent: $("#Actualizar_programa"),
+						dropdownParent: $("#modalActualizarPrograma"),
 
 
 					}); //END Call AJAX getDataProyecto to SELECT-UPD
 
-					$dropDown.val(programa.id_proyecto).trigger('change.select2');
+
+
+					// PRE-SELECTED selectUpdProyecto
+						// Fetch the preselected item, and add to the control
+						var proyectoSelect = $('#SelectListUpdProyecto');
+						// create the option and append to Select2
+						var option = new Option(programa.name_proyecto, programa.id_proyecto, true, true);
+						proyectoSelect.append(option).trigger('change');
+
+						// manually trigger the `select2:select` event
+						proyectoSelect.trigger({
+							type: 'select2:select'
+						});
+					// END PRE-SELECTED selectUpdProyecto
+
+
+					// PRE-SELECTED selectUpdNivelProgramaFormacion
+						// Fetch the preselected item, and add to the control
+						var nivelProgramaFormacion = $('#SelectListUpdNivelProgramaFormacion');
+						// create the option and append to Select2
+						var option = new Option(programa.name_nivel_programa_formacion, programa.id_nivel_programa_formacion, true, true);
+						nivelProgramaFormacion.append(option).trigger('change');
+
+						// manually trigger the `select2:select` event
+						nivelProgramaFormacion.trigger({
+							type: 'select2:select'
+						});
+					// END PRE-SELECTED selectUpdNivelProgramaFormacion
 
 				}
 			});
-		}); // END Call getDataPrograma for data update
+		});
+	//
+	// ─── END CALL GETDATAPROGRAMA FOR DATA UPDATE ────────────────────
+	//
 
 	});
 </script>
-
-<?php
-if (!empty($data['msgType'])) {
-    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
-}
-?>

@@ -1,14 +1,11 @@
 <header class="app-header navbar">
     <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="<?php echo APP_URL?>assets/images/Logo_SCHEDUS.svg" width="200" height="50"
-            alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="<?php echo APP_URL?>assets/images/Sena_Colombia_logo.svg" width="100"
-            height="100" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="<?php echo APP_URL?>assets/images/Logo_SCHEDUS.svg" width="200" height="50" alt="LOGO SENA - SCHEDUS">
+        <img class="navbar-brand-minimized" src="<?php echo APP_URL?>assets/images/Sena_Colombia_logo.svg" width="100" height="100" alt="LOGO SENA">
     </a>
     <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
         <li class="dropdown order-1">
-            <a class="nav-link dropdown-toggle nav-link mr-3 " data-toggle="dropdown" href="#" role="button"
-                aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle nav-link mr-3 " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-sign-in-alt"></i> Login <span class="caret"></span></a>
             <ul class="dropdown-menu dropdown-menu-right mt-2">
                 <li class="p-4" style="width: 320px;">
@@ -92,11 +89,5 @@
     </div>
 </div>
 
-
-<?php
-if (isset($data['msg'])) {
-    echo "<script>toastr.error('" . $data['msg'] . "','" . $data['title'] . "')</script>";
-}
-?>
 <!-- END MODAL -->
 <div class="app-body">

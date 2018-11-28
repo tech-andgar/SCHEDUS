@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description>Login Instructor desde pagina Inicio</description>
+   <name>InstructorLogin</name>
+   <tag>Instructor, Login, InstructorLogin</tag>
+   <comment></comment>
+   <testCaseGuid>4e41409e-05d1-4a6e-8729-8302c64956b9</testCaseGuid>
+</TestCaseEntity>

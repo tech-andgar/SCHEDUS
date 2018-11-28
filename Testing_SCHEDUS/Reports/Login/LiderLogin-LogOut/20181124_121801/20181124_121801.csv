@@ -1,0 +1,20 @@
+Suite/Test/Step Name,Browser,Description,Start time,End time,Duration,Status
+LiderLogin-LogOut,Firefox 63.0,,2018-11-24 12:19:07,2018-11-24 12:19:22,"14,536s",PASSED
+,,,,,,
+Test Cases/Login/LiderLogin,Firefox 63.0,Ingreso usuario rol Lider,2018-11-24 12:19:07,2018-11-24 12:19:17,"9,443s",PASSED
+openBrowser,Firefox 63.0,,2018-11-24 12:19:08,2018-11-24 12:19:13,"4,996s",PASSED
+navigateToUrl,Firefox 63.0,,2018-11-24 12:19:13,2018-11-24 12:19:13,"0,693s",PASSED
+click,Firefox 63.0,,2018-11-24 12:19:13,2018-11-24 12:19:13,"0,265s",PASSED
+setText,Firefox 63.0,,2018-11-24 12:19:13,2018-11-24 12:19:14,"0,060s",PASSED
+setEncryptedText,Firefox 63.0,,2018-11-24 12:19:14,2018-11-24 12:19:14,"0,089s",PASSED
+click,Firefox 63.0,,2018-11-24 12:19:14,2018-11-24 12:19:15,"1,028s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-24 12:19:15,2018-11-24 12:19:15,"0,045s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-24 12:19:15,2018-11-24 12:19:15,"0,019s",PASSED
+delay,Firefox 63.0,,2018-11-24 12:19:15,2018-11-24 12:19:17,"2,020s",PASSED
+,,,,,,
+Test Cases/LogOut/LogOutAllUsers,Firefox 63.0,Cerrar sesión de Usuario,2018-11-24 12:19:17,2018-11-24 12:19:22,"4,793s",PASSED
+click,Firefox 63.0,,2018-11-24 12:19:17,2018-11-24 12:19:17,"0,229s",PASSED
+click,Firefox 63.0,,2018-11-24 12:19:17,2018-11-24 12:19:18,"0,667s",PASSED
+verifyElementText,Firefox 63.0,,2018-11-24 12:19:18,2018-11-24 12:19:18,"0,027s",PASSED
+delay,Firefox 63.0,,2018-11-24 12:19:18,2018-11-24 12:19:20,"2,002s",PASSED
+closeBrowser,Firefox 63.0,,2018-11-24 12:19:20,2018-11-24 12:19:22,"1,699s",PASSED
