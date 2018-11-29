@@ -1,11 +1,11 @@
 <?php
-$seconds_to_cache = 3600;
+/* $seconds_to_cache = 3600;
 $ts = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache) . " GMT";
 header("Expires: $ts");
 header("Pragma: cache");
 // header("Cache-Control: max-age=$seconds_to_cache");
 header("Cache-Control: max-age=86400");
-
+ */
 
 // if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'br')) {
 //     // header('Content-Encoding: br');
@@ -15,13 +15,13 @@ header("Cache-Control: max-age=86400");
 //     ob_start("ob_gzhandler");
 // }
 // else
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+/* if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     header('Content-Encoding: gzip');
     ob_start("ob_gzhandler");
 }
 else{
  ob_start();
-}
+} */
 
 ?>
 
