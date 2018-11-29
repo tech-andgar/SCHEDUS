@@ -68,24 +68,34 @@
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
 					<form method="post" action="#" class="form-signin form-modal">
-					<div class="container-fluid">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
+									<h4 for="txt_cod_programa">Nivel de Formación</h4>
+									<small id="helpUpdCodPrograma" class="form-text text-muted">Escriba Nombre del Nivel de Formación</small>
+								</div>
+								<div class="col-lg-6 col-12">
+									<input type="number" id="txt_upd_id_programa" name="txt_upd_id_programa" hidden>
+									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma" readonly>
+								</div>
+							</div>
+
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-								<h4 >Nivel Formacion</h4>
-									<small id="" class="text-muted">Escriba Nombre del Nivel de Formacion</small>
+									<h4></h4>
+									<small class="text-muted"></small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-4  col-12">
-									<h4>Fecha de Creacion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Fecha de Creacion del Nievel</small>
+								<div class="col-lg-4 col-12 ">
+									<h4>Duración</h4>
+									<small class="text-muted">Escriba cantidad de duración</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input name="short_name_programa" id="short_name_programa" class="form-control" aria-describedby="helpIdNumFicha"
-									placeholder="<?php echo date('d,M,Y') ?>" readonly>
+									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
 								</div>
 							</div>
 						</div>
