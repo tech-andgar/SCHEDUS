@@ -97,11 +97,11 @@
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
 									<h4>Numero de la Ficha</h4>
-									<small id="" class="text-muted">Escriba Numero de la Ficha
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="" class="text-muted">Escriba Numero de la Ficha
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -111,6 +111,7 @@
 								<div class="col-lg-8  col-12">
 									<select class="form-control" name="cod_programa_formacion" id="selectNewListPrograma" style="width:100%"
 									required></select>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</div>
 							</div>
 						</div>
@@ -146,34 +147,34 @@
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
 									<h4>Numero de la Ficha</h4>
-									<small id="" class="text-muted">Escriba Numero de la Ficha
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="number" id="txt_id_ficha" name="id_ficha" value="" hidden>
 									<input type="number" id="txt_num_ficha" name="num_ficha" class="form-control" aria-describedby="helpIdNumFicha"
-									 readonly>
+									readonly>
+									<small id="" class="text-muted">Escriba Numero de la Ficha
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12">
 									<h4>Programa</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<select class="form-control" id="selectUpdListPrograma" style="width: 100%" name="upd_cod_programa_formacion"
-									 required>
+									required>
 									</select>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona programa de formación</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12">
 									<h4>Estado</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<select id="SelectUpdListEstadoFicha" class="form-control" style="width: 100%" name="upd_cod_estado_ficha" required>
 									</select>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona estado de ficha</small>
 								</div>
 							</div>
 						</div>
