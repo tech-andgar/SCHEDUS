@@ -63,7 +63,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center ">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="updateDataJornada" class="form-signin form-modal">
                         <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-12">
@@ -72,11 +72,12 @@
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
-                                    <h4 for="codig">Jornada</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Escriba la jornada</small>
+                                    <h4 for="txt_upd_id_jornada">Jornada</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input id="txt_upd_id_jornada" type="number" name="txt_upd_id_jornada" value="" hidden>
+                                    <input type="text" name="text_name_jornada" id="text_name_jornada" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Escriba la jornada</small>
                                 </div>
                             </div>
                         </div>
@@ -90,13 +91,13 @@
         </div>
     </div>
 </div>
-<!-- Modal Agregar nuevo Programa-->
+<!-- Modal Agregar nueva Jornada-->
 <div class="modal fade bd-example-modal-lg" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="col-11">
-                    <h3 class="modal-title text-center">Agregar Nueva Jornada</h3>
+                    <h3 class="modal-title text-center">Agregar Nueva Jornada de Formacion</h3>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -104,7 +105,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center ">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="insertarJornada" class="form-signin form-modal">
                         <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-12">
@@ -113,11 +114,11 @@
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
-                                    <h4 for="codig">Jornada</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Escriba la jornada</small>
+                                    <h4 for="name_jornada">Jornada</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input type="text" name="name_jornada" id="name_jornada" class="form-control">
+                                    <small id="helpIdNumJornada" class="text-muted">Escriba la jornada</small>
                                 </div>
                             </div>
                         </div>
@@ -182,42 +183,25 @@
             //]
         });
 
-        $(".statusChange").click(function () {
-            var statetext = $(this).attr('name-state');
-            var state_id = $(this).attr('id-state');
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=changeStatusPrograma',
-                data: {
-                    statetext: statetext,
-                    state_id: state_id,
-                    id_programa: id_programa
-                },
-                success(response) {
-                    location.reload();
-                }
-            });
-        });
+    });
 
-        $(".updateDataPrograma").click(function () {
-            var id_programa = $(this).attr('id-programa');
+    $(".updateDataJornada").click(function () {
+            var idjornada = $(this).attr('id-jornada');
+            console.log(idjornada);
+
             $.ajax({
                 type: 'POST',
-                url: '?c=Lider&m=getDataPrograma',
+                url: 'getDataJornada',
                 dataType: "json",
                 data: {
-                    id_programa: id_programa
+                    id: idjornada
                 },
                 success(response) {
-                    var programa = jQuery.parseJSON(JSON.stringify(response));
-                    $('#text-dni').val(programa.dni);
-                    $('#text-nombre').val(programa.nombre);
-                    $('#text-apellido').val(programa.apellido);
-                    $('#text-email').val(programa.email);
+                    var jornada = jQuery.parseJSON(JSON.stringify(response));
+                    console.log(jornada);
+                    $('#txt_upd_id_jornada').val(jornada.id_jornada);
+                    $('#text_name_jornada').val(jornada.name_jornada);
                 }
             });
         });
-
-    });
 </script>
