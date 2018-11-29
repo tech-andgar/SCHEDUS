@@ -5,7 +5,7 @@ By Andrés Garcia &amp; Johann Amaya</description>
    <name>Testing_SCHEDUS</name>
    <tag></tag>
    <UUID>2bd9e9ae-ab06-4546-8d3d-33aaa3f31d49</UUID>
-   <migratedVersion>5.7.0</migratedVersion>
+   <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
    <sourceContent>
       <sourceFolderList>
@@ -19,6 +19,9 @@ By Andrés Garcia &amp; Johann Amaya</description>
          </systemFolderConfiguration>
          <systemFolderConfiguration>
             <url>Include/features</url>
+         </systemFolderConfiguration>
+         <systemFolderConfiguration>
+            <url>Include/config</url>
          </systemFolderConfiguration>
       </systemFolderList>
    </sourceContent>
