@@ -116,5 +116,46 @@ class ProyectoModel extends DB {
 			die($e->getMessage());
 		}
 	}
+
+	public function insertarProyecto(array $data)
+    {
+		// var_dump($_POST);
+        try {
+			// Verificar hay datos en $data
+            if (
+                isset($data['proyect'])) {
+                $proyect = $data['proyect'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_PROYECTO);
+                $stm->bindParam(1, $proyect, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
+
+	
+	public function updateDataProyecto($data)
+    {
+        try {
+			/* var_dump($data); */
+            // Verificar hay datos en $data
+			if (isset($data['id_proyecto']) &&
+				isset($data['name_proyecto'])) {
+                $name_proyecto = $data['name_proyecto'];
+                $id_proyecto = $data['id_proyecto'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_PROYECTO);
+                $stm->bindParam(1, $name_proyecto, PDO::PARAM_STR);
+                $stm->bindParam(2, $id_proyecto, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 }
 ?>
