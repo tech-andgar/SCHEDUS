@@ -30,7 +30,7 @@
                                 <?php echo $estadoAmbiente->name_estado_ambiente; ?>
                             </td>
                             <td class="text-center">
-                            <div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_EstadoAmbiente" id-estadoAmbiente="<?php echo $estadoAmbiente->id_estado_ambiente; ?>">
+                            <div class="getDataEstadoAmbiente" data-toggle="modal" data-target="#Actualizar_EstadoAmbiente" id-estadoAmbiente="<?php echo $estadoAmbiente->id_estado_ambiente; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
@@ -86,7 +86,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal Actualizar-->
 <div class="modal fade bd-example-modal-lg" id="Actualizar_EstadoAmbiente" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -172,8 +172,25 @@
             //	'pdfHtml5'
             //]
         });
-
-        
-
     });
+    $(".updateDataNivelFormacion").click(function () {
+			var idNivelFormacion = $(this).attr('id-NivelFormacion');
+			console.log(idNivelFormacion);
+
+			$.ajax({
+				type: 'POST',
+				url: 'getDataNivelFormacion',
+				dataType: "json",
+				data: {
+					id: idNivelFormacion
+				},
+				success(response) {
+					var nivel = jQuery.parseJSON(JSON.stringify(response));
+					console.log(nivel);
+					$('#txt_upd_id_nivel_programa_formacion').val(nivel.id_nivel_programa_formacion);
+					$('#txt_upd_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
+					$('#txt_upd_duracion').val(nivel.duracion);
+				}
+			});
+		});
 </script>
