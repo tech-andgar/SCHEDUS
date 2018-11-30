@@ -104,7 +104,7 @@ class LiderController extends Path
     {
         $data['jornada'] = $this->modelJornada->getAllJornada();
         $data['msgType'] = $msgType;
-        parent::viewModule('lider', 'Jornadas', 'Jornadas', $data);
+        parent::viewModule('lider', 'Jornadas', 'Jornadas', $data , $table);
     }
     public function Fusionar()
     {
@@ -775,7 +775,8 @@ class LiderController extends Path
 
         $this->Jornadas($msgType);
     }
-//
+
+    //
     // ─── CONTROL DE ESTADO AMBIENTE ───────────────────────────────────────────────────────────
     //
 
@@ -824,8 +825,8 @@ class LiderController extends Path
     {
         // var_dump($_POST);
         $data = array(
-            "id_jornada" => $_POST['txt_upd_id_jornada'],
-            "name_jornada" => $_POST['txt_upd_name_jornada'],
+            "id_estado_ambiente" => $_POST['txt_upd_id_estado_ambiente'],
+            "name_estado_ambiente" => $_POST['txt_upd_name_estado_ambiente'],
         );
         $result = $this->modelEstadoAmbiente->updateDataEstadoAmbiente($data);
 
@@ -844,6 +845,174 @@ class LiderController extends Path
         }
 
         $this->EstadoAmbiente($msgType);
+    }
+
+    //
+    // ─── CONTROL DE SEDE ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataSede()
+    {
+        // Completa lista de estado de jornada
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelSede->getAllSede();
+        }
+        // Selecciona ID de estado de jornada
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelSede->getSedeId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de jornada
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelSede->getSedeName($_REQUEST['q']);
+        }
+
+        $modelSede = json_encode($output);
+        echo $modelSede;
+    }
+
+    public function insertarSede()
+    {
+        // var_dump($_POST);
+        $data = $_POST;
+        $result = $this->modelSede->insertarSede($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nueva Sede',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nueva Sede',
+            );
+        }
+        $this->Sede($msgType);
+    }
+
+    public function updateDataSede()
+    {
+        // var_dump($_POST);
+        $data = array(
+            "id_sede" => $_POST['txt_upd_id_sede'],
+            "name_sede" => $_POST['txt_upd_name_sede'],
+            "direccion" => $_POST['txt_upd_direccion'],
+        );
+        $result = $this->modelSede->updateDataSede($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Sede',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Sede',
+            );
+        }
+
+        $this->Sede($msgType);
+    }
+
+      //
+    // ─── CONTROL DE TRIMESTRE PROGRAMA ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataTrimestre()
+    {
+        // Completa lista de estado de jornada
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelTrimestre->getAllTrimestre();
+        }
+        // Selecciona ID de estado de jornada
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelTrimestre->getTrimestreId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de jornada
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelTrimestre->getTrimestreName($_REQUEST['q']);
+        }
+
+        $modelTrimestre = json_encode($output);
+        echo $modelTrimestre;
+    }
+
+    public function insertarTrimestresPrograma()
+    {
+        // var_dump($_POST);
+        $fechas = explode(' ', $_POST['fecha']);
+
+        $fecha_inicio = $fechas[0];
+        $fecha_fin = $fechas[2];
+
+        $fecha_inicio = explode('/', $fecha_inicio);
+        $fecha_fin = explode('/', $fecha_fin);
+
+        $data = array(
+            // 'name_trimestre', 'YYYY-MM-DD', 'YYYY-MM-DD'
+            "name_trimestre" => $_POST['name_trimestre'],
+            "fecha_inicio" => $fecha_inicio[2].'-'.$fecha_inicio[1]. '-'. $fecha_inicio[0] ,
+            "fecha_fin" => $fecha_fin[2].'-'.$fecha_fin[1]. '-'. $fecha_fin[0] ,
+        );
+        $result = $this->modelTrimestre->insertarTrimestresPrograma($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nuevo Trimestre de Programa de formacion',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo Trimestre de Programa de formacion',
+            );
+        }
+        $this->TrimestresPrograma($msgType);
+    }
+
+    public function updateDataTrimestresPrograma()
+    {
+        $fechas = explode(' ', $_POST['txt_upd_fecha']);
+        var_dump($_POST);
+
+        $fecha_inicio = $fechas[0];
+        $fecha_fin = $fechas[1];
+
+        $fecha_inicio = explode('-', $fecha_inicio);
+        $fecha_fin = explode('-', $fecha_fin);
+
+        $data = array(
+            // 'name_trimestre', 'YYYY-MM-DD', 'YYYY-MM-DD'
+            "id_trimestre" => $_POST['txt_upd_id_trimestre'],
+            "name_trimestre" => $_POST['txt_upd_name_trimestre'],
+            "fecha_inicio" => $fecha_inicio[2].'-'.$fecha_inicio[1]. '-'. $fecha_inicio[0] ,
+            "fecha_fin" => $fecha_fin[2].'-'.$fecha_fin[1]. '-'. $fecha_fin[0] ,
+        );
+        $this->modelTrimestre->updateDataTrimestresPrograma($data);
+        /* $result = $this->modelTrimestre->updateDataTrimestresPrograma($data); */
+
+        /* if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Trimestre de Programa de formacion',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Trimestre de Programa de formacion',
+            );
+        }
+ */
+       // $this->TrimestresPrograma($msgType);
     }
 
 
