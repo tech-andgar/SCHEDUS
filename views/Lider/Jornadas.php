@@ -30,8 +30,8 @@
                                 <?php echo $jornada->name_jornada; ?>
                             </td>
                             <td class="text-center">
-                                <div class="updateDataNivelFormacion" data-toggle="modal" data-target="#Actualizar_Jornada"
-                                    id-jornada="<?php echo $jornada->id_jornada; ?>">
+                                <div class="updateDataJornada" data-toggle="modal" data-target="#Actualizar_Jornada"
+                                id-Jornada="<?php echo $jornada->id_jornada; ?>">
                                     <i class="far fa-edit fa-lg"></i></div>
                             </td>
                         </tr>
@@ -72,11 +72,11 @@
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
-                                    <h4 for="txt_upd_id_jornada">Jornada</h4>
+                                    <h4 for="Jornada">Jornada</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
                                     <input id="txt_upd_id_jornada" type="number" name="txt_upd_id_jornada" value="" hidden>
-                                    <input type="text" name="text_name_jornada" id="text_name_jornada" class="form-control">
+                                    <input type="text" name="txt_upd_name_jornada" id="txt_upd_name_jornada" class="form-control">
                                     <small id="helpIdNumFicha" class="text-muted">Escriba la jornada</small>
                                 </div>
                             </div>
@@ -186,22 +186,25 @@
     });
 
     $(".updateDataJornada").click(function () {
-            var idjornada = $(this).attr('id-jornada');
-            console.log(idjornada);
+            var idJornada = $(this).attr('id-Jornada');
+            console.log(idJornada);
 
             $.ajax({
                 type: 'POST',
                 url: 'getDataJornada',
                 dataType: "json",
                 data: {
-                    id: idjornada
+                    id: idJornada
                 },
                 success(response) {
+                    console.log(response);
                     var jornada = jQuery.parseJSON(JSON.stringify(response));
                     console.log(jornada);
                     $('#txt_upd_id_jornada').val(jornada.id_jornada);
-                    $('#text_name_jornada').val(jornada.name_jornada);
+                    $('#txt_upd_name_jornada').val(jornada.name_jornada);
                 }
+            }).fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
             });
         });
 </script>
