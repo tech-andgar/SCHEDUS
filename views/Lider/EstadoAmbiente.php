@@ -30,7 +30,7 @@
                                 <?php echo $estadoAmbiente->name_estado_ambiente; ?>
                             </td>
                             <td class="text-center">
-                            <div class="getDataEstadoAmbiente" data-toggle="modal" data-target="#Actualizar_EstadoAmbiente" id-estadoAmbiente="<?php echo $estadoAmbiente->id_estado_ambiente; ?>">
+                            <div class="updateDataEstadoAmbiente" data-toggle="modal" data-target="#Actualizar_EstadoAmbiente" id-EstadoAmbiente="<?php echo $estadoAmbiente->id_estado_ambiente; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
@@ -64,15 +64,15 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="insertarEstadoAmbiente" class="form-signin form-modal">
                         <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 for="codig">Estado</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre del Estado</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input type="text" name="name_estado_ambiente" id="name_estado_ambiente" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre del Estado</small>
                                 </div>
                             </div>
                         </div>
@@ -100,15 +100,16 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center ">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="updateDataEstadoAmbiente" class="form-signin form-modal">
                         <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 for="codig">Estado</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre del Estado</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input id="txt_upd_id_estado_ambiente" type="number" name="txt_upd_id_estado_ambiente" value="" hidden>
+                                    <input type="text" name="txt_upd_name_estado_ambiente" id="txt_upd_name_estado_ambiente" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre del Estado</small>
                                 </div>
                             </div>
                         </div>
@@ -173,23 +174,22 @@
             //]
         });
     });
-    $(".updateDataNivelFormacion").click(function () {
-			var idNivelFormacion = $(this).attr('id-NivelFormacion');
-			console.log(idNivelFormacion);
+    $(".updateDataEstadoAmbiente").click(function () {
+			var idEstadoAmbiente = $(this).attr('id-EstadoAmbiente');
+			console.log(idEstadoAmbiente);
 
 			$.ajax({
 				type: 'POST',
-				url: 'getDataNivelFormacion',
+				url: 'getDataEstadoAmbiente',
 				dataType: "json",
 				data: {
-					id: idNivelFormacion
+					id: idEstadoAmbiente
 				},
 				success(response) {
-					var nivel = jQuery.parseJSON(JSON.stringify(response));
-					console.log(nivel);
-					$('#txt_upd_id_nivel_programa_formacion').val(nivel.id_nivel_programa_formacion);
-					$('#txt_upd_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
-					$('#txt_upd_duracion').val(nivel.duracion);
+					var estadoAmbiente = jQuery.parseJSON(JSON.stringify(response));
+					console.log(estadoAmbiente);
+					$('#txt_upd_id_estado_ambiente').val(estadoAmbiente.id_estado_ambiente);
+					$('#txt_upd_name_estado_ambiente').val(estadoAmbiente.name_estado_ambiente);
 				}
 			});
 		});
