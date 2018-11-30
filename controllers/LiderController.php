@@ -711,15 +711,15 @@ class LiderController extends Path
 
     public function getDataJornada()
     {
-        // Completa lista de estado de ficha
+        // Completa lista de estado de jornada
         if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
             $output = $this->modelJornada->getAllJornada();
         }
-        // Selecciona ID de estado de ficha
+        // Selecciona ID de estado de jornada
         elseif (isset($_REQUEST['id'])) {
             $output = $this->modelJornada->getJornadaId($_REQUEST['id']);
         }
-        // Selecciona caracteres en lista de estado de ficha
+        // Selecciona caracteres en lista de estado de jornada
         elseif (isset($_REQUEST['q'])) {
             $output = $this->modelJornada->getJornadaName($_REQUEST['q']);
         }
@@ -732,7 +732,6 @@ class LiderController extends Path
     {
         // var_dump($_POST);
         $data = $_POST;
-
         $result = $this->modelJornada->insertarJornada($data);
         if ($result) {
             $msgType = array(
@@ -753,28 +752,28 @@ class LiderController extends Path
 
     public function updateDataJornada()
     {
-         var_dump($_POST); 
-        // $data = array(
-        //     "id_jornada" => $_POST['text_id_jornada'],
-        //     "name_jornada" => $_POST['text_name_jornada'],
-        // );
-        // $result = $this->modelJornada->updateDataJornada($data);
+        // var_dump($_POST);
+        $data = array(
+            "id_jornada" => $_POST['txt_upd_id_jornada'],
+            "name_jornada" => $_POST['txt_upd_name_jornada'],
+        );
+        $result = $this->modelJornada->updateDataJornada($data);
 
-        // if ($result) {
-        //     $msgType = array(
-        //         'type' => 'success',
-        //         'title' => 'AVISO',
-        //         'msg' => 'Exito actualizado datos de Jornada',
-        //     );
-        // } else {
-        //     $msgType = array(
-        //         'type' => 'error',
-        //         'title' => 'AVISO',
-        //         'msg' => 'No se pudo actualizar datos Jornada',
-        //     );
-        // }
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Jornada',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Jornada',
+            );
+        }
 
-        // $this->Jornadas($msgType);
+        $this->Jornadas($msgType);
     }
 
 }
