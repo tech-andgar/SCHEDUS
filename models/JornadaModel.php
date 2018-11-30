@@ -109,7 +109,7 @@ class JornadaModel extends DB {
             die($e->getMessage());
         }
 	}
-	
+
 	public function insertarJornada(array $data)
     {
 		// var_dump($_POST);
@@ -128,20 +128,19 @@ class JornadaModel extends DB {
             die($e->getMessage());
         }
 	}
-	
 
 	public function updateDataJornada($data)
     {
         try {
-			/* var_dump($data); */
+			// var_dump($data);
             // Verificar hay datos en $data
 			if (isset($data['id_jornada']) &&
 				isset($data['name_jornada'])) {
-                $name_jornada = $data['name_jornada'];
-                $id_jornada = $data['id_jornada'];
+                $txt_upd_name_jornada = $data['name_jornada'];
+                $txt_upd_id_jornada = $data['id_jornada'];
                 $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_JORNADA_ID);
-                $stm->bindParam(1, $name_jornada, PDO::PARAM_STR);
-                $stm->bindParam(2, $id_jornada, PDO::PARAM_STR);
+                $stm->bindParam(1, $txt_upd_name_jornada, PDO::PARAM_STR);
+                $stm->bindParam(2, $txt_upd_id_jornada, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }
