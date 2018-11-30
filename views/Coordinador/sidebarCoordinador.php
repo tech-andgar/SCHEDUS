@@ -4,7 +4,6 @@
             <ul class="nav">
                     <li class="nav-item"> <a class="nav-link" href="?c=Coordinador"> <i class="nav-icon icon-speedometer"></i>
                         Escritorio</a> </li>
-                
                 <li class="nav-title">
                     Gestión
                 </li>
