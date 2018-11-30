@@ -53,7 +53,7 @@
 <!-- /Fin del contenido principal -->
 </div>
 
-<!-- Modal Agregar nueva Programa-->
+<!-- Modal Agregar nueva Nivel-->
 <div class="modal fade bd-example-modal-lg" id="modal-Agregar-programa" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
 		<div class="modal-content">
@@ -69,17 +69,6 @@
 				<div class="d-flex justify-content-center">
 					<form method="post" action="insertarNivelFormacion" class="form-signin form-modal">
 					<div class="container-fluid">
-							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="txt_cod_programa">Nivel de Formación</h4>
-									<small id="helpUpdCodPrograma" class="form-text text-muted">Escriba Nombre del Nivel de Formación</small>
-								</div>
-								<div class="col-lg-6 col-12">
-									<input type="number" id="txt_upd_id_programa" name="txt_upd_id_programa" hidden>
-									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma" readonly>
-								</div>
-							</div>
-
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
 									<h4 for="nivel">Nivel Formacion</h4>
@@ -110,6 +99,7 @@
 	</div>
 </div>
 
+
 <!-- Modal Actualizar -->
 <div class="modal fade bd-example-modal-lg" id="Actualizar_Nivel" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
@@ -128,7 +118,7 @@
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel Formacion</h4>	
+									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel Formacion</h4>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="txt_upd_id_nivel_programa_formacion" type="number" name="txt_upd_id_nivel_programa_formacion" value="" hidden>
