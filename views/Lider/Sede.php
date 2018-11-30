@@ -34,7 +34,8 @@
                                 <?php echo $sede->direccion; ?>
                             </td>
                             <td class="text-center">
-                            <div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar_Ambiente" id-sede="<?php echo $sede->id_sede; ?>">
+                            <div class="updateDataSede" data-toggle="modal" data-target="#Actualizar_Ambiente"
+                            id-Sede="<?php echo $sede->id_sede; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
@@ -68,7 +69,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="insertarSede" class="form-signin form-modal">
                     <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-12">
@@ -78,20 +79,19 @@
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4>Sede</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input type="text" name="name_sede" id="name_sede" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 >Dirreccion</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Dirreccion de sede</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                <select class="form-control" name="" id="" style="width:100%"
-									required></select>
+                                    <input type="text" name="direccion" id="direccion" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Dirreccion de sede</small>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal Actualizar -->
 <div class="modal fade bd-example-modal-lg" id="Actualizar_Ambiente" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -119,7 +119,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center ">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="updateDataSede" class="form-signin form-modal">
                     <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-12">
@@ -129,20 +129,20 @@
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4>Sede</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input id="txt_upd_id_sede" type="number" name="txt_upd_id_sede" value="" hidden>
+                                    <input type="text" name="txt_upd_name_sede" id="txt_upd_name_sede" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 >Dirreccion</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Dirreccion de sede</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                <select class="form-control" name="" id="" style="width:100%"
-									required></select>
+                                    <input type="text" name="txt_upd_direccion" id="txt_upd_direccion" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Dirreccion de sede</small>
                                 </div>
                             </div>
                         </div>
@@ -207,42 +207,27 @@
             //]
         });
 
-        $(".statusChange").click(function () {
-            var statetext = $(this).attr('name-state');
-            var state_id = $(this).attr('id-state');
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=changeStatusPrograma',
-                data: {
-                    statetext: statetext,
-                    state_id: state_id,
-                    id_programa: id_programa
-                },
-                success(response) {
-                    location.reload();
-                }
-            });
-        });
-
-        $(".updateDataPrograma").click(function () {
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=getDataPrograma',
-                dataType: "json",
-                data: {
-                    id_programa: id_programa
-                },
-                success(response) {
-                    var programa = jQuery.parseJSON(JSON.stringify(response));
-                    $('#text-dni').val(programa.dni);
-                    $('#text-nombre').val(programa.nombre);
-                    $('#text-apellido').val(programa.apellido);
-                    $('#text-email').val(programa.email);
-                }
-            });
-        });
 
     });
+
+    $(".updateDataSede").click(function () {
+            var idSede = $(this).attr('id-Sede');
+            console.log(idSede);
+            $.ajax({
+                type: 'POST',
+                url: 'getDataSede',
+                dataType: "json",
+                data: {
+                    id: idSede
+                },
+                success(response) {
+                    console.log(response);
+                    var sede = jQuery.parseJSON(JSON.stringify(response));
+                    console.log(sede);
+                    $('#txt_upd_id_sede').val(sede.id_sede);
+                    $('#txt_upd_name_sede').val(sede.name_sede);
+                    $('#txt_upd_direccion').val(sede.direccion);
+                }
+            });
+        });
 </script>
