@@ -53,7 +53,7 @@
 <!-- /Fin del contenido principal -->
 </div>
 
-<!-- Modal Agregar nueva Nivel-->
+<!-- Modal Agregar nuevo Nivel-->
 <div class="modal fade bd-example-modal-lg" id="modal-Agregar-programa" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
 		<div class="modal-content">

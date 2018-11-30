@@ -775,5 +775,76 @@ class LiderController extends Path
 
         $this->Jornadas($msgType);
     }
+//
+    // ─── CONTROL DE ESTADO AMBIENTE ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataEstadoAmbiente()
+    {
+        // Completa lista de estado de jornada
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelEstadoAmbiente->getAllEstadoAmbiente();
+        }
+        // Selecciona ID de estado de jornada
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelEstadoAmbiente->getEstadoAmbienteId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de jornada
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelEstadoAmbiente->getEstadoAmbienteName($_REQUEST['q']);
+        }
+
+        $modelEstadoAmbiente = json_encode($output);
+        echo $modelEstadoAmbiente;
+    }
+
+    public function insertarEstadoAmbiente()
+    {
+        // var_dump($_POST);
+        $data = $_POST;
+        $result = $this->modelEstadoAmbiente->insertarEstadoAmbiente($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nueva Estado Ambiente',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nueva Estado Ambiente',
+            );
+        }
+        $this->EstadoAmbiente($msgType);
+    }
+
+    public function updateDataEstadoAmbiente()
+    {
+        // var_dump($_POST);
+        $data = array(
+            "id_jornada" => $_POST['txt_upd_id_jornada'],
+            "name_jornada" => $_POST['txt_upd_name_jornada'],
+        );
+        $result = $this->modelEstadoAmbiente->updateDataEstadoAmbiente($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Estado Ambiente',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Estado Ambiente',
+            );
+        }
+
+        $this->EstadoAmbiente($msgType);
+    }
+
 
 }
