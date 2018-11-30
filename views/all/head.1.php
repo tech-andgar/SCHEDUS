@@ -72,6 +72,7 @@
     <!-- SWEETALERT2 CSS -->
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
 
+    
     <!-- DISABLED CSS -->
     <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">  -->
 
@@ -136,6 +137,7 @@
         function LoadUrl(url) {
             window.location.href = url;
         }
+
     </script>
 
 
