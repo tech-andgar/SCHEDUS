@@ -101,7 +101,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_programa">Código</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<input  type="number" id="txt_cod_programa"  class="form-control" name="txt_cod_programa" aria-describedby="helpCodPrograma" min="1" max="999999999" required>
@@ -111,7 +110,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_short_name_programa">Siglas del programa</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<input type="text" id="txt_short_name_programa" class="form-control" name="txt_short_name_programa" aria-describedby="helpShortNamePrograma" pattern="[a-zA-Z]{1,5}" title="Escriba las siglas del programa(Unicamente letras, Máximo 5 caracteres)"  required>
@@ -121,10 +119,9 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_name_programa_formacion">Nombre del programa</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" aria-describedby="helpNameProgramaFormacion"  pattern="[a-zA-Z]{1,191}" title="Unicamente letras" required>
+									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" aria-describedby="helpNameProgramaFormacion" pattern="([A-z0-9À-ž\s]){2,191}" title="Unicamente letras" required>
 									<small id="helpNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>
 								</div>
 							</div>
@@ -140,7 +137,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="SelectListNivelProgramaFormacion">Nivel</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<select id="SelectListNivelProgramaFormacion" name="txt_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpSelectNivelProgramaFormacion" required ></select>
@@ -163,7 +159,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_proyecto">Nombre del proyecto</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<select id="SelectlistProyecto" class="form-control" name="txt_cod_proyecto"  style="width:100%" aria-describedby="helpSelectNameProyecto" required></select>
@@ -228,8 +223,8 @@
 									<h4 for="txt_upd_name_programa_formacion">Nombre del Programa</h4>
 									</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" id="txt_upd_name_programa_formacion" class="form-control" name="txt_upd_name_programa_formacion" aria-describedby="helpUpdNameProgramaFormacion" pattern="[a-zA-Z]{1,191}" title="Unicamente letras" required>
-									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>							
+									<input type="text" id="txt_upd_name_programa_formacion" class="form-control" name="txt_upd_name_programa_formacion" aria-describedby="helpUpdNameProgramaFormacion" pattern="([A-z0-9À-ž\s]){2,191}" title="Unicamente letras" required>
+									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -288,63 +283,6 @@
 
 <script>
 	$(document).ready(function () {
-
-	//
-	// ─── TABLE LOAD ─────────────────────────────────────────────────────────────────
-	//
-
-		$("#tableProgramas").DataTable({
-			"language": {
-				"sProcessing": "Procesando...",
-				"sLengthMenu": "Mostrar _MENU_ registros",
-				"sZeroRecords": "No se encontraron resultados",
-				"sEmptyTable": "Ningún dato disponible en esta tabla",
-				"sInfo": "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
-				"sInfoEmpty": "Registros del 0 al 0 de un total de 0 registros",
-				"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-				"sInfoPostFix": "",
-				"sSearch": "Buscar:",
-				"sUrl": "",
-				"sInfoThousands": ",",
-				"sLoadingRecords": "Cargando...",
-				"oPaginate": {
-					"sFirst": "Primero",
-					"sLast": "Último",
-					"sNext": "Siguiente",
-					"sPrevious": "Anterior"
-				},
-				"oAria": {
-					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
-				}
-			},
-			"dom": // Insertar objeto tabla por formato:
-				// Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
-				"<'row'<'col-sm-6'f><'col-sm-6'l>>" +
-				// Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
-				"<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
-				// Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
-				// Pie de la tabla -- B-> Botones de exportar
-				"<'row'<'col-sm-12'B>>",
-			buttons: [
-				'copy',
-				'excel',
-				'pdf'
-			]
-			//buttons: [
-			//	'copyHtml5',
-			//	'excelHtml5',
-			//	'csvHtml5',
-			//	'pdfHtml5'
-			//]
-		});
-	//
-	// ─── END TABLE LOAD ─────────────────────────────────────────────────────────────────
-	//
-
-
-
 	//
 	// ─── CALL AJAX GETDATANIVELPROGRAMAFORMACION TO SELECT ───────────
 	//
@@ -559,7 +497,7 @@
 
 	});
 
-	
+
 	//
 	// ─── CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
 	//
@@ -593,6 +531,6 @@
 	// 	event.target.setCustomValidity('Maximo de digitos 10');
 	// }
 
-	
+
 
 </script>
