@@ -89,10 +89,10 @@ if (isset($_SESSION['user'])) {
     if (isset($_SESSION['user'])) {
         echo '
     <!-- DATATABLES CSS -->
-    <link rel="stylesheet" type="text/css" href="'.APP_URL.'vendor/datatables/datatables/media/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/datatables.net-buttons-dt/css/buttons.dataTables.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.dataTables.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="'.APP_URL.'assets/css/datatables/dataTables.fontAwesome5.css" >
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.bootstrap4.min.css"/> -->
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"/>
 
     <!-- SELECT2 CSS -->
     <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/select2/dist/css/select2.min.css" />
@@ -112,6 +112,9 @@ if (isset($_SESSION['user'])) {
 
 
     <!-- SCRIPTS -->
+    <script>
+        const APP_URL='<?php echo APP_URL ?>';
+    </script>
 
     <!-- CoreUI and necessary plugins-->
     <script src="<?php echo APP_URL ?>assets/js/coreui/jquery.min.js"></script>
@@ -133,7 +136,7 @@ if (isset($_SESSION['user'])) {
     <!-- Plugins and scripts -->
     <!-- TOASTR JS -->
     <script src="<?php echo APP_URL ?>vendor/grimmlink/toastr/build/toastr.min.js"></script>
-    <script >
+    <script>
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -170,17 +173,21 @@ if (isset($_SESSION['user'])) {
     <!-- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> -->
 
     <!-- DATATABLES JS -->
-    <script defer src="'.APP_URL.'vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
-    <script defer src="'.APP_URL.'vendor/datatables/datatables/media/js/dataTables.bootstrap4.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/jszip/dist/jszip.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/pdfmake/build/pdfmake.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/pdfmake/build/vfs_fonts.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
     <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons-dt/js/buttons.dataTables.min.js"></script>
-    <!-- <script defer src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script> -->
-    <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script> -->';
-    }
-    ?>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script defer src="'.APP_URL.'assets/js/configDataTables.js"></script>
+    ';
+    }?>
 
     <script>
-    const APP_URL='<?php echo APP_URL ?>';
     $(function () {
         //$('[data-toggle="tooltip"]').tooltip();
         $("body").tooltip({
@@ -189,26 +196,13 @@ if (isset($_SESSION['user'])) {
         });
     })
 
-    $(document).ready(function() {
+    $(".btn").hover(
+        function(){$(this).toggleClass('shadow');}
+    );
 
-        $(".btn").hover(
-		    function(){$(this).toggleClass('shadow');}
-	    );
-
-        function LoadUrl(url) {
-            window.location.href = url;
-        }
-
-        // TODO FIX CLASS INPUT DATEPICKER
-        $('.datapicker').each(function(){
-            $(this).datepicker({
-                uiLibrary: 'bootstrap4',
-            });
-        });
-        /* $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
-        }); */
-    });
+    function LoadUrl(url) {
+        window.location.href = url;
+    }
     </script>
 
 
