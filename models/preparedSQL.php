@@ -134,10 +134,10 @@ class preparedSQL
 
 
     const GET_ALL_JORNADA = "SELECT * FROM `jornada`";
-    const GET_JORNADA_ID = "SELECT * FROM `jornada` WHERE `	id_jornada` = ?";
+    const GET_JORNADA_ID = "SELECT * FROM `jornada` WHERE `id_jornada`= ?";
     const GET_JORNADA_NAME = "SELECT * FROM `jornada` WHERE `name_jornada` LIKE ?";
-    const INSERT_NEW_JORNADA = "INSERT INTO `jornada`( `name_jornada`) VALUES (?)";
-    const UPDATE_DATA_JORNADA_ID = "UPDATE `jornada` SET `name_jornada`= ? WHERE `id_jornada`";
+    const INSERT_NEW_JORNADA = "INSERT INTO `jornada`(`name_jornada`) VALUES (?)";
+    const UPDATE_DATA_JORNADA_ID = "UPDATE `jornada` SET `name_jornada`= ? WHERE `id_jornada` = ?";
 
     //
     // ─── AMBIENTE ───────────────────────────────────────────────────────────────────
