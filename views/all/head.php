@@ -79,6 +79,10 @@ if (isset($_SESSION['user'])) {
     <!-- SWEETALERT2 CSS -->
     <link rel="stylesheet" href="<?php echo APP_URL ?>node_modules/sweetalert2/dist/sweetalert2.min.css" />
 
+
+    <!--Date Time Range-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
     <?php
     if (isset($_SESSION['user'])) {
         echo '
@@ -126,7 +130,13 @@ if (isset($_SESSION['user'])) {
     <!-- Plugins and scripts -->
     <!-- TOASTR JS -->
     <script src="<?php echo APP_URL ?>vendor/grimmlink/toastr/build/toastr.min.js"></script>
-    <script>
+
+    <!--Date Time Range-->
+
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+
+    <script >
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -144,6 +154,25 @@ if (isset($_SESSION['user'])) {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut"
         }
+
+
+        $(function() {
+            $('input[type="daterange"]').daterangepicker({
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                format: 'DD/MM/YYYY'
+                }
+            });
+        });
+
+        // $(function() {
+        //     $('input[type="daterange"]').daterangepicker({
+        //     opens: 'left'
+        //     }, function(start, end, label) {
+        //     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        //     });
+        // });
     </script>
 
     <!-- SWEETALERT JS -->
