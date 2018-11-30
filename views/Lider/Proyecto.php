@@ -30,7 +30,7 @@
 									<?php echo $proyecto->name_proyecto; ?>
 								</td>
 								<td class="text-center">
-									<div class="updateDataPrograma" data-toggle="modal" data-target="#Actualizar" id-NivelFormacion="<?php echo $proyecto->id_proyecto; ?>">
+									<div class="updateDataProyecto" data-toggle="modal" data-target="#Actualizar" id-Proyecto="<?php echo $proyecto->id_proyecto; ?>">
 										<i class="far fa-edit fa-lg"></i>
 									</div>
 								</td>
@@ -65,16 +65,16 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="#" class="form-signin form-modal">
+					<form method="post" action="insertarProyecto" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
-									<h4 for="codig">Proyecto</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto
-									</small>
+									<h4 for="proyect">Proyecto</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+									<textarea name="proyect" id="proyect" class="form-control" aria-describedby="helpIdNumFicha" rows="5" ></textarea>
+									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto
+									</small>
 								</div>
 							</div>
 						</div>
@@ -88,7 +88,7 @@
 		</div>
 	</div>
 </div>
-<!-- Modal -->
+<!-- Modal Actualizar-->
 <div class="modal fade  bd-example-modal-lg" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
@@ -102,7 +102,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="#" class="form-signin form-modal">
+					<form method="post" action="updateDataProyecto" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
@@ -111,7 +111,8 @@
 									</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+									<input id="txt_upd_id_proyecto" type="number" name="txt_upd_id_proyecto" value="" hidden>
+									<textarea class="form-control" name="txt_upd_proyecto" id="txt_upd_proyecto" aria-describedby="helpIdNumFicha" rows="5" ></textarea>
 								</div>
 							</div>
 						</div>
@@ -175,13 +176,25 @@
 			//	'pdfHtml5'
 			//]
 		});
+	});
 
+	$(".updateDataProyecto").click(function () {
+		var idProyecto = $(this).attr('id-Proyecto');
+		console.log(idProyecto);
 
+		$.ajax({
+			type: 'POST',
+			url: 'getDataProyecto',
+			dataType: "json",
+			data: {
+				id: idProyecto
+			},
+			success(response) {
+				var proyecto = jQuery.parseJSON(JSON.stringify(response));
+				console.log(proyecto);
+				$('#txt_upd_id_proyecto').val(proyecto.id_proyecto);
+				$('#txt_upd_proyecto').val(proyecto.name_proyecto);
+			}
+		});
 	});
 </script>
-
-<?php
-if (!empty($data['msgType'])) {
-    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
-}
-?>

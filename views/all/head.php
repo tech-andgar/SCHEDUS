@@ -1,11 +1,11 @@
 <?php
-$seconds_to_cache = 3600;
+/* $seconds_to_cache = 3600;
 $ts = gmdate("D, d M Y H:i:s", time() + $seconds_to_cache) . " GMT";
 header("Expires: $ts");
 header("Pragma: cache");
 // header("Cache-Control: max-age=$seconds_to_cache");
 header("Cache-Control: max-age=86400");
-
+ */
 
 // if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'br')) {
 //     // header('Content-Encoding: br');
@@ -15,13 +15,13 @@ header("Cache-Control: max-age=86400");
 //     ob_start("ob_gzhandler");
 // }
 // else
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
+/* if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) {
     header('Content-Encoding: gzip');
     ob_start("ob_gzhandler");
 }
 else{
  ob_start();
-}
+} */
 
 ?>
 
@@ -156,11 +156,11 @@ if (isset($_SESSION['user'])) {
     <!-- SWEETALERT JS -->
     <script defer src="<?php echo APP_URL ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.28/dist/sweetalert2.all.min.js"></script> -->
-    
+
     <!-- DatePicker -->
     <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    
+
     <?php
     if (isset($_SESSION['user'])) {
         echo '
@@ -182,6 +182,7 @@ if (isset($_SESSION['user'])) {
     <script>
     const APP_URL='<?php echo APP_URL ?>';
     $(function () {
+        //$('[data-toggle="tooltip"]').tooltip();
         $("body").tooltip({
             selector: '[data-toggle="tooltip"]',
             container: 'body'
@@ -189,17 +190,10 @@ if (isset($_SESSION['user'])) {
     })
 
     $(document).ready(function() {
-        //$(function () {
-            //$('[data-toggle="tooltip"]').tooltip();
-            //$('[data-toggle="tooltip"]').tooltip({
-            //    container : 'body'
-            //});
-        //});
 
-
-        //$(".btn").hover(
-		//    function(){$(this).toggleClass('shadow');}
-	    //);
+        $(".btn").hover(
+		    function(){$(this).toggleClass('shadow');}
+	    );
 
         function LoadUrl(url) {
             window.location.href = url;
@@ -207,7 +201,9 @@ if (isset($_SESSION['user'])) {
 
         // TODO FIX CLASS INPUT DATEPICKER
         $('.datapicker').each(function(){
-            $(this).datepicker();
+            $(this).datepicker({
+                uiLibrary: 'bootstrap4',
+            });
         });
         /* $('#datepicker').datepicker({
             uiLibrary: 'bootstrap4'

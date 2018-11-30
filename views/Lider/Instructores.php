@@ -80,41 +80,41 @@
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
-									<small id="" class="text-muted">Escriba Numero de Documento del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input id="text-dni" type="number" value="" class="form-control" name="dni" placeholder="Documento" readonly />
+									<input id="text-dni" type="number" value="" class="form-control" name="dni" placeholder="Documento" min="1" max="999999999999999" readonly />
+									<small id="" class="text-muted">Numero de Documento del Instructor
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
-									<small id="" class="text-muted">Escriba Nombre del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-nombre" type="text" value="" class="form-control" name="nombre" placeholder="Nombre" required />
+									<small id="" class="text-muted">Escriba Nombre del Instructor
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
-									<small id="" class="text-muted">Escriba Apellido del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-apellido" type="text" value="" class="form-control" name="apellido" placeholder="Apellido" required /> 
-									</div>
+									<small id="" class="text-muted">Escriba Apellido del Instructor
+									</small>
+								</div>
 							</div>
 							<div class="row  pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Correo</h5>
-									<small id="" class="text-muted">Escriba Correo del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="text-email" type="email" value="" class="form-control" name="email" placeholder="Correo" required />
+									<small id="" class="text-muted">Escriba Correo del Instructor
+									</small>
 								</div>
 							</div>
 						</div>
@@ -148,41 +148,41 @@
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Numero de Documento</h5>
-									<small id="" class="text-muted">Escriba Numero de Documento del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="number" class="form-control" name="dni" placeholder="Documento" />
+									<input type="number" class="form-control" name="dni" placeholder="Documento"  min="1" max="999999999999999" required>
+									<small id="" class="text-muted">Escriba Numero de Documento del Instructor
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Nombre</h5>
-									<small id="" class="text-muted">Escriba Nombre del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" class="form-control" name="nombre_instructor" placeholder="Nombre" required />
+									<small id="" class="text-muted">Escriba Nombre del Instructor
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Apellido</h5>
-									<small id="" class="text-muted">Escriba Apellido del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" class="form-control" name="apellido_instructor" placeholder="Apellido" required />
+									<small id="" class="text-muted">Escriba Apellido del Instructor
+									</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4  col-12 ">
 									<h5>Correo</h5>
-									<small id="" class="text-muted">Escriba Correo del Instructor
-									</small>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="email" class="form-control" name="email" placeholder="Correo" required />
+									<small id="" class="text-muted">Escriba Correo del Instructor
+									</small>
 								</div>
 							</div>
 							<hr>
@@ -268,11 +268,11 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 	$(".updateDataInstructor").click(function(){
 		var id_instructor =$(this).attr('id-instructor');
 		console.log(id_instructor);
-	
+
 		$.ajax({
 			type:'POST',
 			url:'getDataInstructor',
