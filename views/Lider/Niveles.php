@@ -53,7 +53,7 @@
 <!-- /Fin del contenido principal -->
 </div>
 
-<!-- Modal Agregar nueva Programa-->
+<!-- Modal Agregar nuevo Nivel-->
 <div class="modal fade bd-example-modal-lg" id="modal-Agregar-programa" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg"  role="document">
 		<div class="modal-content">
@@ -117,7 +117,7 @@
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel Formacion</h4>	
+									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel Formacion</h4>
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="txt_upd_id_nivel_programa_formacion" type="number" name="txt_upd_id_nivel_programa_formacion" value="" hidden>
