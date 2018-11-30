@@ -67,8 +67,8 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="#" class="form-signin form-modal">
-						<div class="container-fluid">
+					<form method="post" action="insertarNivelFormacion" class="form-signin form-modal">
+					<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_programa">Nivel de Formación</h4>
@@ -82,20 +82,20 @@
 
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4></h4>
-									<small class="text-muted"></small>
+									<h4 for="nivel">Nivel Formacion</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+									<input type="text" name="nivel" id="nivel" class="form-control" aria-describedby="helpCodNivel">
+									<small id="helpCodNivel" class="text-muted">Escriba Nombre del Nivel de Formacion</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4>Duración</h4>
-									<small class="text-muted">Escriba cantidad de duración</small>
+									<h4 for="duracion">Duracion</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="codig" id="codig" class="form-control" aria-describedby="helpIdNumFicha">
+									<input type="text" id="duracion" type="text" name="duracion" class="form-control" aria-describedby="helpDuracion">
+									<small id="helpDuracion" class="text-muted">Tiempo de Duracion</small>
 								</div>
 							</div>
 						</div>
@@ -124,24 +124,25 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-					<form method="post" action="<?php echo APP_URL ?>updateDataNivelFormacion" class="form-signin form-modal" id="modalFormUpdNivelFormacion">
+					<form method="post" action="updateDataNivelFormacion" class="form-signin form-modal" id="modalFormUpdNivelFormacion">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4 >Nivel Formacion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Nivel de Formacion</small>
+									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel Formacion</h4>	
 								</div>
 								<div class="col-lg-8 col-12">
-									<input id="txt_name_nivel_programa_formacion" type="text" name="txt_name_nivel_programa_formacion" class="form-control">
+									<input id="txt_upd_id_nivel_programa_formacion" type="number" name="txt_upd_id_nivel_programa_formacion" value="" hidden>
+									<input id="txt_upd_name_nivel_programa_formacion" type="text" name="txt_upd_name_nivel_programa_formacion" class="form-control">
+									<small id="helpIdNumFicha" class="text-muted">Nombre del Nivel de Formacion</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4 for="txt_upd_num_proyecto">Duracion</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba El tiempo de Duracion</small>
+									<h4 for="txt_duracion">Duracion</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input id="txt_duracion" type="text" name="txt_duracion" class="form-control">
+									<input id="txt_upd_duracion" type="text" name="txt_upd_duracion" class="form-control">
+									<small id="helpIdNumFicha" class="text-muted">Tiempo de Duracion</small>
 								</div>
 							</div>
 						</div>
@@ -207,10 +208,11 @@
 			//	'pdfHtml5'
 			//]
 		});
-
+	});
 
 		$(".updateDataNivelFormacion").click(function () {
 			var idNivelFormacion = $(this).attr('id-NivelFormacion');
+			console.log(idNivelFormacion);
 
 			$.ajax({
 				type: 'POST',
@@ -221,18 +223,11 @@
 				},
 				success(response) {
 					var nivel = jQuery.parseJSON(JSON.stringify(response));
-					$('#txt_id_nivel_programa_formacion').val(idNivelFormacion);
-					$('#txt_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
-					$('#txt-duracion').val(nivel.duracion);
+					console.log(nivel);
+					$('#txt_upd_id_nivel_programa_formacion').val(nivel.id_nivel_programa_formacion);
+					$('#txt_upd_name_nivel_programa_formacion').val(nivel.name_nivel_programa_formacion);
+					$('#txt_upd_duracion').val(nivel.duracion);
 				}
 			});
 		});
-
-	});
 </script>
-
-<?php
-if (!empty($data['msgType'])) {
-    echo "<script>toastr." . $data['msgType']['type'] . "('" . $data['msgType']['msg'] . "','" . $data['msgType']['title'] . "')</script>";
-}
-?>

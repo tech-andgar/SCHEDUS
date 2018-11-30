@@ -127,12 +127,24 @@ class CompetenciaModel extends DB {
 	public function setName_competencia($name_competencia) {
 		$this->name_competencia = $name_competencia;
 	}
+
 	public function getAllCompetencia()
 	{
 		try {
 			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_COMPETENCIA);
 			$stm->execute();
-			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Programa de Formacion
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Competencia
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public static function getLastCompetenciaId()
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_LAST_COMPETENCIA_ID);
+			$stm->execute();
+			return $stm->fetch(PDO::FETCH_OBJ); // Retorno numero de id ultima de Competencia
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
@@ -144,7 +156,7 @@ class CompetenciaModel extends DB {
 			$stm = parent::conectar()->prepare(preparedSQL::GET_COMPETENCIA_ID);
 			$stm->bindParam(1, $idProyecto, PDO::PARAM_STR);
 			$stm->execute();
-			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Programa
+			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Competencia
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
@@ -157,10 +169,42 @@ class CompetenciaModel extends DB {
 			$nameProyecto = '%' . $nameProyecto . '%';
 			$stm->bindParam(1, $nameProyecto, PDO::PARAM_STR);
 			$stm->execute();
-			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Competencia
 		} catch (Exception $e) {
 			die($e->getMessage());
 		}
 	}
+
+	public function insertarCompetencia(array $data)
+    {
+        try {
+            // Verificar hay datos en $data
+            if (
+				isset($data['cod_programa_formacion']) &&
+				isset($data['codigo_competencia']) &&
+				isset($data['num_competencia2']) &&
+				isset($data['name_competencia'])
+			){
+				$competencia = $this->getLastCompetenciaId();
+				$id_competencia = $competencia->id_competencia;
+				$id_competencia++;
+				$cod_programa_formacion = $data['cod_programa_formacion'];
+				$codigo_competencia = $data['codigo_competencia'];
+				$num_competencia2 = $data['num_competencia2'];
+				$name_competencia = $data['name_competencia'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_COMPETENCIA);
+                $stm->bindParam(1, $id_competencia, PDO::PARAM_STR);
+                $stm->bindParam(2, $cod_programa_formacion, PDO::PARAM_STR);
+                $stm->bindParam(3, $codigo_competencia, PDO::PARAM_STR);
+                $stm->bindParam(4, $num_competencia2, PDO::PARAM_STR);
+                $stm->bindParam(5, $name_competencia, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 }
 ?>

@@ -465,6 +465,53 @@ class LiderController extends Path
         echo $dataProyecto;
     }
 
+    public function insertarProyecto()
+    {
+        // var_dump($_POST);
+        $data = $_POST;
+        $result = $this->modelProyecto->insertarProyecto($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nuevo Proyecto',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo Proyecto',
+            );
+        }
+        $this->Proyecto($msgType);
+    }
+
+    public function updateDataProyecto()
+    {
+        /* var_dump($_POST); */
+        $data = array(
+            "id_proyecto" => $_POST['txt_upd_id_proyecto'],
+            "name_proyecto" => $_POST['txt_upd_proyecto'],
+        );
+        $result = $this->modelProyecto->updateDataProyecto($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Nivel de Proyecto',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Nivel de Proyecto',
+            );
+        }
+
+        $this->Proyecto($msgType);
+    }
 
 
     //
@@ -490,13 +537,35 @@ class LiderController extends Path
         echo $dataNivelFormacion;
     }
 
-    public function updateDataNivelFormacion()
+    public function insertarNivelFormacion()
     {
         // var_dump($_POST);
+        $data = $_POST;
+        $result = $this->modelNivelProgramaFormacion->insertarNivelFormacion($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nuevo Nivel Formacion',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo Nivel Formacion',
+            );
+        }
+        $this->Niveles($msgType);
+    }
+
+    public function updateDataNivelFormacion()
+    {
+        /* var_dump($_POST); */
         $data = array(
-            "id_nivel_programa_formacion" => $_POST['txt_id_nivel_programa_formacion'],
-            "name_nivel_programa_formacion" => $_POST['txt_name_nivel_programa_formacion'],
-            "duracion" => $_POST['txt_duracion'],
+            "id_nivel_programa_formacion" => $_POST['txt_upd_id_nivel_programa_formacion'],
+            "name_nivel_programa_formacion" => $_POST['txt_upd_name_nivel_programa_formacion'],
+            "duracion" => $_POST['txt_upd_duracion'],
         );
         $result = $this->modelNivelProgramaFormacion->updateDataNivelFormacion($data);
 
@@ -564,5 +633,147 @@ class LiderController extends Path
         echo $dataAmbiente;
     }
 
+     //
+    // ─── CONTROL DE COMPETENCIA ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataCompetencia()
+    {
+        // Completa lista de estado de ficha
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelCompetencia->getAllCompetencia();
+        }
+        // Selecciona ID de estado de ficha
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelCompetencia->getCompetenciaId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de ficha
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelCompetencia->getCompetenciaName($_REQUEST['q']);
+        }
+
+        $dataCompetencia = json_encode($output);
+        echo $dataCompetencia;
+    }
+
+    public function insertarCompetencias()
+    {
+        // var_dump($_POST);
+        $data=$_POST;
+        $result = $this->modelCompetencia->insertarCompetencia($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nuevo Competencia',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo Competencia',
+            );
+        }
+        $this->Competencias($msgType);
+    }
+
+    public function updateDataCompetencias()
+    {
+        /* var_dump($_POST); */
+        $data = array(
+            "id_nivel_programa_formacion" => $_POST['txt_upd_id_nivel_programa_formacion'],
+            "name_nivel_programa_formacion" => $_POST['txt_upd_name_nivel_programa_formacion'],
+            "duracion" => $_POST['txt_upd_duracion'],
+        );
+        $result = $this->modelCompetencia->updateDataCompetencias($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Nivel de formación',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Nivel de formación',
+            );
+        }
+
+        $this->Competencias($msgType);
+    }
+
+    //
+    // ─── CONTROL DE JORNADA ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataJornada()
+    {
+        // Completa lista de estado de jornada
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelJornada->getAllJornada();
+        }
+        // Selecciona ID de estado de jornada
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelJornada->getJornadaId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de jornada
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelJornada->getJornadaName($_REQUEST['q']);
+        }
+
+        $modelJornada = json_encode($output);
+        echo $modelJornada;
+    }
+
+    public function insertarJornada()
+    {
+        // var_dump($_POST);
+        $data = $_POST;
+        $result = $this->modelJornada->insertarJornada($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nueva Jornada',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nueva Jornada',
+            );
+        }
+        $this->Jornadas($msgType);
+    }
+
+    public function updateDataJornada()
+    {
+        // var_dump($_POST);
+        $data = array(
+            "id_jornada" => $_POST['txt_upd_id_jornada'],
+            "name_jornada" => $_POST['txt_upd_name_jornada'],
+        );
+        $result = $this->modelJornada->updateDataJornada($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Jornada',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Jornada',
+            );
+        }
+
+        $this->Jornadas($msgType);
+    }
 
 }

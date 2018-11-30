@@ -101,46 +101,50 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_programa">Código</h4>
-									<small id="helpCodPrograma" class="form-text text-muted">Escriba código del programa</small>
+									
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="number" id="txt_cod_programa" class="form-control" name="txt_cod_programa" aria-describedby="helpCodPrograma" required>
+									<input  type="number" id="txt_cod_programa"  class="form-control" name="txt_cod_programa" aria-describedby="helpCodPrograma" min="1" max="999999999" required>
+									<small id="helpCodPrograma" class="form-text text-muted">Escriba código del programa (Máximo 10 digitos)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_short_name_programa">Siglas del programa</h4>
-									<small id="helpShortNamePrograma" class="form-text text-muted">Escriba las siglas del programa</small>
+									
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" id="txt_short_name_programa" class="form-control" name="txt_short_name_programa" aria-describedby="helpShortNamePrograma" required>
+									<input type="text" id="txt_short_name_programa" class="form-control" name="txt_short_name_programa" aria-describedby="helpShortNamePrograma" pattern="[a-zA-Z]{1,5}" title="Escriba las siglas del programa(Unicamente letras, Máximo 5 caracteres)"  required>
+									<small id="helpShortNamePrograma" class="form-text text-muted">Escriba las siglas del programa (Unicamente letras, Máximo 5 caracteres)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_name_programa_formacion">Nombre del programa</h4>
-									<small id="helpNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación</small>
+									
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" aria-describedby="helpNameProgramaFormacion" required>
+									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" aria-describedby="helpNameProgramaFormacion"  pattern="[a-zA-Z]{1,191}" title="Unicamente letras" required>
+									<small id="helpNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_version_programa">Versión del programa</h4>
-									<small id="helpVersionPrograma" class="form-text text-muted">Escriba versión de formación</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" id="txt_version_programa" class="form-control" name="txt_version_programa" aria-describedby="helpVersionPrograma" required>
+									<input type="text" id="txt_version_programa" class="form-control" name="txt_version_programa" aria-describedby="helpVersionPrograma" maxlength="10" title="Máximo 10 Caracteres" required>
+									<small id="helpVersionPrograma" class="form-text text-muted">Escriba versión de formación(Máximo 10 Caracteres)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="SelectListNivelProgramaFormacion">Nivel</h4>
-									<small id="helpSelectNivelProgramaFormacion" class="form-text text-muted">Selecciona nivel de formación</small>
+									
 								</div>
 								<div class="col-lg-6 col-12">
 									<select id="SelectListNivelProgramaFormacion" name="txt_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpSelectNivelProgramaFormacion" required ></select>
+									<small id="helpSelectNivelProgramaFormacion" class="form-text text-muted">Selecciona nivel de formación</small>
 								</div>
 							</div>
 						</div>
@@ -159,10 +163,11 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_proyecto">Nombre del proyecto</h4>
-									<small id="helpSelectNameProyecto" class="form-text text-muted">Escriba nombre del proyecto</small>
+									
 								</div>
 								<div class="col-lg-6 col-12">
 									<select id="SelectlistProyecto" class="form-control" name="txt_cod_proyecto"  style="width:100%" aria-describedby="helpSelectNameProyecto" required></select>
+									<small id="helpSelectNameProyecto" class="form-text text-muted">Seleccione nombre del proyecto</small>
 								</div>
 							</div>
 						</div>
@@ -179,7 +184,7 @@
 
 
 <!-- Modal Actulizar datos Programa de formación-->
-<div class="modal fade bd-example-modal-lg" id="modalActualizarPrograma" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="modalActualizarPrograma" tabindex="-1" role="dialog" aria-hidden="">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -201,49 +206,49 @@
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
-									<h4 for="txt_cod_programa">Código</h4>
-									<small id="helpUpdCodPrograma" class="form-text text-muted">Escriba código del programa</small>
+									<h4 for="txt_upd_cod_programa">Código</h4>
 								</div>
 								<div class="col-lg-6 col-12">
 									<input type="number" id="txt_upd_id_programa" name="txt_upd_id_programa" hidden>
-									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma" readonly>
+									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma"  min="1" max="999999999" title="Codigo del programa" readonly>
+									<small id="helpUpdCodPrograma" class="form-text text-muted">Codigo del programa</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_short_name_programa">Siglas del programa</h4>
-									<small id="helpUpdShortNamePrograma" class="form-text text-muted">Escriba las siglas del programa</small>
 								</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" id="txt_upd_short_name_programa"class="form-control" name="txt_upd_short_name_programa" aria-describedby="helpUpdShortNamePrograma" required >
+									<input type="text" id="txt_upd_short_name_programa"class="form-control" name="txt_upd_short_name_programa" aria-describedby="helpUpdShortNamePrograma" pattern="[a-zA-Z]{1,5}" title="Unicamente letras, Máximo 5 caracteres" required >
+									<small id="helpUpdShortNamePrograma" class="form-text text-muted">Escriba las siglas del programa(Unicamente letras, Máximo 5 caracteres)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_name_programa_formacion">Nombre del Programa</h4>
-									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación</small>
-								</div>
+									</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" id="txt_upd_name_programa_formacion" class="form-control" name="txt_upd_name_programa_formacion" aria-describedby="helpUpdNameProgramaFormacion" required>
+									<input type="text" id="txt_upd_name_programa_formacion" class="form-control" name="txt_upd_name_programa_formacion" aria-describedby="helpUpdNameProgramaFormacion" pattern="[a-zA-Z]{1,191}" title="Unicamente letras" required>
+									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>							
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_version_programa">Versión del programa</h4>
-									<small id="helpUpdVersionPrograma" class="form-text text-muted">Escriba versión de formación</small>
-								</div>
+									</div>
 								<div class="col-lg-6 col-12">
-									<input type="text" id="txt_upd_version_programa"class="form-control" name="txt_upd_version_programa" aria-describedby="helpUpdVersionPrograma" required>
+									<input type="text" id="txt_upd_version_programa"class="form-control" name="txt_upd_version_programa" aria-describedby="helpUpdVersionPrograma" maxlength="10" title="Máximo 10 Caracteres" required>
+									<small id="helpUpdVersionPrograma" class="form-text text-muted">Escriba versión de formación(Máximo 10 Caracteres)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel</h4>
-									<small id="helpUpdSelectNivelProgramaFormacion" class="form-text text-muted ">Selecciona nivel de formación</small>
-								</div>
+									</div>
 								<div class="col-lg-6 col-12">
 									<select id="SelectListUpdNivelProgramaFormacion" class="form-control" name="txt_upd_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpUpdSelectNivelProgramaFormacion" required>
 									</select>
+									<small id="helpUpdSelectNivelProgramaFormacion" class="form-text text-muted ">Seleccione nivel de formación</small>
 								</div>
 							</div>
 						</div>
@@ -263,10 +268,10 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="SelectListUpdProyecto">Nombre del proyecto</h4>
-									<small id="helpUpdSelectNameProyecto" class="form-text text-muted">Escriba nombre del proyecto</small>
 								</div>
 								<div class="col-lg-6 col-12">
 									<select id="SelectListUpdProyecto" class="form-control" name="txt_upd_cod_proyecto"  style="width:100%" aria-describedby="helpUpdSelectNameProyecto" required></select>
+									<small id="helpUpdSelectNameProyecto" class="form-text text-muted">Seleccione nombre del proyecto</small>
 								</div>
 							</div>
 						</div>
@@ -338,29 +343,6 @@
 	// ─── END TABLE LOAD ─────────────────────────────────────────────────────────────────
 	//
 
-
-	//
-	// ─── CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
-	//
-		$(".statusChange").click(function(){
-			var state_id =$(this).attr('id-state');
-			var id_programa =$(this).attr('id-programa');
-			$.ajax({
-				type:'POST',
-				url:'changeStatusProgaramaFormaciom',
-				data:{
-					state_id:state_id,
-					id_programa_formacion:id_programa
-				},
-				success(response){
-					location.reload(true);
-					// window.location.href = "Programas";
-				}
-			});
-		});
-	//
-	// ─── END CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
-	//
 
 
 	//
@@ -576,4 +558,41 @@
 	//
 
 	});
+
+	
+	//
+	// ─── CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
+	//
+	$(".statusChange").click(function(){
+			var state_id =$(this).attr('id-state');
+			var id_programa =$(this).attr('id-programa');
+			$.ajax({
+				type:'POST',
+				url:'changeStatusProgaramaFormaciom',
+				data:{
+					state_id:state_id,
+					id_programa_formacion:id_programa
+				},
+				success(response){
+					location.reload(true);
+					// window.location.href = "Programas";
+				}
+			});
+		});
+	//
+	// ─── END CLICK BTN CHANGESTATUSPROGARAMAFORMACIOM ───────────────────────────────────
+	//
+
+	// var input = document.getElementById('txt_cod_programa');
+	// input.oninvalid = function(event) {
+	// 	event.target.setCustomValidity('Maximo de digitos 10');
+	// }
+
+	// var input = document.getElementById('txt_upd_id_programa');
+	// input.oninvalid = function(event) {
+	// 	event.target.setCustomValidity('Maximo de digitos 10');
+	// }
+
+	
+
 </script>
