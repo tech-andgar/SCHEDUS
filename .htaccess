@@ -11,25 +11,83 @@
 # Protocols h2 h2c http/1.1
 ############################
 
+#####################
+### Custom errors ###
+#####################
+
+#Custom 400 errors
+ErrorDocument 404 /views/all/400.php
+
+#Custom 401 errors
+ErrorDocument 404 /views/all/401.php
+
+#Custom 403 errors
+ErrorDocument 404 /views/all/403.php
+
+#Custom 404 errors
 ErrorDocument 404 /views/all/404.php
+
+#Custom 500 errors
 ErrorDocument 500 /views/all/500.php
+
+#Custom 503 errors
 ErrorDocument 503 /views/all/503.php
-Options -Multiviews
+
+######################
+### Rewrite to www ###
+######################
+Options +FollowSymLinks -Multiviews
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 # RewriteRule ^inicio/(\w+)/?$ index.php?c=inicio&m=$1
 # RewriteRule ^lider/(\w+)/?$ index.php?c=lider&m=$1
 # RewriteRule ^coordinador/(\w+)/?$ index.php?c=coordinador&m=$1
 # RewriteRule ^instructor/(\w+)/?$ index.php?c=instructor&m=$1
 
-# Config mod_deflate for compress gzip
+# RewriteCond %{HTTP_HOST} ^localhost:80/SCHEDUS/[nc]
+# RewriteRule ^(.*)$ http://www.localhost:80/SCHEDUS//$1 [r=301,nc]
+
+
+############################################
+### Config mod_deflate for compress gzip ###
+############################################
 <IfModule mod_deflate.so>
 	<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|html|php|txt|xml)$">
 		SetOutputFilter DEFLATE
 	</FilesMatch>
-	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript application/javascript application/json application/x-font-ttf application/vnd.ms-fontobject image/x-icon
+	AddOutputFilterByType DEFLATE
+    text/html
+    text/plain
+    text/xml
+    text/css
+    text/javascript
+    application/x-javascript
+    application/javascript
+    application/json
+    application/x-font-ttf
+    application/vnd.ms-fontobject
+    image/x-icon
+    image/svg+xml
+    application/rss+xml
+    application/xml
+    application/xhtml+xml
+    application/x-font
+    application/x-font-truetype
+    application/x-font-otf
+    application/x-font-opentype
+    application/vnd.ms-fontobject
+    font/ttf
+    font/otf
+    font/opentype
+
+    # For Olders Browsers Which Can't Handle Compression
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+
     DeflateFilterNote Input input_info
     DeflateFilterNote Output output_info
     DeflateFilterNote Ratio ratio_info
@@ -56,18 +114,182 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
     mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
 </IfModule>
 
-## Config Cache-Control
-## 480 weeks
-#<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff2|svg)$">
-#    Header set Cache-Control "max-age=290304000, public"
-#</FilesMatch>
-#
-## 2 HOURS
-#<FilesMatch "\.(html|htm)$">
-#    Header set Cache-Control "max-age=7200, must-revalidate"
-#</FilesMatch>
-#
-## One month for css and js
-#<FilesMatch ".(css|js)$">
-#    Header set Cache-Control "max-age=2628000, public"
-#</FilesMatch>
+<IfModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+    mod_gzip_item_include handler ^cgi-script$
+    mod_gzip_item_include mime ^text/.*
+    mod_gzip_item_include mime ^application/x-javascript.*
+    mod_gzip_item_exclude mime ^image/.*
+    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    AddType application/vnd.ms-fontobject .eot
+    AddType application/x-font-ttf .ttf
+    AddType application/x-font-opentype .otf
+    AddType application/x-font-woff .woff
+    AddType image/svg+xml .svg
+    ExpiresByType application/vnd.ms-fontobject "access 1 year"
+    ExpiresByType application/x-font-ttf "access 1 year"
+    ExpiresByType application/x-font-opentype "access 1 year"
+    ExpiresByType application/x-font-woff "access 1 year"
+    ExpiresByType image/svg+xml "access 1 year"
+    ExpiresByType text/html "access 1 hour"
+    ExpiresByType text/css "access 14 days"
+    ExpiresByType text/x-javascript "access 3 weeks"
+    ExpiresByType application/javascript "access 1 month"
+    ExpiresByType application/x-javascript "access 1 month"
+    ExpiresByType image/gif "access 2 months"
+    ExpiresByType image/png "access 2 months"
+    ExpiresByType image/jpg "access 2 months"
+    ExpiresByType image/jpeg "access 2 months"
+    ExpiresByType image/gif "access 2 months"
+    ExpiresByType application/pdf "access 1 year"
+    ExpiresByType application/x-shockwave-flash "access 1 year"
+    ExpiresByType image/x-icon "access 1 year"
+    ExpiresDefault "access 2 days"
+</IfModule>
+
+#############################################
+### Config Cache-Control - Caching schema ###
+#############################################
+# # 1 YEAR
+# Header set Cache-Control "max-age=29030400, public"
+
+# # 1 MONTH
+# Header set Cache-Control "max-age=2592000, public"
+
+# # 1 WEEK
+# Header set Cache-Control "max-age=604800, public"
+
+# # 1 HOUR
+# Header set Cache-Control "max-age=3600, public"
+
+# # DON'T CACHE ANY FILE
+# Header set Cache-Control "max-age=0, private, no-store, no-cache, must-revalidate"
+
+
+# 480 weeks
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|woff2|svg)$">
+    Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+
+# 2 HOURS
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
+
+# One month for css and js
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=2628000, public"
+</FilesMatch>
+
+
+#########################################
+### Prevent viewing of .htaccess file ###
+#########################################
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
+
+##################################
+### Prevent directory listings ###
+##################################
+Options All -Indexes
+
+
+######################
+### Block bad bots ###
+######################
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Custo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^DISCo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Download\ Demon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^eCatch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EirGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailSiphon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailWolf [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Express\ WebPictures [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ExtractorPro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EyeNetIE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^FlashGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetRight [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetWeb! [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go!Zilla [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go-Ahead-Got-It [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GrabNet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Grafula [OR]
+RewriteCond %{HTTP_USER_AGENT} ^HMView [OR]
+RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Stripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} Indy\ Library [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^InterGET [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Internet\ Ninja [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JetCar [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JOC\ Web\ Spider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^larbin [OR]
+RewriteCond %{HTTP_USER_AGENT} ^LeechFTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mass\ Downloader [OR]
+RewriteCond %{HTTP_USER_AGENT} ^MIDown\ tool [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mister\ PiX [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Navroad [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NearSite [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetAnts [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Net\ Vampire [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Octopus [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Explorer [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Navigator [OR]
+RewriteCond %{HTTP_USER_AGENT} ^PageGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Papa\ Foto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pavuk [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pcBrowser [OR]
+RewriteCond %{HTTP_USER_AGENT} ^RealDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ReGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SiteSnagger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SmartDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperBot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperHTTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Surfbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^tAkeOut [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Teleport\ Pro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^VoidEYE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Image\ Collector [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebAuto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebCopier [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebFetch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebGo\ IS [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebLeacher [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebReaper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebSauger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ eXtractor [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ Quester [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebStripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebWhacker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Wget [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Widow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WWWOFFLE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus
+RewriteRule ^.* - [F,L]
+
+###########################################
+### Password Protect file 4dm1n_5ch3du5 ###
+###########################################
+# <Files /admin>
+# AuthName "Prompt"
+# AuthType Basic
+# AuthUserFile /.htpasswd
+# Require valid-user
+# </Files>
