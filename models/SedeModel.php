@@ -137,5 +137,51 @@ class SedeModel extends DB {
             die($e->getMessage());
         }
 	}
+
+	public function insertarSede(array $data)
+    {
+        // var_dump($_POST);
+        try {
+            // Verificar hay datos en $data
+            if (
+				isset($data['name_sede']) &&
+                isset($data['direccion'])) {
+				$name_sede = $data['name_sede'];
+				$direccion = $data['direccion'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_SEDE);
+				$stm->bindParam(1, $name_sede, PDO::PARAM_STR);
+				$stm->bindParam(2, $direccion, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
+
+    public function updateDataSede($data)
+    {
+        try {
+            //var_dump($data);
+            // Verificar hay datos en $data
+            if (isset($data['id_sede']) &&
+				isset($data['name_sede']) &&
+				isset($data['direccion'])) {
+                $txt_upd_name_sede = $data['name_sede'];
+				$txt_upd_direccion = $data['direccion'];
+				$txt_upd_id_sede = $data['id_sede'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_SEDE_ID);
+                $stm->bindParam(1, $txt_upd_name_sede, PDO::PARAM_STR);
+				$stm->bindParam(2, $txt_upd_direccion, PDO::PARAM_STR);
+				$stm->bindParam(3, $txt_upd_id_sede, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 }
 ?>

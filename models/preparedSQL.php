@@ -114,8 +114,8 @@ class preparedSQL
     const GET_ALL_TRIMESTRE = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin`FROM `trimestre`";
     const GET_TRIMESTRE_ID = "SELECT `id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin` FROM `trimestre` WHERE `id_trimestre`=?";
     const GET_TRIMESTRE_NAME = "SELECT * FROM `trimestre` WHERE `name_trimestre` LIKE ?";
-    const INSERT_NEW_TRIMESTRE="INSERT INTO `trimestre`(`name_trimestre`, `fecha_inicio`, `fecha_fin`) VALUES (?,?,?)";
-    const UPDATE_DATA_TRIMESTRE_ID = "UPDATE `trimestre` SET `name_trimestre`=?,`fecha_inicio`=?,`fecha_fin`=? WHERE `id_trimestre`";
+    const INSERT_NEW_TRIMESTRE="INSERT INTO `trimestre` (`name_trimestre`, `fecha_inicio`, `fecha_fin`) VALUES (?,?,?);";
+    const UPDATE_DATA_TRIMESTRE_ID = "UPDATE `trimestre` SET `name_trimestre`=?,`fecha_inicio`=?,`fecha_fin`=? WHERE `id_trimestre` = ?";
 
     //
     // ─── COMPETENCIA ────────────────────────────────────────────────────────────────
@@ -155,7 +155,8 @@ class preparedSQL
     const GET_ALL_SEDE = "SELECT * FROM `sede`";
     const GET_SEDE_ID = "SELECT * FROM `sede` WHERE `id_sede` = ?";
     const GET_SEDE_NAME = "SELECT * FROM `sede` WHERE `name_sede` LIKE ?";
-    const INSERT_NEW_SEDE = "";
+    const INSERT_NEW_SEDE = "INSERT INTO `sede`(`name_sede`, `direccion`) VALUES (?,?)";
+    const UPDATE_DATA_SEDE_ID="UPDATE `sede` SET `name_sede`= ? ,`direccion`= ?  WHERE `id_sede` = ?";
 
     //
     // ─── ESTADO DE AMBIENTE ───────────────────────────────────────────────────────────────────
@@ -164,7 +165,8 @@ class preparedSQL
     const GET_ALL_ESTADO_AMBIENTE = "SELECT * FROM `estado_ambiente`";
     const GET_ESTADO_AMBIENTE_ID = "SELECT * FROM `estado_ambiente` WHERE `id_estado_ambiente` = ?";
     const GET_ESTADO_AMBIENTE_NAME = "SELECT * FROM `estado_ambiente` WHERE `name_estado_ambiente` LIKE ?";
-    const INSERT_NEW_ESTADO_AMBIENTE = "";
+    const INSERT_NEW_ESTADO_AMBIENTE = "INSERT INTO `estado_ambiente`(`name_estado_ambiente`) VALUES (?)";
+    const UPDATE_DATA_ESTADO_AMBIENTE_ID = "UPDATE `estado_ambiente` SET `name_estado_ambiente`= ? WHERE `id_estado_ambiente` = ?";
 }
 
 
