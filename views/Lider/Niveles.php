@@ -197,10 +197,8 @@
 			//	'pdfHtml5'
 			//]
 		});
-
-
-
 	});
+
 		$(".updateDataNivelFormacion").click(function () {
 			var idNivelFormacion = $(this).attr('id-NivelFormacion');
 			console.log(idNivelFormacion);
