@@ -102,7 +102,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="txt_cod_programa">Código</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<input  type="number" id="txt_cod_programa"  class="form-control" name="txt_cod_programa" aria-describedby="helpCodPrograma" min="1" max="999999999" required>
@@ -112,7 +111,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="txt_short_name_programa">Siglas del programa</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<input type="text" id="txt_short_name_programa" class="form-control" name="txt_short_name_programa" aria-describedby="helpShortNamePrograma" pattern="[a-zA-Z]{1,5}" title="Escriba las siglas del programa(Unicamente letras, Máximo 5 caracteres)"  required>
@@ -122,7 +120,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="txt_name_programa_formacion">Nombre del programa</h4>
-									
 								</div>
 								<div class="col-lg-6 col-12">
 									<input type="text" name="txt_name_programa_formacion" id="txt_name_programa_formacion"class="form-control" aria-describedby="helpNameProgramaFormacion"  pattern="[a-zA-Z]{1,191}" title="Unicamente letras" required>
@@ -141,7 +138,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="SelectListNivelProgramaFormacion">Nivel</h4>
-									
 								</div>
 								<div class="col-lg-5">
 									<select id="SelectListNivelProgramaFormacion" name="txt_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpSelectNivelProgramaFormacion" required ></select>
@@ -164,7 +160,6 @@
 							<div class="row pt-4">
 								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
 									<h4 for="txt_cod_proyecto">Nombre del proyecto</h4>
-									
 								</div>
 								<div class="col-lg-5">
 									<select id="SelectlistProyecto" class="form-control" name="txt_cod_proyecto"  style="width:100%" aria-describedby="helpSelectNameProyecto" required></select>
@@ -230,7 +225,7 @@
 									</div>
 								<div class="col-lg-6 col-12">
 									<input type="text" id="txt_upd_name_programa_formacion" class="form-control" name="txt_upd_name_programa_formacion" aria-describedby="helpUpdNameProgramaFormacion" pattern="[a-zA-Z]{1,191}" title="Unicamente letras" required>
-									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>							
+									<small id="helpUpdNameProgramaFormacion" class="form-text text-muted">Escriba programa de formación(Unicamente letras)</small>
 								</div>
 							</div>
 							<div class="row pt-4">
@@ -328,11 +323,7 @@
 				"<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
 				// Pie de la tabla -- B-> Botones de exportar
 				"<'row'<'col-sm-12'B>>",
-			buttons: [
-				'copy',
-				'excel',
-				'pdf'
-			]
+			
 			//buttons: [
 			//	'copyHtml5',
 			//	'excelHtml5',
