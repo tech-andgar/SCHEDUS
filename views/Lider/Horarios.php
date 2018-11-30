@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div>
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5">
+					<table id="tableHorariosEdit" class="table table-responsive-sm table-bordered table-striped table-sm mt-5">
 						<thead>
 							<tr>
 								<th class="text-center">Hora</th>
