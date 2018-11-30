@@ -188,7 +188,6 @@
     $(".updateDataJornada").click(function () {
             var idJornada = $(this).attr('id-Jornada');
             console.log(idJornada);
-
             $.ajax({
                 type: 'POST',
                 url: 'getDataJornada',
