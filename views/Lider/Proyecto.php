@@ -72,7 +72,7 @@
 									<h4 for="proyect">Proyecto</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="proyect" id="proyect" class="form-control" aria-describedby="helpIdNumFicha">
+									<textarea name="proyect" id="proyect" class="form-control" aria-describedby="helpIdNumFicha" rows="5" ></textarea>
 									<small id="helpIdNumFicha" class="text-muted">Escriba Nombre del Proyecto
 									</small>
 								</div>
@@ -88,7 +88,7 @@
 		</div>
 	</div>
 </div>
-<!-- Modal -->
+<!-- Modal Actualizar-->
 <div class="modal fade  bd-example-modal-lg" id="Actualizar" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<div class="modal-content">
@@ -112,7 +112,7 @@
 								</div>
 								<div class="col-lg-8 col-12">
 									<input id="txt_upd_id_proyecto" type="number" name="txt_upd_id_proyecto" value="" hidden>
-									<input type="text" name="txt_upd_proyecto" id="txt_upd_proyecto" class="form-control" aria-describedby="helpIdNumFicha">
+									<textarea class="form-control" name="txt_upd_proyecto" id="txt_upd_proyecto" aria-describedby="helpIdNumFicha" rows="5" ></textarea>
 								</div>
 							</div>
 						</div>
