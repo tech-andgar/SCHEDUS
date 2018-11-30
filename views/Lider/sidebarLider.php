@@ -79,10 +79,10 @@
                     </ul>
                 </li>
 
-                <li class="nav-item mt-auto"> <a class="nav-link nav-link-success" href="<?php echo APP_URL ?>lider/https://coreui.io" target="_top">
+                <!-- <li class="nav-item mt-auto"> <a class="nav-link nav-link-success" href="<?php echo APP_URL ?>lider/https://coreui.io" target="_top">
                         <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a> </li>
                 <li class="nav-item"> <a class="nav-link nav-link-danger" href="<?php echo APP_URL ?>lider/https://coreui.io/pro/" target="_top">
-                        <i class="nav-icon icon-layers"></i> Try CoreUI <strong>PRO</strong> </a> </li>
+                        <i class="nav-icon icon-layers"></i> Try CoreUI <strong>PRO</strong> </a> </li> -->
             </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
