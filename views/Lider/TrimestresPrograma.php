@@ -39,7 +39,8 @@
                                     <?php echo $trimestre->fecha_fin; ?>
 								</td>
 								<td class="text-center">
-									<div class="updateDataTrimestresPrograma" data-toggle="modal" data-target="#Actualizar_TrimestresPrograma" id-trimestre="<?php echo $trimestre->id_trimestre; ?>">
+									<div class="updateDataTrimestresPrograma" data-toggle="modal" data-target="#Actualizar_TrimestresPrograma"
+                                    id-trimestre="<?php echo $trimestre->id_trimestre; ?>">
 										<i class="far fa-edit fa-lg"></i></div>
 								</td>
 							</tr>
@@ -72,7 +73,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center">
-                <form method="post" action="<?php echo APP_URL ?>updateDataInstructor" class="form-signin form-modal">
+                <form method="post" action="insertarTrimestresPrograma" class="form-signin form-modal">
 						<div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -82,25 +83,25 @@
 							<div class="row pt-4">
                             <div class="col-lg-4 col-12">
 									<h4 >Trimestre</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba el Trimestre</small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input type="text" name="name_trimestre" id="name_trimestre" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Escriba el Trimestre</small>
 								</div>
 							</div>
 							<div class="row pt-4">
                             <div class="col-lg-4 col-12">
 									<h4>Fecha</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecione fecha de inio y fin </small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input name="txt_upd_short_name_programa"  class="datapicker form-control">
+                                    <input type="daterange" class="form-control" id="daterange" name="fecha" value="" />
+                                    <small id="helpIdNumFicha" class="text-muted">Selecione fecha de inio y fin </small>
 								</div>
 							</div>
                         </div>
 						<hr>
 						<div class="text-center pt-2">
-							<button class="btn-rounded " type="submit" >Actualizar</button>
+							<button class="btn-rounded " type="submit" >Agregar</button>
 						</div>
 					</form>
                 </div>
@@ -122,7 +123,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center ">
-					<form method="post" action="#" class="form-signin form-modal">
+					<form method="post" action="updateDataTrimestresPrograma" class="form-signin form-modal">
                     <div class="container-fluid">
 							<div class="row pt-4">
 								<div class="col-12">
@@ -131,20 +132,21 @@
 							</div>
 							<div class="row pt-4">
                             <div class="col-lg-4 col-12">
-									<h4 for="codig">Trimestre</h4>
-									<small id="helpIdNumFicha" class="text-muted">Escriba el Trimestre</small>
+									<h4>Trimestre</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input type="number" id="txt_upd_id_trimestre" name="txt_upd_id_trimestre" value="" hidden>
+									<input type="text" id="txt_upd_name_trimestre" class="form-control" name="txt_upd_name_trimestre">
+									<small id="helpIdNumFicha" class="text-muted">Escriba el Trimestre</small>
 								</div>
 							</div>
 							<div class="row pt-4">
                             <div class="col-lg-4 col-12">
 									<h4 for="short_name_programa">Fecha</h4>
-									<small id="helpIdNumFicha" class="text-muted">Selecione fecha de inio y fin </small>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input name="txt_upd_short_name_programa"  class="datapicker form-control">
+                                    <input type="daterange" id="txt_upd_fecha" class="form-control" name="txt_upd_fecha" value="" />
+									<small id="helpIdNumFicha" class="text-muted">Selecione fecha de inio y fin </small>
 								</div>
 							</div>
                         </div>
@@ -161,91 +163,27 @@
 </div>
 
 <script>
-    $(document).ready(function () {
 
-        $("#tableTrimestre").DataTable({
-            "language": {
-                "sProcessing": "Procesando...",
-                "sLengthMenu": "Mostrar _MENU_ registros",
-                "sZeroRecords": "No se encontraron resultados",
-                "sEmptyTable": "Ningún dato disponible en esta tabla",
-                "sInfo": "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty": "Registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix": "",
-                "sSearch": "Buscar:",
-                "sUrl": "",
-                "sInfoThousands": ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast": "Último",
-                    "sNext": "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                }
-            },
-            "dom": // Insertar objeto tabla por formato:
-                // Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
-                "<'row'<'col-sm-6'f><'col-sm-6'l>>" +
-                // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
-                "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
-                // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-                "<'row'<'col-sm-4'><'col-sm-8'i><'col-sm-4'><'col-sm-6'p>>" +
-                // Pie de la tabla -- B-> Botones de exportar
-                "<'row'<'col-sm-12'B>>",
-            buttons: [
-                'copy',
-                'excel',
-                'pdf'
-            ]
-            //buttons: [
-            //	'copyHtml5',
-            //	'excelHtml5',
-            //	'csvHtml5',
-            //	'pdfHtml5'
-            //]
-        });
-
-        $(".statusChange").click(function () {
-            var statetext = $(this).attr('name-state');
-            var state_id = $(this).attr('id-state');
-            var id_programa = $(this).attr('id-programa');
+    $(".updateDataTrimestresPrograma").click(function () {
+            var idtrimestre = $(this).attr('id-trimestre');
+            console.log(idtrimestre);
             $.ajax({
                 type: 'POST',
-                url: '?c=Lider&m=changeStatusPrograma',
+                url: 'getDataTrimestre',
+
                 data: {
-                    statetext: statetext,
-                    state_id: state_id,
-                    id_programa: id_programa
+                    id: idtrimestre
                 },
                 success(response) {
-                    location.reload();
+                    console.log(response);
+                    var trimestre = jQuery.parseJSON(response);
+                    console.log(trimestre);
+                    $('#txt_upd_id_trimestre').val(trimestre.id_trimestre);
+                    $('#txt_upd_name_trimestre').val(trimestre.name_trimestre);
+                    $('#txt_upd_fecha').val(trimestre.fecha_inicio + ' ' + trimestre.fecha_fin );
                 }
             });
         });
 
-        $(".updateDataPrograma").click(function () {
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=getDataPrograma',
-                dataType: "json",
-                data: {
-                    id_programa: id_programa
-                },
-                success(response) {
-                    var programa = jQuery.parseJSON(JSON.stringify(response));
-                    $('#text-dni').val(programa.dni);
-                    $('#text-nombre').val(programa.nombre);
-                    $('#text-apellido').val(programa.apellido);
-                    $('#text-email').val(programa.email);
-                }
-            });
-        });
-
-    });
+       
 </script>
