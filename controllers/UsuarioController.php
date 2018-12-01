@@ -15,5 +15,12 @@ class UsuarioController extends Path
     }
 
     public function index()
-    {}
+    {
+
+    }
+
+    public function updateDataUser()
+    {
+        var_dump($_POST);
+    }
 }
