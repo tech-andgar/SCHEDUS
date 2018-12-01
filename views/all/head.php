@@ -91,6 +91,7 @@ if (isset($_SESSION['user'])) {
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.4/css/buttons.bootstrap4.min.css"/> -->
     <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css"/>
 
     <!-- SELECT2 CSS -->
     <link rel="stylesheet" type="text/css" href="'.APP_URL.'node_modules/select2/dist/css/select2.min.css" />
@@ -206,6 +207,7 @@ if (isset($_SESSION['user'])) {
     <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script defer src="'.APP_URL.'node_modules/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script defer src="'.APP_URL.'node_modules/datatables.net-select/js/dataTables.select.min.js"></script>
     <script defer src="'.APP_URL.'assets/js/configDataTables.js"></script>
     ';
     }?>
@@ -219,9 +221,9 @@ if (isset($_SESSION['user'])) {
         });
     })
 
-    $(".btn").hover(
-        function(){$(this).toggleClass('shadow');}
-    );
+    // $(".btn").hover(
+    //     function(){$(this).toggleClass('shadow');}
+    // );
 
     function LoadUrl(url) {
         window.location.href = url;
