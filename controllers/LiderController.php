@@ -104,7 +104,7 @@ class LiderController extends Path
     {
         $data['jornada'] = $this->modelJornada->getAllJornada();
         $data['msgType'] = $msgType;
-        parent::viewModule('lider', 'Jornadas', 'Jornadas', $data , $table);
+        parent::viewModule('lider', 'Jornadas', 'Jornadas', $data);
     }
     public function Fusionar()
     {
