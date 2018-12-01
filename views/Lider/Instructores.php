@@ -19,7 +19,9 @@
 				<table class="table table-responsive-sm table-striped table-sm mt-5" id="tableInstructores">
 					<thead>
 						<tr class="success">
+							<th>#</th>
 							<th>Instructor</th>
+							<th>Correo</th>
 							<th>Estado</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
@@ -27,10 +29,19 @@
 					</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($data['instructores'] as $instructor) { ?>
+						<?php 
+						$i = 1;
+						foreach ($data['instructores'] as $instructor) { 
+						?>
 						<tr>
 							<td>
+								<?php echo $i;?>
+							</td>
+							<td>
 								<?php echo $instructor->nombre . " " . $instructor->apellido; ?>
+							</td>
+							<td>
+								<?php echo $instructor->email; ?>
 							</td>
 							<td class="text-center">
 								<button type="button"
@@ -50,7 +61,7 @@
 								</div>
 							</td>
 						</tr>
-						<?php } ?>
+						<?php  $i++; } ?>
 					</tbody>
 				</table>
 			</div>
