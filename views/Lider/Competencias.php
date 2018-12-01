@@ -173,36 +173,43 @@
 
 <script>
 
-	$('#selectNewListPrograma').select2({
-		theme: 'bootstrap4',
-		ajax: {
-			url: 'getDataProgramaFormacion',
-			dataType: 'json',
-			delay: 250,
-			data: function (params) {
-				return {
-					q: params.term, // search term
-					page: params.page
-				};
-			},
-			processResults: function (data, params) {
-				var data = $.map(data, function (obj) {
-					obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
-					obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
-					return obj;
-				});
 
-				return {
-					results: data,
-				};
+	$(document).ready(function () {
+		$('#selectNewListPrograma').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: 'getDataProgramaFormacion',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
+						obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+						return obj;
+					});
+
+					return {
+						results: data,
+					};
+				},
+				cache: true
 			},
-			cache: true
-		},
-		placeholder: $(this).attr('placeholder'),
-		allowClear: Boolean($(this).data('allow_clear')),
-		tags: true,
-		dropdownParent: $("#modalNewAgregarCompetencia"),
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#modalNewAgregarCompetencia"),
+		});
 	});
+
+
 
 
 	// TODO FIX GETDATACOMPETENCIA TO MODALUPDATE
