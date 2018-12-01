@@ -134,11 +134,11 @@ if (isset($_SESSION['user'])) {
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/perfect-scrollbar.min.js"></script>
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script defer src="<?php echo APP_URL ?>assets/js/coreui/Chart.min.js"></script>
+    <!-- <script defer src="<?php echo APP_URL ?>assets/js/coreui/Chart.min.js"></script> -->
     <script defer src="<?php echo APP_URL ?>assets/js/coreui/custom-tooltips.min.js"></script>
-    <script defer src="<?php echo APP_URL ?>assets/js/coreui/main.js"></script>
+    <!-- <script defer src="<?php echo APP_URL ?>assets/js/coreui/main.js"></script> -->
 
-    <!-- Plugins and scripts -->
+    <!-- Pluns and scripts -->
     <!-- TOASTR JS -->
     <script src="<?php echo APP_URL ?>vendor/grimmlink/toastr/build/toastr.min.js"></script>
 
