@@ -6,7 +6,7 @@
                 <section class="bg-light">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2 class="text-center p-5">HORARIO DE FORMACION E INFORMACION PARA APRENDICES CEET</h2>
+                            <h2 class="text-center p-5">HORARIO DE FORMACIÓN E INFORMACION PARA APRENDICES CEET</h2>
                         </div>
                         <div class="col-12 d-flex justify-content-center text-center p-5">
                             <form action="#" method="post">
@@ -19,7 +19,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <small id="helpId" class="form-text text-muted">Ingresa su numero de ficha para buscar
+                                <small id="helpId" class="form-text text-muted">Ingresa su número de ficha para buscar
                                     horario asignado</small>
                             </form>
                         </div>
