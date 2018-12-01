@@ -41,21 +41,21 @@
                                 <td>
                                     <?php
 								    switch ($ambiente->name_estado_ambiente) {
-									case 'Cancelado':
-										echo '<div class="p-2 bg-danger text-white rounded">' . $ambiente->name_estado_ficha . '</div>';
-									break;
-									case 'Completado':
-										echo '<div class="p-2 bg-info text-white rounded">' . $ambiente->name_estado_ficha . '</div>';
-									break;
+									case 'Asignado':
+										echo '<div class="p-2 bg-danger text-white rounded">' . $ambiente->name_estado_ambiente . '</div>';
+    									break;
+									case 'Disponible':
+										echo '<div class="p-2 bg-info text-white rounded">' . $ambiente->name_estado_ambiente . '</div>';
+									    break;
 									case 'En formación':
-										echo '<div class="p-2 bg-success text-white rounded">' . $ambiente->name_estado_ficha . '</div>';
-									break;
+										echo '<div class="p-2 bg-success text-white rounded">' . $ambiente->name_estado_ambiente . '</div>';
+									    break;
 									case 'Pendiente Asignado':
-										echo '<div class="p-2 bg-warning text-dark rounded">' . $ambiente->name_estado_ficha . '</div>';
-									break;
+										echo '<div class="p-2 bg-warning text-dark rounded">' . $ambiente->name_estado_ambiente . '</div>';
+									    break;
 									default:
-										echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formacion ' . $ambiente->name_estado_ficha . '</div>';
-									break;
+										echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formación</div>';
+									    break;
 								}?>
 								</td>
 								<td class="text-center">
