@@ -45,14 +45,14 @@ $(document).ready(function() {
                 // "<'row'<'col-sm-6 offset-sm-4 pb-2'B>>"+
                 // "<'row'<'col-sm-6 col-md-8'><'col-sm-6 col-md-2'B><'col-sm-6 col-md-6'f><'col-sm-6 col-md-4 offset-md-2'l>>" +
                 // Pie de la tabla -- B-> Botones de exportar
-                "<'row'<'col-md-1'><'col-sm-12 col-md-10'B>>" +
+                "<'col-sm-12 col-md-10'B>" +
                 // Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
                 "<'row pt-2'<'col-sm-6 col-md-6'f><'col-sm-6 col-md-4 offset-md-2'l>>" +
                 // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
                 "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
                 // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-                "<'row'<'col-sm-8 offset-sm-1 col-md-8 offset-md-4'i>>" +
-                "<'row'<'col-sm-7'p><'col-sm-5'>>"
+                "<'row'<'col-xl-4 col-lg-4 col-md-2 col-sm-3 offset-xl-5 offset-lg-4 offset-md-6 offset-sm-2 offset'i>>" +
+                "<'row'<'col-xl-3 col-lg-4 col-md-2 col-sm-3 offset-xl-4 offset-lg-5 offset-md-6 offset-sm-6 offset'p>>"
                 ,
             lengthMenu: [
                 [10, 25, 50, -1],
