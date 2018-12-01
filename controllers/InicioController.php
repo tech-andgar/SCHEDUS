@@ -26,7 +26,7 @@ class InicioController extends Path
         $data['msgType'] = array(
             'type' => 'error',
             'title' => 'Se requiere autorización',
-            'msg' => 'la solicitud requiere autenticación de usuario',
+            'msg' => 'La solicitud requiere autenticación de usuario',
         );
 
         //parent::view('Modulo', 'PaginaVista', 'Titulo', 'data['msgType']['type'=>'', title' => '','msg' =>'']');

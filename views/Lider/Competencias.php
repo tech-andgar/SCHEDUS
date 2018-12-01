@@ -15,9 +15,9 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<table class="table table-responsive-sm table-striped table-sm mt-5" id="tableCompetencia">
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableCompetencia">
 					<thead>
-						<tr class="success">
+						<tr>
 							<th>Código de competencia</th>
 							<th>Nombre de competencia</th>
 							<th>Programa de formación</th>
@@ -41,9 +41,7 @@
 									<i class="far fa-edit fa-lg"></i></div>
 							</td>
 						</tr>
-						<?php
-}
-?>
+						<?php } ?>
 					</tbody>
 				</table>
 			</div>
@@ -174,7 +172,7 @@
 <!-- /Fin del contenido principal -->
 
 <script>
-	
+
 	$('#selectNewListPrograma').select2({
 		theme: 'bootstrap4',
 		ajax: {
