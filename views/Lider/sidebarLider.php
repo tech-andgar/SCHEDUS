@@ -36,7 +36,7 @@
                         Instructor</a>
                 </li>
                 <li class="nav-item nav-dropdown" state-element="close">
-                    <a class="nav-link nav-dropdown-toggle"><i class="nav-icon fas fa-braille"></i> Formacion</a>
+                    <a class="nav-link nav-dropdown-toggle"><i class="nav-icon fas fa-braille"></i> Formación</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/Programas"><i class="nav-icon  fas fa-book"></i>
@@ -68,10 +68,10 @@
                     <a class="nav-link nav-dropdown-toggle"><i class="nav-icon fas fa-door-closed"></i> Ambiente</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo APP_URL ?>lider/ambiente"><i class="nav-icon fas fa-door-open "></i> Aula</a>
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/ambiente"><i class="nav-icon fas fa-door-open "></i> Ambiente Formación</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo APP_URL ?>lider/estadoAmbiente"><i class="nav-icon fas fa-toggle-on"></i>Estado de aula</a>
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/estadoAmbiente"><i class="nav-icon fas fa-toggle-on"></i>Estado Ambiente</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/sede"><i class=" nav-icon fas fa-building"></i> Sede</a>
