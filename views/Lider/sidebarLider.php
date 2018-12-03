@@ -20,7 +20,9 @@
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/Fichas"><i class="nav-icon  fas fa-graduation-cap"></i>
                                 Fichas</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/estadoAmbiente"><i class="nav-icon fas fa-toggle-on"></i>Estado Ficha</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/Grupos"><i class="nav-icon  fab fa-hubspot"></i>
                                 Grupos</a>
@@ -77,6 +79,10 @@
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/sede"><i class=" nav-icon fas fa-building"></i> Sede</a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="<?php echo APP_URL ?>lider/jornadas"><i class="nav-icon fab fa-leanpub"></i>
+                        Resultado Aprendizaje</a>
                 </li>
 
                 <!-- <li class="nav-item mt-auto"> <a class="nav-link nav-link-success" href="<?php echo APP_URL ?>lider/https://coreui.io" target="_top">
