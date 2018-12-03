@@ -125,9 +125,9 @@
 </div>
 
 <script>
-    $(".updateDataNivelFormacion").click(function () {
-			var idNivelFormacion = $(this).attr('id-NivelFormacion');
-			console.log(idNivelFormacion);
+    $(".updateDataEstadoAmbiente").click(function () {
+			var idEstadoAmbiente = $(this).attr('id-EstadoAmbiente');
+			console.log(idEstadoAmbiente);
 
 			$.ajax({
 				type: 'POST',
