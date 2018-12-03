@@ -15,34 +15,33 @@ class InicioController extends Path
     }
 
     // Render Views
-    public function index()
+    public function index($msgType = [])
     {
+        $data['msgType'] = $msgType;
         //parent::view('Modulo', 'PaginaVista', 'Titulo', 'infoUser['title' => '','msg' =>'']');
-        parent::view('inicio', 'index', 'Horario de formación');
-    }
-
-    public function noAuth()
-    {
-        $data['msgType'] = array(
-            'type' => 'error',
-            'title' => 'Se requiere autorización',
-            'msg' => 'La solicitud requiere autenticación de usuario',
-        );
-
         //parent::view('Modulo', 'PaginaVista', 'Titulo', 'data['msgType']['type'=>'', title' => '','msg' =>'']');
         parent::view('inicio', 'index', 'Horario de formación', $data);
     }
 
+    public function noAuth()
+    {
+        $msgType = array(
+            'type' => 'error',
+            'title' => 'Se requiere autorización',
+            'msg' => 'La solicitud requiere autenticación de usuario',
+        );
+        $this->index($msgType);
+    }
+
     public function noRegistered()
     {
-        $data['msgType'] = array(
+        $msgType = array(
             'type' => 'error',
             'title' => 'AVISO',
             'msg' => 'Esta cuenta no existe o la contraseña es incorrecta. Si no recuerdas la cuenta, restablécela ahora.',
         );
 
-        //parent::view('Modulo', 'PaginaVista', 'Titulo', 'data['msgType']['type'=>'', title' => '','msg' =>'']');
-        parent::view('inicio', 'index', 'Horario de formación', $data);
+        $this->index($msgType);
     }
 
     public function recuperarContrasena()
@@ -77,10 +76,15 @@ class InicioController extends Path
                 $user = $this->modelUsuario->verificarEmail($data);
 
                 if (!$user) {
-                    echo 'No encontrado correo en DB';
+                    //echo 'No encontrado correo en DB';
+                    $msgType = array(
+                        'type' => 'error',
+                        'title' => 'AVISO',
+                        'msg' => 'Esta cuenta no existe. Si no recuerdas la cuenta, comunicarla a coordinador.',
+                    );
                     // header('location:?c=Inicio&m=noRegistered');
                 } else {
-                    echo 'encontrado correo en DB';
+                    //echo 'encontrado correo en DB';
 
                     //Mando a llamar a la funcion que se encarga de enviar el correo eletronico
                     require_once 'MailController.php';
@@ -91,16 +95,36 @@ class InicioController extends Path
 
                     /* Inicio captura de datos enviados por $_POST para enviar el correo */
 
-                    //Correo electronico que recibira el mensaje
-                    // $txt_message = $_POST['message'];
-                    // $mail_subject = $_POST['subject'];
-                    $mail_sendtoAddAddressMail = $data['emailRecovery'];
-                    $mail_subject = 'Recuperar la contraseña';
 
-                    sendemail($mail_sendtoAddAddressMail, $mail_subject);
+                    $fileTemplate = APP_URL . 'views/all/templateRecoveryPassword.php';
+
+                    //Correo electronico que recibira el mensaje
+                    $data = array(
+                            'user' => $user,
+                            'mail_subject' => 'Restablecer una nueva contraseña para SCHEDUS ',
+                            'path_template' => $fileTemplate,
+                            'txt_message' => __DIR__,
+                        );
+
+                    if (sendEmail($data)) {
+                        $msgType = array(
+                            'type' => 'success',
+                            'title' => 'AVISO',
+                            'msg' => 'Mensaje de restablecido la contraseña ha sido enviado!',
+                        );
+                    }else {
+                        $msgType = array(
+                            'type' => 'error',
+                            'title' => 'AVISO',
+                            'msg' => "No se pudo enviar el mensaje.. Error de correo",
+                        );
+                    }
                     //$this->modelSecurity->LoginSession($user);
                 }
             }
+
+            $this->index($msgType);
+
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -124,7 +148,17 @@ class InicioController extends Path
     {
         $title = "PRUEBA2";
         //require_once 'views/all/head.php';
-        require_once 'views/Inicio/prueba2.html';
+        // require_once 'views/Inicio/prueba2.html';
+        require_once 'views/all/templateRecoveryPassword.php';
+        //require_once 'views/all/footer.php';
+    }
+
+    public function prueba3()
+    {
+        $title = "PRUEBA2";
+        //require_once 'views/all/head.php';
+        // require_once 'views/Inicio/prueba2.html';
+        require_once 'views/Inicio/prueba34.html';
         //require_once 'views/all/footer.php';
     }
 
