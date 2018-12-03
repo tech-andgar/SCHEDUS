@@ -47,12 +47,12 @@ $(document).ready(function() {
                 // Pie de la tabla -- B-> Botones de exportar
                 "<'col-sm-12 col-md-10'B>" +
                 // Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
-                "<'row pt-2'<'col-sm-6 col-md-6'f><'col-sm-6 col-md-4 offset-md-2'l>>" +
+                "<'row pt-2'<'col-xl-6 col-lg-6 col-md-6'f><'col-xl-6 col-lg-6 col-md-6'l>>" +
                 // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
                 "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
                 // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros
-                "<'row'<'col-xl-4 col-lg-4 col-md-2 col-sm-3 offset-xl-5 offset-lg-4 offset-md-6 offset-sm-2 offset'i>>" +
-                "<'row'<'col-xl-3 col-lg-4 col-md-2 col-sm-3 offset-xl-4 offset-lg-5 offset-md-6 offset-sm-6 offset'p>>"
+                "<'row'<'col-xl-4 col-lg-4 col-md-2 col-sm-3 offset-xl-5 offset-lg-4 offset-md-4 offset-sm-2 offset'i>>" +
+                "<'row'<'col-xl-3 col-lg-4 col-md-2 col-sm-3 offset-xl-4 offset-lg-5 offset-md-5 offset-sm-6 offset'p>>"
                 ,
             lengthMenu: [
                 [10, 25, 50, -1],
@@ -127,11 +127,6 @@ $(document).ready(function() {
                     className: 'btn btn-outline-info',
                     text: '<span id="btnDTFilter" data-toggle="tooltip" data-placement="top" title="Seleccionar las columnas para ocultar o visualizar"><i class="fas fa-columns"></i></span>',
                     collectionLayout: 'three-column',
-                },
-                {
-                    extend: 'pageLength',
-                    className: 'btn btn-outline-info',
-                    text: '<span id="btnDTFilter" data-toggle="tooltip" data-placement="top" title="Mostrar los registros"><i class="fas fa-list-ol"></i></span>',
                 },
 
 
