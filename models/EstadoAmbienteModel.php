@@ -143,10 +143,10 @@ class EstadoAmbienteModel extends DB
         try {
             //var_dump($data);
             // Verificar hay datos en $data
-            if (isset($data['id_estado_ambiente']) &&
-                isset($data['name_estado_ambiente'])) {
-                $txt_upd_name_estado_ambiente = $data['name_estado_ambiente'];
-                $txt_upd_id_estado_ambiente = $data['id_estado_ambiente'];
+            if (isset($data['txt_upd_id_estado_ambiente']) &&
+                isset($data['txt_upd_name_estado_ambiente'])) {
+                $txt_upd_name_estado_ambiente = $data['txt_upd_name_estado_ambiente'];
+                $txt_upd_id_estado_ambiente = $data['txt_upd_id_estado_ambiente'];
                 $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_SEDE_ID);
                 $stm->bindParam(1, $txt_upd_name_estado_ambiente, PDO::PARAM_STR);
                 $stm->bindParam(2, $txt_upd_id_estado_ambiente, PDO::PARAM_STR);

@@ -25,8 +25,8 @@ class preparedSQL
     // ─── RUTA DE FICHA ──────────────────────────────────────────────────────────────
     //
 
-    const GET_ALL_RUTA_FICHA = "SELECT * FROM `v_ruta_ficha`";
-
+    const GET_ALL_RUTA_FICHA_V = "SELECT * FROM `v_ruta_ficha`";
+    const GET_ALL_RUTA_FICHA_JORNADA = "SELECT * FROM `ruta_ficha` INNER JOIN jornada on `ruta_ficha`.cod_jornada = `jornada`.id_jornada";
 
     //
     // ─── GRUPO DE FICHAS EN PROGRAMA DE FORMACION ───────────────────────────────────

@@ -182,10 +182,10 @@ class RutaFichaModel extends DB {
 		$this->observaciones = $observaciones;
 	}
 
-	public function getAllRutaFichas()
+	public function getAllRutaFichasJornadas()
 	{
 		try {
-			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_RUTA_FICHA);
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_RUTA_FICHA_JORNADA);
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Ruta de ficha
 		} catch (Exception $e) {
@@ -193,29 +193,65 @@ class RutaFichaModel extends DB {
 		}
 	}
 
-	// public function getRutaFichaId($idRutaFicha)
-	// {
-	// 	try {
-	// 		$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_ID);
-	// 		$stm->bindParam(1, $idRutaFicha, PDO::PARAM_STR);
-	// 		$stm->execute();
-	// 		return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Programa
-	// 	} catch (Exception $e) {
-	// 		die($e->getMessage());
-	// 	}
-	// }
+	public function getRutaFichaId($idRutaFicha)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_ID);
+			$stm->bindParam(1, $idRutaFicha, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 
-	// public function getRutaFichaName($nameRutaFicha)
-	// {
-	// 	try {
-	// 		$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_NAME);
-	// 		$nameRutaFicha = '%' . $nameRutaFicha . '%';
-	// 		$stm->bindParam(1, $nameRutaFicha, PDO::PARAM_STR);
-	// 		$stm->execute();
-	// 		return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
-	// 	} catch (Exception $e) {
-	// 		die($e->getMessage());
-	// 	}
-	// }
+	public function getRutaFichaName($nameRutaFicha)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_NAME);
+			$nameRutaFicha = '%' . $nameRutaFicha . '%';
+			$stm->bindParam(1, $nameRutaFicha, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getAllRuta_Fichas()
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_ALL_RUTA_FICHA_V);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno completa de lista de Ruta de ficha
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getRuta_FichaId($idRutaFicha)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_ID);
+			$stm->bindParam(1, $idRutaFicha, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function getRuta_FichaName($nameRutaFicha)
+	{
+		try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_PROYECTO_NAME);
+			$nameRutaFicha = '%' . $nameRutaFicha . '%';
+			$stm->bindParam(1, $nameRutaFicha, PDO::PARAM_STR);
+			$stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 ?>
