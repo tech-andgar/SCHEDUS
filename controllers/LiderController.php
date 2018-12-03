@@ -120,7 +120,8 @@ class LiderController extends Path
 
     public function Grupos($msgType = [])
     {
-        $data['rutaFichas'] = $this->modelRutaFicha->getAllRutaFichas();
+        $data['rutaFichasjornadas'] = $this->modelRutaFicha->getAllRutaFichasJornadas();
+        $data['v_ruta_ficha'] = $this->modelRutaFicha->getAllRuta_Fichas();
         $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Grupos', 'Grupos', $data);
     }
@@ -919,7 +920,7 @@ class LiderController extends Path
         $this->Sede($msgType);
     }
 
-      //
+    //
     // ─── CONTROL DE TRIMESTRE PROGRAMA ───────────────────────────────────────────────────────────
     //
 
@@ -1015,5 +1016,30 @@ class LiderController extends Path
        // $this->TrimestresPrograma($msgType);
     }
 
+    //
+    // ─── CONTROL DE TRIMESTRE PROGRAMA ───────────────────────────────────────────────────────────
+    //
 
+
+    public function getDataRutaFicha()
+    {
+        // Completa lista de Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id']) && !isset($_REQUEST['codigo'])) {
+            $output = $this->modelFicha->getAllRuta_Fichas();
+        }
+        // Selecciona ID de Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelFicha->getRutaFichaId($_REQUEST['id']);
+        }
+        elseif (isset($_REQUEST['codigo'])) {
+            $output = $this->modelFicha->getRutaFichaCodigo($_REQUEST['codigo']);
+        }
+        // Selecciona caracteres en lista de Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelFicha->getRutaFichaName($_REQUEST['q']);
+        }
+
+        $dataRutaFicha = json_encode($output);
+        echo $dataRutaFicha;
+    }
 }
