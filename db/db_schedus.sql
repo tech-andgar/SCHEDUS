@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 23-11-2018 a las 21:36:20
+-- Tiempo de generación: 03-12-2018 a las 13:16:00
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.11
 
@@ -101,12 +101,18 @@ CREATE TABLE IF NOT EXISTS `competencia` (
 --
 
 INSERT INTO `competencia` (`id_competencia`, `cod_programa_formacion`, `codigo_competencia`, `num_competencia2`, `name_competencia`, `create_time`, `update_time`, `version`) VALUES
+(14, 3, 65421385, '2131', 'manhu', '2018-11-29 21:59:50', NULL, NULL),
+(13, 5, 123456787, '46513', 'ASDFSAFASF', '2018-11-29 21:29:01', NULL, NULL),
+(7, 3, 123456789, '54321', 'Hello', '2018-11-29 21:03:53', NULL, NULL),
+(12, 15, 142343242, '13246', 'ASDSADSADAS', '2018-11-29 21:23:58', NULL, NULL),
 (2, 1, 220501013, '35823', 'Utilizar software de administración de red para garantizar la accesibilidad de los servicios y optim', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
 (1, 1, 220501014, '35848', 'Administrar hardware y software de seguridad en la red a partir de normas internacionales. ', '2018-10-03 05:17:28', '2018-10-03 22:49:09', NULL),
 (3, 2, 220501031, '02966', 'Entregar la aplicación multimedia para evaluar la satisfacción del cliente.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
 (5, 3, 220501034, '35325', 'Implantar la solución que cumpla con los requerimientos para su operación.', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
 (6, 3, 220501035, '35329', 'Aplicar buenas prácticas de calidad en el proceso de desarrollo de software, de acuerdo con el refer', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
-(4, 2, 220501039, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL);
+(4, 2, 220501039, '33279', 'Realizar la post-producción para generar la animación final de acuerdo con las especificaciones del ', '2018-10-03 05:25:38', '2018-10-03 22:49:09', NULL),
+(9, 3, 654829713, '65231', 'Joahn', '2018-11-29 21:21:34', NULL, NULL),
+(8, 3, 985632147, '98745', 'Nao', '2018-11-29 21:20:44', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -151,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `estado_ambiente` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_estado_ambiente`),
   UNIQUE KEY `name_estado_ambiente` (`name_estado_ambiente`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `estado_ambiente`
@@ -159,7 +165,8 @@ CREATE TABLE IF NOT EXISTS `estado_ambiente` (
 
 INSERT INTO `estado_ambiente` (`id_estado_ambiente`, `name_estado_ambiente`, `create_time`, `update_time`, `version`) VALUES
 (1, 'Disponible', '2018-10-03 02:18:19', '2018-10-03 22:49:16', NULL),
-(2, 'Asignado', '2018-10-03 02:18:26', '2018-10-03 22:49:16', NULL);
+(2, 'Asignado', '2018-10-03 02:18:26', '2018-10-03 22:49:16', NULL),
+(3, 'Chao', '2018-11-30 14:23:04', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -312,17 +319,26 @@ CREATE TABLE IF NOT EXISTS `ficha` (
   UNIQUE KEY `num_ficha` (`num_ficha`),
   KEY `FK_cod_estado_ficha` (`cod_estado_ficha`),
   KEY `FK_cod_programa_formacion_ficha` (`cod_programa_formacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `ficha`
 --
 
 INSERT INTO `ficha` (`id_ficha`, `num_ficha`, `create_time`, `update_time`, `version`, `cod_estado_ficha`, `cod_programa_formacion`) VALUES
-(1, '1320652', '2018-10-05 00:44:49', '0000-00-00 00:00:00', NULL, 2, 1),
+(1, '1320652', '2018-10-05 00:44:49', '0000-00-00 00:00:00', NULL, 4, 11),
 (2, '1320500', '2018-10-05 00:45:10', '0000-00-00 00:00:00', NULL, 2, 3),
-(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 1, 2),
-(6, '1320658', '2018-11-23 13:18:02', NULL, NULL, 1, 3);
+(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 4, 2),
+(6, '1320658', '2018-11-23 13:18:02', NULL, NULL, 1, 3),
+(7, '124434', '2018-11-23 21:44:58', NULL, NULL, 3, 1),
+(8, '346436', '2018-11-23 21:45:42', NULL, NULL, 1, 2),
+(9, '6546546', '2018-11-23 21:46:43', NULL, NULL, 1, 3),
+(10, '4598897798798', '2018-11-28 16:45:15', NULL, NULL, 3, 2),
+(12, '54645645', '2018-11-28 16:46:23', NULL, NULL, 2, 2),
+(15, '6456465', '2018-11-28 18:25:31', NULL, NULL, 1, 5),
+(16, '54544554', '2018-11-28 18:25:37', NULL, NULL, 1, 3),
+(17, '545', '2018-11-28 18:25:41', NULL, NULL, 4, 5),
+(19, '132065258', '2018-11-30 21:47:16', NULL, NULL, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -406,7 +422,7 @@ CREATE TABLE IF NOT EXISTS `jornada` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_jornada`),
   UNIQUE KEY `name_jornada` (`name_jornada`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `jornada`
@@ -415,7 +431,11 @@ CREATE TABLE IF NOT EXISTS `jornada` (
 INSERT INTO `jornada` (`id_jornada`, `name_jornada`, `create_time`, `update_time`, `version`) VALUES
 (1, 'Diurna', '2018-10-03 02:12:56', '2018-10-03 22:49:17', NULL),
 (2, 'Nocturna', '2018-10-03 02:13:01', '2018-10-03 22:49:17', NULL),
-(3, 'Fin de semana', '2018-10-03 02:13:10', '2018-10-03 22:49:17', NULL);
+(3, 'Fin de semana', '2018-10-03 02:13:10', '2018-10-03 22:49:17', NULL),
+(4, 'hola', '2018-11-29 21:54:30', NULL, NULL),
+(9, 'sad', '2018-11-30 12:25:35', NULL, NULL),
+(10, 'holasd', '2018-11-30 12:35:38', NULL, NULL),
+(12, 'mixta', '2018-11-30 22:12:14', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -458,7 +478,7 @@ CREATE TABLE IF NOT EXISTS `nivel_programa_formacion` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_nivel_programa_formacion`),
   UNIQUE KEY `name_nivel_programa_formacion` (`name_nivel_programa_formacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `nivel_programa_formacion`
@@ -473,7 +493,9 @@ INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_niv
 (6, 'Pregrado', NULL, '2018-10-03 02:43:16', '2018-10-03 22:49:08', NULL),
 (7, 'Especialización', '5 años', '2018-10-03 02:43:22', '2018-10-03 22:49:08', NULL),
 (8, 'Maestría', NULL, '2018-10-03 02:43:29', '2018-10-03 22:49:08', NULL),
-(9, 'Doctorado', NULL, '2018-10-03 02:43:40', '2018-10-03 22:49:08', NULL);
+(9, 'Doctorado', NULL, '2018-10-03 02:43:40', '2018-10-03 22:49:08', NULL),
+(11, 'dsfdf', 'asdasd', '2018-11-29 16:33:09', NULL, NULL),
+(12, 'kasjl', 'safas', '2018-11-29 16:33:27', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -500,7 +522,7 @@ CREATE TABLE IF NOT EXISTS `programa_formacion` (
   KEY `FK_cod_estado_programa_formacion` (`cod_estado_programa_formacion`),
   KEY `FK_cod_nivel_programa_formacion` (`cod_nivel_programa_formacion`),
   KEY `FK_cod_proyecto_programa_formacion` (`cod_proyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `programa_formacion`
@@ -508,14 +530,24 @@ CREATE TABLE IF NOT EXISTS `programa_formacion` (
 
 INSERT INTO `programa_formacion` (`id_programa_formacion`, `codigo`, `short_name_programa_formacion`, `name_programa_formacion`, `version_programa`, `cod_nivel_programa_formacion`, `cod_proyecto`, `cod_estado_programa_formacion`, `create_time`, `update_time`, `version`) VALUES
 (0, NULL, 'NULL', 'NULL', NULL, NULL, NULL, NULL, '2018-11-08 20:20:52', NULL, NULL),
-(1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 1, '2018-10-03 05:11:28', '2018-10-03 22:49:11', NULL),
+(1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 2, '2018-10-03 05:11:28', '2018-10-03 22:49:11', NULL),
 (2, '228106', 'PM', 'PRODUCCIÓN DE MULTIMEDIA', 'V 102', 3, 2, 1, '2018-10-03 05:12:27', '2018-10-03 22:49:11', NULL),
 (3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-03 05:15:53', '2018-10-03 22:49:11', NULL),
-(5, '228102', 'TPS', 'TECNICO DE PROGRAMACION DE SOTFWARE', '25', 3, 1, 1, '2018-11-19 19:11:18', NULL, NULL),
-(8, '4', 'sdf', 'dsfds ', 's 3', 8, 2, 1, '2018-11-21 14:33:35', NULL, NULL),
-(11, '4', 'sdf', 'asdfsdfsd', 'd 5 ', 8, 3, 1, '2018-11-21 14:34:32', NULL, NULL),
-(13, '2', 'sf', 'sdaf', 'd 5', 7, 3, 1, '2018-11-21 14:38:04', NULL, NULL),
-(14, '665', 'fc', 'vqfa', 'qva', 4, 2, 1, '2018-11-21 14:51:30', NULL, NULL);
+(5, '228102', 'TPS', 'TECNICO DE PROGRAMACION DE SOTFWARE', '25', 3, 1, 2, '2018-11-19 19:11:18', NULL, NULL),
+(8, '4', 'sdf', 'dsfds ', 's 3', 8, 2, 2, '2018-11-21 14:33:35', NULL, NULL),
+(11, '4', 'sdf', 'asdfsdfsd', 'd 5 ', 8, 3, 2, '2018-11-21 14:34:32', NULL, NULL),
+(13, '2', 'SF', 'SDAF', 'D 5JKJMK', 7, 3, 2, '2018-11-21 14:38:04', NULL, NULL),
+(14, '665', 'fc', 'vqfa', 'qva', 4, 2, 2, '2018-11-21 14:51:30', NULL, NULL),
+(15, '645', 'GDHDH', 'FGHDGFDHG', 'V 32423', 8, 2, 1, '2018-11-29 12:52:49', NULL, NULL),
+(16, '324', 'SADF', 'ASFD', 'ASF', 8, 3, 1, '2018-11-29 12:54:15', NULL, NULL),
+(18, '324342', 'SDAS', 'DSAF', 'ADFS', 8, 3, 2, '2018-11-29 12:55:28', NULL, NULL),
+(23, '11111', 'SAF', 'ASDFSAF', 'ASDSA', 8, 3, 1, '2018-11-29 12:58:20', NULL, NULL),
+(26, '1234', 'SADF', 'SAD', 'SAD', 2, 3, 1, '2018-11-29 13:57:22', NULL, NULL),
+(27, '564645', 'GGSJ', 'BJHA', 'GGG', 4, 3, 1, '2018-11-29 14:19:28', NULL, NULL),
+(31, '4856', 'SDFA', 'SAFD', 'V 5', 3, 3, 1, '2018-11-29 14:45:28', NULL, NULL),
+(32, '12345', 'JJAJA', 'JAJAJAJ', 'V 51324654', 3, 3, 2, '2018-11-29 14:46:05', NULL, NULL),
+(34, '999900', 'AAA', 'DFGSDVFV', 'GFCGCFGC', 2, 2, 1, '2018-11-29 15:15:28', NULL, NULL),
+(35, '159', 'ADSI', 'ANALISIS DE DESARROLO DE SISTEMA DE INFORMACION', 'V 15', 4, 1, 1, '2018-11-30 21:48:36', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -532,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_proyecto`),
   UNIQUE KEY `name_proyecto` (`name_proyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `proyecto`
@@ -541,7 +573,15 @@ CREATE TABLE IF NOT EXISTS `proyecto` (
 INSERT INTO `proyecto` (`id_proyecto`, `name_proyecto`, `create_time`, `update_time`, `version`) VALUES
 (1, 'SISTEMA INTEGRAL WEB PARA GESTION DE PROCESOS EDUCATIVOS DEL CEET', '2018-10-03 02:37:03', '2018-10-03 22:49:19', NULL),
 (2, 'PRODUCCIÓN DE CONTENIDOS DIGITALES  E IMPRESOS QUE PROMUEVAN LA SOLUCIÓN DE PROBLEMÁTICAS SOCIALES EN BOGOTÁ', '2018-10-03 02:37:21', '2018-10-03 22:49:19', NULL),
-(3, 'IMPLEMENTACION DE UNA RED DE DATOS CORPORATIVA MULTISERVICIO, ADMINISTRADA Y CONFIGURADA BAJO SISTEMA OPERATIVO LINUX', '2018-10-03 02:37:25', '2018-10-03 22:49:19', NULL);
+(3, 'IMPLEMENTACION DE UNA RED DE DATOS CORPORATIVA MULTISERVICIO, ADMINISTRADA Y CONFIGURADA BAJO SISTEMA OPERATIVO LINUX', '2018-10-03 02:37:25', '2018-10-03 22:49:19', NULL),
+(4, 'hola', '2018-11-29 19:13:06', NULL, NULL),
+(5, 'johann', '2018-11-29 19:13:46', NULL, NULL),
+(8, 'Lopez Parra', '2018-11-29 19:14:49', NULL, NULL),
+(11, 'johannasd', '2018-11-30 12:40:31', NULL, NULL),
+(12, 'safdsagdsgfdas', '2018-11-30 12:48:45', NULL, NULL),
+(13, 'sfsdfgdagsdsfg', '2018-11-30 12:49:59', NULL, NULL),
+(14, 'sadfsafsafsafsafasfsa', '2018-11-30 12:50:03', NULL, NULL),
+(15, 'safsafsafsafsafsadsad', '2018-11-30 12:50:08', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -671,16 +711,17 @@ CREATE TABLE IF NOT EXISTS `sede` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_sede`),
   UNIQUE KEY `name_sede` (`name_sede`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `sede`
 --
 
 INSERT INTO `sede` (`id_sede`, `name_sede`, `direccion`, `create_time`, `update_time`, `version`) VALUES
-(1, 'CEET', NULL, '2018-10-03 02:14:58', '2018-10-03 22:49:15', NULL),
+(1, 'CEET', 'asfdsafd', '2018-10-03 02:14:58', '2018-10-03 22:49:15', NULL),
 (2, 'BARRIO COLOMBIA', 'Calle 69 No 20 – 36', '2018-10-03 02:14:42', '2018-10-03 22:49:15', NULL),
-(3, 'RESTREPO', 'Av. 1ra de Mayo N° 12 D-68 ', '2018-10-03 02:13:54', '2018-10-03 22:49:15', NULL);
+(3, 'RESTREPO', 'Av. 1ra de Mayo N° 12 D-68 ', '2018-10-03 02:13:54', '2018-10-03 22:49:15', NULL),
+(4, 'sadsa', 'sadasda', '2018-11-30 15:10:38', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -699,14 +740,19 @@ CREATE TABLE IF NOT EXISTS `trimestre` (
   `version` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_trimestre`),
   UNIQUE KEY `name_trimestre` (`name_trimestre`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `trimestre`
 --
 
 INSERT INTO `trimestre` (`id_trimestre`, `name_trimestre`, `fecha_inicio`, `fecha_fin`, `create_time`, `update_time`, `version`) VALUES
-(1, 'I-2019', '2019-01-21', '2019-04-05', '2018-10-03 02:26:48', '2018-10-03 22:49:22', NULL);
+(1, 'I-2019', '2019-01-21', '2019-04-05', '2018-10-03 02:26:48', '2018-10-03 22:49:22', NULL),
+(2, 'II-2019', '2018-11-21', '2018-11-15', '2018-11-30 19:26:30', NULL, NULL),
+(3, '', '2018-11-06', '2018-12-20', '2018-11-30 19:33:38', NULL, NULL),
+(4, 'help!!!', '2018-12-20', '2019-03-15', '2018-11-30 19:36:11', NULL, NULL),
+(5, 'hola', '2018-11-04', '2020-02-13', '2018-11-30 19:37:56', NULL, NULL),
+(6, 'III - 2019', '2018-07-07', '2018-09-24', '2018-11-30 22:07:21', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -734,7 +780,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `token` (`token`),
   KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   KEY `FK_cod_rol` (`cod_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -744,22 +790,9 @@ INSERT INTO `usuario` (`id_usuario`, `dni`, `nombre`, `apellido`, `email`, `pass
 (1, '1231', 'Admin', 'Nimda', 'admin@email.com', '123456', NULL, 1, 2, NULL, '2018-10-03 02:36:25', '2018-10-03 22:49:02'),
 (2, '1232', 'Lider', 'Redil', 'lider@email.com', '654321', NULL, 2, 2, NULL, '2018-10-03 03:04:51', '2018-10-03 22:49:02'),
 (3, '1233', 'Instructor', 'Rotcurtsni', 'instructor@email.com', '321654', NULL, 3, 2, NULL, '2018-10-03 03:05:48', '2018-10-03 22:49:02'),
-(4, '354654', 'Andres', 'Garcia', 'afgarcia0479@misena.edu.co', NULL, NULL, 3, 3, NULL, '2018-10-23 15:08:33', NULL),
+(4, '354654', 'Andres', 'Garcia', 'afgarcia0479@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-23 15:08:33', NULL),
 (5, '1230', 'Johann', 'Amaya', 'jaamaya643@misena.edu.co', NULL, NULL, 3, 2, NULL, '2018-10-29 17:09:46', NULL),
-(6, '1239', 'Camila', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 3, NULL, '2018-10-29 17:25:08', NULL),
-(8, '452452', 'olñlñ', 'lñlñl', 'abdg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:44:34', NULL),
-(9, '45242', 'yjkh', 'khgkhk', 'abdtghfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:44:46', NULL),
-(10, '415242', 'uhkhjk', 'khgkjhk', 'abdghgkhk@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:44:55', NULL),
-(11, '54522', 'jukjk', 'kjkjk', 'abujkjhkdg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:45:01', NULL),
-(12, '5463655', 'yiyik', 'hkhkh', 'abdtgjkjikkhfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:45:11', NULL),
-(13, '75425', 'ljklñ', 'kljklk', 'abjljljdtghfghg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:45:18', NULL),
-(14, '563453', 'ygjj', 'gjgujgj', 'hjhjtghfghg@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-09 18:45:33', NULL),
-(15, '254525', 'holas', 'jhkjhk', 'ayhujtgjgjbdg@gmail.com', NULL, NULL, 3, 2, NULL, '2018-11-09 18:46:03', NULL),
-(23, '6546', 'sdfsdjkf', 'SDFSDFSD', 'SAD@ASD.COM', NULL, NULL, 3, 3, NULL, '2018-11-21 14:43:47', NULL),
-(25, '54464654', 'John Doe', 'SAFDSAFS', 'ASD@SADSA.COM', NULL, NULL, 3, 2, NULL, '2018-11-21 14:44:22', NULL),
-(28, '552', 'sadsadasdasdasd', 'degssad', 'dsfs@asfdsa', NULL, NULL, 3, 3, NULL, '2018-11-21 14:49:46', NULL),
-(29, '856546', 'jijijijijijijijijij', 'dsfsdfsd', 'dsfds@sadsa.com', NULL, NULL, 3, 2, NULL, '2018-11-21 14:52:09', NULL),
-(35, '123', 'pene', 'en salsa', 'pene@gmail.com', NULL, NULL, 3, 3, NULL, '2018-11-23 16:42:43', NULL);
+(6, '1239', 'Camila', 'Gaona', 'fcgaona@misena.edu.co', NULL, NULL, 3, 3, NULL, '2018-10-29 17:25:08', NULL);
 
 -- --------------------------------------------------------
 
