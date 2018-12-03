@@ -33,52 +33,26 @@
                             <th class="text-center">Actualizar</th>
                         </thead>
                         <tbody>
-                            <?php
-                                foreach ($data['rutaFichas'] as $rutaFicha):
-                                    require_once './models/grupoModel.php';
-                                    $fichas = GrupoModel::getGrupoIdRutaFicha($rutaFicha->id_ruta_ficha);
-                                    // var_dump($fichas);
-                                    $rowSpan = count($fichas);
-                                ?>
-
-
+                            <?php foreach ($data['rutaFichas'] as $rutaFicha): ?>
                             <tr>
-                            <tr>
-                                <td rowspan="<?php echo $rowSpan; ?>">
+                                <td>
                                     <?php echo $rutaFicha->id_ruta_ficha; ?>
                                 </td>
-                                <td rowspan="<?php echo $rowSpan; ?>">
+                                <td>
                                     <?php echo $rutaFicha->num_ruta_ficha; ?>
                                 </td>
-                                <?php foreach ($fichas as $ficha) : ?>
                                 <td>
-                                    <?php echo $ficha->num_ficha; ?>
+                                    <?php echo $rutaFicha->num_ficha; ?>
                                 </td>
                                 <td>
-                                    <?php echo $ficha->num_grupo; ?>
+                                    <?php echo $rutaFicha->num_grupo; ?>
                                 </td>
                                 <td class="text-center">
                                     <div class="updateDataGrupoFicha" data-toggle="modal" data-target="#ActualizarGrupoFicha"
-                                        id-Grupo="<?php echo $ficha->id_grupo ?>">
+                                        id-Grupo="<?php echo $rutaFicha->num_grupo ?>">
                                         <i class="far fa-edit fa-lg"></i>
                                     </div>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <?php echo $ficha->num_ficha; ?>
-                                </td>
-                                <td>
-                                    <?php echo $ficha->num_grupo; ?>
-                                </td></tr>
-                                <td class="text-center">
-                                    <div class="updateDataGrupoFicha" data-toggle="modal" data-target="#ActualizarGrupoFicha"
-                                        id-Grupo="<?php echo $ficha->id_grupo ?>">
-                                        <i class="far fa-edit fa-lg"></i>
-                                    </div>
-                                </td>
-                            </tr>
-                                <?php endforeach; ?>
                             </tr>
                             <?php endforeach; ?>
 
