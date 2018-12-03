@@ -24,7 +24,11 @@
                             </div>
                         </form>
                     </div>
-                    <a href="#" data-toggle="modal" data-target="#modalRecuperarContrasena">¿Olvidó la contraseña?</a>
+                    <hr>
+                    <div class="text-center pt-2">
+                    <a href="#" data-toggle="modal" data-target="#modalRecuperarContrasena" class="forgot-password">
+                        ¿Olvidó la contraseña?
+                    </a></div>
                 </li>
             </ul>
         </li>
@@ -33,7 +37,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modalRecuperarContrasena" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered " role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="col-11 modal-title text-center">Recuperar contraseña</h3>
@@ -43,10 +47,18 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center text-center">
-                    <form method="POST" action="?c=inicio&m=sendMailRecoveryPassword" class="form-signin">
-                        <div class="form-group">
-                            <h5>Correo electronico</h5>
-                            <input type="email" class="form-control adsi-css" name="emailRecovery" placeholder="ejemplo@e-mail.com" required/>
+                    <form method="POST" action="<?php echo APP_URL ?>Inicio/sendMailRecoveryPassword"class="form-signin form-modal">
+                        <div class="container-fluid">
+                            <div class="row pt-4">
+                                <div class="col-lg-4 col-12 ">
+                                    <h4>Correo electronico</h4>
+                                    <small id="" class="text-muted">Escriba Correo Electronico
+                                    </small>
+                                </div>
+                                <div class="col-lg-8 col-12">
+                                    <input type="email" class="form-control" name="emailRecovery" placeholder="ejemplo@e-mail.com" required />
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div class="text-center pt-2">
