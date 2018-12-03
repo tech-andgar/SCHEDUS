@@ -16,10 +16,6 @@
                 <div class="card-body row">
                     <div class="col-6">
                         <h4>Ficha 1 :</h4>
-                        <div class="input-group">
-                            <input type="text" id="texto" name="texto" class="form-control" placeholder="Texto a buscar">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                        </div>
                         <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
                             <thead>
                                 <tr class="success">
@@ -37,10 +33,6 @@
                     </div>
                     <div class="col-6">
                         <h4>Ficha 2 :</h4>
-                        <div class="input-group ">
-                            <input type="text" id="texto" name="texto" class="form-control " placeholder="Texto a buscar">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                        </div>
                         <table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableInstructores">
                             <thead>
                                 <tr class="success">
