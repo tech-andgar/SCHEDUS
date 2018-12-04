@@ -21,6 +21,7 @@ class LiderController extends Path
         $this->modelAmbiente = parent::model('ambiente');
         $this->modelRutaFicha = parent::model('rutaFicha');
         $this->modelSede = parent::model('sede');
+        $this->modelResultados = parent::model('resultados');
         $this->modelEstadoAmbiente = parent::model('estadoAmbiente');
     }
 
@@ -130,7 +131,7 @@ class LiderController extends Path
     {
         $data['estadoAmbiente'] = $this->modelEstadoAmbiente->getAllEstadoAmbiente();
         $data['msgType'] = $msgType;
-        parent::viewModule('lider', 'EstadoAmbiente', 'Estado Ambiente', $data);
+        parent::viewModule('lider', 'estadoAmbiente', 'estado Ambiente', $data);
     }
 
     public function Sede($msgType = [])
@@ -138,6 +139,20 @@ class LiderController extends Path
         $data['sede'] = $this->modelSede->getAllSede();
         $data['msgType'] = $msgType;
         parent::viewModule('lider', 'Sede', 'Sede', $data);
+    }
+
+    public function Resultados()
+    {
+        // $data['resultados'] = $this->modelResultados->getAllResultados();
+        // $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Resultados', 'Resultados');
+    }
+
+    public function EstadoFicha($msgType = [])
+    {
+        $data['estadoFicha'] = $this->modelEstadoFicha->getAllEstadoFicha();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'EstadoFicha', 'Estado Ficha', $data);
     }
 
     //
@@ -246,6 +261,7 @@ class LiderController extends Path
         }
         $this->Fichas($msgType);
     }
+
     public function changeStatusFicha()
     {
         if ($_POST['state_id'] == "2") {
@@ -275,25 +291,6 @@ class LiderController extends Path
         echo $dataFicha;
     }
 
-    public function getDataEstadoFicha()
-    {
-        // Completa lista de estado de ficha
-        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
-            $output = $this->modelEstadoFicha->getAllEstadoFicha();
-        }
-        // Selecciona ID de estado de ficha
-        elseif (isset($_REQUEST['id'])) {
-            $output = $this->modelEstadoFicha->getEstadoFichaId($_REQUEST['id']);
-        }
-        // Selecciona caracteres en lista de estado de ficha
-        elseif (isset($_REQUEST['q'])) {
-            $output = $this->modelEstadoFicha->getEstadoFichaName($_REQUEST['q']);
-        }
-
-        $dataEstadoFicha = json_encode($output);
-        echo $dataEstadoFicha;
-    }
-
     public function updateDataFicha()
     {
         //var_dump($_POST);
@@ -320,7 +317,49 @@ class LiderController extends Path
         $this->Fichas($msgType);
     }
 
+    //
+    // ─── CONTROL NIVEL PROGRAMA DE FORMACION ────────────────────────────────────────
+    //
 
+    public function getDataEstadoFicha()
+    {
+        // Completa lista de estado de ficha
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelEstadoFicha->getAllEstadoFicha();
+        }
+        // Selecciona ID de estado de ficha
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelEstadoFicha->getEstadoFichaId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de estado de ficha
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelEstadoFicha->getEstadoFichaName($_REQUEST['q']);
+        }
+
+        $dataEstadoFicha = json_encode($output);
+        echo $dataEstadoFicha;
+    }
+
+    public function insertarEstadoFicha()
+    {
+        $data = $_POST;
+        $result = $this->modelEstadoFicha->insertarEstadoFicha($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nuevo Estado',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo Estado',
+            );
+        }
+        $this->EstadoFicha($msgType);
+    }
     //
     // ─── CONTROL NIVEL PROGRAMA DE FORMACION ────────────────────────────────────────
     //
@@ -1042,4 +1081,5 @@ class LiderController extends Path
         $dataRutaFicha = json_encode($output);
         echo $dataRutaFicha;
     }
+
 }
