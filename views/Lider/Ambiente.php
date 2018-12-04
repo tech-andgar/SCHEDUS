@@ -102,29 +102,29 @@
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 for="codig">Ambiente</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Numero de Ambiente</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
                                     <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Numero de Ambiente</small>
                                 </div>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 for="codig">Sede</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                <select class="form-control" name="" id="" style="width:100%"
+                                    <select class="form-control" name="" id="" style="width:100%"
 									required></select>
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
                                     <h4 for="codig">Direccion</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Direccion de la sede</small>
                                 </div>
                                 <div class="col-lg-8 col-12">
                                     <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control" readonly>
+                                    <small id="helpIdNumFicha" class="text-muted">Direccion de la sede</small>
                                 </div>
                             </div>
                         </div>
@@ -143,13 +143,13 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+                <h3 class="col-11 modal-title">Actualizar Datos</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
+                <div class="d-flex justify-content-center">
                     <form method="post" action="#" class="form-signin form-modal">
                     <div class="container-fluid">
                             <div class="row pt-4">
@@ -159,30 +159,40 @@
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
-                                    <h4 for="codig">Ambiente</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Numero de Ambiente</small>
+                                    <h4 for="ambiente">Ambiente</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
                                     <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <small id="helpIdNumFicha" class="text-muted">Numero de Ambiente</small>
                                 </div>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
-                                    <h4 for="codig">Sede</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
+                                    <h4 for="sede">Sede</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                <select class="form-control" name="" id="" style="width:100%"
+                                    <select class="form-control" name="" id="" style="width:100%"
 									required></select>
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
                                 </div>
                             </div>
                             <div class="row pt-4">
                                 <div class="col-lg-4 col-12">
-                                    <h4 for="codig">Direccion</h4>
-                                    <small id="helpIdNumFicha" class="text-muted">Direccion de la sede</small>
+                                    <h4 for="dirreccion">Direccion</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
                                     <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control" readonly>
+                                    <small id="helpIdNumFicha" class="text-muted">Direccion de la sede</small>
+                                </div>
+                            </div>
+                            <div class="row pt-4">
+                                <div class="col-lg-4 col-12">
+                                    <h4 for="estado">Estado</h4>
+                                </div>
+                                <div class="col-lg-8 col-12">
+                                    <select class="form-control" name="" id="" style="width:100%"
+									required></select>
+                                    <small id="helpIdNumFicha" class="text-muted">Nombre del Estado</small>
                                 </div>
                             </div>
                         </div>

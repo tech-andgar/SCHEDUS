@@ -92,7 +92,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="col-11">
-                    <h3 class="modal-title text-center">Actualizar Datos</h3>
+                    <h3 class="modal-title ">Actualizar Datos</h3>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
