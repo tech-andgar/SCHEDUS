@@ -54,7 +54,7 @@ $(document).ready(function() {
                 "<'row'<'col-xl-4 col-lg-4 col-md-2 col-sm-3 offset-xl-5 offset-lg-4 offset-md-4 offset-sm-2 offset'i>>" +
                 "<'row'<'col-xl-3 col-lg-4 col-md-2 col-sm-3 offset-xl-4 offset-lg-5 offset-md-5 offset-sm-6 offset'p>>"
                 ,
-            lengthMenu: [
+            "lengthMenu": [
                 [10, 25, 50, -1],
                 ['10 filas', '25 filas', '50 filas', 'Mostrar todos']
             ],
@@ -68,7 +68,7 @@ $(document).ready(function() {
                     extend: 'copyHtml5',
                     className: 'btn btn-outline-info',
                     // text: 'Copiar'
-                    text: '<span id="btnDTCopy" data-toggle="tooltip" data-placement="top" title="Copiar al portapapeles"><i class="fas fa-copy fa-lg"></i></span>',
+                    text: '<span class="btnDT" id="btnDTCopy" data-toggle="tooltip" data-placement="top" title="Copiar al portapapeles"><i class="fas fa-copy fa-lg"></i></span>',
                     key: {
                         key: 'c',
                         altKey: true
@@ -78,7 +78,7 @@ $(document).ready(function() {
                     extend: 'excelHtml5',
                     className: 'btn btn-outline-info',
                     // text: 'XLSX'
-                    text: '<span id="btnDTXLSX" data-toggle="tooltip" data-placement="top" title="Exportar al archivo formato XLSX"><i class="fas fa-file-excel fa-lg"></i></span>',
+                    text: '<span class="btnDT" id="btnDTXLSX" data-toggle="tooltip" data-placement="top" title="Exportar al archivo formato XLSX"><i class="fas fa-file-excel fa-lg"></i></span>',
                     key: {
                         key: 'x',
                         altKey: true
@@ -88,7 +88,7 @@ $(document).ready(function() {
                     extend: 'csvHtml5',
                     className: 'btn btn-outline-info',
                     // text: 'CSV'
-                    text: '<span id="btnDTCSV" data-toggle="tooltip" data-placement="top" title="Exportar al archivo formato CSV"><i class="fas fa-file-csv fa-lg"></i></span>',
+                    text: '<span class="btnDT" id="btnDTCSV" data-toggle="tooltip" data-placement="top" title="Exportar al archivo formato CSV"><i class="fas fa-file-csv fa-lg"></i></span>',
                     key: {
                         key: 'S',
                         altKey: true
@@ -98,7 +98,7 @@ $(document).ready(function() {
                     extend: 'pdfHtml5',
                     className: 'btn btn-outline-info',
                     // text: 'PDF'
-                    text: '<span id="btnDTPDF" data-toggle="tooltip" data-placement="top" title="Exportar al archivo formato PDF"><i class="fas fa-file-pdf fa-lg"></i></span>',
+                    text: '<span class="btnDT" id="btnDTPDF" data-toggle="tooltip" data-placement="top" title="Exportar al archivo formato PDF"><i class="fas fa-file-pdf fa-lg"></i></span>',
                     key: {
                         key: 'p',
                         altKey: true
@@ -112,7 +112,7 @@ $(document).ready(function() {
                 {
                     extend: 'print',
                     className: 'btn btn-outline-info',
-                    text: '<span id="btnDTPrint" data-toggle="tooltip" data-placement="top" title="Imprimir esta tabla"><i class="fas fa-print fa-lg"></i></span>',
+                    text: '<span class="btnDT" id="btnDTPrint" data-toggle="tooltip" data-placement="top" title="Imprimir esta tabla"><i class="fas fa-print fa-lg"></i></span>',
                     autoPrint: true,
                     footer: true,
                     exportOptions: {
@@ -125,7 +125,7 @@ $(document).ready(function() {
                     extend: 'colvis',
                     collectionLayout: 'fixed two-column',
                     className: 'btn btn-outline-info',
-                    text: '<span id="btnDTFilter" data-toggle="tooltip" data-placement="top" title="Seleccionar las columnas para ocultar o visualizar"><i class="fas fa-columns"></i></span>',
+                    text: '<span class="btnDT" id="btnDTFilter" data-toggle="tooltip" data-placement="top" title="Seleccionar las columnas para ocultar o visualizar"><i class="fas fa-columns"></i></span>',
                     collectionLayout: 'three-column',
                 },
 
@@ -168,13 +168,13 @@ $(document).ready(function() {
             //     visible: false
             // }],
         });
+
     }
     //
     // ─── END TABLE LOAD PLUGIN ─────────────────────────────────────────────────────────────────
     //
 
 
-    $("span").addClass("py-2 px-1");
 
     $("#btnDTXLSX").parent().hover(function () {
         $(this).toggleClass("bg-success rounded"); //Toggle the active class to the area is hovered
@@ -186,6 +186,7 @@ $(document).ready(function() {
         $(this).toggleClass("bg-danger rounded"); //Toggle the active class to the area is hovered
     });
 
+    $(".btnDT").addClass("py-5 px-1");
 
 
 

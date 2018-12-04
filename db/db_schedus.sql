@@ -5,7 +5,7 @@
 -- Servidor: 127.0.0.1:3307
 -- Tiempo de generación: 03-12-2018 a las 13:16:00
 -- Versión del servidor: 10.3.9-MariaDB
--- Versión de PHP: 7.2.11
+-- Versión de PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -326,19 +326,10 @@ CREATE TABLE IF NOT EXISTS `ficha` (
 --
 
 INSERT INTO `ficha` (`id_ficha`, `num_ficha`, `create_time`, `update_time`, `version`, `cod_estado_ficha`, `cod_programa_formacion`) VALUES
-(1, '1320652', '2018-10-05 00:44:49', '0000-00-00 00:00:00', NULL, 4, 11),
-(2, '1320500', '2018-10-05 00:45:10', '0000-00-00 00:00:00', NULL, 2, 3),
-(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 4, 2),
-(6, '1320658', '2018-11-23 13:18:02', NULL, NULL, 1, 3),
-(7, '124434', '2018-11-23 21:44:58', NULL, NULL, 3, 1),
-(8, '346436', '2018-11-23 21:45:42', NULL, NULL, 1, 2),
-(9, '6546546', '2018-11-23 21:46:43', NULL, NULL, 1, 3),
-(10, '4598897798798', '2018-11-28 16:45:15', NULL, NULL, 3, 2),
-(12, '54645645', '2018-11-28 16:46:23', NULL, NULL, 2, 2),
-(15, '6456465', '2018-11-28 18:25:31', NULL, NULL, 1, 5),
-(16, '54544554', '2018-11-28 18:25:37', NULL, NULL, 1, 3),
-(17, '545', '2018-11-28 18:25:41', NULL, NULL, 4, 5),
-(19, '132065258', '2018-11-30 21:47:16', NULL, NULL, 1, 5);
+(1, '1320652', '2018-10-05 00:44:49', '0000-00-00 00:00:00', NULL, 2, 1),
+(2, '1320500', '2018-10-05 00:45:10', '0000-00-00 00:00:00', NULL, 4, 3),
+(3, '6546513', '2018-11-08 19:29:43', NULL, NULL, 1, 2),
+(6, '654321', '2018-11-23 16:24:54', NULL, NULL, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -485,13 +476,14 @@ CREATE TABLE IF NOT EXISTS `nivel_programa_formacion` (
 --
 
 INSERT INTO `nivel_programa_formacion` (`id_nivel_programa_formacion`, `name_nivel_programa_formacion`, `duracion`, `create_time`, `update_time`, `version`) VALUES
+(0, 'NULL', 'NULL', '2018-11-08 20:21:23', NULL, NULL),
 (1, 'Curso complementario', NULL, '2018-10-03 02:39:11', '2018-10-03 22:49:08', NULL),
-(2, 'Certificación De Competencia Laboral', '2 años', '2018-10-03 02:41:01', '2018-10-03 22:49:08', NULL),
+(2, 'Certificación De Competencia Laboral', NULL, '2018-10-03 02:41:01', '2018-10-03 22:49:08', NULL),
 (3, 'Técnico', NULL, '2018-10-03 02:41:04', '2018-10-03 22:49:08', NULL),
 (4, 'Tecnólogia', NULL, '2018-10-03 02:42:20', '2018-10-03 22:49:08', NULL),
-(5, 'Especialización Tecnológica', '6 meses', '2018-10-03 02:43:08', '2018-10-03 22:49:08', NULL),
+(5, 'Especialización Tecnológica', NULL, '2018-10-03 02:43:08', '2018-10-03 22:49:08', NULL),
 (6, 'Pregrado', NULL, '2018-10-03 02:43:16', '2018-10-03 22:49:08', NULL),
-(7, 'Especialización', '5 años', '2018-10-03 02:43:22', '2018-10-03 22:49:08', NULL),
+(7, 'Especialización', NULL, '2018-10-03 02:43:22', '2018-10-03 22:49:08', NULL),
 (8, 'Maestría', NULL, '2018-10-03 02:43:29', '2018-10-03 22:49:08', NULL),
 (9, 'Doctorado', NULL, '2018-10-03 02:43:40', '2018-10-03 22:49:08', NULL),
 (11, 'dsfdf', 'asdasd', '2018-11-29 16:33:09', NULL, NULL),
@@ -522,7 +514,7 @@ CREATE TABLE IF NOT EXISTS `programa_formacion` (
   KEY `FK_cod_estado_programa_formacion` (`cod_estado_programa_formacion`),
   KEY `FK_cod_nivel_programa_formacion` (`cod_nivel_programa_formacion`),
   KEY `FK_cod_proyecto_programa_formacion` (`cod_proyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `programa_formacion`
@@ -532,22 +524,12 @@ INSERT INTO `programa_formacion` (`id_programa_formacion`, `codigo`, `short_name
 (0, NULL, 'NULL', 'NULL', NULL, NULL, NULL, NULL, '2018-11-08 20:20:52', NULL, NULL),
 (1, '228101', 'GRD', 'GESTION DE REDES DE DATOS ', 'V 1', 3, 3, 2, '2018-10-03 05:11:28', '2018-10-03 22:49:11', NULL),
 (2, '228106', 'PM', 'PRODUCCIÓN DE MULTIMEDIA', 'V 102', 3, 2, 1, '2018-10-03 05:12:27', '2018-10-03 22:49:11', NULL),
-(3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 1, '2018-10-03 05:15:53', '2018-10-03 22:49:11', NULL),
-(5, '228102', 'TPS', 'TECNICO DE PROGRAMACION DE SOTFWARE', '25', 3, 1, 2, '2018-11-19 19:11:18', NULL, NULL),
-(8, '4', 'sdf', 'dsfds ', 's 3', 8, 2, 2, '2018-11-21 14:33:35', NULL, NULL),
-(11, '4', 'sdf', 'asdfsdfsd', 'd 5 ', 8, 3, 2, '2018-11-21 14:34:32', NULL, NULL),
-(13, '2', 'SF', 'SDAF', 'D 5JKJMK', 7, 3, 2, '2018-11-21 14:38:04', NULL, NULL),
-(14, '665', 'fc', 'vqfa', 'qva', 4, 2, 2, '2018-11-21 14:51:30', NULL, NULL),
-(15, '645', 'GDHDH', 'FGHDGFDHG', 'V 32423', 8, 2, 1, '2018-11-29 12:52:49', NULL, NULL),
-(16, '324', 'SADF', 'ASFD', 'ASF', 8, 3, 1, '2018-11-29 12:54:15', NULL, NULL),
-(18, '324342', 'SDAS', 'DSAF', 'ADFS', 8, 3, 2, '2018-11-29 12:55:28', NULL, NULL),
-(23, '11111', 'SAF', 'ASDFSAF', 'ASDSA', 8, 3, 1, '2018-11-29 12:58:20', NULL, NULL),
-(26, '1234', 'SADF', 'SAD', 'SAD', 2, 3, 1, '2018-11-29 13:57:22', NULL, NULL),
-(27, '564645', 'GGSJ', 'BJHA', 'GGG', 4, 3, 1, '2018-11-29 14:19:28', NULL, NULL),
-(31, '4856', 'SDFA', 'SAFD', 'V 5', 3, 3, 1, '2018-11-29 14:45:28', NULL, NULL),
-(32, '12345', 'JJAJA', 'JAJAJAJ', 'V 51324654', 3, 3, 2, '2018-11-29 14:46:05', NULL, NULL),
-(34, '999900', 'AAA', 'DFGSDVFV', 'GFCGCFGC', 2, 2, 1, '2018-11-29 15:15:28', NULL, NULL),
-(35, '159', 'ADSI', 'ANALISIS DE DESARROLO DE SISTEMA DE INFORMACION', 'V 15', 4, 1, 1, '2018-11-30 21:48:36', NULL, NULL);
+(3, '228183', 'ADSI', 'ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION ', 'V 102', 4, 1, 2, '2018-10-03 05:15:53', '2018-10-03 22:49:11', NULL),
+(5, '8524679321', 'TCP', 'TECNICA COCINA PORTUGESA', 'V0.01', 1, 2, 1, '2018-11-26 20:54:50', NULL, NULL),
+(6, '54645', 'TEAS', 'TÉCNICO DE ELECTRÓNICA AUDIOS', 'V0.3', 4, 2, 1, '2018-11-26 21:09:01', NULL, NULL),
+(7, '5464532', 'TEASS', 'TÉCNICO EN ELECTRÓNICA AUDIO', 'V0.15', 3, 2, 2, '2018-11-26 21:11:17', NULL, NULL),
+(8, '8324184', 'TPS', 'INSTALACION DE REDES DE COMPUTADORESDD', 'V0.12', 3, 1, 1, '2018-11-26 22:42:25', NULL, NULL),
+(9, '83241844', 'TPS', 'AAAINSTALACION DE REDES DE COMPUTADORES', 'V0.12', 3, 1, 1, '2018-11-26 22:44:23', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -780,7 +762,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   UNIQUE KEY `token` (`token`),
   KEY `FK_cod_estado_usuario` (`cod_estado_usuario`),
   KEY `FK_cod_rol` (`cod_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci COMMENT='Este tabla del usuario para accede el sistema SCHEDUS' ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -870,27 +852,6 @@ CREATE TABLE IF NOT EXISTS `v_ficha_programa_nivel_estado` (
 ,`name_nivel_programa_formacion` varchar(100)
 ,`id_estado_ficha` int(10)
 ,`name_estado_ficha` varchar(100)
-);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `v_grupo_ficha`
--- (Véase abajo para la vista actual)
---
-DROP VIEW IF EXISTS `v_grupo_ficha`;
-CREATE TABLE IF NOT EXISTS `v_grupo_ficha` (
-`id_grupo` int(10)
-,`id_ficha` int(10)
-,`num_ficha` varchar(100)
-,`num_grupo` varchar(3)
-,`id_ruta_ficha` int(10)
-,`name_ruta_ficha` varchar(100)
-,`num_ruta_ficha` varchar(10)
-,`cod_jornada` int(10)
-,`fecha_inicio` date
-,`fecha_fin` date
-,`observaciones` varchar(191)
 );
 
 -- --------------------------------------------------------
@@ -1038,15 +999,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `v_ficha_programa_nivel_estado`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_ficha_programa_nivel_estado`  AS  select `ficha`.`id_ficha` AS `id_ficha`,`ficha`.`num_ficha` AS `num_ficha`,`programa_formacion`.`id_programa_formacion` AS `id_programa_formacion`,`programa_formacion`.`name_programa_formacion` AS `name_programa_formacion`,`nivel_programa_formacion`.`id_nivel_programa_formacion` AS `id_nivel_programa_formacion`,`nivel_programa_formacion`.`name_nivel_programa_formacion` AS `name_nivel_programa_formacion`,`estado_ficha`.`id_estado_ficha` AS `id_estado_ficha`,`estado_ficha`.`name_estado_ficha` AS `name_estado_ficha` from (((`ficha` join `estado_ficha` on(`ficha`.`cod_estado_ficha` = `estado_ficha`.`id_estado_ficha`)) join `programa_formacion` on(`ficha`.`cod_programa_formacion` = `programa_formacion`.`id_programa_formacion`)) join `nivel_programa_formacion` on(`programa_formacion`.`cod_nivel_programa_formacion` = `nivel_programa_formacion`.`id_nivel_programa_formacion`)) ;
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `v_grupo_ficha`
---
-DROP TABLE IF EXISTS `v_grupo_ficha`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_grupo_ficha`  AS  select `g`.`id_grupo` AS `id_grupo`,`f`.`id_ficha` AS `id_ficha`,`f`.`num_ficha` AS `num_ficha`,`g`.`num_grupo` AS `num_grupo`,`rf`.`id_ruta_ficha` AS `id_ruta_ficha`,`rf`.`name_ruta_ficha` AS `name_ruta_ficha`,`rf`.`num_ruta_ficha` AS `num_ruta_ficha`,`rf`.`cod_jornada` AS `cod_jornada`,`rf`.`fecha_inicio` AS `fecha_inicio`,`rf`.`fecha_fin` AS `fecha_fin`,`rf`.`observaciones` AS `observaciones` from ((`grupo` `g` join `ruta_ficha` `rf` on(`rf`.`id_ruta_ficha` = `g`.`cod_ruta_ficha`)) join `ficha` `f` on(`f`.`id_ficha` = `g`.`cod_ficha`)) ;
 
 -- --------------------------------------------------------
 
