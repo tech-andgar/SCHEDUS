@@ -80,8 +80,7 @@ class EstadoFichaModel extends DB {
         try {
             $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_ESTADO_FICHAS);
             $stm->execute();
-            $fichas = $stm->fetchAll(PDO::FETCH_OBJ);
-            return $fichas; // Retorno completa de lista de Fichas
+            return $stm->fetchAll(PDO::FETCH_OBJ);// Retorno completa de lista de Fichas
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -108,6 +107,25 @@ class EstadoFichaModel extends DB {
             $stm->execute();
             return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Estado de Fichas
         } catch (Exception $e) {
+            die($e->getMessage());
+        }
+	}
+	
+	public function insertarEstadoFicha(array $data)
+    {
+        // var_dump($_POST);
+        try {
+            // Verificar hay datos en $data
+            if (
+                isset($data['name_estado_ficha'])) {
+                $name_estado_ficha = $data['name_estado_ficha'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_ESTADO_FICHA);
+                $stm->bindParam(1, $name_estado_ficha, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
             die($e->getMessage());
         }
     }

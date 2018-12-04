@@ -51,9 +51,10 @@ class preparedSQL
     //
 
 
-    const GET_ALL_ESTADO_FICHAS = "SELECT `id_estado_ficha`, `name_estado_ficha` FROM `estado_ficha`";
+    const GET_ALL_ESTADO_FICHAS = "SELECT * FROM `estado_ficha`";
     const GET_ESTADO_FICHA_ID = "SELECT `id_estado_ficha`, `name_estado_ficha` FROM `estado_ficha` WHERE `id_estado_ficha` = ?";
     const GET_ESTADO_FICHA_NAME = "SELECT `name_estado_ficha`, `id_estado_ficha` FROM `estado_ficha` WHERE `name_estado_ficha` LIKE ?";
+    const INSERT_NEW_ESTADO_FICHA  = "INSERT INTO `estado_ficha`(`name_estado_ficha`) VALUES (?)";
 
     //
     // ─── GRUPO ──────────────────────────────────────────────────────────────────────
@@ -101,7 +102,6 @@ class preparedSQL
     //
     // ─── ESTADO PROGRAMA DE FORMACION ───────────────────────────────────────────────
     //
-
 
     const GET_ALL_ESTADO_PROGRAMAS_FORMACION = "SELECT `id_estado_programa_formacion`, `name_estado_programa_formacion` FROM `estado_programa_formacion`";
     const GET_ESTADO_PROGRAMA_FORMACION_ID = "SELECT `id_estado_programa_formacion`, `name_estado_programa_formacion` FROM `estado_programa_formacion` WHERE ?";

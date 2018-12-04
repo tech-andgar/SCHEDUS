@@ -21,7 +21,7 @@
                                 Fichas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo APP_URL ?>lider/estadoAmbiente"><i class="nav-icon fas fa-toggle-on"></i>Estado Ficha</a>
+                            <a class="nav-link" href="<?php echo APP_URL ?>lider/EstadoFicha"><i class="nav-icon fas fa-toggle-on"></i>Estado Ficha</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/Grupos"><i class="nav-icon  fab fa-hubspot"></i>
@@ -81,7 +81,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="<?php echo APP_URL ?>lider/jornadas"><i class="nav-icon fab fa-leanpub"></i>
+                    <a class="nav-link " href="<?php echo APP_URL ?>lider/resultados"><i class="nav-icon fab fa-leanpub"></i>
                         Resultado Aprendizaje</a>
                 </li>
 

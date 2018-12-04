@@ -47,7 +47,7 @@ $(document).ready(function() {
                 // Pie de la tabla -- B-> Botones de exportar
                 "<'col-sm-12 col-md-10'B>" +
                 // Encabezado de la tabla -- l->Num registros por pagina, f-> barra de filtro
-                "<'row pt-2'<'col-xl-6 col-lg-6 col-md-6'f><'col-xl-6 col-lg-6 col-md-6'l>>" +
+                "<'row pt-4'<'col-xl-6 col-lg-6 col-md-6'f><'col-xl-6 col-lg-6 col-md-6'l>>" +
                 // Cuerpo de la tabla -- t-> tabla, r (no aun entiendo)
                 "<'row'<'col-sm-12 table-responsive d-flex justify-content-center'tr>>" +
                 // Seccion estado de la tabla -- i-> info de tabla, p-> num Paginas por dividir registros

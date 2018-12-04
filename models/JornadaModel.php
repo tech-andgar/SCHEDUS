@@ -84,7 +84,7 @@ class JornadaModel extends DB {
             die($e->getMessage());
         }
 	}
-	
+
 	public function getJornadaId($idJornada)
     {
         try {
