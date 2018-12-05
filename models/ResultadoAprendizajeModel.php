@@ -127,5 +127,41 @@ class ResultadoAprendizajeModel extends DB {
 	public function setName_resultado_aprendizaje($name_resultado_aprendizaje) {
 		$this->name_resultado_aprendizaje = $name_resultado_aprendizaje;
 	}
+
+	public function getAllResultadoAprendizaje()
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_ALL_RESULTADO_APRENDIZAJE);
+            $stm->execute();
+            return $stm->fetchAll(PDO::FETCH_OBJ);// Retorno completa de lista de Resultado Aprendizaje
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function getResultadoAprendizajeId($idResultadoAprendizaje)
+    {
+        try {
+            $stm = parent::conectar()->prepare(preparedSQL::GET_RESULTADO_APRENDIZAJE_ID);
+            $stm->bindParam(1, $idResultadoAprendizaje, PDO::PARAM_STR);
+            $stm->execute();
+            return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Resultado Aprendizaje
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+	public function getResultadoAprendizajeName($nameResultadoAprendizaje)
+    {
+        try {
+			$stm = parent::conectar()->prepare(preparedSQL::GET_RESULTADO_APRENDIZAJE_NAME);
+            $nameResultadoAprendizaje = '%'.$nameResultadoAprendizaje.'%';
+            $stm->bindParam(1, $nameResultadoAprendizaje, PDO::PARAM_STR);
+            $stm->execute();
+			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Formacion de Programa
+		} catch (Exception $e) {
+			die($e->getMessage());
+		}
+	}
 }
 ?>
