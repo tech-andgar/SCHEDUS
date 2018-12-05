@@ -21,7 +21,7 @@ class LiderController extends Path
         $this->modelAmbiente = parent::model('ambiente');
         $this->modelRutaFicha = parent::model('rutaFicha');
         $this->modelSede = parent::model('sede');
-        $this->modelResultados = parent::model('resultados');
+        $this->modelResultadoAprendizaje = parent::model('resultadoAprendizaje');
         $this->modelEstadoAmbiente = parent::model('estadoAmbiente');
     }
 
@@ -131,7 +131,7 @@ class LiderController extends Path
     {
         $data['estadoAmbiente'] = $this->modelEstadoAmbiente->getAllEstadoAmbiente();
         $data['msgType'] = $msgType;
-        parent::viewModule('lider', 'estadoAmbiente', 'estado Ambiente', $data);
+        parent::viewModule('lider', 'estadoAmbiente', 'Estado Ambiente', $data);
     }
 
     public function Sede($msgType = [])
@@ -141,11 +141,11 @@ class LiderController extends Path
         parent::viewModule('lider', 'Sede', 'Sede', $data);
     }
 
-    public function Resultados()
+    public function Resultados($msgType = [])
     {
-        // $data['resultados'] = $this->modelResultados->getAllResultados();
-        // $data['msgType'] = $msgType;
-        parent::viewModule('lider', 'Resultados', 'Resultados');
+        $data['resultadoAprendizaje'] = $this->modelResultadoAprendizaje->getAllResultadoAprendizaje();
+        $data['msgType'] = $msgType;
+        parent::viewModule('lider', 'Resultado', 'Resultado', $data);
     }
 
     public function EstadoFicha($msgType = [])
@@ -318,7 +318,7 @@ class LiderController extends Path
     }
 
     //
-    // ─── CONTROL NIVEL PROGRAMA DE FORMACION ────────────────────────────────────────
+    // ─── CONTROL ESTADO FICHA ────────────────────────────────────────
     //
 
     public function getDataEstadoFicha()
@@ -360,30 +360,6 @@ class LiderController extends Path
         }
         $this->EstadoFicha($msgType);
     }
-    //
-    // ─── CONTROL NIVEL PROGRAMA DE FORMACION ────────────────────────────────────────
-    //
-
-
-    public function getDataNivelProgramaFormacion()
-    {
-        // Completa lista de Nivel Programa de Formacion
-        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
-            $output = $this->modelNivelProgramaFormacion->getAllNivelFormacion();
-        }
-        // Selecciona ID de Nivel Programa de Formacion
-        elseif (isset($_REQUEST['id'])) {
-            $output = $this->modelNivelProgramaFormacion->getNivelFormacionId($_REQUEST['id']);
-        }
-        // Selecciona caracteres en lista de Nivel Programa de Formacion
-        elseif (isset($_REQUEST['q'])) {
-            $output = $this->modelNivelProgramaFormacion->getNivelFormacionName($_REQUEST['q']);
-        }
-
-        $dataNivelFormacion = json_encode($output);
-        echo $dataNivelFormacion;
-    }
-
 
     //
     // --- CONTROL PROGRAMA DE FORMACION ----------------------------------------
@@ -1059,7 +1035,6 @@ class LiderController extends Path
     // ─── CONTROL DE TRIMESTRE PROGRAMA ───────────────────────────────────────────────────────────
     //
 
-
     public function getDataRutaFicha()
     {
         // Completa lista de Programa de Formacion
@@ -1082,4 +1057,31 @@ class LiderController extends Path
         echo $dataRutaFicha;
     }
 
+    //
+    // ─── CONTROL DE RESULTADO APRENDIZAJE ───────────────────────────────────────────────────────────
+    //
+
+    public function getDataResultadoAprendizaje()
+    {
+        // Completa lista de Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id']) && !isset($_REQUEST['codigo'])) {
+            $output = $this->modelResultadoAprendizaje->getAllResultadoAprendizaje();
+        }
+        // Selecciona ID de Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelResultadoAprendizaje->getResultadoAprendizajeId($_REQUEST['id']);
+        }
+        elseif (isset($_REQUEST['codigo'])) {
+            $output = $this->modelResultadoAprendizaje->getResultadoAprendizajeCodigo($_REQUEST['codigo']);
+        }
+        // Selecciona caracteres en lista de Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelResultadoAprendizaje->getResultadoAprendizajeName($_REQUEST['q']);
+        }
+
+        $dataResultadoAprendizaje = json_encode($output);
+        echo $dataResultadoAprendizaje;
+    }
+
 }
+
