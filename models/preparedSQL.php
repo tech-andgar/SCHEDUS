@@ -5,7 +5,6 @@ class preparedSQL
     // ─── USUARIO ────────────────────────────────────────────────────────────────────
     //
 
-
     const GET_USER_DNI = "SELECT * FROM v_usuarios WHERE dni = ?";
     const GET_USER_EMAIL = "SELECT * FROM v_usuarios WHERE email = ?";
 
@@ -13,13 +12,11 @@ class preparedSQL
     // ─── INSTRUCTORES ───────────────────────────────────────────────────────────────
     //
 
-
     const GET_INSTRUCTOR = "SELECT * FROM `v_usuarios` WHERE id_usuario=? AND id_rol = 3";
     const GET_ALL_INSTRUCTORES = "SELECT * FROM `v_usuarios` WHERE id_rol = 3";
     const INSTRUCTOR_NEW = "INSERT INTO  `usuario`(`dni`, `nombre`, `apellido`, `email`, `cod_rol`, `cod_estado_usuario`) VALUES (?,?,?,?,3,3)"; // 3-> COD INSTRUCTOR, 3 -> INACTIVO
     const UPDATE_DATA_INSTRUCTOR = "UPDATE `usuario` SET `nombre`= ?, `apellido`= ?,`email`= ? WHERE `dni` = ? ";
     const UPDATE_STATUS_INSTRUCTOR = "UPDATE `usuario` SET `cod_estado_usuario` = ? WHERE `id_usuario` = ?";
-
 
     //
     // ─── RUTA DE FICHA ──────────────────────────────────────────────────────────────
@@ -32,14 +29,12 @@ class preparedSQL
     // ─── GRUPO DE FICHAS EN PROGRAMA DE FORMACION ───────────────────────────────────
     //
 
-
     const GET_ALL_FICHAS_GRUPO_PROGRAMA_NIVEL_ESTADO = "SELECT * FROM `v_ficha_grupo_programa_nivel_estado`";
     const GET_FICHA_GRUPO_PROGRAMA_NIVEL_ESTADO_ID = "SELECT * FROM `v_ficha_grupo_programa_nivel_estado` WHERE `id_ficha` = ? ";
 
     //
     // ─── FICHAS ─────────────────────────────────────────────────────────────────────
     //
-
 
     const GET_ALL_FICHAS_PROGRAMA_NIVEL_ESTADO = "SELECT * FROM `v_ficha_programa_nivel_estado`";
     const GET_FICHA_PROGRAMA_NIVEL_ESTADO_ID = "SELECT * FROM `v_ficha_programa_nivel_estado` WHERE `id_ficha` = ? ";
@@ -50,7 +45,6 @@ class preparedSQL
     // ─── ESTADO DE FICHAS ───────────────────────────────────────────────────────────
     //
 
-
     const GET_ALL_ESTADO_FICHAS = "SELECT * FROM `estado_ficha`";
     const GET_ESTADO_FICHA_ID = "SELECT `id_estado_ficha`, `name_estado_ficha` FROM `estado_ficha` WHERE `id_estado_ficha` = ?";
     const GET_ESTADO_FICHA_NAME = "SELECT `name_estado_ficha`, `id_estado_ficha` FROM `estado_ficha` WHERE `name_estado_ficha` LIKE ?";
@@ -59,7 +53,6 @@ class preparedSQL
     //
     // ─── GRUPO ──────────────────────────────────────────────────────────────────────
     //
-
 
     const GET_ALL_GRUPO = "SELECT * FROM `v_ruta_ficha`";
     const GET_GRUPO_ID = "SELECT * FROM `grupo` WHERE id_grupo = ?";
@@ -167,6 +160,13 @@ class preparedSQL
     const GET_ESTADO_AMBIENTE_NAME = "SELECT * FROM `estado_ambiente` WHERE `name_estado_ambiente` LIKE ?";
     const INSERT_NEW_ESTADO_AMBIENTE = "INSERT INTO `estado_ambiente`(`name_estado_ambiente`) VALUES (?)";
     const UPDATE_DATA_ESTADO_AMBIENTE_ID = "UPDATE `estado_ambiente` SET `name_estado_ambiente`= ? WHERE `id_estado_ambiente` = ?";
+
+    //
+    // ─── RESULTADO APRENDIZAJE ───────────────────────────────────────────────────────────────────
+    //
+    const GET_ALL_RESULTADO_APRENDIZAJE = "SELECT * FROM `resultado_aprendizaje` INNER JOIN competencia on `resultado_aprendizaje`.cod_competencia = `competencia`.codigo_competencia";
+    const GET_RESULTADO_APRENDIZAJE_ID = "SELECT * FROM `resultado_aprendizaje` WHERE `id_resultado_aprendizaje` = ?";
+    const GET_RESULTADO_APRENDIZAJE_NAME = "SELECT * FROM `resultado_aprendizaje` WHERE `name_resultado_aprendizaje` LIKE ?";
 }
 
 

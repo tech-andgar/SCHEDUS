@@ -110,7 +110,7 @@ class EstadoFichaModel extends DB {
             die($e->getMessage());
         }
 	}
-	
+
 	public function insertarEstadoFicha(array $data)
     {
         // var_dump($_POST);

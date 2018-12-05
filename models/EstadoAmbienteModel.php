@@ -147,7 +147,7 @@ class EstadoAmbienteModel extends DB
                 isset($data['txt_upd_name_estado_ambiente'])) {
                 $txt_upd_name_estado_ambiente = $data['txt_upd_name_estado_ambiente'];
                 $txt_upd_id_estado_ambiente = $data['txt_upd_id_estado_ambiente'];
-                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_SEDE_ID);
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_ESTADO_AMBIENTE_ID);
                 $stm->bindParam(1, $txt_upd_name_estado_ambiente, PDO::PARAM_STR);
                 $stm->bindParam(2, $txt_upd_id_estado_ambiente, PDO::PARAM_STR);
                 $stm->execute();
