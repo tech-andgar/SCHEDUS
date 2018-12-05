@@ -54,7 +54,7 @@
                 <div class="card">
                     <div class="card-header ">
                         <i class="fa fa-align-justify"></i> Grupos
-                        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#Agregar">
+                        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modalAgregargrupo">
                             <i class="icon-plus "></i>&nbsp;Nuevo
                         </button>
                     </div>
@@ -81,7 +81,7 @@
                                         <?php echo $v_ruta_ficha->num_grupo; ?>
                                     </td>
                                     <td class="text-center">
-                                        <div class="updateDataGrupoFicha" data-toggle="modal" data-target="#ActualizarGrupoFicha"
+                                        <div class="updateDataGrupoFicha" data-toggle="modal" data-target="#ActualizarGrupo"
                                             id-Grupo="<?php echo $v_ruta_ficha->id_ruta_ficha ?>">
                                             <i class="far fa-edit fa-lg"></i>
                                         </div>
@@ -150,9 +150,9 @@
 	</div>
 </div>
 <!-- END MODAL Agregar nueva Ficha -->
-<!-- Modal -->
-<div class="modal fade" id="ActualizarGrupoFicha" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<!-- Modal Actualizar ruta grupo-->
+<div class="modal fade bd-example-modal-lg" id="ActualizarGrupoFicha" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
@@ -161,18 +161,158 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="d-flex justify-content-center text-center">
-                    <form method="post" action="#" class="form-signin form-modal">
-                        <h5>Nombre del Programa</h5>
-                        <input type="text" class="adsi-css mb-3" style="width:80%; height:30px" name="dni" />
-                        <hr>
-                        <button class="btn-rounded" type="submit" style="width:110px">Actualizar</button>
-                    </form>
+            <div class="d-flex justify-content-center ">
+					<form method="post" action="insertarFicha"class="form-signin form-modal">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Numero de Ruta Ficha</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="" class="text-muted">Escriba Numero de la Ruta Ficha
+									</small>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Jornada</h4>
+								</div>
+								<div class="col-lg-8  col-12">
+									<select class="form-control" name="name_jornada" id="selectNewListJornada" style="width:100%"
+									required></select>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona Jornada de formación</small>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Actualizar</button>
+						</div>
+					</form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<!-- Modal Agregar nuevo Grupo-->
+<div class="modal fade bd-example-modal-lg" id="modalAgregargrupo" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="col-11">
+					<h3 class=" modal-title text-center">Agregar Nueva Ruta Ficha</h3>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="d-flex justify-content-center ">
+					<form method="post" action="insertarFicha"class="form-signin form-modal">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Numero de Ruta Ficha</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="" class="text-muted">Escriba Numero de la Ruta Ficha
+									</small>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Ficha</h4>
+								</div>
+								<div class="col-lg-8  col-12">
+									<select class="form-control" name="name_jornada" id="selectNewListJornada" style="width:100%"
+									required></select>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona Ficha de Formacion</small>
+								</div>
+							</div>
+                            <div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Grupo</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="" class="text-muted">Escriba Numero de Grupo
+									</small>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Insertar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END MODAL Agregar nueva Ficha -->
+<!-- Modal Actualizar Grupo-->
+<div class="modal fade bd-example-modal-lg" id="ActualizarGrupo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="col-11 modal-title text-center">Actualizar Datos</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <div class="d-flex justify-content-center ">
+					<form method="post" action="insertarFicha"class="form-signin form-modal">
+						<div class="container-fluid">
+							<div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Numero de Ruta Ficha</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="" class="text-muted">Escriba Numero de la Ruta Ficha
+									</small>
+								</div>
+							</div>
+							<div class="row pt-4">
+								<div class="col-lg-4  col-12">
+									<h4>Ficha</h4>
+								</div>
+								<div class="col-lg-8  col-12">
+									<select class="form-control" name="name_jornada" id="selectNewListJornada" style="width:100%"
+									required></select>
+									<small id="helpIdNumFicha" class="text-muted">Selecciona Ficha de Formacion</small>
+								</div>
+							</div>
+                            <div class="row pt-4">
+								<div class="col-lg-4 col-12 ">
+									<h4>Grupo</h4>
+								</div>
+								<div class="col-lg-8 col-12">
+									<input type="number" name="num_ficha" id="num_ficha" class="form-control" aria-describedby="helpIdNumFicha">
+									<small id="" class="text-muted">Escriba Numero del Grupo
+									</small>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="text-center pt-2">
+							<button class="btn-rounded" type="submit">Actualizar</button>
+						</div>
+					</form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 
 		$('#selectNewListJornada').select2({
