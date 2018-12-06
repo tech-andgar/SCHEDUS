@@ -116,10 +116,11 @@ class preparedSQL
 
 
     const GET_ALL_COMPETENCIA = "SELECT * FROM `competencia` INNER JOIN programa_formacion on `competencia`.cod_programa_formacion = `programa_formacion`.id_programa_formacion";
-    const GET_COMPETENCIA_ID = "SELECT * FROM `competencia` WHERE `	id_competencia` = ?";
+    const GET_COMPETENCIA_ID = "SELECT * FROM `competencia` INNER JOIN programa_formacion on `competencia`.cod_programa_formacion = `programa_formacion`.id_programa_formacion WHERE `competencia`.`id_competencia` = ?";
     const GET_COMPETENCIA_NAME = "SELECT * FROM `competencia` WHERE `name_competencia` LIKE ?";
     const GET_LAST_COMPETENCIA_ID = "SELECT id_competencia FROM `competencia` ORDER BY id_competencia DESC LIMIT 1";
     const INSERT_NEW_COMPETENCIA = "INSERT INTO `competencia`(`id_competencia`,`cod_programa_formacion`, `codigo_competencia`, `num_competencia2`, `name_competencia`) VALUES (?,?,?,?,?)";
+    const UPDATE_DATA_COMPETENCIA_ID = "UPDATE `competencia` SET `name_competencia`= ? WHERE `id_competencia` = ?";
 
     //
     // ─── JORNADA ────────────────────────────────────────────────────────────────────

@@ -150,11 +150,11 @@ class CompetenciaModel extends DB {
 		}
 	}
 
-	public function getCompetenciaId($idProyecto)
+	public function getCompetenciaId($idCompetencia)
 	{
 		try {
 			$stm = parent::conectar()->prepare(preparedSQL::GET_COMPETENCIA_ID);
-			$stm->bindParam(1, $idProyecto, PDO::PARAM_STR);
+			$stm->bindParam(1, $idCompetencia, PDO::PARAM_STR);
 			$stm->execute();
 			return $stm->fetch(PDO::FETCH_OBJ); // Retorno data Competencia
 		} catch (Exception $e) {
@@ -162,12 +162,12 @@ class CompetenciaModel extends DB {
 		}
 	}
 
-	public function getCompetenciaName($nameProyecto)
+	public function getCompetenciaName($nameCompetencia)
 	{
 		try {
 			$stm = parent::conectar()->prepare(preparedSQL::GET_COMPETENCIA_NAME);
-			$nameProyecto = '%' . $nameProyecto . '%';
-			$stm->bindParam(1, $nameProyecto, PDO::PARAM_STR);
+			$nameCompetencia = '%' . $nameCompetencia . '%';
+			$stm->bindParam(1, $nameCompetencia, PDO::PARAM_STR);
 			$stm->execute();
 			return $stm->fetchAll(PDO::FETCH_OBJ); // Retorno data de seleccionadas lista de Competencia
 		} catch (Exception $e) {
@@ -198,6 +198,27 @@ class CompetenciaModel extends DB {
                 $stm->bindParam(3, $codigo_competencia, PDO::PARAM_STR);
                 $stm->bindParam(4, $num_competencia2, PDO::PARAM_STR);
                 $stm->bindParam(5, $name_competencia, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+	}
+	
+	public function updateDataCompetencia($data)
+    {
+        try {
+            // var_dump($data);
+            // Verificar hay datos en $data
+            if (isset($data['id_estado_ambiente'])
+            && isset($data['name_estado_ambiente'])) {
+                $txt_upd_name_estado_ambiente = $data['name_estado_ambiente'];
+                $txt_upd_id_estado_ambiente = $data['id_estado_ambiente'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_ESTADO_AMBIENTE_ID);
+                $stm->bindParam(1, $txt_upd_name_estado_ambiente, PDO::PARAM_STR);
+                $stm->bindParam(2, $txt_upd_id_estado_ambiente, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }
