@@ -289,7 +289,7 @@
 		$('#SelectListNivelProgramaFormacion').select2({
 			theme: 'bootstrap4',
 			ajax: {
-				url: APP_URL + 'lider/getDataNivelProgramaFormacion',
+				url: 'getDataNivelProgramaFormacion',
 				dataType: 'json',
 				delay: 250,
 				data: function (params) {

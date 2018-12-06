@@ -236,6 +236,7 @@ class LiderController extends Path
         $this->Instructor($msgType);
     }
 
+
     //
     // ─── CONTROL DE FICHA ───────────────────────────────────────────────────────────
     //
@@ -359,6 +360,31 @@ class LiderController extends Path
             );
         }
         $this->EstadoFicha($msgType);
+    }
+
+
+    //
+    // ─── CONTROL NIVEL PROGRAMA DE FORMACION ────────────────────────────────────────
+    //
+
+
+    public function getDataNivelProgramaFormacion()
+    {
+        // Completa lista de Nivel Programa de Formacion
+        if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
+            $output = $this->modelNivelProgramaFormacion->getAllNivelFormacion();
+        }
+        // Selecciona ID de Nivel Programa de Formacion
+        elseif (isset($_REQUEST['id'])) {
+            $output = $this->modelNivelProgramaFormacion->getNivelFormacionId($_REQUEST['id']);
+        }
+        // Selecciona caracteres en lista de Nivel Programa de Formacion
+        elseif (isset($_REQUEST['q'])) {
+            $output = $this->modelNivelProgramaFormacion->getNivelFormacionName($_REQUEST['q']);
+        }
+
+        $dataNivelFormacion = json_encode($output);
+        echo $dataNivelFormacion;
     }
 
     //
@@ -798,15 +824,15 @@ class LiderController extends Path
 
     public function getDataEstadoAmbiente()
     {
-        // Completa lista de estado de jornada
+        // Completa lista de estado de Ambiente
         if (!isset($_REQUEST['q']) && !isset($_REQUEST['id'])) {
             $output = $this->modelEstadoAmbiente->getAllEstadoAmbiente();
         }
-        // Selecciona ID de estado de jornada
+        // Selecciona ID de estado de Ambiente
         elseif (isset($_REQUEST['id'])) {
             $output = $this->modelEstadoAmbiente->getEstadoAmbienteId($_REQUEST['id']);
         }
-        // Selecciona caracteres en lista de estado de jornada
+        // Selecciona caracteres en lista de estado de Ambiente
         elseif (isset($_REQUEST['q'])) {
             $output = $this->modelEstadoAmbiente->getEstadoAmbienteName($_REQUEST['q']);
         }
@@ -839,7 +865,7 @@ class LiderController extends Path
 
     public function updateDataEstadoAmbiente()
     {
-        // var_dump($_POST);
+        //var_dump($_POST);
         $data = array(
             "id_estado_ambiente" => $_POST['txt_upd_id_estado_ambiente'],
             "name_estado_ambiente" => $_POST['txt_upd_name_estado_ambiente'],

@@ -137,6 +137,7 @@
 					id: idEstadoAmbiente
 				},
 				success(response) {
+                    console.log(response);
 					var estadoAmbiente = jQuery.parseJSON(JSON.stringify(response));
 					console.log(estadoAmbiente);
 					$('#txt_upd_id_estado_ambiente').val(estadoAmbiente.id_estado_ambiente);
