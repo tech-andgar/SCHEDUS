@@ -210,15 +210,24 @@ class CompetenciaModel extends DB {
 	public function updateDataCompetencia($data)
     {
         try {
-            // var_dump($data);
-            // Verificar hay datos en $data
-            if (isset($data['id_estado_ambiente'])
-            && isset($data['name_estado_ambiente'])) {
-                $txt_upd_name_estado_ambiente = $data['name_estado_ambiente'];
-                $txt_upd_id_estado_ambiente = $data['id_estado_ambiente'];
-                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_ESTADO_AMBIENTE_ID);
-                $stm->bindParam(1, $txt_upd_name_estado_ambiente, PDO::PARAM_STR);
-                $stm->bindParam(2, $txt_upd_id_estado_ambiente, PDO::PARAM_STR);
+			// var_dump($data);
+			// Verificar hay datos en $data
+            if (isset($data['id_competencia'])
+			&& isset($data['cod_programa_formacion'])
+			&& isset($data['codigo_competencia'])
+			&& isset($data['num_competencia2'])
+			&& isset($data['name_competencia'])) {
+				$txt_upd_cod_programa_formacion = $data['cod_programa_formacion'];
+				$txt_upd_cod_competencia1 = $data['codigo_competencia'];
+				$txt_upd_cod_competencia2 = $data['num_competencia2'];
+				$txt_upd_name_competencia = $data['name_competencia'];
+                $txt_upd_id_competencia = $data['id_competencia'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_COMPETENCIA_ID);
+				$stm->bindParam(1, $txt_upd_cod_programa_formacion, PDO::PARAM_STR);
+				$stm->bindParam(2, $txt_upd_cod_competencia1, PDO::PARAM_STR);
+				$stm->bindParam(3, $txt_upd_cod_competencia2, PDO::PARAM_STR);
+				$stm->bindParam(4, $txt_upd_name_competencia, PDO::PARAM_STR);
+                $stm->bindParam(5, $txt_upd_id_competencia, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }

@@ -150,20 +150,3 @@
     </ul>
 </header>
 <!-- END HEADER -->
-
-
-<script>
-
-function testAnim() {
-    $('.modal .modal-dialog').attr('class', 'modal-dialog  fadeInDown  animated');
-};
-
-$('.modal').on('show.bs.modal', function (e) {
-      testAnim();
-})
-
-$('.modal').on('hide.bs.modal', function (e) {
-      testAnim();
-})
-
-</script>

@@ -1,3 +1,4 @@
+
 <?php
 class preparedSQL
 {
@@ -120,7 +121,7 @@ class preparedSQL
     const GET_COMPETENCIA_NAME = "SELECT * FROM `competencia` WHERE `name_competencia` LIKE ?";
     const GET_LAST_COMPETENCIA_ID = "SELECT id_competencia FROM `competencia` ORDER BY id_competencia DESC LIMIT 1";
     const INSERT_NEW_COMPETENCIA = "INSERT INTO `competencia`(`id_competencia`,`cod_programa_formacion`, `codigo_competencia`, `num_competencia2`, `name_competencia`) VALUES (?,?,?,?,?)";
-    const UPDATE_DATA_COMPETENCIA_ID = "UPDATE `competencia` SET `name_competencia`= ? WHERE `id_competencia` = ?";
+    const UPDATE_DATA_COMPETENCIA_ID = "UPDATE `competencia` SET `cod_programa_formacion`= ?,`codigo_competencia`= ?,`num_competencia2`= ?,`name_competencia`= ? WHERE `id_competencia` = ?";
 
     //
     // ─── JORNADA ────────────────────────────────────────────────────────────────────
@@ -168,6 +169,8 @@ class preparedSQL
     const GET_ALL_RESULTADO_APRENDIZAJE = "SELECT * FROM `resultado_aprendizaje` INNER JOIN competencia on `resultado_aprendizaje`.cod_competencia = `competencia`.codigo_competencia";
     const GET_RESULTADO_APRENDIZAJE_ID = "SELECT * FROM `resultado_aprendizaje` WHERE `id_resultado_aprendizaje` = ?";
     const GET_RESULTADO_APRENDIZAJE_NAME = "SELECT * FROM `resultado_aprendizaje` WHERE `name_resultado_aprendizaje` LIKE ?";
+    const INSERT_NEW_RESULTADO_APRENDIZAJE = "INSERT INTO `resultado_aprendizaje`(`num_resultado_aprendizaje1`,`cod_competencia`,`name_resultado_aprendizaje`) VALUES (?,?,?)";
+    const UPDATE_DATA_RESULTADO_APRENDIZAJE_ID = "UPDATE `estado_ambiente` SET `name_estado_ambiente`= ? WHERE `id_estado_ambiente` = ?";
 }
 
 

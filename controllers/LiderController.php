@@ -82,7 +82,6 @@ class LiderController extends Path
         parent::viewModule('lider', 'Proyecto', 'Proyecto', $data);
     }
 
-
     public function Fichas($msgType=[])
     {
 
@@ -675,7 +674,7 @@ class LiderController extends Path
         echo $dataAmbiente;
     }
 
-     //
+    //
     // ─── CONTROL DE COMPETENCIA ───────────────────────────────────────────────────────────
     //
 
@@ -722,25 +721,27 @@ class LiderController extends Path
 
     public function updateDataCompetencias()
     {
-        /* var_dump($_POST); */
+        // var_dump($_POST);
         $data = array(
-            "id_nivel_programa_formacion" => $_POST['txt_upd_id_nivel_programa_formacion'],
-            "name_nivel_programa_formacion" => $_POST['txt_upd_name_nivel_programa_formacion'],
-            "duracion" => $_POST['txt_upd_duracion'],
+            "id_competencia" => $_POST['txt_upd_id_competencia'],
+            "cod_programa_formacion" => $_POST['txt_upd_cod_programa_formacion'],
+            "codigo_competencia" => $_POST['txt_upd_cod_competencia1'],
+            "num_competencia2" => $_POST['txt_upd_cod_competencia2'],
+            "name_competencia" => $_POST['txt_upd_name_competencia'],
         );
-        $result = $this->modelCompetencia->updateDataCompetencias($data);
+        $result = $this->modelCompetencia->updateDataCompetencia($data);
 
         if ($result) {
             $msgType = array(
                 'type' => 'success',
                 'title' => 'AVISO',
-                'msg' => 'Exito actualizado datos de Nivel de formación',
+                'msg' => 'Exito actualizado datos de Competencias de formación',
             );
         } else {
             $msgType = array(
                 'type' => 'error',
                 'title' => 'AVISO',
-                'msg' => 'No se pudo actualizar datos Nivel de formación',
+                'msg' => 'No se pudo actualizar datos Competencias de formación',
             );
         }
 
@@ -1107,6 +1108,55 @@ class LiderController extends Path
 
         $dataResultadoAprendizaje = json_encode($output);
         echo $dataResultadoAprendizaje;
+    }
+
+    public function insertarResultadoAprendizaje()
+    {
+        // var_dump($_POST);
+        $data=$_POST;
+        $result = $this->modelResultadoAprendizaje->insertarResulatdoAprendizaje($data);
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito registrando nuevo Resultado de Aprendizaje',
+            );
+
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No pudo registrar nuevo Resultado de Aprendizaje',
+            );
+        }
+        $this->Resultados($msgType);
+    }
+
+    public function updateDataResultadoAprendizaje()
+    {
+        /* var_dump($_POST); */
+        $data = array(
+            "id_nivel_programa_formacion" => $_POST['txt_upd_id_nivel_programa_formacion'],
+            "name_nivel_programa_formacion" => $_POST['txt_upd_name_nivel_programa_formacion'],
+            "duracion" => $_POST['txt_upd_duracion'],
+        );
+        $result = $this->modelResultadoAprendizaje->updateDataResultadoAprendizaje($data);
+
+        if ($result) {
+            $msgType = array(
+                'type' => 'success',
+                'title' => 'AVISO',
+                'msg' => 'Exito actualizado datos de Resultado de Aprendizaje',
+            );
+        } else {
+            $msgType = array(
+                'type' => 'error',
+                'title' => 'AVISO',
+                'msg' => 'No se pudo actualizar datos Resultado de Aprendizaje',
+            );
+        }
+
+        $this->Resultado($msgType);
     }
 
 }
