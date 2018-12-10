@@ -189,19 +189,25 @@ class ResultadoAprendizajeModel extends DB {
             die($e->getMessage());
         }
 	}
-	
-	public function updateDataResulatdoAprendizaje($data)
+
+	public function updateDataResultadoAprendizaje($data)
     {
         try {
-            // var_dump($data);
-            // Verificar hay datos en $data
-            if (isset($data['id_estado_ambiente'])
-            && isset($data['name_estado_ambiente'])) {
-                $txt_upd_name_estado_ambiente = $data['name_estado_ambiente'];
-                $txt_upd_id_estado_ambiente = $data['id_estado_ambiente'];
+			// var_dump($data);
+			// Verificar hay datos en $data
+            if (isset($data['id_resultado_aprendizaje'])
+			&& isset($data['num_resultado_aprendizaje1'])
+			&& isset($data['cod_competencia'])
+			&& isset($data['name_resultado_aprendizaje'])) {
+				$txt_upd_num_resultado_aprendizaje1 = $data['num_resultado_aprendizaje1'];
+				$selectUpdListCompetencia = $data['cod_competencia'];
+				$txt_upd_name_resultado_aprendizaje = $data['name_resultado_aprendizaje'];
+                $txt_upd_id_resultado_aprendizaje = $data['id_resultado_aprendizaje'];
                 $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_RESULTADO_APRENDIZAJE_ID);
-                $stm->bindParam(1, $txt_upd_name_estado_ambiente, PDO::PARAM_STR);
-                $stm->bindParam(2, $txt_upd_id_estado_ambiente, PDO::PARAM_STR);
+				$stm->bindParam(1, $txt_upd_num_resultado_aprendizaje1, PDO::PARAM_STR);
+				$stm->bindParam(2, $selectUpdListCompetencia, PDO::PARAM_STR);
+				$stm->bindParam(3, $txt_upd_name_resultado_aprendizaje, PDO::PARAM_STR);
+                $stm->bindParam(4, $txt_upd_id_resultado_aprendizaje, PDO::PARAM_STR);
                 $stm->execute();
                 return true;
             }
