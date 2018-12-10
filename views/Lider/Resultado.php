@@ -38,8 +38,8 @@
 								<?php echo $Resultado->name_resultado_aprendizaje; ?>
 							</td>
 							<td class="text-center">
-								<div class="updateDataNivelFormacion" data-toggle="modal" data-target="#modalActualizarResultadoAprendizaje" id-Resulatados="<?php echo $Resultado->id_resultado_aprendizaje; ?>">
-									<i class="far fa-edit fa-lg"></i></div>
+								<div class="updateDataResultadoAprendizaje" data-toggle="modal" data-target="#modalActualizarResultadoAprendizaje" id-ResultadoAprendizaje="<?php echo $Resultado->id_resultado_aprendizaje; ?>">
+									<i  class="far fa-edit fa-lg"></i></div>
 							</td>
 						</tr>
 						<?php
@@ -78,7 +78,7 @@
 									<h4 for="num_resultado_aprendizaje1">Numero Resultado</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="num_resultado_aprendizaje1" id="num_resultado_aprendizaje1" class="form-control" aria-describedby="helpCodNivel">
+									<input type="number" name="num_resultado_aprendizaje1" id="num_resultado_aprendizaje1" class="form-control" aria-describedby="helpCodNivel"  min="1" max="99" required>
 									<small id="helpCodNivel" class="text-muted">Escriba Numero de Resultado de Aprendizaje</small>
 								</div>
 							</div>
@@ -97,7 +97,7 @@
 								</div>
 								<div class="col-lg-8 col-12">
 									<input type="text" id="name_resultado_aprendizaje" type="text" name="name_resultado_aprendizaje" class="form-control" aria-describedby="helpDuracion">
-									<small id="helpDuracion" class="text-muted">Tiempo de Duracion</small>
+									<small id="helpDuracion" class="text-muted">Escriba el Resultado de Aprendizaje</small>
 								</div>
 							</div>
 						</div>
@@ -135,27 +135,28 @@ aria-hidden="true">
 									<h4 for="nivel">Numero Resultado</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" name="nivel" id="nivel" class="form-control" aria-describedby="helpCodNivel">
-									<small id="helpCodNivel" class="text-muted">Escriba Numero de Resultado de Aprendizaje</small>
+									<input id="txt_upd_id_resultado_aprendizaje" type="number" name="txt_upd_id_resultado_aprendizaje" value="" hidden>
+									<input type="number" name="txt_upd_num_resultado_aprendizaje1" id="txt_upd_num_resultado_aprendizaje1" class="form-control" aria-describedby="helpUpdNumResultado" min="1" max="99" >
+									<small id="helpUpdNumResultado" class="text-muted">Escriba Numero de Resultado de Aprendizaje</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12">
-									<h4 for="txt_upd_id_nivel_programa_formacion">Competencia</h4>
+									<h4 for="selectUpdListCompetencia">Competencia</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<select id="SelectListUpdNivelProgramaFormacion" class="form-control" name="txt_upd_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpUpdSelectComepetencia" required>
+									<select id="selectUpdListCompetencia" class="form-control" name="selectUpdListCompetencia" style="width:100%" aria-describedby="helpUpdSelectComepetencia" required>
 									</select>
 									<small id="helpUpdSelectComepetencia" class="form-text text-muted ">Seleccione La competencia</small>
 								</div>
 							</div>
 							<div class="row pt-4">
 								<div class="col-lg-4 col-12 ">
-									<h4 for="duracion">Resultado Aprendizaje</h4>
+									<h4 for="txt_upd_name_resultado_aprendizaje">Resultado Aprendizaje</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<input type="text" id="duracion" type="text" name="duracion" class="form-control" aria-describedby="helpDuracion">
-									<small id="helpDuracion" class="text-muted">Tiempo de Duracion</small>
+									<textarea class="form-control" name="txt_upd_name_resultado_aprendizaje" id="txt_upd_name_resultado_aprendizaje" aria-describedby="helpIdResultado aprendizaje" rows="5" ></textarea>
+									<small id="helpDuracion" class="text-muted">Escriba el Resultado de Aprendizaje</small>
 								</div>
 							</div>
 						</div>
@@ -208,32 +209,31 @@ aria-hidden="true">
 		});
 	});
 
-	$(".updateDataCompetencia").click(function () {
-		var idCompetencia = $(this).attr('id-competencia');
-		console.log(idCompetencia);
+	$(".updateDataResultadoAprendizaje").click(function () {
+		var idResultadoAprendizaje = $(this).attr('id-ResultadoAprendizaje');
+		console.log(idResultadoAprendizaje);
 
 		$.ajax({
 			type: 'POST',
-			url: 'getDataCompetencia',
+			url: 'getDataResultadoAprendizaje',
 			data: {
-				id: idCompetencia
+				id: idResultadoAprendizaje
 			},
 			success(response) {
-				var competencia = jQuery.parseJSON(response);
-				//console.log(competencia);
-
-				$('#txt_upd_cod_competencia1').val(competencia.codigo_competencia);
-				$('#txt_upd_cod_competencia2').val(competencia.num_competencia2);
-				$('#txt_upd_name_competencia').val(competencia.name_competencia);
-				$('#selectUpdListPrograma').val(competencia.name_programa_formacion);
+				var ResultadoAprendizaje = jQuery.parseJSON(response);
+				console.log(ResultadoAprendizaje);
+				$('#txt_upd_id_resultado_aprendizaje').val(ResultadoAprendizaje.id_resultado_aprendizaje);
+				$('#txt_upd_num_resultado_aprendizaje1').val(ResultadoAprendizaje.num_resultado_aprendizaje1);
+				$('#selectUpdListCompetencia').val(ResultadoAprendizaje.codigo_competencia);
+				$('#txt_upd_name_resultado_aprendizaje').val(ResultadoAprendizaje.name_resultado_aprendizaje);
 
 				// FUNCTION
 				//
-				// Call AJAX getDataProgramaFormacion() to SELECT ON FORM UPDATE
-				$('#SelectListUpdNivelProgramaFormacion').select2({
+				// Call AJAX getDataCompetencia() to SELECT ON FORM UPDATE
+				$('#selectUpdListCompetencia').select2({
 					theme: 'bootstrap4',
 					ajax: {
-						url: 'getDataProgramaFormacion',
+						url: 'getDataCompetencia',
 						dataType: 'json',
 						delay: 250,
 						data: function (params) {
@@ -245,8 +245,8 @@ aria-hidden="true">
 						processResults: function (data, params) {
 							console.log(data);
 							var data = $.map(data, function (obj) {
-								obj.id = obj.id || obj.id_programa_formacion; // replace pk with your identifier
-								obj.text = obj.text || obj.name_programa_formacion; // replace name with the property used for the text
+								obj.id = obj.id || obj.codigo_competencia; // replace pk with your identifier
+								obj.text = obj.text || obj.name_competencia; // replace name with the property used for the text
 								return obj;
 							});
 
@@ -259,18 +259,18 @@ aria-hidden="true">
 					placeholder: $(this).attr('placeholder'),
 					allowClear: Boolean($(this).data('allow_clear')),
 					tags: true,
-					dropdownParent: $("#modalActualizarCompetencia"),
+					dropdownParent: $("#modalActualizarResultadoAprendizaje"),
 				});
 
-				// PRE-SELECTED selectUpdListPrograma
+				// PRE-SELECTED selectUpdListCompetencia
 				// Fetch the preselected item, and add to the control
-				var ProgramaFormacionSelect = $('#selectUpdListPrograma');
+				var CompetenciaSelect = $('#selectUpdListCompetencia');
 				// create the option and append to Select2
-				var option = new Option(competencia.name_programa_formacion, competencia.cod_programa_formacion, true, true);
-				ProgramaFormacionSelect.append(option).trigger('change');
+				var option = new Option(ResultadoAprendizaje.name_competencia, ResultadoAprendizaje.cod_competencia, true, true);
+				CompetenciaSelect.append(option).trigger('change');
 
 				// manually trigger the `select2:select` event
-				ProgramaFormacionSelect.trigger({
+				CompetenciaSelect.trigger({
 					type: 'select2:select'
 				});
 				// END PRE-SELECTED SelectUpdListEstadoCompetencia

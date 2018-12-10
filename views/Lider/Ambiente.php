@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header ">
                 <i class="fa fa-align-justify"></i> Aula de Formacion <button type="button" class="btn btn-primary "
-                    data-toggle="modal" data-target="#Agregar">
+                    data-toggle="modal" data-target="#AgregarAmbiente">
                     <i class="icon-plus "></i>&nbsp;Nuevo
                 </button>
             </div>
@@ -21,7 +21,6 @@
 					<tr class="success">
 							<th>Ambiente</th>
                             <th>Sede</th>
-                            <th>Direccion</th>
                             <th>Estado</th>
 							<th class="text-center">Actualizar</th>
 						</tr>
@@ -36,25 +35,13 @@
 									<?php echo $ambiente->name_sede; ?>
 								</td>
                                 <td>
-									<?php echo $ambiente->direccion; ?>
-								</td>
-                                <td>
                                     <?php
 								    switch ($ambiente->name_estado_ambiente) {
-									case 'Asignado':
+									case 'Inactivo':
 										echo '<div class="p-2 bg-danger text-white rounded">' . $ambiente->name_estado_ambiente . '</div>';
     									break;
-									case 'Disponible':
-										echo '<div class="p-2 bg-info text-white rounded">' . $ambiente->name_estado_ambiente . '</div>';
-									    break;
-									case 'En formación':
+									case 'Activo':
 										echo '<div class="p-2 bg-success text-white rounded">' . $ambiente->name_estado_ambiente . '</div>';
-									    break;
-									case 'Pendiente Asignado':
-										echo '<div class="p-2 bg-warning text-dark rounded">' . $ambiente->name_estado_ambiente . '</div>';
-									    break;
-									default:
-										echo '<div class="p-2 bg-dark text-white rounded">No pudo obtener estado de formación</div>';
 									    break;
 								}?>
 								</td>
@@ -79,7 +66,7 @@
 </div>
 
 <!-- Modal Agregar nueva Competencias-->
-<div class="modal fade  bd-example-modal-lg" id="Agregar" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade  bd-example-modal-lg" id="AgregarAmbiente" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -92,7 +79,7 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex justify-content-center ">
-                    <form method="post" action="#" class="form-signin form-modal">
+                    <form method="post" action="insertaAmbienteFormacion" class="form-signin form-modal">
                     <div class="container-fluid">
                             <div class="row pt-4">
                                 <div class="col-12">
@@ -104,7 +91,7 @@
                                     <h4 for="codig">Ambiente</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input type="text" name="num_ambiente" id="num_ambiente" class="form-control">
                                     <small id="helpIdNumFicha" class="text-muted">Numero de Ambiente</small>
                                 </div>
                             </div>
@@ -113,18 +100,8 @@
                                     <h4 for="codig">Sede</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <select class="form-control" name="" id="" style="width:100%"
-									required></select>
+                                    <select class="form-control" name="name_sede" id="SelectListSede" style="width:100%"required></select>
                                     <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
-                                </div>
-                            </div>
-                            <div class="row pt-4">
-                                <div class="col-lg-4 col-12">
-                                    <h4 for="codig">Direccion</h4>
-                                </div>
-                                <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control" readonly>
-                                    <small id="helpIdNumFicha" class="text-muted">Direccion de la sede</small>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +115,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+<!-- Modal Actualizar Ambiente-->
 <div class="modal fade bd-example-modal-lg" id="Actualizar_Ambiente" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -162,7 +139,8 @@
                                     <h4 for="ambiente">Ambiente</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control">
+                                    <input id="txt_upd_id_ambiente" type="number" name="txt_upd_id_ambiente" value="" hidden>
+                                    <input type="text" name="txt_upd_num_ambiente" id="txt_upd_num_ambiente" class="form-control">
                                     <small id="helpIdNumFicha" class="text-muted">Numero de Ambiente</small>
                                 </div>
                             </div>
@@ -171,28 +149,9 @@
                                     <h4 for="sede">Sede</h4>
                                 </div>
                                 <div class="col-lg-8 col-12">
-                                    <select class="form-control" name="" id="" style="width:100%"
+                                    <select class="form-control" name="txt_upd_cod_sede" id="selectUpdListSede" style="width:100%"
 									required></select>
                                     <small id="helpIdNumFicha" class="text-muted">Nombre de la sede</small>
-                                </div>
-                            </div>
-                            <div class="row pt-4">
-                                <div class="col-lg-4 col-12">
-                                    <h4 for="dirreccion">Direccion</h4>
-                                </div>
-                                <div class="col-lg-8 col-12">
-                                    <input type="text" name="txt_upd_cod_programa" id="txt_upd_cod_programa" class="form-control" readonly>
-                                    <small id="helpIdNumFicha" class="text-muted">Direccion de la sede</small>
-                                </div>
-                            </div>
-                            <div class="row pt-4">
-                                <div class="col-lg-4 col-12">
-                                    <h4 for="estado">Estado</h4>
-                                </div>
-                                <div class="col-lg-8 col-12">
-                                    <select class="form-control" name="" id="" style="width:100%"
-									required></select>
-                                    <small id="helpIdNumFicha" class="text-muted">Nombre del Estado</small>
                                 </div>
                             </div>
                         </div>
@@ -210,42 +169,108 @@
 <script>
     $(document).ready(function () {
 
-        $(".statusChange").click(function () {
-            var statetext = $(this).attr('name-state');
-            var state_id = $(this).attr('id-state');
-            var id_programa = $(this).attr('id-programa');
-            $.ajax({
-                type: 'POST',
-                url: '?c=Lider&m=changeStatusPrograma',
-                data: {
-                    statetext: statetext,
-                    state_id: state_id,
-                    id_programa: id_programa
-                },
-                success(response) {
-                    location.reload();
-                }
-            });
-        });
+		$('#SelectListSede').select2({
+			theme: 'bootstrap4',
+			ajax: {
+				url: 'getDataSede',
+				dataType: 'json',
+				delay: 250,
+				data: function (params) {
+					return {
+						q: params.term, // search term
+						page: params.page
+					};
+				},
+				processResults: function (data, params) {
+					console.log(data);
+					var data = $.map(data, function (obj) {
+						obj.id = obj.id || obj.id_sede; // replace pk with your identifier
+						obj.text = obj.text || obj.name_sede; // replace name with the property used for the text
 
-        $(".updateDataPrograma").click(function () {
-            var id_programa = $(this).attr('id-programa');
+						return obj;
+					});
+					return {
+						results: data,
+					};
+				},
+				cache: true
+			},
+			placeholder: $(this).attr('placeholder'),
+			allowClear: Boolean($(this).data('allow_clear')),
+			tags: true,
+			dropdownParent: $("#AgregarAmbiente"),
+        });
+});
+        $(".updateDataAmbiente").click(function () {
+            var idambiente = $(this).attr('id-ambiente');
+            console.log(idambiente);
             $.ajax({
                 type: 'POST',
-                url: '?c=Lider&m=getDataPrograma',
+                url: 'getDataAmbiente',
                 dataType: "json",
                 data: {
-                    id_programa: id_programa
+                    id: idambiente
                 },
                 success(response) {
-                    var programa = jQuery.parseJSON(JSON.stringify(response));
-                    $('#text-dni').val(programa.dni);
-                    $('#text-nombre').val(programa.nombre);
-                    $('#text-apellido').val(programa.apellido);
-                    $('#text-email').val(programa.email);
-                }
-            });
-        });
+                    console.log(response);
+                    var ambiente = jQuery.parseJSON(JSON.stringify(response));
+                    console.log(ambiente);
+                    $('#txt_upd_id_ambiente').val(ambiente.id_ambiente);
+                    $('#txt_upd_num_ambiente').val(ambiente.num_ambiente);
+                    $('#txt_upd_cod_sede').val(ambiente.cod_sede);
 
-    });
+                // FUNCTION
+				//
+				// Call AJAX getDataSede() to SELECT ON FORM UPDATE
+				$('#selectUpdListSede').select2({
+					theme: 'bootstrap4',
+					ajax: {
+						url: 'getDataSede',
+						dataType: 'json',
+						delay: 250,
+						data: function (params) {
+							return {
+								q: params.term, // search term
+								page: params.page
+							};
+						},
+						processResults: function (data, params) {
+							console.log(data);
+							var data = $.map(data, function (obj) {
+								obj.id = obj.id || obj.id_sede; // replace pk with your identifier
+								obj.text = obj.text || obj.name_sede; // replace name with the property used for the text
+								return obj;
+							});
+
+							return {
+								results: data,
+							};
+						},
+						cache: true
+					},
+					placeholder: $(this).attr('placeholder'),
+					allowClear: Boolean($(this).data('allow_clear')),
+					tags: true,
+					dropdownParent: $("#Actualizar_Ambiente"),
+				});
+
+				// PRE-SELECTED selectUpdListCompetencia
+				// Fetch the preselected item, and add to the control
+				var SedeSelect = $('#selectUpdListSede');
+				// create the option and append to Select2
+				var option = new Option(ambiente.name_sede, ambiente.name_sedecod_sede, true, true);
+				SedeSelect.append(option).trigger('change');
+
+				// manually trigger the `select2:select` event
+				SedeSelect.trigger({
+					type: 'select2:select'
+				});
+				// END PRE-SELECTED SelectUpdListEstadoCompetencia
+
+				// END FUNCTIONS
+			}
+		});
+	});
+
+
 </script>
