@@ -73,9 +73,6 @@
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/ambiente"><i class="nav-icon fas fa-door-open "></i> Ambiente Formación</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo APP_URL ?>lider/estadoAmbiente"><i class="nav-icon fas fa-toggle-on"></i>Estado Ambiente</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="<?php echo APP_URL ?>lider/sede"><i class=" nav-icon fas fa-building"></i> Sede</a>
                         </li>
                     </ul>
