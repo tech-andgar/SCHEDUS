@@ -15,38 +15,37 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<div class="table-responsive">
-					<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableProgramas">
-						<thead>
-							<tr>
-								<th>Codigo</th>
-								<th>Siglas</th>
-								<th>Programa</th>
-								<th>Version</th>
-								<th>Nivel</th>
-								<th>Estado</th>
-								<th class="text-center">Actualizar</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ($data['programaFormacion'] as $programaFormacion) { ?>
-							<tr>
-								<td>
-									<?php echo $programaFormacion->codigo; ?>
-								</td>
-								<td>
-									<?php echo  $programaFormacion->short_name_programa_formacion ;?>
-								</td>
-								<td>
-									<?php echo $programaFormacion->name_programa_formacion; ?>
-								</td>
-								<td>
-									<?php echo $programaFormacion->version_programa;?>
-								</td>
-								<td>
-									<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
-								</td>
-								<td class="text-center">
+				<table class="table table-responsive-sm table-bordered table-striped table-sm mt-5" id="tableProgramas">
+					<thead>
+						<tr>
+							<th>Codigo</th>
+							<th>Siglas</th>
+							<th>Programa</th>
+							<th>Version</th>
+							<th>Nivel</th>
+							<th>Estado</th>
+							<th class="text-center">Actualizar</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($data['programaFormacion'] as $programaFormacion) { ?>
+						<tr>
+							<td>
+								<?php echo $programaFormacion->codigo; ?>
+							</td>
+							<td>
+								<?php echo  $programaFormacion->short_name_programa_formacion ;?>
+							</td>
+							<td>
+								<?php echo $programaFormacion->name_programa_formacion; ?>
+							</td>
+							<td>
+								<?php echo $programaFormacion->version_programa;?>
+							</td>
+							<td>
+								<?php echo $programaFormacion->name_nivel_programa_formacion; ?>
+							</td>
+							<td class="text-center">
 									<button
 										type="button"
 										id-programa="<?php echo $programaFormacion->id_programa_formacion; ?>"
@@ -100,7 +99,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_programa">Código</h4>
 								</div>
 								<div class="col-lg-6 col-12">
@@ -109,7 +108,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_short_name_programa">Siglas del programa</h4>
 								</div>
 								<div class="col-lg-6 col-12">
@@ -118,7 +117,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_name_programa_formacion">Nombre del programa</h4>
 								</div>
 								<div class="col-lg-6 col-12">
@@ -127,7 +126,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_version_programa">Versión del programa</h4>
 								</div>
 								<div class="col-lg-6 col-12">
@@ -136,10 +135,10 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="SelectListNivelProgramaFormacion">Nivel</h4>
 								</div>
-								<div class="col-lg-5">
+								<div class="col-lg-6 col-12">
 									<select id="SelectListNivelProgramaFormacion" name="txt_id_nivel_programa_formacion" style="width:100%" aria-describedby="helpSelectNivelProgramaFormacion" required ></select>
 									<small id="helpSelectNivelProgramaFormacion" class="form-text text-muted">Selecciona nivel de formación</small>
 								</div>
@@ -158,10 +157,10 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_cod_proyecto">Nombre del proyecto</h4>
 								</div>
-								<div class="col-lg-5">
+								<div class="col-lg-6 col-12">
 									<select id="SelectlistProyecto" class="form-control" name="txt_cod_proyecto"  style="width:100%" aria-describedby="helpSelectNameProyecto" required></select>
 									<small id="helpSelectNameProyecto" class="form-text text-muted">Seleccione nombre del proyecto</small>
 								</div>
@@ -204,14 +203,14 @@
 								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_cod_programa">Código</h4>
 								</div>
-								<div class="col-lg-5">
+								<div class="col-lg-6 col-12">
 									<input type="number" id="txt_upd_id_programa" name="txt_upd_id_programa" hidden>
 									<input type="number" id="txt_upd_cod_programa" class="form-control" name="txt_upd_cod_programa" aria-describedby="helpUpdCodPrograma"  min="1" max="999999999" title="Codigo del programa" readonly>
 									<small id="helpUpdCodPrograma" class="form-text text-muted">Codigo del programa</small>
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_short_name_programa">Siglas del programa</h4>
 								</div>
 								<div class="col-lg-6 col-12">
@@ -220,7 +219,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_name_programa_formacion">Nombre del Programa</h4>
 									</div>
 								<div class="col-lg-6 col-12">
@@ -229,7 +228,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_version_programa">Versión del programa</h4>
 									</div>
 								<div class="col-lg-6 col-12">
@@ -238,7 +237,7 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="txt_upd_id_nivel_programa_formacion">Nivel</h4>
 									</div>
 								<div class="col-lg-6 col-12">
@@ -262,10 +261,10 @@
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-3 offset-lg-2 col-md-8 offset-md-2">
+								<div class="col-lg-3 offset-lg-2 col-md-8 ">
 									<h4 for="SelectListUpdProyecto">Nombre del proyecto</h4>
 								</div>
-								<div class="col-lg-5">
+								<div class="col-lg-6 col-12">
 									<select id="SelectListUpdProyecto" class="form-control" name="txt_upd_cod_proyecto"  style="width:100%" aria-describedby="helpUpdSelectNameProyecto" required></select>
 									<small id="helpUpdSelectNameProyecto" class="form-text text-muted">Seleccione nombre del proyecto</small>
 								</div>
@@ -290,7 +289,7 @@
 		$('#SelectListNivelProgramaFormacion').select2({
 			theme: 'bootstrap4',
 			ajax: {
-				url: APP_URL + 'lider/getDataNivelProgramaFormacion',
+				url: 'getDataNivelProgramaFormacion',
 				dataType: 'json',
 				delay: 250,
 				data: function (params) {

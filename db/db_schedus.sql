@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 23-11-2018 a las 21:36:20
+-- Tiempo de generación: 03-12-2018 a las 13:16:00
 -- Versión del servidor: 10.3.9-MariaDB
 -- Versión de PHP: 7.2.12
 
@@ -514,7 +514,7 @@ CREATE TABLE IF NOT EXISTS `programa_formacion` (
   KEY `FK_cod_estado_programa_formacion` (`cod_estado_programa_formacion`),
   KEY `FK_cod_nivel_programa_formacion` (`cod_nivel_programa_formacion`),
   KEY `FK_cod_proyecto_programa_formacion` (`cod_proyecto`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_nopad_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Volcado de datos para la tabla `programa_formacion`

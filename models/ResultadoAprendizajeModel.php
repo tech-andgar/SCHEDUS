@@ -163,5 +163,58 @@ class ResultadoAprendizajeModel extends DB {
 			die($e->getMessage());
 		}
 	}
+
+	public function insertarResulatdoAprendizaje(array $data)
+    {
+		// var_dump($_POST);
+        try {
+            // Verificar hay datos en $data
+            if (
+				isset($data['num_resultado_aprendizaje1']) &&
+				isset($data['cod_competencia']) &&
+				isset($data['name_resultado_aprendizaje'])
+			){
+                $num_resultado_aprendizaje1 = $data['num_resultado_aprendizaje1'];
+                $cod_competencia = $data['cod_competencia'];
+                $name_resultado_aprendizaje = $data['name_resultado_aprendizaje'];
+                $stm = parent::conectar()->prepare(preparedSQL::INSERT_NEW_RESULTADO_APRENDIZAJE);
+                $stm->bindParam(1, $num_resultado_aprendizaje1, PDO::PARAM_STR);
+                $stm->bindParam(2, $cod_competencia, PDO::PARAM_STR);
+                $stm->bindParam(3, $name_resultado_aprendizaje, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+	}
+
+	public function updateDataResultadoAprendizaje($data)
+    {
+        try {
+			// var_dump($data);
+			// Verificar hay datos en $data
+            if (isset($data['id_resultado_aprendizaje'])
+			&& isset($data['num_resultado_aprendizaje1'])
+			&& isset($data['cod_competencia'])
+			&& isset($data['name_resultado_aprendizaje'])) {
+				$txt_upd_num_resultado_aprendizaje1 = $data['num_resultado_aprendizaje1'];
+				$selectUpdListCompetencia = $data['cod_competencia'];
+				$txt_upd_name_resultado_aprendizaje = $data['name_resultado_aprendizaje'];
+                $txt_upd_id_resultado_aprendizaje = $data['id_resultado_aprendizaje'];
+                $stm = parent::conectar()->prepare(preparedSQL::UPDATE_DATA_RESULTADO_APRENDIZAJE_ID);
+				$stm->bindParam(1, $txt_upd_num_resultado_aprendizaje1, PDO::PARAM_STR);
+				$stm->bindParam(2, $selectUpdListCompetencia, PDO::PARAM_STR);
+				$stm->bindParam(3, $txt_upd_name_resultado_aprendizaje, PDO::PARAM_STR);
+                $stm->bindParam(4, $txt_upd_id_resultado_aprendizaje, PDO::PARAM_STR);
+                $stm->execute();
+                return true;
+            }
+        } catch (Exception $e) {
+            return false;
+            die($e->getMessage());
+        }
+    }
 }
 ?>
