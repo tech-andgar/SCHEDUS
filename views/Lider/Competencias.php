@@ -125,27 +125,28 @@
 			</div>
 			<div class="modal-body">
 				<div class="d-flex justify-content-center">
-				<form method="post" action="#" class="form-signin form-modal">
+				<form method="post" action="updateDataCompetencias" class="form-signin form-modal">
 						<div class="container-fluid">
 						<div class="row pt-4">
 								<div class="col-lg-4 col-12">
 									<h4>Seleccione el Programa</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<select class="form-control" name="cod_programa_formacion" id="selectUpdListPrograma" style="width:100%" required></select>
+									<input id="txt_upd_id_competencia" type="number" name="txt_upd_id_competencia" value="" hidden>
+									<select class="form-control" name="txt_upd_cod_programa_formacion" id="selectUpdListPrograma" style="width:100%" required></select>
 									<small id="helpIdNumCompetencia" class="text-muted">Selecciona el Programa de Formacion</small>
 								</div>
 							</div>
 							<div class="row pt-4">
-								<div class="col-lg-4  col-12">
+								<div class="col-lg-4 col-12">
 									<h4 for="">Código de competencia</h4>
 								</div>
 								<div class="col-lg-4 col-6">
-									<input type="number" id="txt_upd_cod_competencia1" class="form-control" name="txt_cod_competencia1" min="1" max="999999999" aria-describedby="helpIdNumCompetencia" readonly>
+									<input type="number" id="txt_upd_cod_competencia1" class="form-control" name="txt_upd_cod_competencia1" min="1" max="999999999" aria-describedby="helpIdNumCompetencia" readonly>
 									<small id="helpIdNumCompetencia" class="text-muted">Inicial 9 digitos del código de la competencia</small>
 								</div>
 								<div class="col-lg-4 col-6">
-									<input type="number" id="txt_upd_cod_competencia2" class="form-control" name="txt_cod_competencia2" aria-describedby="helpIdNumCompetencia" min="1" max="99999"  readonly>
+									<input type="number" id="txt_upd_cod_competencia2" class="form-control" name="txt_upd_cod_competencia2" aria-describedby="helpIdNumCompetencia" min="1" max="99999"  readonly>
 									<small id="helpIdNumCompetencia" class="text-muted">Ultimos de 5 digitos del código de la competencia</small>
 								</div>
 							</div>
@@ -154,13 +155,13 @@
 									<h4>Nombre de la Competencia</h4>
 								</div>
 								<div class="col-lg-8 col-12">
-									<textarea id="txt_upd_name_comepetencia" class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
+									<textarea id="txt_upd_name_competencia" name="txt_upd_name_competencia" class="form-control" aria-label="With textarea" placeholder="Nombre de la Competencia" required></textarea>
 								</div>
 							</div>
 						</div>
 						<hr>
 						<div class="text-center pt-2">
-							<button class="btn-rounded" type="submit">Agregar</button>
+							<button class="btn-rounded" type="submit">Actualizar</button>
 						</div>
 					</form>
 				</div>
@@ -172,8 +173,6 @@
 <!-- /Fin del contenido principal -->
 
 <script>
-
-
 	$(document).ready(function () {
 		$('#selectNewListPrograma').select2({
 			theme: 'bootstrap4',
@@ -210,16 +209,10 @@
 	});
 
 
-
-
-	// TODO FIX GETDATACOMPETENCIA TO MODALUPDATE
-	// get Data Competencia_ID form button -> Modal Form_update_competencia
 	$(".updateDataCompetencia").click(function () {
 		var idCompetencia = $(this).attr('id-competencia');
-		alert('Work');
 		console.log(idCompetencia);
 
-		// Call AJAX getDataCompetencia()
 		$.ajax({
 			type: 'POST',
 			url: 'getDataCompetencia',
@@ -228,20 +221,19 @@
 			},
 			success(response) {
 				var competencia = jQuery.parseJSON(response);
-				$('#txt_num_competencia').val(competencia.num_competencia);
-				$('#txt_id_competencia').val(competencia.id_competencia);
+				//console.log(competencia);
 
-				// $('txt_upd_cod_programa_formacion').val(competencia.cod_programa_formacion);
-				$('txt_upd_cod_competencia1').val(competencia.codigo_competencia);
-				$('txt_upd_cod_competencia2').val(competencia.num_competencia2);
-				$('txt_upd_name_competencia').val(competencia.name_competencia);
-				getDataProgramaFormacionToUpdSelect();
+				$('#txt_upd_id_competencia').val(competencia.id_competencia);
+				$('#txt_upd_cod_competencia1').val(competencia.codigo_competencia);
+				$('#txt_upd_cod_competencia2').val(competencia.num_competencia2);
+				$('#txt_upd_name_competencia').val(competencia.name_competencia);
+				$('#selectUpdListPrograma').val(competencia.name_programa_formacion);
 
 
 				// FUNCTION
 				//
 				// Call AJAX getDataProgramaFormacion() to SELECT ON FORM UPDATE
-				function getDataProgramaFormacionToUpdSelect() {
+			
 					$('#selectUpdListPrograma').select2({
 						theme: 'bootstrap4',
 						ajax: {
@@ -286,13 +278,11 @@
 						type: 'select2:select'
 					});
 					// END PRE-SELECTED SelectUpdListEstadoCompetencia
-				} //END getDataProgramaFormacionToUpdSelect()
 
 				// END FUNCTIONS
 			}
-		}); // End Call AJAX getDataCompetencia()
-
-	}); // End get Data Competencia_ID form button -> Modal Form_update_competencia
+		});
+	});
 
 
 
